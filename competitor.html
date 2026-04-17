@@ -463,10 +463,8 @@
 // 定数
 // ======================================================
 const BRANDS = [
-  { id:'aoki',       name:'AOKI',        url:'https://www.aoki-style.com' },
-  { id:'aoyama',     name:'洋服の青山',   url:'https://www.y-aoyama.jp' },
-  { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp' },
-  { id:'suitsquare', name:'SUIT SQUARE', url:'https://www.suitsquare.jp' },
+  { id:'aoki',       name:'AOKI',        url:'https://www.aoki-style.com',  sitemapUrl:'https://www.aoki-style.com/sitemaps/feature.xml', type:'existing' },
+  { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp',  sitemapUrl:'https://www.suit-select.jp/sitemap.xml',          type:'existing' },
 ];
 
 const CATEGORIES = ['ALL','スーツ','ジャケット','パンツ','シャツ','その他'];
@@ -480,29 +478,25 @@ const DEMO_DATA = {
   aoki: {
     fetchedAt: new Date().toISOString(),
     lp: [
-      { tag:'2026春夏新作', title:'AOKI 春の新作スーツコレクション', desc:'軽量ストレッチ素材を使用した春夏向けスーツ。ビジカジ対応で着回し力が高い。', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop' },
-      { tag:'機能性特集', title:'パジャマスーツ 快適着心地シリーズ', desc:'自宅で洗える・動きやすい・シワになりにくい。3拍子揃った機能性スーツ特集。', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1594938298603-c8148c4b4a8e?w=400&h=200&fit=crop' },
+      { tag:'2026春夏新作', title:'AOKI 春の新作スーツコレクション', desc:'軽量ストレッチ素材を使用した春夏向けスーツ。ビジカジ対応で着回し力が高い。', url:'https://www.aoki-style.com', imageUrl:'' },
+      { tag:'機能性特集', title:'パジャマスーツ 快適着心地シリーズ', desc:'自宅で洗える・動きやすい・シワになりにくい。3拍子揃った機能性スーツ特集。', url:'https://www.aoki-style.com', imageUrl:'' },
     ],
     ec: [
-      { rank:1, category:'スーツ', name:'パジャマスーツ ストレッチ 2つボタン', price:'¥29,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop' },
-      { rank:2, category:'スーツ', name:'金のスーツ プレミアムウール', price:'¥59,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=100&h=100&fit=crop' },
-      { rank:3, category:'ジャケット', name:'ストレッチテーラードジャケット', price:'¥19,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&h=100&fit=crop' },
-      { rank:4, category:'パンツ', name:'イージーケア スラックス', price:'¥9,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop' },
-      { rank:5, category:'シャツ', name:'形態安定 ワイシャツ', price:'¥3,990', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=100&h=100&fit=crop' },
+      { rank:1, category:'スーツ', name:'パジャマスーツ ストレッチ 2つボタン', price:'¥29,900', url:'https://www.aoki-style.com', imageUrl:'' },
+      { rank:2, category:'スーツ', name:'金のスーツ プレミアムウール', price:'¥59,900', url:'https://www.aoki-style.com', imageUrl:'' },
+      { rank:3, category:'ジャケット', name:'ストレッチテーラードジャケット', price:'¥19,900', url:'https://www.aoki-style.com', imageUrl:'' },
     ]
   },
-  aoyama: {
+  suitselect: {
     fetchedAt: new Date(Date.now() - 3*24*60*60*1000).toISOString(),
     lp: [
-      { tag:'みんなのスーツ', title:'発売3ヶ月で2万着突破！みんなのスーツ', desc:'業界慣習を覆す設計で若者・中高年を取り込んだ異例のヒット。ネクタイ着用に似合う最新スーツ。', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=200&fit=crop' },
-      { tag:'オーダー特集', title:'Quality Order SHITATE 春の新作生地', desc:'全店舗導入のオーダーブランドに2026春夏新作生地が登場。3万円台から対応。', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1512353087810-25dfcd100962?w=400&h=200&fit=crop' },
+      { tag:'春夏特集', title:'リアルスーツ 2026春夏コレクション', desc:'品質とコストパフォーマンスの高さを兼ね備えたリアルスーツ新作が登場。', url:'https://www.suit-select.jp', imageUrl:'' },
+      { tag:'セール', title:'WEBアウトレット 最大50%OFF', desc:'厳選アイテムがお得な価格で登場。数量限定のため早めのチェックを。', url:'https://www.suit-select.jp', imageUrl:'' },
     ],
     ec: [
-      { rank:1, category:'スーツ', name:'みんなのスーツ ネイビー無地', price:'¥29,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop' },
-      { rank:2, category:'スーツ', name:'ゼロプレッシャースーツ 春夏版', price:'¥9,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1594938298603-c8148c4b4a8e?w=100&h=100&fit=crop' },
-      { rank:3, category:'スーツ', name:'サビルロウ ウール100% 2つボタン', price:'¥79,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop' },
-      { rank:4, category:'ジャケット', name:'洗えるジャケット ストレッチ', price:'¥14,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&h=100&fit=crop' },
-      { rank:5, category:'パンツ', name:'ノータック スリムスラックス', price:'¥7,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop' },
+      { rank:1, category:'スーツ', name:'シルクブレンドソリッドスーツ ネイビー', price:'¥39,600', url:'https://www.suit-select.jp', imageUrl:'' },
+      { rank:2, category:'スーツ', name:'ウォッシャブルスリムスーツ', price:'¥24,200', url:'https://www.suit-select.jp', imageUrl:'' },
+      { rank:3, category:'シャツ', name:'形態安定ワイシャツ WHITE', price:'¥5,500', url:'https://www.suit-select.jp', imageUrl:'' },
     ]
   },
 };
@@ -804,35 +798,48 @@ async function fetchSelected() {
     const brand = targets[i];
     if (i > 0) {
       btn.textContent = `待機中... (${i}/${targets.length})`;
-      await new Promise(r => setTimeout(r, 3000));
+      await new Promise(r => setTimeout(r, 2000));
     }
-    btn.textContent = `取得中... ${brand.name} (${i+1}/${targets.length})`;
-    try {
-      const prompt = `「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
-{"lp":[{"tag":"タグ","title":"タイトル","desc":"説明80字以内","url":"URL","imageUrl":"画像URLか空文字"}],"ec":[{"rank":1,"category":"スーツ","name":"商品名","price":"¥XX,XXX","url":"URL","imageUrl":"画像URLか空文字"}]}
-lp最大3件、ec最大5件。JSONのみ出力。`;
 
+    try {
+      // Step1: サイトマップから直近14日以内のURLを取得
+      btn.textContent = `サイトマップ取得中... ${brand.name} (${i+1}/${targets.length})`;
+      const sitemapRes = await fetch(workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode: 'fetch_sitemap', url: brand.sitemapUrl })
+      });
+      const sitemapData = await sitemapRes.json();
+      const recentUrls = sitemapData.urls || [];
+
+      if (recentUrls.length === 0) {
+        showToast(`${brand.name}: 最近更新されたページが見つかりませんでした`);
+        continue;
+      }
+
+      // Step2: URLのHTMLを取得してClaudeで解析
+      btn.textContent = `ページ解析中... ${brand.name} (${i+1}/${targets.length})`;
       const res = await fetch(workerUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
-          max_tokens: 3000,
-          tools: [{ type: 'web_search_20250305', name: 'web_search' }],
-          messages: [{ role: 'user', content: prompt }]
+          mode: 'analyze_pages',
+          brand: { name: brand.name, url: brand.url },
+          urls: recentUrls.slice(0, 5),
         })
       });
 
       const result = await res.json();
-      const text = (result.content || []).filter(b => b.type === 'text' && b.text).map(b => b.text).join('');
-      const match = text.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);
-
-      if (match) {
-        const parsed = JSON.parse(match[0]);
+      if (result.lp !== undefined || result.ec !== undefined) {
         const fetchedAt = new Date().toISOString();
-        await saveRecord(brand.id, fetchedAt, parsed.lp || [], parsed.ec || []);
+        await saveRecord(brand.id, fetchedAt, result.lp || [], result.ec || []);
+      } else {
+        showToast(`${brand.name}の解析に失敗しました`);
       }
-    } catch(e) { console.error(brand.name, e); showToast(`${brand.name}の取得に失敗しました`); }
+    } catch(e) {
+      console.error(brand.name, e);
+      showToast(`${brand.name}の取得に失敗しました`);
+    }
   }
 
   allRecords = await loadAllRecords();
@@ -951,7 +958,7 @@ ${summaryForAI}
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-6',
+          model: 'claude-haiku-4-5-20251001',
           max_tokens: 600,
           messages: [{ role: 'user', content: prompt }]
         })
