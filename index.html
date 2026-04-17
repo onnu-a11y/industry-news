@@ -196,12 +196,13 @@
 // ======================================================
 const RSS_FEEDS = [
   // スーツ業界
-  { url: 'https://www.wwdjapan.com/rss/business',        category: 'suit',   source: 'WWDジャパン',              keywords: ['スーツ','紳士服','ビジネスウェア','オーダー','AOKI','青山','はるやま','コナカ','ORIHICA','DIFFERENCE','KASHIYAMA','FABRIC TOKYO'] },
+  { url: 'https://www.wwdjapan.com/rss/business',        category: 'suit',   source: 'WWDジャパン',              keywords: ['スーツ','紳士服','ビジネスウェア','オーダー','AOKI','青山','はるやま','コナカ','ORIHICA','SUIT SELECT','SUIT SQUARE','DIFFERENCE','KASHIYAMA','FABRIC TOKYO','麻布テーラー'] },
   { url: 'https://senken.co.jp/rss',                     category: 'suit',   source: '繊研新聞',                  keywords: ['スーツ','紳士服','ビジネスウェア','オーダー'] },
   { url: 'https://diamond-rm.net/feed',                  category: 'suit',   source: 'ダイヤモンドCS',            keywords: ['スーツ','紳士服','アパレル','ビジネスウェア'] },
-  // メンズカジュアル・販促
-  { url: 'https://www.wwdjapan.com/rss/fashion',         category: 'casual', source: 'WWDジャパン(ファッション)', keywords: ['メンズ','販促','EC','デジタル','アプリ','OMO','DX','リブランド'] },
-  { url: 'https://diamond-rm.net/feed',                  category: 'casual', source: 'ダイヤモンドCS',            keywords: ['EC','デジタル','販促','アプリ','OMO','SNS','リブランド','DX'] },
+  // メンズカジュアル・EC・デジタル・セレクト系
+  { url: 'https://www.wwdjapan.com/rss/fashion',         category: 'casual', source: 'WWDジャパン(ファッション)', keywords: ['メンズ','販促','EC','デジタル','アプリ','OMO','DX','リブランド','新ブランド','BEAMS','ユナイテッドアローズ','SHIPS','TOMORROWLAND','EDIFICE','新サービス','AI','TikTok'] },
+  { url: 'https://diamond-rm.net/feed',                  category: 'casual', source: 'ダイヤモンドCS',            keywords: ['EC','デジタル','販促','アプリ','OMO','SNS','リブランド','DX','AI','システム','新サービス','CRM','ライブコマース'] },
+  { url: 'https://netshop.impress.co.jp/rss',            category: 'casual', source: 'ネットショップ担当者フォーラム', keywords: ['アパレル','ファッション','EC','AI','OMO','デジタル','販促','システム','CRM','新サービス'] },
 ];
 
 // ======================================================
@@ -426,6 +427,7 @@ function renderArticles() {
             <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();summarizeArticle('${a.id}')" ${a.summarizing?'disabled':''}>
               ${a.summarizing ? '要約中...' : '✦ AIで要約'}
             </button>` : ''}
+          <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();deleteArticle('${a.id}')" style="color:var(--fav);border-color:var(--fav);margin-left:auto">✕ 削除</button>
         </div>
       </div>
       <div class="card-right">
@@ -465,6 +467,11 @@ function toggleFilter(type) {
 // ======================================================
 // お気に入り・既読
 // ======================================================
+function deleteArticle(id) {
+  articles = articles.filter(x => x.id !== id);
+  saveData(); renderArticles(); updateCounts();
+  showToast('記事を削除しました');
+}
 function toggleFav(id) {
   const a = articles.find(x=>x.id===id);
   if (!a) return;
@@ -506,7 +513,7 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeSettings()
 // 初期化
 // ======================================================
 loadData();
-if (!localStorage.getItem('initial_v4_loaded')) {
+if (!localStorage.getItem('initial_v5_loaded')) {
   const INITIAL = [
     { id:'i01', title:'紳士服業界2024年度決算：売上高3,564億円横ばいも営業利益6%増に回復', desc:'上場紳士服7社の2024年度スーツ事業売上高は3,564億円で横ばい。営業利益は177億円と前年比6%増。オーダースーツ需要増加による客単価引き上げが利益面を押し上げ。', url:'https://www.tdb.co.jp/report/industry/250606_suit24fy/', source:'帝国データバンク', category:'suit', date:'2025-06-06', fetchedAt:'2025-03-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
     { id:'i02', title:'青山商事・AOKIが客単価上昇も販売着数減少：メンズスーツ平均単価が3万円超に', desc:'青山商事の2025年3月期メンズスーツ平均単価が3万4,076円と前期比7.3%上昇した一方、販売着数は104万8,000着で10.7%減少。AOKIも同様の傾向。', url:'https://www.nikkei.com/compass/industry_s/0573', source:'日本経済新聞', category:'suit', date:'2025-04-01', fetchedAt:'2025-04-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
@@ -520,13 +527,21 @@ if (!localStorage.getItem('initial_v4_loaded')) {
     { id:'i10', title:'ワークマンが「Workman Colors」へリブランディング：機能性×デザイン性の両立戦略に転換', desc:'「#ワークマン女子」から「Workman Colors」へのリブランディング。機能性だけでなくデザイン性を前面に押し出す戦略へ転換。スーツ業界の次の訴求フェーズへのヒントになりうる。', url:'https://diamond-rm.net/management/505451/', source:'ダイヤモンドCS', category:'casual', date:'2025-04-02', fetchedAt:'2025-04-02T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
     { id:'i11', title:'ユニクロ以外が「儲からなくなった」理由：正しいポジショニングとスーツ業界のオーダー回帰', desc:'ユニクロが量産・低価格・品質安定で圧倒的地位を築く中、他のアパレルが生き残るための差別化は「体験価値・個別提案・ブランドストーリー」。スーツ業界のオーダー回帰も同じ文脈。', url:'https://diamond-rm.net/management/505452/', source:'ダイヤモンドCS', category:'casual', date:'2025-03-01', fetchedAt:'2025-03-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
     { id:'i12', title:'日本人の服が「ペラペラ」になった理由：品質低下の構造的問題とスーツ業界への示唆', desc:'アパレル全体のコスト削減競争による品質低下を分析。スーツ業界の「単価上昇・着数減少」トレンドの背景理解につながる。「量より質」の路線維持には総合的品質向上が不可欠。', url:'https://diamond-rm.net/management/505453/', source:'ダイヤモンドCS', category:'casual', date:'2025-03-19', fetchedAt:'2025-03-19T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i13', title:'洋服の青山「みんなのスーツ」が3ヶ月で2万着突破：業界の禁じ手で離れた客層を取り戻す', desc:'青山商事が2025年11月に発売した「みんなのスーツ」が発売3ヶ月で累計2万着を突破し当初計画を3割上回る。業界慣習を覆す設計で若者・中高年層を取り込んだ異例のヒット商品。競合各社も強い関心を示している。', url:'https://xtrend.nikkei.com/atcl/contents/18/00589/00305/', source:'日経クロストレンド', category:'suit', date:'2026-02-26', fetchedAt:'2026-02-26T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i14', title:'2026年スーツトレンド：リラックスフィット・アースカラーが主流に', desc:'2026年のスーツトレンドはゆったりシルエットとアースカラーに二極化。肩パッドなど硬い芯材を省いたアンコン仕立て、タック入りワイドパンツが増加。ベージュ・ブラウン系のダスティーカラーが台頭。', url:'https://www.suit-ya.com/column/how-to-dress/suit-trend/', source:'Suit Ya', category:'suit', date:'2026-02-26', fetchedAt:'2026-02-26T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i15', title:'TikTok Shop日本ローンチから3ヶ月で流通総額約30億円・アパレルが約20%を占める', desc:'2025年6月30日に日本でサービス開始したTikTok Shopが3ヶ月で国内流通総額約30億円に達した。売上の約20%をアパレルカテゴリが占め、流通総額の約70%がショート動画・ライブ配信起点の購入。', url:'https://ebisumart.com/blog/apparel-ec/', source:'ebisumart', category:'casual', date:'2026-01-07', fetchedAt:'2026-01-07T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i16', title:'GoogleがAIバーチャル試着サービスを開始：アパレルECの購入体験を大幅に変える可能性', desc:'2025年10月にGoogleがAI活用のバーチャル試着サービスを開始。サイズ感の不安を解消することでECの購入ハードルを低下させる効果が期待される。スーツのようなフィット感重視の商品カテゴリへの応用も注目。', url:'https://netshop.impress.co.jp/n/2026/01/08/15395', source:'ネットショップ担当者フォーラム', category:'casual', date:'2026-01-07', fetchedAt:'2026-01-07T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i17', title:'ChatGPT広告解禁：EC・リテール企業への影響と「対話型コマース」時代の集客戦略', desc:'OpenAIがChatGPTへの広告掲載を解禁。LLMプラットフォーム経由の流入ユーザーは他チャネル比でCVRが約1.5倍高いとのデータも。「検索から対話」へのパラダイムシフトに対応したEC戦略が求められる。', url:'https://www.w2solution.co.jp/useful_info_ec/8244/', source:'W2ソリューション', category:'casual', date:'2026-01-30', fetchedAt:'2026-01-30T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i18', title:'2026年「ポストCookie時代」本格化：アパレルECにファーストパーティデータ活用が必須に', desc:'GoogleのサードパーティCookie廃止プロセスが完了し2026年から本格的な影響が出始める。リターゲティング広告の精度低下により、メルマガ・LINEなど自社顧客データを活用したCRM戦略の重要性が増している。', url:'https://www.fulloutsourcing.jp/marketing-blog/promotion_calendar/', source:'GMOメイクショップ', category:'casual', date:'2025-12-22', fetchedAt:'2026-01-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i19', title:'メルカリが生成AI活用の絞り込み検索機能を実装：自然な言葉で直感的な検索が可能に', desc:'メルカリが生成AIを活用した絞り込み検索機能を実装。「ゆったりしたネイビーのジャケット」など自然言語で商品検索できる。アパレルECにおけるAI検索の実用化事例として注目。', url:'https://netshop.impress.co.jp/n/2026/01/08/15395', source:'ネットショップ担当者フォーラム', category:'casual', date:'2026-01-08', fetchedAt:'2026-01-08T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
+    { id:'i20', title:'アパレルECのオーガニック検索が前年比9%減・有料ソーシャルは18%増：集客構造が変化', desc:'世界6,500サイト990億件以上のデータ分析によると、アパレルECのオーガニック検索トラフィックが前年比9%減、有料検索も7%低下。一方で有料ソーシャルは18%増。SNS起点の購買が主流になりつつある。', url:'https://martechlab.gaprise.jp/archives/mtl/apparel-ec-2026-pdp-strategy/', source:'MarTechLab', category:'casual', date:'2026-02-12', fetchedAt:'2026-02-12T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
   ];
   for (const item of INITIAL) {
     if (!articles.find(a => a.id === item.id)) articles.push(item);
   }
   articles.sort((a,b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
   saveData();
-  localStorage.setItem('initial_v4_loaded', '1');
+  localStorage.setItem('initial_v5_loaded', '1');
 }
 loadSettings();
 cleanOldArticles();
