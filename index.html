@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>業界ニュース収集ツール</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap');
+
+  :root {
+    --bg: #0f0f11;
+    --bg2: #161619;
+    --bg3: #1e1e22;
+    --border: #2a2a30;
+    --border2: #3a3a42;
+    --text: #e8e6e0;
+    --text2: #9a9890;
+    --text3: #5a5856;
+    --accent: #c8a96e;
+    --accent2: #e8c98e;
+    --accent-dim: rgba(200,169,110,0.12);
+    --suit: #6e8fc8;
+    --suit-dim: rgba(110,143,200,0.12);
+    --casual: #7ec8a0;
+    --casual-dim: rgba(126,200,160,0.12);
+    --fav: #c86e6e;
+    --fav-dim: rgba(200,110,110,0.12);
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
+
+  header { border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; background: var(--bg); z-index: 100; }
+  .logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--accent); }
+  .logo span { color: var(--text2); font-weight: 400; font-size: 13px; margin-left: 8px; }
+  .header-right { display: flex; align-items: center; gap: 12px; }
+
+  .btn { font-family: 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 500; border-radius: var(--radius-sm); cursor: pointer; border: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; }
+  .btn-primary { background: var(--accent); color: #0f0f11; }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+  .btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
+  .btn-ghost:hover { background: var(--bg3); color: var(--text); }
+  .btn-ghost.active { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
+  .btn-sm { padding: 4px 10px; font-size: 12px; }
+
+  .main-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; }
+
+  .stats-bar { display: flex; gap: 20px; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 18px; font-size: 12px; color: var(--text3); flex-wrap: wrap; }
+  .stat-item { display: flex; align-items: center; gap: 6px; }
+  .stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .stat-num { font-weight: 600; color: var(--text); }
+
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+  .tab { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; padding: 10px 18px; cursor: pointer; border: none; background: transparent; color: var(--text3); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+  .tab:hover { color: var(--text2); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-count { font-size: 11px; background: var(--bg3); color: var(--text2); border-radius: 20px; padding: 1px 7px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; }
+  .tab.active .tab-count { background: var(--accent-dim); color: var(--accent); }
+
+  .filter-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+  .search-box { flex: 1; min-width: 180px; max-width: 300px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; padding: 7px 12px; outline: none; transition: border-color 0.2s; }
+  .search-box:focus { border-color: var(--accent); }
+  .search-box::placeholder { color: var(--text3); }
+
+  .articles { display: flex; flex-direction: column; gap: 2px; }
+
+  .article-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; transition: all 0.18s; display: flex; gap: 14px; align-items: flex-start; }
+  .article-card:hover { border-color: var(--border2); background: var(--bg3); }
+  .article-card.unread { border-left: 3px solid var(--accent); padding-left: 16px; }
+  .article-card.favorited { border-left: 3px solid var(--fav); padding-left: 16px; }
+
+  .card-left { flex: 1; min-width: 0; }
+  .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+
+  .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
+  .cat-badge { font-size: 11px; font-weight: 500; border-radius: 4px; padding: 2px 8px; }
+  .cat-suit { background: var(--suit-dim); color: var(--suit); }
+  .cat-casual { background: var(--casual-dim); color: var(--casual); }
+  .card-date { color: var(--text3); font-size: 12px; }
+  .card-source { color: var(--text3); font-size: 11px; border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
+  .unread-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
+
+  .card-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 5px; line-height: 1.5; }
+  .card-summary { font-size: 13px; color: var(--text2); line-height: 1.6; }
+
+  .summary-box { margin-top: 10px; padding: 10px 14px; background: var(--bg3); border-left: 2px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
+  .summary-label { font-size: 11px; color: var(--accent); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.04em; }
+
+  .fav-btn { width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text3); cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
+  .fav-btn:hover { border-color: var(--fav); color: var(--fav); background: var(--fav-dim); }
+  .fav-btn.active { border-color: var(--fav); color: var(--fav); background: var(--fav-dim); }
+
+  .link-btn { font-size: 12px; color: var(--text3); background: transparent; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: all 0.15s; text-decoration: none; }
+  .link-btn:hover { color: var(--accent); }
+
+  /* 設定パネル */
+  .settings-panel { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+  .settings-panel.open { display: flex; }
+  .settings-box { background: var(--bg2); border: 1px solid var(--border2); border-radius: 14px; width: 100%; max-width: 480px; padding: 28px; position: relative; }
+  .settings-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 20px; color: var(--accent); }
+  .modal-close { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border: 1px solid var(--border2); border-radius: 6px; background: transparent; color: var(--text2); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+  .modal-close:hover { background: var(--bg3); }
+  .form-group { margin-bottom: 18px; }
+  .form-label { font-size: 12px; color: var(--text3); margin-bottom: 6px; display: block; letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; padding: 9px 12px; outline: none; transition: border-color 0.2s; }
+  .form-input:focus { border-color: var(--accent); }
+  .form-hint { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+  .loading-bar { display: none; height: 2px; background: linear-gradient(90deg, var(--accent), var(--suit), var(--casual), var(--accent)); background-size: 300% 100%; animation: loadingAnim 1.5s linear infinite; position: fixed; top: 0; left: 0; right: 0; z-index: 999; }
+  .loading-bar.active { display: block; }
+  @keyframes loadingAnim { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+
+  .empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
+  .empty-icon { font-size: 40px; margin-bottom: 14px; opacity: 0.5; }
+  .empty-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .empty-desc { font-size: 13px; }
+
+  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius); padding: 10px 18px; font-size: 13px; color: var(--text); z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 640px) {
+    header { padding: 0 16px; }
+    .main-wrap { padding: 16px 12px 60px; }
+    .article-card { flex-direction: column; }
+    .card-right { flex-direction: row; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="loading-bar" id="loadingBar"></div>
+
+<header>
+  <div class="logo">INDUSTRY WATCH <span>スーツ・メンズ業界</span></div>
+  <div class="header-right">
+    <button class="btn btn-ghost" id="settingsBtn">⚙ 設定</button>
+    <button class="btn btn-primary" id="fetchBtn" onclick="fetchAllRSS()">▶ ニュース取得</button>
+  </div>
+</header>
+
+<div class="main-wrap">
+
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-dot" style="background:var(--accent)"></div>合計 <span class="stat-num" id="statTotal">0</span>件</div>
+    <div class="stat-item"><div class="stat-dot" style="background:var(--suit)"></div>スーツ業界 <span class="stat-num" id="statSuit">0</span>件</div>
+    <div class="stat-item"><div class="stat-dot" style="background:var(--casual)"></div>メンズカジュアル <span class="stat-num" id="statCasual">0</span>件</div>
+    <div class="stat-item"><div class="stat-dot" style="background:var(--fav)"></div>お気に入り <span class="stat-num" id="statFav">0</span>件</div>
+    <div class="stat-item" style="margin-left:auto;font-size:11px" id="lastFetch"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('all')" id="tab-all">すべて <span class="tab-count" id="cnt-all">0</span></button>
+    <button class="tab" onclick="switchTab('suit')" id="tab-suit">スーツ業界 <span class="tab-count" id="cnt-suit">0</span></button>
+    <button class="tab" onclick="switchTab('casual')" id="tab-casual">メンズカジュアル <span class="tab-count" id="cnt-casual">0</span></button>
+    <button class="tab" onclick="switchTab('favorites')" id="tab-favorites">★ お気に入り <span class="tab-count" id="cnt-fav">0</span></button>
+  </div>
+
+  <div class="filter-bar">
+    <input class="search-box" type="text" id="searchBox" placeholder="キーワード検索..." oninput="renderArticles()">
+    <button class="btn btn-ghost" id="filterUnread" onclick="toggleFilter('unread')">未読のみ</button>
+  </div>
+
+  <div class="articles" id="articleList"></div>
+</div>
+
+<!-- 設定パネル -->
+<div class="settings-panel" id="settingsPanel" onclick="closeSettings(event)">
+  <div class="settings-box">
+    <button class="modal-close" onclick="closeSettings()">✕</button>
+    <div class="settings-title">設定</div>
+    <div class="form-group">
+      <label class="form-label">Worker URL</label>
+      <input type="text" class="form-input" id="workerUrlInput" placeholder="https://your-worker.workers.dev">
+      <div class="form-hint">Cloudflare WorkerをデプロイしたあとのURLを入力してください。</div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">ニュース保持期間（日数）</label>
+      <input type="number" class="form-input" id="retentionInput" value="60" min="7" max="365">
+      <div class="form-hint">お気に入りに登録した記事は期間に関わらず保持されます。</div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:4px">
+      <button class="btn btn-primary" onclick="saveSettings()">保存</button>
+      <button class="btn btn-ghost" onclick="closeSettings()">キャンセル</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ======================================================
+// RSSフィード定義
+// ======================================================
+const RSS_FEEDS = [
+  // スーツ業界
+  { url: 'https://www.wwdjapan.com/rss/business',        category: 'suit',   source: 'WWDジャパン',              keywords: ['スーツ','紳士服','ビジネスウェア','オーダー','AOKI','青山','はるやま','コナカ','ORIHICA','DIFFERENCE','KASHIYAMA','FABRIC TOKYO'] },
+  { url: 'https://senken.co.jp/rss',                     category: 'suit',   source: '繊研新聞',                  keywords: ['スーツ','紳士服','ビジネスウェア','オーダー'] },
+  { url: 'https://diamond-rm.net/feed',                  category: 'suit',   source: 'ダイヤモンドCS',            keywords: ['スーツ','紳士服','アパレル','ビジネスウェア'] },
+  // メンズカジュアル・販促
+  { url: 'https://www.wwdjapan.com/rss/fashion',         category: 'casual', source: 'WWDジャパン(ファッション)', keywords: ['メンズ','販促','EC','デジタル','アプリ','OMO','DX','リブランド'] },
+  { url: 'https://diamond-rm.net/feed',                  category: 'casual', source: 'ダイヤモンドCS',            keywords: ['EC','デジタル','販促','アプリ','OMO','SNS','リブランド','DX'] },
+];
+
+// ======================================================
+// データ管理
+// ======================================================
+const STORAGE_KEY  = 'industry_news_v4';
+const SETTINGS_KEY = 'industry_news_settings_v4';
+
+let articles = [];
+let currentTab = 'all';
+let filters = { unread: false };
+
+function loadData() {
+  try { const r = localStorage.getItem(STORAGE_KEY); if (r) articles = JSON.parse(r); } catch(e) { articles = []; }
+}
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(articles)); }
+
+function loadSettings() {
+  try {
+    const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+    if (s.retention) document.getElementById('retentionInput').value = s.retention;
+    if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
+    if (s.lastFetch) document.getElementById('lastFetch').textContent = `最終取得: ${new Date(s.lastFetch).toLocaleDateString('ja-JP')}`;
+  } catch(e) {}
+}
+
+function saveSettings() {
+  const workerUrl = document.getElementById('workerUrlInput').value.trim();
+  const retention = document.getElementById('retentionInput').value;
+  const existing = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...existing, workerUrl, retention }));
+  showToast('設定を保存しました');
+  closeSettings();
+}
+
+function getWorkerUrl() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}').workerUrl || ''; } catch(e) { return ''; }
+}
+
+function cleanOldArticles() {
+  try {
+    const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+    const days = parseInt(s.retention || 60);
+    const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+    const before = articles.length;
+    articles = articles.filter(a => a.favorited || new Date(a.fetchedAt).getTime() > cutoff);
+    if (articles.length !== before) saveData();
+  } catch(e) {}
+}
+
+// ======================================================
+// RSS取得（無料）
+// ======================================================
+async function fetchAllRSS() {
+  const workerUrl = getWorkerUrl();
+  if (!workerUrl) {
+    document.getElementById('settingsPanel').classList.add('open');
+    showToast('Worker URLを設定してください');
+    return;
+  }
+
+  const btn = document.getElementById('fetchBtn');
+  const bar = document.getElementById('loadingBar');
+  btn.disabled = true;
+  btn.textContent = '取得中...';
+  bar.classList.add('active');
+
+  const existingUrls = new Set(articles.map(a => a.url));
+  let added = 0;
+
+  for (const feed of RSS_FEEDS) {
+    try {
+      const res = await fetch(workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mode: 'rss', url: feed.url })
+      });
+      const xml = await res.text();
+      const items = parseRSS(xml, feed, existingUrls);
+      for (const item of items) {
+        articles.unshift(item);
+        existingUrls.add(item.url);
+        added++;
+      }
+    } catch(e) { console.error('RSS fetch error:', feed.source, e); }
+  }
+
+  saveData();
+  const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+  s.lastFetch = new Date().toISOString();
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+  document.getElementById('lastFetch').textContent = `最終取得: ${new Date().toLocaleDateString('ja-JP')}`;
+
+  renderArticles();
+  updateCounts();
+  btn.disabled = false;
+  btn.innerHTML = '▶ ニュース取得';
+  bar.classList.remove('active');
+  showToast(added > 0 ? `${added}件の新着ニュースを取得しました` : '新着ニュースはありませんでした');
+}
+
+function parseRSS(xml, feed, existingUrls) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(xml, 'application/xml');
+  const items = Array.from(doc.querySelectorAll('item'));
+  const now = new Date().toISOString();
+  const result = [];
+
+  for (const item of items) {
+    const title   = item.querySelector('title')?.textContent?.trim() || '';
+    const url     = item.querySelector('link')?.textContent?.trim() || '';
+    const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
+    const desc    = item.querySelector('description')?.textContent?.replace(/<[^>]+>/g,'').trim() || '';
+
+    if (!title || !url || existingUrls.has(url)) continue;
+
+    // キーワードフィルタリング
+    const text = (title + ' ' + desc).toLowerCase();
+    const hit  = feed.keywords.some(k => text.includes(k.toLowerCase()));
+    if (!hit) continue;
+
+    // 日付パース
+    let date = now.slice(0, 10);
+    try { date = new Date(pubDate).toISOString().slice(0, 10); } catch(e) {}
+
+    result.push({
+      id: 'rss_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+      title,
+      url,
+      desc: desc.slice(0, 120) + (desc.length > 120 ? '...' : ''),
+      source: feed.source,
+      category: feed.category,
+      date,
+      fetchedAt: now,
+      read: false,
+      favorited: false,
+      summary: null,      // AI要約（未取得）
+      summarizing: false, // 取得中フラグ
+    });
+  }
+  return result;
+}
+
+// ======================================================
+// AI要約（記事単位・有料）
+// ======================================================
+async function summarizeArticle(id) {
+  const workerUrl = getWorkerUrl();
+  if (!workerUrl) { showToast('Worker URLを設定してください'); return; }
+
+  const a = articles.find(x => x.id === id);
+  if (!a || a.summarizing) return;
+
+  a.summarizing = true;
+  renderArticles();
+
+  try {
+    const res = await fetch(workerUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mode: 'summarize', title: a.title, url: a.url })
+    });
+    const data = await res.json();
+    if (data.summary) {
+      a.summary = data.summary;
+      showToast('要約を取得しました');
+    } else {
+      showToast('要約の取得に失敗しました');
+    }
+  } catch(e) {
+    showToast('エラーが発生しました');
+  } finally {
+    a.summarizing = false;
+    saveData();
+    renderArticles();
+  }
+}
+
+// ======================================================
+// 表示
+// ======================================================
+function getFiltered() {
+  let list = [...articles];
+  if (currentTab === 'suit')      list = list.filter(a => a.category === 'suit');
+  else if (currentTab === 'casual')    list = list.filter(a => a.category === 'casual');
+  else if (currentTab === 'favorites') list = list.filter(a => a.favorited);
+  if (filters.unread) list = list.filter(a => !a.read);
+  const kw = document.getElementById('searchBox').value.trim().toLowerCase();
+  if (kw) list = list.filter(a => a.title.toLowerCase().includes(kw) || (a.source||'').toLowerCase().includes(kw));
+  return list.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
+}
+
+function renderArticles() {
+  const list = document.getElementById('articleList');
+  const filtered = getFiltered();
+  updateStats();
+
+  if (filtered.length === 0) {
+    list.innerHTML = `<div class="empty-state"><div class="empty-icon">📰</div><div class="empty-title">${currentTab==='favorites'?'お気に入りはまだありません':'ニュースがありません'}</div><div class="empty-desc">${currentTab==='favorites'?'記事の ☆ ボタンでお気に入りに追加できます':'「ニュース取得」ボタンで最新情報を取得してください'}</div></div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(a => `
+    <div class="article-card ${!a.read?'unread':''} ${a.favorited?'favorited':''}" onclick="markRead('${a.id}')">
+      <div class="card-left">
+        <div class="card-meta">
+          ${!a.read ? '<div class="unread-dot"></div>' : ''}
+          <span class="cat-badge ${a.category==='suit'?'cat-suit':'cat-casual'}">${a.category==='suit'?'スーツ業界':'メンズカジュアル'}</span>
+          <span class="card-date">${a.date}</span>
+          ${a.source?`<span class="card-source">${h(a.source)}</span>`:''}
+        </div>
+        <div class="card-title">${h(a.title)}</div>
+        ${a.desc ? `<div class="card-summary">${h(a.desc)}</div>` : ''}
+        ${a.summary ? `
+          <div class="summary-box">
+            <div class="summary-label">AI 要約</div>
+            ${h(a.summary)}
+          </div>` : ''}
+        <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
+          ${a.url ? `<a class="btn btn-ghost btn-sm" href="${h(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">元記事 ↗</a>` : ''}
+          ${!a.summary ? `
+            <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();summarizeArticle('${a.id}')" ${a.summarizing?'disabled':''}>
+              ${a.summarizing ? '要約中...' : '✦ AIで要約'}
+            </button>` : ''}
+        </div>
+      </div>
+      <div class="card-right">
+        <button class="fav-btn ${a.favorited?'active':''}" onclick="event.stopPropagation();toggleFav('${a.id}')">${a.favorited?'★':'☆'}</button>
+      </div>
+    </div>`).join('');
+}
+
+function updateStats() {
+  document.getElementById('statTotal').textContent  = articles.length;
+  document.getElementById('statSuit').textContent   = articles.filter(a=>a.category==='suit').length;
+  document.getElementById('statCasual').textContent = articles.filter(a=>a.category==='casual').length;
+  document.getElementById('statFav').textContent    = articles.filter(a=>a.favorited).length;
+}
+function updateCounts() {
+  document.getElementById('cnt-all').textContent    = articles.length;
+  document.getElementById('cnt-suit').textContent   = articles.filter(a=>a.category==='suit').length;
+  document.getElementById('cnt-casual').textContent = articles.filter(a=>a.category==='casual').length;
+  document.getElementById('cnt-fav').textContent    = articles.filter(a=>a.favorited).length;
+}
+
+// ======================================================
+// タブ・フィルター
+// ======================================================
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  renderArticles();
+}
+function toggleFilter(type) {
+  filters[type] = !filters[type];
+  document.getElementById('filter'+type[0].toUpperCase()+type.slice(1)).classList.toggle('active', filters[type]);
+  renderArticles();
+}
+
+// ======================================================
+// お気に入り・既読
+// ======================================================
+function toggleFav(id) {
+  const a = articles.find(x=>x.id===id);
+  if (!a) return;
+  a.favorited = !a.favorited;
+  saveData(); renderArticles(); updateCounts();
+  showToast(a.favorited ? 'お気に入りに追加しました' : 'お気に入りから削除しました');
+}
+function markRead(id) {
+  const a = articles.find(x=>x.id===id);
+  if (a && !a.read) { a.read=true; saveData(); renderArticles(); }
+}
+
+// ======================================================
+// 設定
+// ======================================================
+document.getElementById('settingsBtn').addEventListener('click', () => {
+  const s = JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}');
+  if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
+  if (s.retention) document.getElementById('retentionInput').value = s.retention;
+  document.getElementById('settingsPanel').classList.add('open');
+});
+function closeSettings(e) {
+  if (e && e.target !== document.getElementById('settingsPanel')) return;
+  document.getElementById('settingsPanel').classList.remove('open');
+}
+
+// ======================================================
+// ユーティリティ
+// ======================================================
+function h(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2600);
+}
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeSettings(); });
+
+// ======================================================
+// 初期化
+// ======================================================
+loadData();
+loadSettings();
+cleanOldArticles();
+renderArticles();
+updateCounts();
+</script>
+</body>
+</html>
