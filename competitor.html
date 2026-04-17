@@ -1155,9 +1155,14 @@ function printReport() {
   html += `</div>`;
 
   document.body.insertAdjacentHTML('beforeend', html);
+  // モーダルを一時非表示
+  const modal = document.getElementById('reportModal');
+  const prevDisplay = modal.style.display;
+  modal.style.display = 'none';
   setTimeout(() => {
     window.print();
     setTimeout(() => {
+      modal.style.display = prevDisplay;
       const el = document.getElementById('printArea');
       if (el) el.remove();
     }, 1000);
