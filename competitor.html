@@ -800,8 +800,13 @@ async function fetchSelected() {
 
   const targets = BRANDS.filter(b => selectedBrands.has(b.id));
 
-  for (const brand of targets) {
-    btn.textContent = `取得中... ${brand.name}`;
+  for (let i = 0; i < targets.length; i++) {
+    const brand = targets[i];
+    if (i > 0) {
+      btn.textContent = `待機中... (${i}/${targets.length})`;
+      await new Promise(r => setTimeout(r, 3000));
+    }
+    btn.textContent = `取得中... ${brand.name} (${i+1}/${targets.length})`;
     try {
       const prompt = `「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
 {"lp":[{"tag":"タグ","title":"タイトル","desc":"説明80字以内","url":"URL","imageUrl":"画像URLか空文字"}],"ec":[{"rank":1,"category":"スーツ","name":"商品名","price":"¥XX,XXX","url":"URL","imageUrl":"画像URLか空文字"}]}
@@ -812,7 +817,7 @@ lp最大3件、ec最大5件。JSONのみ出力。`;
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
-          max_tokens: 2000,
+          max_tokens: 3000,
           tools: [{ type: 'web_search_20250305', name: 'web_search' }],
           messages: [{ role: 'user', content: prompt }]
         })
