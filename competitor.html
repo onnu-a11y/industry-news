@@ -569,16 +569,9 @@ async function fetchSelected() {
   for (const brand of targets) {
     btn.textContent = `取得中... ${brand.name}`;
     try {
-      const prompt = `You are a retail market researcher. Search the web for current information about "${brand.name}" (${brand.url}) and return ONLY a JSON object with no other text.
-
-Search for:
-1. Their current featured campaigns, new arrivals, or special LP pages
-2. Their best-selling or popular EC products right now
-
-Return ONLY this JSON structure, nothing else:
-{"lp":[{"tag":"campaign tag","title":"page title","desc":"description under 80 chars","url":"page url","imageUrl":"image url or empty string"}],"ec":[{"rank":1,"category":"スーツ or ジャケット or パンツ or シャツ or その他","name":"product name","price":"price like ¥29,900","url":"product url","imageUrl":"product image url or empty string"}]}
-
-lp: up to 3 items. ec: up to 5 items. Return ONLY the JSON, no explanation.`;
+const prompt = `「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
+{"lp":[{"tag":"タグ","title":"タイトル","desc":"説明80字以内","url":"URL","imageUrl":"画像URLか空文字"}],"ec":[{"rank":1,"category":"スーツ","name":"商品名","price":"¥XX,XXX","url":"URL","imageUrl":"画像URLか空文字"}]}
+lp最大3件、ec最大5件。JSONのみ出力。`;
 
       const res = await fetch(workerUrl, {
         method: 'POST',
