@@ -168,6 +168,8 @@
     /* ダッシュボード部分を全て非表示 */
     body > *:not(#printArea) { display: none !important; }
     #printArea { display: block !important; }
+    .modal-overlay, .settings-panel { display: none !important; }
+    body { background: white !important; }
 
     @page {
       margin: 15mm 12mm;
@@ -1157,12 +1159,13 @@ function printReport() {
   document.body.insertAdjacentHTML('beforeend', html);
   // モーダルを一時非表示
   const modal = document.getElementById('reportModal');
-  const prevDisplay = modal.style.display;
+  modal.classList.remove('open');
   modal.style.display = 'none';
   setTimeout(() => {
     window.print();
     setTimeout(() => {
-      modal.style.display = prevDisplay;
+      modal.classList.add('open');
+      modal.style.display = '';
       const el = document.getElementById('printArea');
       if (el) el.remove();
     }, 1000);
