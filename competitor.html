@@ -264,7 +264,7 @@ const BRANDS = [
   { id:'aoyama',     name:'洋服の青山',   url:'https://www.y-aoyama.jp' },
   { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp' },
   { id:'suitsquare', name:'SUIT SQUARE', url:'https://www.suitsquare.jp' },
-  { id:'orihica',    name:'ORIHICA',     url:'https://www.orihica.com' },
+  { id:'haruyama',   name:'はるやま',     url:'https://www.haruyama.co.jp' },
 ];
 
 const CATEGORIES = ['ALL','スーツ','ジャケット','パンツ','シャツ','その他'];
@@ -569,7 +569,7 @@ async function fetchSelected() {
   for (const brand of targets) {
     btn.textContent = `取得中... ${brand.name}`;
     try {
-const prompt = `「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
+      const prompt = `「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
 {"lp":[{"tag":"タグ","title":"タイトル","desc":"説明80字以内","url":"URL","imageUrl":"画像URLか空文字"}],"ec":[{"rank":1,"category":"スーツ","name":"商品名","price":"¥XX,XXX","url":"URL","imageUrl":"画像URLか空文字"}]}
 lp最大3件、ec最大5件。JSONのみ出力。`;
 
