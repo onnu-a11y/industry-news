@@ -569,33 +569,16 @@ async function fetchSelected() {
   for (const brand of targets) {
     btn.textContent = `取得中... ${brand.name}`;
     try {
-      const prompt = `「${brand.name}」（${brand.url}）のECサイト・LPを調査してください。
+      const prompt = `You are a retail market researcher. Search the web for current information about "${brand.name}" (${brand.url}) and return ONLY a JSON object with no other text.
 
-以下の情報をJSON形式のみで返してください（前置き・説明不要）：
+Search for:
+1. Their current featured campaigns, new arrivals, or special LP pages
+2. Their best-selling or popular EC products right now
 
-{
-  "lp": [
-    {
-      "tag": "訴求タグ（例：2026春夏新作・機能性特集など）",
-      "title": "LPや特集ページのタイトル",
-      "desc": "訴求内容の説明（100字以内）",
-      "url": "ページURL",
-      "imageUrl": "OGP画像またはサムネイルURL（取得できれば。なければ空文字）"
-    }
-  ],
-  "ec": [
-    {
-      "rank": 1,
-      "category": "カテゴリ（スーツ/ジャケット/パンツ/シャツ/その他）",
-      "name": "商品名",
-      "price": "価格（例：¥29,900）",
-      "url": "商品ページURL",
-      "imageUrl": "商品画像URL（取得できれば。なければ空文字）"
-    }
-  ]
-}
+Return ONLY this JSON structure, nothing else:
+{"lp":[{"tag":"campaign tag","title":"page title","desc":"description under 80 chars","url":"page url","imageUrl":"image url or empty string"}],"ec":[{"rank":1,"category":"スーツ or ジャケット or パンツ or シャツ or その他","name":"product name","price":"price like ¥29,900","url":"product url","imageUrl":"product image url or empty string"}]}
 
-lpは新作訴求・特集ページを最大3件、ecはEC売れ筋・人気商品を最大5件。`;
+lp: up to 3 items. ec: up to 5 items. Return ONLY the JSON, no explanation.`;
 
       const res = await fetch(workerUrl, {
         method: 'POST',
