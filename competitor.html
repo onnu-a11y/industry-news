@@ -463,8 +463,8 @@
 // 定数
 // ======================================================
 const BRANDS = [
-  { id:'aoki',       name:'AOKI',        url:'https://www.aoki-style.com',  sitemapUrl:'https://www.aoki-style.com/sitemaps/feature.xml', type:'existing' },
-  { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp',  sitemapUrl:'https://www.suit-select.jp/sitemap.xml',          type:'existing' },
+  { id:'aoki',       name:'AOKI',        url:'https://www.aoki-style.com',  sitemapUrl:'https://www.aoki-style.com/sitemaps/feature.xml', fetchMethod:'scrape' },
+  { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp',  sitemapUrl:'https://www.suit-select.jp/sitemap.xml',          fetchMethod:'websearch' },
 ];
 
 const CATEGORIES = ['ALL','スーツ','ジャケット','パンツ','シャツ','その他'];
@@ -793,6 +793,7 @@ async function fetchSelected() {
   bar.classList.add('active');
 
   const targets = BRANDS.filter(b => selectedBrands.has(b.id));
+  const today = new Date().toLocaleDateString('ja-JP', { year:'numeric', month:'long', day:'numeric' });
 
   for (let i = 0; i < targets.length; i++) {
     const brand = targets[i];
@@ -802,40 +803,66 @@ async function fetchSelected() {
     }
 
     try {
-      // Step1: サイトマップから直近14日以内のURLを取得
-      btn.textContent = `サイトマップ取得中... ${brand.name} (${i+1}/${targets.length})`;
-      const sitemapRes = await fetch(workerUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mode: 'fetch_sitemap', url: brand.sitemapUrl })
-      });
-      const sitemapData = await sitemapRes.json();
-      const recentUrls = sitemapData.urls || [];
+      let result = null;
 
-      if (recentUrls.length === 0) {
-        showToast(`${brand.name}: 最近更新されたページが見つかりませんでした`);
-        continue;
+      if (brand.fetchMethod === 'scrape') {
+        // ── fetch方式（AOKI）──
+        btn.textContent = `サイトマップ取得中... ${brand.name} (${i+1}/${targets.length})`;
+        const sitemapRes = await fetch(workerUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ mode: 'fetch_sitemap', url: brand.sitemapUrl })
+        });
+        const sitemapData = await sitemapRes.json();
+        const recentUrls = sitemapData.urls || [];
+
+        if (recentUrls.length === 0) {
+          showToast(`${brand.name}: URLが見つかりませんでした`);
+          continue;
+        }
+
+        btn.textContent = `ページ解析中... ${brand.name} (${i+1}/${targets.length})`;
+        const scrapeRes = await fetch(workerUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            mode: 'analyze_pages',
+            brand: { name: brand.name, url: brand.url },
+            urls: recentUrls.slice(0, 5),
+          })
+        });
+        result = await scrapeRes.json();
+
+      } else {
+        // ── web_search方式（SUIT SELECT）──
+        btn.textContent = `取得中... ${brand.name} (${i+1}/${targets.length})`;
+        const prompt = `今日は${today}です。「${brand.name}」(${brand.url})の現在の販促LP・新作特集・EC人気商品を調査し、以下のJSON形式のみで返答してください。JSONの前後に説明文を書かないでください。
+{"lp":[{"tag":"タグ","title":"タイトル","desc":"説明80字以内","url":"URL","imageUrl":""}],"ec":[{"rank":1,"category":"スーツ","name":"商品名","price":"¥XX,XXX","url":"URL","imageUrl":""}]}
+lp最大3件、ec最大5件。JSONのみ出力。`;
+
+        const wsRes = await fetch(workerUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-6',
+            max_tokens: 3000,
+            tools: [{ type: 'web_search_20250305', name: 'web_search' }],
+            messages: [{ role: 'user', content: prompt }]
+          })
+        });
+        const wsData = await wsRes.json();
+        const text = (wsData.content || []).filter(b => b.type === 'text' && b.text).map(b => b.text).join('');
+        const match = text.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);
+        if (match) result = JSON.parse(match[0]);
       }
 
-      // Step2: URLのHTMLを取得してClaudeで解析
-      btn.textContent = `ページ解析中... ${brand.name} (${i+1}/${targets.length})`;
-      const res = await fetch(workerUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          mode: 'analyze_pages',
-          brand: { name: brand.name, url: brand.url },
-          urls: recentUrls.slice(0, 5),
-        })
-      });
-
-      const result = await res.json();
-      if (result.lp !== undefined || result.ec !== undefined) {
+      if (result && (result.lp !== undefined || result.ec !== undefined)) {
         const fetchedAt = new Date().toISOString();
         await saveRecord(brand.id, fetchedAt, result.lp || [], result.ec || []);
       } else {
         showToast(`${brand.name}の解析に失敗しました`);
       }
+
     } catch(e) {
       console.error(brand.name, e);
       showToast(`${brand.name}の取得に失敗しました`);
