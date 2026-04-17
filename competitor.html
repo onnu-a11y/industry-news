@@ -8,219 +8,161 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap');
 
   :root {
-    --bg: #0f0f11;
-    --bg2: #161619;
-    --bg3: #1e1e22;
-    --bg4: #242428;
-    --border: #2a2a30;
-    --border2: #3a3a42;
-    --text: #e8e6e0;
-    --text2: #9a9890;
-    --text3: #5a5856;
-    --accent: #c8a96e;
-    --accent2: #e8c98e;
-    --accent-dim: rgba(200,169,110,0.12);
-    --accent-dim2: rgba(200,169,110,0.06);
-    --red: #c86e6e;
-    --red-dim: rgba(200,110,110,0.12);
-    --radius: 10px;
-    --radius-sm: 6px;
+    --bg:#0f0f11; --bg2:#161619; --bg3:#1e1e22; --bg4:#242428;
+    --border:#2a2a30; --border2:#3a3a42;
+    --text:#e8e6e0; --text2:#9a9890; --text3:#5a5856;
+    --accent:#c8a96e; --accent2:#e8c98e;
+    --accent-dim:rgba(200,169,110,0.12); --accent-dim2:rgba(200,169,110,0.06);
+    --red:#c86e6e; --red-dim:rgba(200,110,110,0.12);
+    --green:#7ec8a0; --green-dim:rgba(126,200,160,0.10);
+    --radius:10px; --radius-sm:6px;
   }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.6;}
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; font-size:14px; line-height:1.6; }
+  header{border-bottom:1px solid var(--border);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:60px;position:sticky;top:0;background:var(--bg);z-index:100;}
+  .logo{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--accent);}
+  .logo span{color:var(--text2);font-weight:400;font-size:13px;margin-left:8px;}
 
-  /* ── ヘッダー ── */
-  header { border-bottom:1px solid var(--border); padding:0 28px; display:flex; align-items:center; justify-content:space-between; height:60px; position:sticky; top:0; background:var(--bg); z-index:100; }
-  .logo { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; color:var(--accent); }
-  .logo span { color:var(--text2); font-weight:400; font-size:13px; margin-left:8px; }
-  .header-right { display:flex; align-items:center; gap:10px; }
+  .btn{font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;border-radius:var(--radius-sm);cursor:pointer;border:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;padding:7px 14px;}
+  .btn-primary{background:var(--accent);color:#0f0f11;}
+  .btn-primary:hover{background:var(--accent2);transform:translateY(-1px);}
+  .btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+  .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2);}
+  .btn-ghost:hover{background:var(--bg3);color:var(--text);}
+  .btn-ghost.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent);}
+  .btn-sm{padding:5px 11px;font-size:12px;}
+  .btn-danger{background:transparent;color:var(--red);border:1px solid var(--red);}
+  .btn-danger:hover{background:var(--red-dim);}
 
-  /* ── ボタン ── */
-  .btn { font-family:'Noto Sans JP',sans-serif; font-size:13px; font-weight:500; border-radius:var(--radius-sm); cursor:pointer; border:none; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; padding:7px 14px; }
-  .btn-primary { background:var(--accent); color:#0f0f11; }
-  .btn-primary:hover { background:var(--accent2); transform:translateY(-1px); }
-  .btn-primary:disabled { opacity:0.5; cursor:not-allowed; transform:none; }
-  .btn-ghost { background:transparent; color:var(--text2); border:1px solid var(--border2); }
-  .btn-ghost:hover { background:var(--bg3); color:var(--text); }
-  .btn-ghost.active { background:var(--accent-dim); color:var(--accent); border-color:var(--accent); }
-  .btn-sm { padding:5px 11px; font-size:12px; }
-  .btn-danger { background:transparent; color:var(--red); border:1px solid var(--red); }
-  .btn-danger:hover { background:var(--red-dim); }
+  .main-wrap{max-width:1200px;margin:0 auto;padding:24px 24px 80px;}
 
-  /* ── メイン ── */
-  .main-wrap { max-width:1200px; margin:0 auto; padding:24px 24px 80px; }
+  /* ── フィルターバー ── */
+  .filter-block{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:20px;}
+  .filter-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+  .filter-row:last-child{margin-bottom:0;}
+  .filter-label{font-size:12px;color:var(--text3);min-width:72px;letter-spacing:0.04em;}
+
+  .season-tabs{display:flex;gap:4px;}
+  .season-tab{font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--text2);transition:all 0.15s;}
+  .season-tab:hover{border-color:var(--accent);color:var(--text);}
+  .season-tab.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent);}
+
+  .cat-tabs{display:flex;gap:4px;flex-wrap:wrap;}
+  .cat-tab{font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--text2);transition:all 0.15s;}
+  .cat-tab:hover{border-color:var(--accent);color:var(--text);}
+  .cat-tab.active{background:var(--accent-dim);color:var(--accent);border-color:var(--accent);}
+
+  .date-inputs{display:flex;align-items:center;gap:8px;}
+  .date-input{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:12px;padding:5px 10px;outline:none;transition:border-color 0.2s;}
+  .date-input:focus{border-color:var(--accent);}
+  .date-sep{color:var(--text3);font-size:12px;}
 
   /* ── ブランド選択 ── */
-  .section-title { font-family:'Syne',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.08em; color:var(--text3); text-transform:uppercase; margin-bottom:12px; }
+  .section-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.08em;color:var(--text3);text-transform:uppercase;margin-bottom:10px;}
+  .brand-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .brand-chip{display:flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--border2);border-radius:30px;cursor:pointer;transition:all 0.2s;font-size:13px;color:var(--text2);background:var(--bg2);user-select:none;}
+  .brand-chip:hover{border-color:var(--accent);color:var(--text);}
+  .brand-chip.selected{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);}
+  .brand-chip .check{width:15px;height:15px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;}
+  .brand-chip.selected .check{background:var(--accent);border-color:var(--accent);color:#0f0f11;}
 
-  .brand-grid { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:24px; }
-  .brand-chip {
-    display:flex; align-items:center; gap:8px;
-    padding:8px 16px;
-    border:1px solid var(--border2);
-    border-radius:30px;
-    cursor:pointer;
-    transition:all 0.2s;
-    font-size:13px;
-    color:var(--text2);
-    background:var(--bg2);
-    user-select:none;
-  }
-  .brand-chip:hover { border-color:var(--accent); color:var(--text); }
-  .brand-chip.selected { border-color:var(--accent); color:var(--accent); background:var(--accent-dim); }
-  .brand-chip .check { width:16px; height:16px; border-radius:50%; border:1.5px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:10px; flex-shrink:0; }
-  .brand-chip.selected .check { background:var(--accent); border-color:var(--accent); color:#0f0f11; }
+  .action-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
 
-  .action-bar { display:flex; align-items:center; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
+  /* ── ツールバー ── */
+  .tools-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding:12px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);flex-wrap:wrap;}
+  .tools-label{font-size:12px;color:var(--text3);}
 
   /* ── ローディング ── */
-  .loading-bar { display:none; height:2px; background:linear-gradient(90deg,var(--accent),#6e8fc8,var(--accent)); background-size:200% 100%; animation:loadAnim 1.2s linear infinite; position:fixed; top:0; left:0; right:0; z-index:999; }
-  .loading-bar.active { display:block; }
-  @keyframes loadAnim { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  .loading-bar{display:none;height:2px;background:linear-gradient(90deg,var(--accent),#6e8fc8,var(--accent));background-size:200% 100%;animation:loadAnim 1.2s linear infinite;position:fixed;top:0;left:0;right:0;z-index:999;}
+  .loading-bar.active{display:block;}
+  @keyframes loadAnim{0%{background-position:0%}100%{background-position:200%}}
 
-  /* ── ブランドカード ── */
-  .brands-container { display:flex; flex-direction:column; gap:32px; }
+  /* ── ブランドセクション ── */
+  .brands-container{display:flex;flex-direction:column;gap:28px;}
+  .brand-section{background:var(--bg2);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+  .brand-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .brand-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--accent);}
+  .brand-meta{display:flex;align-items:center;gap:8px;}
+  .cache-badge{font-size:11px;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:2px 8px;}
+  .cache-badge.fresh{color:var(--green);border-color:rgba(126,200,160,0.3);background:var(--green-dim);}
+  .brand-body{padding:20px;}
+  .brand-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:700px){.brand-cols{grid-template-columns:1fr;}}
 
-  .brand-section {
-    background:var(--bg2);
-    border:1px solid var(--border);
-    border-radius:14px;
-    overflow:hidden;
-  }
-  .brand-header {
-    padding:18px 22px;
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:10px;
-  }
-  .brand-name { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; color:var(--accent); }
-  .brand-meta { display:flex; align-items:center; gap:10px; }
-  .cache-badge { font-size:11px; color:var(--text3); background:var(--bg3); border:1px solid var(--border); border-radius:4px; padding:2px 8px; }
-  .cache-badge.fresh { color:#7ec8a0; border-color:rgba(126,200,160,0.3); background:rgba(126,200,160,0.08); }
+  .col-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--text3);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+  .col-title::before{content:'';display:block;width:3px;height:13px;background:var(--accent);border-radius:2px;}
 
-  .brand-body { padding:22px; }
+  /* ── LP カード ── */
+  .lp-cards{display:flex;flex-direction:column;gap:10px;}
+  .lp-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color 0.2s;}
+  .lp-card:hover{border-color:var(--border2);}
+  .lp-thumb{width:100%;height:150px;object-fit:cover;display:block;background:var(--bg4);}
+  .lp-thumb-placeholder{width:100%;height:150px;background:var(--bg4);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:32px;}
+  .lp-info{padding:11px 13px;}
+  .lp-tag{font-size:10px;font-weight:600;letter-spacing:0.06em;color:var(--accent);text-transform:uppercase;margin-bottom:3px;}
+  .lp-title{font-size:13px;font-weight:500;color:var(--text);line-height:1.5;margin-bottom:3px;}
+  .lp-desc{font-size:12px;color:var(--text2);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .lp-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--accent);text-decoration:none;margin-top:7px;}
+  .lp-link:hover{text-decoration:underline;}
 
-  /* ── 2カラムレイアウト ── */
-  .brand-cols { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
-  @media(max-width:700px){ .brand-cols { grid-template-columns:1fr; } }
+  /* ── EC アイテム ── */
+  .ec-items{display:flex;flex-direction:column;gap:8px;}
+  .ec-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);display:flex;gap:12px;align-items:flex-start;padding:11px;transition:border-color 0.2s;}
+  .ec-item:hover{border-color:var(--border2);}
+  .ec-rank{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;color:var(--border2);min-width:26px;line-height:1;}
+  .ec-rank.top3{color:var(--accent);}
+  .ec-thumb{width:60px;height:60px;object-fit:cover;border-radius:6px;flex-shrink:0;background:var(--bg4);}
+  .ec-thumb-placeholder{width:60px;height:60px;border-radius:6px;flex-shrink:0;background:var(--bg4);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:22px;}
+  .ec-info{flex:1;min-width:0;}
+  .ec-cat{font-size:10px;color:var(--text3);margin-bottom:2px;letter-spacing:0.04em;}
+  .ec-name{font-size:13px;font-weight:500;color:var(--text);line-height:1.4;margin-bottom:2px;}
+  .ec-price{font-size:12px;color:var(--accent);font-weight:500;}
+  .ec-link{font-size:11px;color:var(--text3);text-decoration:none;}
+  .ec-link:hover{color:var(--accent);}
 
-  .col-title { font-family:'Syne',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.08em; color:var(--text3); text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:6px; }
-  .col-title::before { content:''; display:block; width:3px; height:14px; background:var(--accent); border-radius:2px; }
+  .brand-loading{padding:40px;text-align:center;color:var(--text3);}
+  .spinner{display:inline-block;width:22px;height:22px;border:2px solid var(--border2);border-top-color:var(--accent);border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:10px;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .empty-col{padding:20px;text-align:center;color:var(--text3);font-size:13px;background:var(--bg3);border-radius:var(--radius);}
+  .no-data{text-align:center;padding:60px 20px;color:var(--text3);}
+  .no-data-icon{font-size:36px;margin-bottom:12px;opacity:0.4;}
+  .no-data-text{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;margin-bottom:6px;}
+  .no-data-sub{font-size:13px;}
 
-  /* ── 新作訴求カード ── */
-  .lp-cards { display:flex; flex-direction:column; gap:10px; }
-  .lp-card {
-    background:var(--bg3);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    overflow:hidden;
-    transition:border-color 0.2s;
-  }
-  .lp-card:hover { border-color:var(--border2); }
-  .lp-thumb {
-    width:100%; height:160px; object-fit:cover;
-    display:block;
-    background:var(--bg4);
-  }
-  .lp-thumb-placeholder {
-    width:100%; height:160px;
-    background:var(--bg4);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--text3); font-size:28px;
-  }
-  .lp-info { padding:12px 14px; }
-  .lp-tag { font-size:10px; font-weight:600; letter-spacing:0.06em; color:var(--accent); text-transform:uppercase; margin-bottom:4px; }
-  .lp-title { font-size:13px; font-weight:500; color:var(--text); line-height:1.5; margin-bottom:4px; }
-  .lp-desc { font-size:12px; color:var(--text2); line-height:1.6; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-  .lp-link { display:inline-flex; align-items:center; gap:4px; font-size:11px; color:var(--accent); text-decoration:none; margin-top:8px; }
-  .lp-link:hover { text-decoration:underline; }
+  /* ── モーダル ── */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:200;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:100%;max-width:780px;padding:32px;position:relative;margin:auto;}
+  .modal-close{position:absolute;top:16px;right:16px;width:28px;height:28px;border:1px solid var(--border2);border-radius:6px;background:transparent;color:var(--text2);cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
+  .modal-close:hover{background:var(--bg3);}
+  .report-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--accent);margin-bottom:4px;}
+  .report-sub{font-size:13px;color:var(--text3);margin-bottom:24px;}
+  .report-section{margin-bottom:24px;}
+  .report-section-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:600;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:14px;}
+  .report-brand-block{background:var(--bg3);border-radius:var(--radius);padding:14px;margin-bottom:10px;}
+  .report-brand-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:8px;}
+  .report-row{display:flex;gap:8px;margin-bottom:4px;font-size:13px;}
+  .report-label{color:var(--text3);min-width:90px;flex-shrink:0;}
+  .report-value{color:var(--text2);}
+  .report-images{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .report-img{width:80px;height:60px;object-fit:cover;border-radius:6px;background:var(--bg4);}
 
-  /* ── EC売れ筋 ── */
-  .ec-items { display:flex; flex-direction:column; gap:10px; }
-  .ec-item {
-    background:var(--bg3);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-    padding:12px;
-    transition:border-color 0.2s;
-  }
-  .ec-item:hover { border-color:var(--border2); }
-  .ec-rank { font-family:'Syne',sans-serif; font-size:18px; font-weight:700; color:var(--border2); min-width:28px; line-height:1; }
-  .ec-rank.top3 { color:var(--accent); }
-  .ec-thumb {
-    width:64px; height:64px; object-fit:cover;
-    border-radius:6px; flex-shrink:0;
-    background:var(--bg4);
-  }
-  .ec-thumb-placeholder {
-    width:64px; height:64px;
-    border-radius:6px; flex-shrink:0;
-    background:var(--bg4);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--text3); font-size:20px;
-  }
-  .ec-info { flex:1; min-width:0; }
-  .ec-cat { font-size:10px; color:var(--text3); margin-bottom:2px; letter-spacing:0.04em; }
-  .ec-name { font-size:13px; font-weight:500; color:var(--text); line-height:1.5; margin-bottom:2px; }
-  .ec-price { font-size:12px; color:var(--accent); font-weight:500; }
-  .ec-link { font-size:11px; color:var(--text3); text-decoration:none; }
-  .ec-link:hover { color:var(--accent); }
+  /* ── 設定 ── */
+  .settings-panel{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.72);z-index:200;align-items:center;justify-content:center;padding:20px;}
+  .settings-panel.open{display:flex;}
+  .settings-box{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;width:100%;max-width:480px;padding:28px;position:relative;}
+  .settings-title{font-family:'Syne',sans-serif;font-size:17px;font-weight:700;margin-bottom:20px;color:var(--accent);}
+  .form-group{margin-bottom:18px;}
+  .form-label{font-size:12px;color:var(--text3);margin-bottom:6px;display:block;letter-spacing:0.04em;text-transform:uppercase;}
+  .form-input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text);font-family:'Noto Sans JP',sans-serif;font-size:13px;padding:9px 12px;outline:none;transition:border-color 0.2s;}
+  .form-input:focus{border-color:var(--accent);}
+  .form-hint{font-size:11px;color:var(--text3);margin-top:4px;}
 
-  /* ── 空・ローディング状態 ── */
-  .brand-loading { padding:40px; text-align:center; color:var(--text3); }
-  .brand-loading .spinner { display:inline-block; width:24px; height:24px; border:2px solid var(--border2); border-top-color:var(--accent); border-radius:50%; animation:spin 0.8s linear infinite; margin-bottom:10px; }
-  @keyframes spin { to { transform:rotate(360deg); } }
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--bg3);border:1px solid var(--border2);border-radius:var(--radius);padding:10px 18px;font-size:13px;color:var(--text);z-index:999;opacity:0;transition:opacity 0.3s;pointer-events:none;white-space:nowrap;}
+  .toast.show{opacity:1;}
 
-  .empty-col { padding:24px; text-align:center; color:var(--text3); font-size:13px; background:var(--bg3); border-radius:var(--radius); }
-
-  /* ── CSVエクスポート・レポート ── */
-  .tools-bar { display:flex; align-items:center; gap:10px; margin-bottom:24px; padding:14px 18px; background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); flex-wrap:wrap; }
-  .tools-label { font-size:12px; color:var(--text3); margin-right:4px; }
-
-  /* ── レポートモーダル ── */
-  .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:200; align-items:flex-start; justify-content:center; padding:40px 20px; overflow-y:auto; }
-  .modal-overlay.open { display:flex; }
-  .modal { background:var(--bg2); border:1px solid var(--border2); border-radius:14px; width:100%; max-width:760px; padding:32px; position:relative; margin:auto; }
-  .modal-close { position:absolute; top:16px; right:16px; width:28px; height:28px; border:1px solid var(--border2); border-radius:6px; background:transparent; color:var(--text2); cursor:pointer; font-size:16px; display:flex; align-items:center; justify-content:center; }
-  .modal-close:hover { background:var(--bg3); }
-  .report-title { font-family:'Syne',sans-serif; font-size:22px; font-weight:700; color:var(--accent); margin-bottom:6px; }
-  .report-subtitle { font-size:13px; color:var(--text3); margin-bottom:24px; }
-  .report-section { margin-bottom:24px; }
-  .report-section-title { font-family:'Syne',sans-serif; font-size:14px; font-weight:600; color:var(--text); border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:14px; }
-  .report-brand-block { background:var(--bg3); border-radius:var(--radius); padding:16px; margin-bottom:12px; }
-  .report-brand-name { font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:var(--accent); margin-bottom:8px; }
-  .report-row { display:flex; gap:8px; margin-bottom:4px; font-size:13px; }
-  .report-label { color:var(--text3); min-width:80px; flex-shrink:0; }
-  .report-value { color:var(--text2); }
-  .report-images { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
-  .report-img { width:80px; height:60px; object-fit:cover; border-radius:6px; background:var(--bg4); }
-  .report-img-placeholder { width:80px; height:60px; border-radius:6px; background:var(--bg4); display:flex; align-items:center; justify-content:center; color:var(--text3); font-size:16px; }
-
-  /* ── 設定パネル ── */
-  .settings-panel { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:200; align-items:center; justify-content:center; padding:20px; }
-  .settings-panel.open { display:flex; }
-  .settings-box { background:var(--bg2); border:1px solid var(--border2); border-radius:14px; width:100%; max-width:480px; padding:28px; position:relative; }
-  .settings-title { font-family:'Syne',sans-serif; font-size:17px; font-weight:700; margin-bottom:20px; color:var(--accent); }
-  .form-group { margin-bottom:18px; }
-  .form-label { font-size:12px; color:var(--text3); margin-bottom:6px; display:block; letter-spacing:0.04em; text-transform:uppercase; }
-  .form-input { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:var(--radius-sm); color:var(--text); font-family:'Noto Sans JP',sans-serif; font-size:13px; padding:9px 12px; outline:none; transition:border-color 0.2s; }
-  .form-input:focus { border-color:var(--accent); }
-  .form-hint { font-size:11px; color:var(--text3); margin-top:4px; }
-
-  .toast { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); background:var(--bg3); border:1px solid var(--border2); border-radius:var(--radius); padding:10px 18px; font-size:13px; color:var(--text); z-index:999; opacity:0; transition:opacity 0.3s; pointer-events:none; white-space:nowrap; }
-  .toast.show { opacity:1; }
-
-  @media(max-width:640px){
-    header { padding:0 16px; }
-    .main-wrap { padding:16px 12px 60px; }
-  }
+  @media(max-width:640px){header{padding:0 16px;}.main-wrap{padding:16px 12px 60px;}}
 </style>
 </head>
 <body>
@@ -229,55 +171,75 @@
 
 <header>
   <div class="logo">COMPETITOR WATCH <span>競合分析ツール</span></div>
-  <div class="header-right">
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="btn btn-ghost btn-sm" onclick="toggleDemoMode()" id="demoBtn">👁 デモ表示</button>
     <button class="btn btn-ghost" id="settingsBtn">⚙ 設定</button>
   </div>
 </header>
 
 <div class="main-wrap">
 
+  <!-- フィルターブロック -->
+  <div class="filter-block">
+    <div class="filter-row">
+      <span class="filter-label">シーズン</span>
+      <div class="season-tabs" id="seasonTabs"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">カテゴリ</span>
+      <div class="cat-tabs" id="catTabs"></div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">取得日</span>
+      <div class="date-inputs">
+        <input type="date" class="date-input" id="dateFrom" onchange="applyFilters()">
+        <span class="date-sep">〜</span>
+        <input type="date" class="date-input" id="dateTo" onchange="applyFilters()">
+        <button class="btn btn-ghost btn-sm" onclick="clearDateFilter()">クリア</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ブランド選択 -->
   <div class="section-title">分析するブランドを選択</div>
   <div class="brand-grid" id="brandGrid"></div>
-
-  <!-- アクションバー -->
   <div class="action-bar">
     <button class="btn btn-primary" id="fetchBtn" onclick="fetchSelected()">▶ 選択ブランドを取得</button>
-    <button class="btn btn-ghost" onclick="selectAll()">全選択</button>
-    <button class="btn btn-ghost" onclick="selectNone()">全解除</button>
+    <button class="btn btn-ghost btn-sm" onclick="selectAll()">全選択</button>
+    <button class="btn btn-ghost btn-sm" onclick="selectNone()">全解除</button>
   </div>
 
-  <!-- ツールバー（エクスポート・レポート） -->
+  <!-- ツールバー -->
   <div class="tools-bar" id="toolsBar" style="display:none">
-    <span class="tools-label">データ操作：</span>
+    <span class="tools-label">操作：</span>
     <button class="btn btn-ghost btn-sm" onclick="exportCSV()">↓ CSVエクスポート</button>
-    <button class="btn btn-ghost btn-sm" onclick="generateReport()">📊 シーズンレポート生成</button>
-    <button class="btn btn-danger btn-sm" onclick="clearAllData()">✕ データをクリア</button>
+    <button class="btn btn-ghost btn-sm" onclick="generateReport()">📊 シーズンレポート</button>
+    <button class="btn btn-danger btn-sm" onclick="clearAllData()">✕ 全データ削除</button>
   </div>
 
-  <!-- ブランドデータ表示エリア -->
+  <!-- 表示エリア -->
   <div class="brands-container" id="brandsContainer"></div>
 
 </div>
 
 <!-- レポートモーダル -->
-<div class="modal-overlay" id="reportModal" onclick="closeReport(event)">
+<div class="modal-overlay" id="reportModal" onclick="closeModal('reportModal',event)">
   <div class="modal">
-    <button class="modal-close" onclick="closeReport()">✕</button>
+    <button class="modal-close" onclick="closeModal('reportModal')">✕</button>
     <div class="report-title" id="reportTitle"></div>
-    <div class="report-subtitle" id="reportSubtitle"></div>
+    <div class="report-sub" id="reportSub"></div>
     <div id="reportContent"></div>
-    <div style="margin-top:20px;display:flex;gap:10px">
-      <button class="btn btn-ghost btn-sm" onclick="printReport()">🖨 印刷</button>
-      <button class="btn btn-ghost btn-sm" onclick="closeReport()">閉じる</button>
+    <div style="margin-top:20px;display:flex;gap:10px;">
+      <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 印刷</button>
+      <button class="btn btn-ghost btn-sm" onclick="closeModal('reportModal')">閉じる</button>
     </div>
   </div>
 </div>
 
 <!-- 設定パネル -->
-<div class="settings-panel" id="settingsPanel" onclick="closeSettings(event)">
+<div class="settings-panel" id="settingsPanel" onclick="closeModal('settingsPanel',event)">
   <div class="settings-box">
-    <button class="modal-close" onclick="closeSettings()">✕</button>
+    <button class="modal-close" onclick="closeModal('settingsPanel')">✕</button>
     <div class="settings-title">設定</div>
     <div class="form-group">
       <label class="form-label">Worker URL</label>
@@ -286,7 +248,7 @@
     </div>
     <div style="display:flex;gap:10px;margin-top:4px">
       <button class="btn btn-primary" onclick="saveSettings()">保存</button>
-      <button class="btn btn-ghost" onclick="closeSettings()">キャンセル</button>
+      <button class="btn btn-ghost" onclick="closeModal('settingsPanel')">キャンセル</button>
     </div>
   </div>
 </div>
@@ -295,77 +257,298 @@
 
 <script>
 // ======================================================
-// 定数・設定
+// 定数
 // ======================================================
 const BRANDS = [
-  { id:'aoki',      name:'AOKI',        url:'https://www.aoki-style.com' },
-  { id:'aoyama',    name:'洋服の青山',   url:'https://www.y-aoyama.jp' },
-  { id:'suitselect',name:'SUIT SELECT', url:'https://www.suit-select.jp' },
-  { id:'suitsquare',name:'SUIT SQUARE', url:'https://www.suitsquare.jp' },
-  { id:'orihica',   name:'ORIHICA',     url:'https://www.orihica.com' },
+  { id:'aoki',       name:'AOKI',        url:'https://www.aoki-style.com' },
+  { id:'aoyama',     name:'洋服の青山',   url:'https://www.y-aoyama.jp' },
+  { id:'suitselect', name:'SUIT SELECT', url:'https://www.suit-select.jp' },
+  { id:'suitsquare', name:'SUIT SQUARE', url:'https://www.suitsquare.jp' },
+  { id:'orihica',    name:'ORIHICA',     url:'https://www.orihica.com' },
 ];
 
-const STORAGE_KEY  = 'competitor_data_v1';
+const CATEGORIES = ['ALL','スーツ','ジャケット','パンツ','シャツ','その他'];
 const SETTINGS_KEY = 'competitor_settings_v1';
-const CACHE_DAYS   = 20;
+const DB_NAME = 'CompetitorDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'records';
 
-let data = {};         // { brandId: { fetchedAt, lp:[], ec:[] } }
+// ダミーデータ（デモ用）
+const DEMO_DATA = {
+  aoki: {
+    fetchedAt: new Date().toISOString(),
+    lp: [
+      { tag:'2026春夏新作', title:'AOKI 春の新作スーツコレクション', desc:'軽量ストレッチ素材を使用した春夏向けスーツ。ビジカジ対応で着回し力が高い。', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=200&fit=crop' },
+      { tag:'機能性特集', title:'パジャマスーツ 快適着心地シリーズ', desc:'自宅で洗える・動きやすい・シワになりにくい。3拍子揃った機能性スーツ特集。', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1594938298603-c8148c4b4a8e?w=400&h=200&fit=crop' },
+    ],
+    ec: [
+      { rank:1, category:'スーツ', name:'パジャマスーツ ストレッチ 2つボタン', price:'¥29,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop' },
+      { rank:2, category:'スーツ', name:'金のスーツ プレミアムウール', price:'¥59,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=100&h=100&fit=crop' },
+      { rank:3, category:'ジャケット', name:'ストレッチテーラードジャケット', price:'¥19,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&h=100&fit=crop' },
+      { rank:4, category:'パンツ', name:'イージーケア スラックス', price:'¥9,900', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop' },
+      { rank:5, category:'シャツ', name:'形態安定 ワイシャツ', price:'¥3,990', url:'https://www.aoki-style.com', imageUrl:'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=100&h=100&fit=crop' },
+    ]
+  },
+  aoyama: {
+    fetchedAt: new Date(Date.now() - 3*24*60*60*1000).toISOString(),
+    lp: [
+      { tag:'みんなのスーツ', title:'発売3ヶ月で2万着突破！みんなのスーツ', desc:'業界慣習を覆す設計で若者・中高年を取り込んだ異例のヒット。ネクタイ着用に似合う最新スーツ。', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=200&fit=crop' },
+      { tag:'オーダー特集', title:'Quality Order SHITATE 春の新作生地', desc:'全店舗導入のオーダーブランドに2026春夏新作生地が登場。3万円台から対応。', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1512353087810-25dfcd100962?w=400&h=200&fit=crop' },
+    ],
+    ec: [
+      { rank:1, category:'スーツ', name:'みんなのスーツ ネイビー無地', price:'¥29,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop' },
+      { rank:2, category:'スーツ', name:'ゼロプレッシャースーツ 春夏版', price:'¥9,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1594938298603-c8148c4b4a8e?w=100&h=100&fit=crop' },
+      { rank:3, category:'スーツ', name:'サビルロウ ウール100% 2つボタン', price:'¥79,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=100&h=100&fit=crop' },
+      { rank:4, category:'ジャケット', name:'洗えるジャケット ストレッチ', price:'¥14,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=100&h=100&fit=crop' },
+      { rank:5, category:'パンツ', name:'ノータック スリムスラックス', price:'¥7,800', url:'https://www.y-aoyama.jp', imageUrl:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=100&h=100&fit=crop' },
+    ]
+  },
+};
+
+// ======================================================
+// 状態
+// ======================================================
+let db = null;
+let allRecords = [];
 let selectedBrands = new Set(BRANDS.map(b => b.id));
+let currentSeason = 'ALL';
+let currentCat = 'ALL';
+let demoMode = false;
 
 // ======================================================
-// 初期化
+// IndexedDB
 // ======================================================
-function init() {
-  loadData();
-  loadSettings();
-  renderBrandGrid();
-  renderBrandsContainer();
-  updateToolsBar();
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(DB_NAME, DB_VERSION);
+    req.onupgradeneeded = e => {
+      const d = e.target.result;
+      if (!d.objectStoreNames.contains(STORE_NAME)) {
+        const store = d.createObjectStore(STORE_NAME, { keyPath: 'key' });
+        store.createIndex('brandId', 'brandId', { unique: false });
+        store.createIndex('fetchedAt', 'fetchedAt', { unique: false });
+      }
+    };
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = () => reject(req.error);
+  });
 }
 
-function loadData() {
-  try { const r = localStorage.getItem(STORAGE_KEY); if (r) data = JSON.parse(r); } catch(e) { data = {}; }
-}
-function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
-
-function loadSettings() {
-  try {
-    const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-    if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
-  } catch(e) {}
+async function saveRecord(brandId, fetchedAt, lp, ec) {
+  const key = `${brandId}_${fetchedAt}`;
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  tx.objectStore(STORE_NAME).put({ key, brandId, fetchedAt, lp, ec });
+  return new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
 }
 
-function saveSettings() {
-  const workerUrl = document.getElementById('workerUrlInput').value.trim();
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ workerUrl }));
-  showToast('設定を保存しました');
-  closeSettings();
+async function loadAllRecords() {
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction(STORE_NAME, 'readonly');
+    const req = tx.objectStore(STORE_NAME).getAll();
+    req.onsuccess = () => resolve(req.result);
+    req.onerror = () => reject(req.error);
+  });
 }
 
-function getWorkerUrl() {
-  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}').workerUrl || ''; } catch(e) { return ''; }
+async function deleteRecord(key) {
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  tx.objectStore(STORE_NAME).delete(key);
+  return new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
+}
+
+async function clearDB() {
+  const tx = db.transaction(STORE_NAME, 'readwrite');
+  tx.objectStore(STORE_NAME).clear();
+  return new Promise((res, rej) => { tx.oncomplete = res; tx.onerror = rej; });
 }
 
 // ======================================================
-// ブランド選択UI
+// シーズン判定
 // ======================================================
+function getSeason(dateStr) {
+  const d = new Date(dateStr);
+  const m = d.getMonth() + 1;
+  const y = d.getFullYear();
+  if (m >= 3 && m <= 8) return `${y}春夏`;
+  if (m >= 9) return `${y}秋冬`;
+  return `${y-1}秋冬`;
+}
+
+function getSeasonOptions() {
+  const seasons = new Set(['ALL']);
+  allRecords.forEach(r => seasons.add(getSeason(r.fetchedAt)));
+  return ['ALL', ...Array.from(seasons).filter(s => s !== 'ALL').sort().reverse()];
+}
+
+// ======================================================
+// フィルタリング
+// ======================================================
+function getFilteredRecords() {
+  const records = demoMode
+    ? Object.entries(DEMO_DATA).map(([brandId, d]) => ({ key: brandId, brandId, ...d }))
+    : allRecords;
+
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+
+  // ブランドごとに最新レコードをまとめる
+  const byBrand = {};
+  records.forEach(r => {
+    if (!byBrand[r.brandId] || r.fetchedAt > byBrand[r.brandId].fetchedAt) {
+      byBrand[r.brandId] = r;
+    }
+  });
+
+  return BRANDS
+    .filter(b => {
+      const r = byBrand[b.id];
+      if (!r) return false;
+      if (currentSeason !== 'ALL' && getSeason(r.fetchedAt) !== currentSeason) return false;
+      if (from && r.fetchedAt < from) return false;
+      if (to && r.fetchedAt.slice(0,10) > to) return false;
+      return true;
+    })
+    .map(b => ({ brand: b, record: byBrand[b.id] }));
+}
+
+function filterEC(ecList) {
+  if (currentCat === 'ALL') return ecList;
+  return ecList.filter(item => (item.category || '').includes(currentCat));
+}
+
+// ======================================================
+// UI描画
+// ======================================================
+function renderSeasonTabs() {
+  const options = demoMode
+    ? ['ALL', getSeason(new Date().toISOString())]
+    : getSeasonOptions();
+  document.getElementById('seasonTabs').innerHTML = options.map(s => `
+    <button class="season-tab ${currentSeason===s?'active':''}" onclick="setSeason('${s}')">${s}</button>
+  `).join('');
+}
+
+function renderCatTabs() {
+  document.getElementById('catTabs').innerHTML = CATEGORIES.map(c => `
+    <button class="cat-tab ${currentCat===c?'active':''}" onclick="setCat('${c}')">${c}</button>
+  `).join('');
+}
+
 function renderBrandGrid() {
-  const grid = document.getElementById('brandGrid');
-  grid.innerHTML = BRANDS.map(b => `
-    <div class="brand-chip ${selectedBrands.has(b.id) ? 'selected' : ''}" onclick="toggleBrand('${b.id}')">
-      <div class="check">${selectedBrands.has(b.id) ? '✓' : ''}</div>
+  document.getElementById('brandGrid').innerHTML = BRANDS.map(b => `
+    <div class="brand-chip ${selectedBrands.has(b.id)?'selected':''}" onclick="toggleBrand('${b.id}')">
+      <div class="check">${selectedBrands.has(b.id)?'✓':''}</div>
       ${b.name}
     </div>
   `).join('');
 }
 
-function toggleBrand(id) {
-  if (selectedBrands.has(id)) selectedBrands.delete(id);
-  else selectedBrands.add(id);
-  renderBrandGrid();
+function renderBrandsContainer() {
+  const container = document.getElementById('brandsContainer');
+  const filtered = getFilteredRecords();
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="no-data">
+        <div class="no-data-icon">📊</div>
+        <div class="no-data-text">データがありません</div>
+        <div class="no-data-sub">ブランドを選択して「取得」ボタンを押してください<br>または「デモ表示」でサンプルを確認できます</div>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = '';
+  filtered.forEach(({ brand, record }) => {
+    const el = document.createElement('div');
+    el.className = 'brand-section';
+    el.id = `brand-${brand.id}`;
+
+    const fetchedAt = new Date(record.fetchedAt);
+    const daysAgo = Math.floor((Date.now() - fetchedAt.getTime()) / (1000*60*60*24));
+    const isFresh = daysAgo < 7;
+    const dateStr = fetchedAt.toLocaleDateString('ja-JP');
+    const ecFiltered = filterEC(record.ec || []);
+
+    el.innerHTML = `
+      <div class="brand-header">
+        <div class="brand-name">${brand.name}</div>
+        <div class="brand-meta">
+          <span class="cache-badge ${isFresh?'fresh':''}">${isFresh?'✓ ':''}取得: ${dateStr}</span>
+          ${!demoMode ? `
+            <button class="btn btn-ghost btn-sm" onclick="refetchBrand('${brand.id}')">↻ 再取得</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteBrandData('${brand.id}')">✕</button>
+          ` : ''}
+        </div>
+      </div>
+      <div class="brand-body">
+        <div class="brand-cols">
+          <div>
+            <div class="col-title">新作訴求 / LP</div>
+            <div class="lp-cards">
+              ${(record.lp||[]).length > 0 ? (record.lp||[]).map(item => `
+                <div class="lp-card">
+                  ${item.imageUrl
+                    ? `<img class="lp-thumb" src="${h(item.imageUrl)}" alt="${h(item.title||'')}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+                    : ''}
+                  <div class="lp-thumb-placeholder" style="${item.imageUrl?'display:none':''}">🏷</div>
+                  <div class="lp-info">
+                    <div class="lp-tag">${h(item.tag||'')}</div>
+                    <div class="lp-title">${h(item.title||'')}</div>
+                    <div class="lp-desc">${h(item.desc||'')}</div>
+                    ${item.url ? `<a class="lp-link" href="${h(item.url)}" target="_blank" rel="noopener">詳細を見る ↗</a>` : ''}
+                  </div>
+                </div>
+              `).join('') : '<div class="empty-col">データなし</div>'}
+            </div>
+          </div>
+          <div>
+            <div class="col-title">EC 売れ筋${currentCat!=='ALL'?' — '+currentCat:''}</div>
+            <div class="ec-items">
+              ${ecFiltered.length > 0 ? ecFiltered.map((item, i) => `
+                <div class="ec-item">
+                  <div class="ec-rank ${i<3?'top3':''}">${i+1}</div>
+                  ${item.imageUrl
+                    ? `<img class="ec-thumb" src="${h(item.imageUrl)}" alt="${h(item.name||'')}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+                    : ''}
+                  <div class="ec-thumb-placeholder" style="${item.imageUrl?'display:none':''}">👔</div>
+                  <div class="ec-info">
+                    <div class="ec-cat">${h(item.category||'')}</div>
+                    <div class="ec-name">${h(item.name||'')}</div>
+                    <div class="ec-price">${h(item.price||'')}</div>
+                    ${item.url ? `<a class="ec-link" href="${h(item.url)}" target="_blank" rel="noopener">↗</a>` : ''}
+                  </div>
+                </div>
+              `).join('') : '<div class="empty-col">該当なし</div>'}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(el);
+  });
 }
 
-function selectAll() { BRANDS.forEach(b => selectedBrands.add(b.id)); renderBrandGrid(); }
+function updateToolsBar() {
+  document.getElementById('toolsBar').style.display = (!demoMode && allRecords.length > 0) ? 'flex' : 'none';
+}
+
+// ======================================================
+// フィルター操作
+// ======================================================
+function setSeason(s) { currentSeason = s; renderSeasonTabs(); renderBrandsContainer(); }
+function setCat(c)    { currentCat = c; renderCatTabs(); renderBrandsContainer(); }
+function applyFilters() { renderBrandsContainer(); }
+function clearDateFilter() {
+  document.getElementById('dateFrom').value = '';
+  document.getElementById('dateTo').value = '';
+  renderBrandsContainer();
+}
+
+// ======================================================
+// ブランド選択
+// ======================================================
+function toggleBrand(id) { selectedBrands.has(id) ? selectedBrands.delete(id) : selectedBrands.add(id); renderBrandGrid(); }
+function selectAll()  { BRANDS.forEach(b => selectedBrands.add(b.id)); renderBrandGrid(); }
 function selectNone() { selectedBrands.clear(); renderBrandGrid(); }
 
 // ======================================================
@@ -373,7 +556,6 @@ function selectNone() { selectedBrands.clear(); renderBrandGrid(); }
 // ======================================================
 async function fetchSelected() {
   if (selectedBrands.size === 0) { showToast('ブランドを選択してください'); return; }
-
   const workerUrl = getWorkerUrl();
   if (!workerUrl) { document.getElementById('settingsPanel').classList.add('open'); showToast('Worker URLを設定してください'); return; }
 
@@ -386,10 +568,6 @@ async function fetchSelected() {
 
   for (const brand of targets) {
     btn.textContent = `取得中... ${brand.name}`;
-
-    // ローディング表示
-    renderBrandLoading(brand.id, brand.name);
-
     try {
       const prompt = `「${brand.name}」（${brand.url}）のECサイト・LPを調査してください。
 
@@ -402,22 +580,22 @@ async function fetchSelected() {
       "title": "LPや特集ページのタイトル",
       "desc": "訴求内容の説明（100字以内）",
       "url": "ページURL",
-      "imageUrl": "OGP画像またはサムネイルURL（取得できれば）"
+      "imageUrl": "OGP画像またはサムネイルURL（取得できれば。なければ空文字）"
     }
   ],
   "ec": [
     {
       "rank": 1,
-      "category": "カテゴリ（スーツ/ジャケット/パンツ/シャツ等）",
+      "category": "カテゴリ（スーツ/ジャケット/パンツ/シャツ/その他）",
       "name": "商品名",
       "price": "価格（例：¥29,900）",
       "url": "商品ページURL",
-      "imageUrl": "商品画像URL（取得できれば）"
+      "imageUrl": "商品画像URL（取得できれば。なければ空文字）"
     }
   ]
 }
 
-lpは新作訴求・特集ページを最大3件、ecはEC売れ筋・人気商品を最大5件取得してください。`;
+lpは新作訴求・特集ページを最大3件、ecはEC売れ筋・人気商品を最大5件。`;
 
       const res = await fetch(workerUrl, {
         method: 'POST',
@@ -432,169 +610,64 @@ lpは新作訴求・特集ページを最大3件、ecはEC売れ筋・人気商�
 
       const result = await res.json();
       const text = (result.content || []).filter(b => b.type === 'text').map(b => b.text).join('');
-      const match = text.replace(/```json|```/g, '').trim().match(/\{[\s\S]*\}/);
+      const match = text.replace(/```json|```/g,'').trim().match(/\{[\s\S]*\}/);
 
       if (match) {
         const parsed = JSON.parse(match[0]);
-        data[brand.id] = {
-          fetchedAt: new Date().toISOString(),
-          lp: parsed.lp || [],
-          ec: parsed.ec || [],
-        };
-        saveData();
-        renderBrandSection(brand.id);
-      } else {
-        renderBrandError(brand.id, brand.name);
+        const fetchedAt = new Date().toISOString();
+        await saveRecord(brand.id, fetchedAt, parsed.lp || [], parsed.ec || []);
       }
-    } catch(e) {
-      console.error(brand.name, e);
-      renderBrandError(brand.id, brand.name);
-    }
+    } catch(e) { console.error(brand.name, e); showToast(`${brand.name}の取得に失敗しました`); }
   }
 
+  allRecords = await loadAllRecords();
   btn.disabled = false;
   btn.textContent = '▶ 選択ブランドを取得';
   bar.classList.remove('active');
+  renderSeasonTabs();
+  renderBrandsContainer();
   updateToolsBar();
   showToast('取得完了しました');
 }
 
-// ======================================================
-// 表示
-// ======================================================
-function renderBrandsContainer() {
-  const container = document.getElementById('brandsContainer');
-  const hasData = Object.keys(data).length > 0;
-  if (!hasData) { container.innerHTML = ''; return; }
-
-  BRANDS.forEach(b => {
-    if (data[b.id]) renderBrandSection(b.id);
-  });
-}
-
-function renderBrandLoading(brandId, brandName) {
-  const container = document.getElementById('brandsContainer');
-  let el = document.getElementById(`brand-${brandId}`);
-  if (!el) {
-    el = document.createElement('div');
-    el.id = `brand-${brandId}`;
-    el.className = 'brand-section';
-    container.appendChild(el);
-  }
-  el.innerHTML = `
-    <div class="brand-header">
-      <div class="brand-name">${brandName}</div>
-    </div>
-    <div class="brand-loading">
-      <div class="spinner"></div>
-      <div>データを取得中...</div>
-    </div>
-  `;
-}
-
-function renderBrandError(brandId, brandName) {
-  const el = document.getElementById(`brand-${brandId}`);
-  if (!el) return;
-  el.innerHTML = `
-    <div class="brand-header">
-      <div class="brand-name">${brandName}</div>
-    </div>
-    <div class="brand-loading" style="color:var(--red)">取得に失敗しました。再度お試しください。</div>
-  `;
-}
-
-function renderBrandSection(brandId) {
-  const brand = BRANDS.find(b => b.id === brandId);
-  const d = data[brandId];
-  if (!brand || !d) return;
-
-  const container = document.getElementById('brandsContainer');
-  let el = document.getElementById(`brand-${brandId}`);
-  if (!el) {
-    el = document.createElement('div');
-    el.id = `brand-${brandId}`;
-    el.className = 'brand-section';
-    container.appendChild(el);
-  }
-
-  const fetchedAt = new Date(d.fetchedAt);
-  const daysAgo = Math.floor((Date.now() - fetchedAt.getTime()) / (1000 * 60 * 60 * 24));
-  const isFresh = daysAgo < 7;
-  const dateStr = fetchedAt.toLocaleDateString('ja-JP');
-
-  el.innerHTML = `
-    <div class="brand-header">
-      <div class="brand-name">${brand.name}</div>
-      <div class="brand-meta">
-        <span class="cache-badge ${isFresh ? 'fresh' : ''}">${isFresh ? '✓ ' : ''}取得: ${dateStr}</span>
-        <button class="btn btn-ghost btn-sm" onclick="refetchBrand('${brandId}')">↻ 再取得</button>
-        <button class="btn btn-danger btn-sm" onclick="deleteBrand('${brandId}')">✕</button>
-      </div>
-    </div>
-    <div class="brand-body">
-      <div class="brand-cols">
-        <div>
-          <div class="col-title">新作訴求 / LP</div>
-          <div class="lp-cards">
-            ${d.lp.length > 0 ? d.lp.map(item => `
-              <div class="lp-card">
-                ${item.imageUrl
-                  ? `<img class="lp-thumb" src="${h(item.imageUrl)}" alt="${h(item.title)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-                  : ''}
-                <div class="lp-thumb-placeholder" style="${item.imageUrl ? 'display:none' : ''}">🏷</div>
-                <div class="lp-info">
-                  <div class="lp-tag">${h(item.tag || '')}</div>
-                  <div class="lp-title">${h(item.title || '')}</div>
-                  <div class="lp-desc">${h(item.desc || '')}</div>
-                  ${item.url ? `<a class="lp-link" href="${h(item.url)}" target="_blank" rel="noopener">詳細を見る ↗</a>` : ''}
-                </div>
-              </div>
-            `).join('') : '<div class="empty-col">データなし</div>'}
-          </div>
-        </div>
-        <div>
-          <div class="col-title">EC 売れ筋</div>
-          <div class="ec-items">
-            ${d.ec.length > 0 ? d.ec.map((item, i) => `
-              <div class="ec-item">
-                <div class="ec-rank ${i < 3 ? 'top3' : ''}">${i + 1}</div>
-                ${item.imageUrl
-                  ? `<img class="ec-thumb" src="${h(item.imageUrl)}" alt="${h(item.name)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-                  : ''}
-                <div class="ec-thumb-placeholder" style="${item.imageUrl ? 'display:none' : ''}">👔</div>
-                <div class="ec-info">
-                  <div class="ec-cat">${h(item.category || '')}</div>
-                  <div class="ec-name">${h(item.name || '')}</div>
-                  <div class="ec-price">${h(item.price || '')}</div>
-                  ${item.url ? `<a class="ec-link" href="${h(item.url)}" target="_blank" rel="noopener">↗ 商品ページ</a>` : ''}
-                </div>
-              </div>
-            `).join('') : '<div class="empty-col">データなし</div>'}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
 async function refetchBrand(brandId) {
-  selectedBrands.clear();
-  selectedBrands.add(brandId);
+  selectedBrands = new Set([brandId]);
   renderBrandGrid();
   await fetchSelected();
+  selectedBrands = new Set(BRANDS.map(b => b.id));
+  renderBrandGrid();
 }
 
-function deleteBrand(brandId) {
-  delete data[brandId];
-  saveData();
-  const el = document.getElementById(`brand-${brandId}`);
-  if (el) el.remove();
+async function deleteBrandData(brandId) {
+  const targets = allRecords.filter(r => r.brandId === brandId);
+  for (const r of targets) await deleteRecord(r.key);
+  allRecords = await loadAllRecords();
+  renderSeasonTabs();
+  renderBrandsContainer();
   updateToolsBar();
   showToast('削除しました');
 }
 
-function updateToolsBar() {
-  document.getElementById('toolsBar').style.display = Object.keys(data).length > 0 ? 'flex' : 'none';
+async function clearAllData() {
+  if (!confirm('全ブランドのデータを削除しますか？')) return;
+  await clearDB();
+  allRecords = [];
+  renderSeasonTabs();
+  renderBrandsContainer();
+  updateToolsBar();
+  showToast('全データを削除しました');
+}
+
+// ======================================================
+// デモモード
+// ======================================================
+function toggleDemoMode() {
+  demoMode = !demoMode;
+  document.getElementById('demoBtn').classList.toggle('active', demoMode);
+  document.getElementById('demoBtn').textContent = demoMode ? '👁 デモ非表示' : '👁 デモ表示';
+  renderSeasonTabs();
+  renderBrandsContainer();
+  updateToolsBar();
 }
 
 // ======================================================
@@ -602,24 +675,15 @@ function updateToolsBar() {
 // ======================================================
 function exportCSV() {
   const now = new Date();
-  const season = now.getMonth() >= 8 ? `${now.getFullYear()}秋冬` : `${now.getFullYear()}春夏`;
-  const rows = [['シーズン','ブランド','種別','カテゴリ/タグ','商品名/タイトル','価格','URL','取得日']];
-
-  BRANDS.forEach(b => {
-    const d2 = data[b.id];
-    if (!d2) return;
-    const date = new Date(d2.fetchedAt).toLocaleDateString('ja-JP');
-    d2.lp.forEach(item => {
-      rows.push([season, b.name, 'LP/特集', item.tag || '', item.title || '', '', item.url || '', date]);
-    });
-    d2.ec.forEach(item => {
-      rows.push([season, b.name, 'EC売れ筋', item.category || '', item.name || '', item.price || '', item.url || '', date]);
-    });
+  const rows = [['シーズン','ブランド','種別','カテゴリ/タグ','商品名/タイトル','説明','価格','URL','取得日']];
+  getFilteredRecords().forEach(({ brand, record }) => {
+    const season = getSeason(record.fetchedAt);
+    const date = new Date(record.fetchedAt).toLocaleDateString('ja-JP');
+    (record.lp||[]).forEach(i => rows.push([season, brand.name, 'LP/特集', i.tag||'', i.title||'', i.desc||'', '', i.url||'', date]));
+    filterEC(record.ec||[]).forEach(i => rows.push([season, brand.name, 'EC売れ筋', i.category||'', i.name||'', '', i.price||'', i.url||'', date]));
   });
-
   const csv = rows.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
-  const bom = '\uFEFF';
-  const blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8' });
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = `competitor_${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}.csv`;
@@ -628,61 +692,47 @@ function exportCSV() {
 }
 
 // ======================================================
-// シーズンレポート生成
+// レポート生成
 // ======================================================
 function generateReport() {
-  const hasBrands = BRANDS.filter(b => data[b.id]);
-  if (hasBrands.length === 0) { showToast('データがありません'); return; }
+  const filtered = getFilteredRecords();
+  if (filtered.length === 0) { showToast('表示中のデータがありません'); return; }
 
   const now = new Date();
-  const season = now.getMonth() >= 8 ? `${now.getFullYear()}年9月〜${now.getFullYear()+1}年2月` : `${now.getFullYear()}年3月〜${now.getFullYear()}年8月`;
+  const seasonLabel = currentSeason === 'ALL' ? '全シーズン' : currentSeason;
+  const catLabel = currentCat === 'ALL' ? '全カテゴリ' : currentCat;
 
   document.getElementById('reportTitle').textContent = '競合分析レポート';
-  document.getElementById('reportSubtitle').textContent = `シーズン：${season}　作成日：${now.toLocaleDateString('ja-JP')}`;
+  document.getElementById('reportSub').textContent = `シーズン：${seasonLabel}　カテゴリ：${catLabel}　作成日：${now.toLocaleDateString('ja-JP')}`;
 
   let html = '';
 
-  // 新作訴求サマリー
-  html += `<div class="report-section">
-    <div class="report-section-title">📣 新作訴求 / LP 各社まとめ</div>`;
-  hasBrands.forEach(b => {
-    const d2 = data[b.id];
-    if (!d2 || d2.lp.length === 0) return;
-    html += `<div class="report-brand-block">
-      <div class="report-brand-name">${b.name}</div>`;
-    d2.lp.forEach(item => {
-      html += `<div class="report-row"><span class="report-label">${h(item.tag||'')}</span><span class="report-value">${h(item.title||'')} — ${h(item.desc||'')}</span></div>`;
+  html += `<div class="report-section"><div class="report-section-title">📣 新作訴求 / LP</div>`;
+  filtered.forEach(({ brand, record }) => {
+    if (!record.lp?.length) return;
+    html += `<div class="report-brand-block"><div class="report-brand-name">${brand.name}</div>`;
+    record.lp.forEach(i => {
+      html += `<div class="report-row"><span class="report-label">${h(i.tag||'')}</span><span class="report-value">${h(i.title||'')}${i.desc ? ' — ' + h(i.desc) : ''}</span></div>`;
     });
-    const imgs = d2.lp.filter(i => i.imageUrl);
-    if (imgs.length > 0) {
-      html += `<div class="report-images">`;
-      imgs.forEach(i => {
-        html += `<img class="report-img" src="${h(i.imageUrl)}" alt="${h(i.title||'')}" onerror="this.style.display='none'">`;
-      });
-      html += `</div>`;
+    const imgs = record.lp.filter(i => i.imageUrl);
+    if (imgs.length) {
+      html += `<div class="report-images">` + imgs.map(i => `<img class="report-img" src="${h(i.imageUrl)}" onerror="this.style.display='none'">`).join('') + `</div>`;
     }
     html += `</div>`;
   });
   html += `</div>`;
 
-  // EC売れ筋サマリー
-  html += `<div class="report-section">
-    <div class="report-section-title">🏆 EC売れ筋 各社TOP3</div>`;
-  hasBrands.forEach(b => {
-    const d2 = data[b.id];
-    if (!d2 || d2.ec.length === 0) return;
-    html += `<div class="report-brand-block">
-      <div class="report-brand-name">${b.name}</div>`;
-    d2.ec.slice(0, 3).forEach((item, i) => {
-      html += `<div class="report-row"><span class="report-label">${i+1}位 ${h(item.category||'')}</span><span class="report-value">${h(item.name||'')} ${item.price ? '／ ' + h(item.price) : ''}</span></div>`;
+  html += `<div class="report-section"><div class="report-section-title">🏆 EC売れ筋 TOP3</div>`;
+  filtered.forEach(({ brand, record }) => {
+    const ec = filterEC(record.ec||[]).slice(0,3);
+    if (!ec.length) return;
+    html += `<div class="report-brand-block"><div class="report-brand-name">${brand.name}</div>`;
+    ec.forEach((i, idx) => {
+      html += `<div class="report-row"><span class="report-label">${idx+1}位 ${h(i.category||'')}</span><span class="report-value">${h(i.name||'')}${i.price ? ' / ' + h(i.price) : ''}</span></div>`;
     });
-    const imgs = d2.ec.filter(i => i.imageUrl).slice(0, 3);
-    if (imgs.length > 0) {
-      html += `<div class="report-images">`;
-      imgs.forEach(i => {
-        html += `<img class="report-img" src="${h(i.imageUrl)}" alt="${h(i.name||'')}" onerror="this.style.display='none'">`;
-      });
-      html += `</div>`;
+    const imgs = ec.filter(i => i.imageUrl);
+    if (imgs.length) {
+      html += `<div class="report-images">` + imgs.map(i => `<img class="report-img" src="${h(i.imageUrl)}" onerror="this.style.display='none'">`).join('') + `</div>`;
     }
     html += `</div>`;
   });
@@ -690,27 +740,6 @@ function generateReport() {
 
   document.getElementById('reportContent').innerHTML = html;
   document.getElementById('reportModal').classList.add('open');
-}
-
-function closeReport(e) {
-  if (e && e.target !== document.getElementById('reportModal')) return;
-  document.getElementById('reportModal').classList.remove('open');
-}
-
-function printReport() {
-  window.print();
-}
-
-// ======================================================
-// データクリア
-// ======================================================
-function clearAllData() {
-  if (!confirm('全ブランドのデータを削除しますか？')) return;
-  data = {};
-  saveData();
-  document.getElementById('brandsContainer').innerHTML = '';
-  updateToolsBar();
-  showToast('データを削除しました');
 }
 
 // ======================================================
@@ -721,29 +750,23 @@ document.getElementById('settingsBtn').addEventListener('click', () => {
   if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
   document.getElementById('settingsPanel').classList.add('open');
 });
-function closeSettings(e) {
-  if (e && e.target !== document.getElementById('settingsPanel')) return;
-  document.getElementById('settingsPanel').classList.remove('open');
+function saveSettings() {
+  const workerUrl = document.getElementById('workerUrlInput').value.trim();
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ workerUrl }));
+  showToast('設定を保存しました');
+  closeModal('settingsPanel');
 }
-
-// ======================================================
-// キャッシュ自動削除（20日）
-// ======================================================
-function cleanOldCache() {
-  const cutoff = Date.now() - CACHE_DAYS * 24 * 60 * 60 * 1000;
-  let changed = false;
-  Object.keys(data).forEach(id => {
-    if (new Date(data[id].fetchedAt).getTime() < cutoff) {
-      delete data[id];
-      changed = true;
-    }
-  });
-  if (changed) saveData();
+function getWorkerUrl() {
+  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}').workerUrl || ''; } catch(e) { return ''; }
 }
 
 // ======================================================
 // ユーティリティ
 // ======================================================
+function closeModal(id, e) {
+  if (e && e.target !== document.getElementById(id)) return;
+  document.getElementById(id).classList.remove('open');
+}
 function h(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -751,13 +774,27 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2600);
 }
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') { closeSettings(); closeReport(); }
+  if (e.key === 'Escape') { closeModal('reportModal'); closeModal('settingsPanel'); }
 });
 
 // ======================================================
 // 起動
 // ======================================================
-cleanOldCache();
+async function init() {
+  try {
+    db = await openDB();
+    allRecords = await loadAllRecords();
+  } catch(e) {
+    console.error('IndexedDB error:', e);
+    allRecords = [];
+  }
+  renderBrandGrid();
+  renderSeasonTabs();
+  renderCatTabs();
+  renderBrandsContainer();
+  updateToolsBar();
+}
+
 init();
 </script>
 </body>
