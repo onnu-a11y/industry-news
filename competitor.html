@@ -165,18 +165,204 @@
   @media(max-width:640px){header{padding:0 16px;}.main-wrap{padding:16px 12px 60px;}}
 
   @media print {
-    body { background: white !important; color: black !important; }
-    header, .filter-block, .brand-grid, .action-bar, .tools-bar, .modal-close, .btn { display: none !important; }
-    .modal-overlay { position: static !important; background: none !important; padding: 0 !important; display: block !important; }
-    .modal { border: none !important; padding: 0 !important; max-width: 100% !important; background: white !important; }
-    .report-title { color: black !important; font-size: 20px !important; }
-    .report-sub { color: #666 !important; }
-    .report-section-title { color: black !important; border-color: #ccc !important; }
-    .report-brand-block { background: #f5f5f5 !important; border-radius: 6px !important; }
-    .report-brand-name { color: #333 !important; }
-    .report-label { color: #666 !important; }
-    .report-value { color: #333 !important; }
-    * { -webkit-print-color-adjust: exact !important; }
+    /* ダッシュボード部分を全て非表示 */
+    body > *:not(#printArea) { display: none !important; }
+    #printArea { display: block !important; }
+
+    @page {
+      margin: 15mm 12mm;
+      size: A4;
+    }
+
+    #printArea {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #1a1a1a;
+      background: white;
+    }
+
+    .print-cover {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-bottom: 3px solid #c8a96e;
+      margin-bottom: 40px;
+    }
+    .print-cover-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .print-cover-sub {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 4px;
+    }
+    .print-cover-accent {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 16px;
+      background: #c8a96e;
+      color: white;
+      font-size: 12px;
+      border-radius: 20px;
+    }
+
+    .print-ai-section {
+      background: #faf8f4;
+      border-left: 4px solid #c8a96e;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      page-break-inside: avoid;
+    }
+    .print-ai-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #c8a96e;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .print-ai-text {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.9;
+    }
+
+    .print-brand-section {
+      page-break-before: always;
+      padding-top: 8px;
+    }
+    .print-brand-section:first-of-type {
+      page-break-before: avoid;
+    }
+    .print-brand-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #c8a96e;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    .print-brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .print-brand-date {
+      font-size: 11px;
+      color: #888;
+      background: #f5f5f5;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* 変遷グリッド */
+    .print-timeline {
+      display: grid;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .print-timeline-2 { grid-template-columns: 1fr 1fr; }
+    .print-timeline-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .print-timeline-1 { grid-template-columns: 1fr 1fr; }
+
+    .print-date-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      page-break-inside: avoid;
+    }
+    .print-date-card-header {
+      background: #f5f0e8;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8a6a30;
+      border-bottom: 1px solid #e0d0b0;
+    }
+    .print-date-card-body {
+      padding: 12px 14px;
+    }
+
+    .print-col-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #c8a96e;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #e8e0d0;
+    }
+
+    .print-lp-item {
+      margin-bottom: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .print-lp-item:last-child { border-bottom: none; }
+    .print-lp-tag {
+      font-size: 9px;
+      font-weight: 700;
+      color: #c8a96e;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .print-lp-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin: 2px 0;
+      line-height: 1.4;
+    }
+    .print-lp-desc {
+      font-size: 10px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .print-ec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    .print-ec-table th {
+      background: #f5f5f5;
+      padding: 5px 8px;
+      text-align: left;
+      font-size: 9px;
+      color: #888;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .print-ec-table td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
+    .print-ec-rank {
+      font-weight: 700;
+      color: #c8a96e;
+      font-size: 13px;
+    }
+    .print-ec-name {
+      font-weight: 500;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+    .print-ec-price {
+      color: #c8a96e;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .print-ec-cat {
+      color: #999;
+      font-size: 9px;
+    }
+
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
   }
 </style>
 </head>
@@ -875,7 +1061,107 @@ function renderRecordForReport(r) {
 }
 
 function printReport() {
-  window.print();
+  // 既存の印刷エリアを削除
+  const existing = document.getElementById('printArea');
+  if (existing) existing.remove();
+
+  const byBrand = getAllRecordsForReport();
+  const now = new Date();
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+  const seasonLabel = currentSeason === 'ALL' ? '全期間' : currentSeason;
+  const periodLabel = from || to ? `${from||''}〜${to||''}` : seasonLabel;
+  const aiComment = document.querySelector('#reportContent .print-ai-text')?.textContent || 
+                    document.querySelector('#reportContent div[style*="border-left"]')?.textContent || '';
+
+  let html = `<div id="printArea">
+    <div class="print-cover">
+      <div class="print-cover-title">競合分析レポート</div>
+      <div class="print-cover-sub">期間：${periodLabel}</div>
+      <div class="print-cover-sub">作成日：${now.toLocaleDateString('ja-JP')}</div>
+      <div class="print-cover-accent">ONLY EC・販促チーム</div>
+    </div>`;
+
+  // AI総括
+  if (aiComment) {
+    html += `<div class="print-ai-section">
+      <div class="print-ai-label">🤖 AI 総括コメント</div>
+      <div class="print-ai-text">${aiComment.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+    </div>`;
+  }
+
+  // ブランドごとの変遷
+  byBrand.forEach(({ brand, records }, brandIdx) => {
+    html += `<div class="print-brand-section">
+      <div class="print-brand-header">
+        <div class="print-brand-name">${brand.name}</div>
+        <div class="print-brand-date">${records.length}回分のデータ</div>
+      </div>`;
+
+    const colClass = records.length === 1 ? 'print-timeline-1' : records.length === 2 ? 'print-timeline-2' : 'print-timeline-3';
+
+    // LP変遷
+    html += `<div class="print-col-label" style="margin-bottom:10px;">新作訴求 / LP</div>`;
+    html += `<div class="print-timeline ${colClass}" style="margin-bottom:20px;">`;
+    records.forEach(r => {
+      const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+      html += `<div class="print-date-card">
+        <div class="print-date-card-header">📅 ${date}</div>
+        <div class="print-date-card-body">`;
+      if ((r.lp||[]).length > 0) {
+        r.lp.forEach(i => {
+          html += `<div class="print-lp-item">
+            <div class="print-lp-tag">${i.tag||''}</div>
+            <div class="print-lp-title">${i.title||''}</div>
+            <div class="print-lp-desc">${i.desc||''}</div>
+          </div>`;
+        });
+      } else {
+        html += `<div style="font-size:11px;color:#aaa;">データなし</div>`;
+      }
+      html += `</div></div>`;
+    });
+    html += `</div>`;
+
+    // EC売れ筋変遷
+    html += `<div class="print-col-label" style="margin-bottom:10px;">EC 売れ筋</div>`;
+    html += `<div class="print-timeline ${colClass}">`;
+    records.forEach(r => {
+      const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+      const ec = filterEC(r.ec||[]).slice(0,5);
+      html += `<div class="print-date-card">
+        <div class="print-date-card-header">📅 ${date}</div>
+        <div class="print-date-card-body">`;
+      if (ec.length > 0) {
+        html += `<table class="print-ec-table">
+          <thead><tr><th>#</th><th>カテゴリ</th><th>商品名</th><th>価格</th></tr></thead><tbody>`;
+        ec.forEach((i,idx) => {
+          html += `<tr>
+            <td><span class="print-ec-rank">${idx+1}</span></td>
+            <td><span class="print-ec-cat">${i.category||''}</span></td>
+            <td><span class="print-ec-name">${i.name||''}</span></td>
+            <td><span class="print-ec-price">${i.price||''}</span></td>
+          </tr>`;
+        });
+        html += `</tbody></table>`;
+      } else {
+        html += `<div style="font-size:11px;color:#aaa;">データなし</div>`;
+      }
+      html += `</div></div>`;
+    });
+    html += `</div></div>`;
+  });
+
+  html += `</div>`;
+
+  document.body.insertAdjacentHTML('beforeend', html);
+  setTimeout(() => {
+    window.print();
+    setTimeout(() => {
+      const el = document.getElementById('printArea');
+      if (el) el.remove();
+    }, 1000);
+  }, 200);
 }
 
 // ======================================================
