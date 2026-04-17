@@ -247,7 +247,7 @@ function cleanOldArticles() {
     const days = parseInt(s.retention || 60);
     const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
     const before = articles.length;
-    articles = articles.filter(a => a.favorited || new Date(a.fetchedAt).getTime() > cutoff);
+    articles = articles.filter(a => a.favorited || a.id.startsWith('i') || new Date(a.fetchedAt).getTime() > cutoff);
     if (articles.length !== before) saveData();
   } catch(e) {}
 }
