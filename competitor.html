@@ -163,6 +163,21 @@
   .toast.show{opacity:1;}
 
   @media(max-width:640px){header{padding:0 16px;}.main-wrap{padding:16px 12px 60px;}}
+
+  @media print {
+    body { background: white !important; color: black !important; }
+    header, .filter-block, .brand-grid, .action-bar, .tools-bar, .modal-close, .btn { display: none !important; }
+    .modal-overlay { position: static !important; background: none !important; padding: 0 !important; display: block !important; }
+    .modal { border: none !important; padding: 0 !important; max-width: 100% !important; background: white !important; }
+    .report-title { color: black !important; font-size: 20px !important; }
+    .report-sub { color: #666 !important; }
+    .report-section-title { color: black !important; border-color: #ccc !important; }
+    .report-brand-block { background: #f5f5f5 !important; border-radius: 6px !important; }
+    .report-brand-name { color: #333 !important; }
+    .report-label { color: #666 !important; }
+    .report-value { color: #333 !important; }
+    * { -webkit-print-color-adjust: exact !important; }
+  }
 </style>
 </head>
 <body>
@@ -224,13 +239,13 @@
 
 <!-- レポートモーダル -->
 <div class="modal-overlay" id="reportModal" onclick="closeModal('reportModal',event)">
-  <div class="modal">
+  <div class="modal" style="max-width:900px;">
     <button class="modal-close" onclick="closeModal('reportModal')">✕</button>
     <div class="report-title" id="reportTitle"></div>
     <div class="report-sub" id="reportSub"></div>
     <div id="reportContent"></div>
-    <div style="margin-top:20px;display:flex;gap:10px;">
-      <button class="btn btn-ghost btn-sm" onclick="window.print()">🖨 印刷</button>
+    <div style="margin-top:24px;display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="printReport()">🖨 PDF保存（印刷）</button>
       <button class="btn btn-ghost btn-sm" onclick="closeModal('reportModal')">閉じる</button>
     </div>
   </div>
@@ -380,7 +395,7 @@ function getSeasonOptions() {
 }
 
 // ======================================================
-// フィルタリング
+// フィルタリング（ダッシュボード表示用：最新1件）
 // ======================================================
 function getFilteredRecords() {
   const records = demoMode
@@ -408,6 +423,38 @@ function getFilteredRecords() {
       return true;
     })
     .map(b => ({ brand: b, record: byBrand[b.id] }));
+}
+
+// レポート用：期間内の全レコードをブランド別に返す
+function getAllRecordsForReport() {
+  const records = demoMode
+    ? Object.entries(DEMO_DATA).map(([brandId, d]) => ({ key: brandId, brandId, ...d }))
+    : allRecords;
+
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+
+  // 期間フィルター
+  const filtered = records.filter(r => {
+    if (currentSeason !== 'ALL' && getSeason(r.fetchedAt) !== currentSeason) return false;
+    if (from && r.fetchedAt.slice(0,10) < from) return false;
+    if (to && r.fetchedAt.slice(0,10) > to) return false;
+    return true;
+  });
+
+  // ブランドごとに時系列でまとめる
+  const byBrand = {};
+  BRANDS.forEach(b => { byBrand[b.id] = []; });
+  filtered.forEach(r => {
+    if (byBrand[r.brandId]) byBrand[r.brandId].push(r);
+  });
+  Object.keys(byBrand).forEach(id => {
+    byBrand[id].sort((a, b) => a.fetchedAt.localeCompare(b.fetchedAt));
+  });
+
+  return BRANDS
+    .filter(b => byBrand[b.id]?.length > 0)
+    .map(b => ({ brand: b, records: byBrand[b.id] }));
 }
 
 function filterEC(ecList) {
@@ -667,54 +714,168 @@ function exportCSV() {
 }
 
 // ======================================================
-// レポート生成
+// レポート生成（変遷・AI総括対応版）
 // ======================================================
-function generateReport() {
-  const filtered = getFilteredRecords();
-  if (filtered.length === 0) { showToast('表示中のデータがありません'); return; }
+async function generateReport() {
+  const byBrand = getAllRecordsForReport();
+  if (byBrand.length === 0) { showToast('表示中のデータがありません'); return; }
 
+  const workerUrl = getWorkerUrl();
   const now = new Date();
-  const seasonLabel = currentSeason === 'ALL' ? '全シーズン' : currentSeason;
-  const catLabel = currentCat === 'ALL' ? '全カテゴリ' : currentCat;
+  const seasonLabel = currentSeason === 'ALL' ? '全期間' : currentSeason;
+  const from = document.getElementById('dateFrom').value;
+  const to   = document.getElementById('dateTo').value;
+  const periodLabel = from || to ? `${from||''}〜${to||''}` : seasonLabel;
 
   document.getElementById('reportTitle').textContent = '競合分析レポート';
-  document.getElementById('reportSub').textContent = `シーズン：${seasonLabel}　カテゴリ：${catLabel}　作成日：${now.toLocaleDateString('ja-JP')}`;
+  document.getElementById('reportSub').textContent = `期間：${periodLabel}　作成日：${now.toLocaleDateString('ja-JP')}`;
+  document.getElementById('reportContent').innerHTML = '<div style="text-align:center;padding:40px;color:var(--text3)"><div class="spinner" style="margin:0 auto 12px"></div>AI総括コメントを生成中...</div>';
+  document.getElementById('reportModal').classList.add('open');
 
+  // ブランドごとの変遷データをテキスト化（AI用）
+  let summaryForAI = '';
+  byBrand.forEach(({ brand, records }) => {
+    summaryForAI += `\n【${brand.name}】\n`;
+    records.forEach(r => {
+      const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+      summaryForAI += `▼${date}\n`;
+      (r.lp||[]).forEach(i => { summaryForAI += `  LP: ${i.tag||''} / ${i.title||''}\n`; });
+      (r.ec||[]).forEach(i => { summaryForAI += `  EC${i.rank}位: ${i.name||''} ${i.price||''}\n`; });
+    });
+  });
+
+  // AI総括コメント生成
+  let aiComment = '';
+  if (workerUrl && summaryForAI) {
+    try {
+      const prompt = `以下はスーツ業界競合ブランドの販促LP・EC売れ筋データの変遷です。ONLYというスーツブランドのEC・販促担当者の視点で、各ブランドの戦略の変化・トレンド・競合動向について総括コメントを日本語400字以内で作成してください。
+
+${summaryForAI}
+
+総括コメントのみ返してください。前置き不要。`;
+
+      const res = await fetch(workerUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 600,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+      const data = await res.json();
+      aiComment = (data.content||[]).filter(b=>b.type==='text'&&b.text).map(b=>b.text).join('');
+    } catch(e) {
+      aiComment = '（AI総括の生成に失敗しました）';
+    }
+  }
+
+  // レポートHTML生成
   let html = '';
 
-  html += `<div class="report-section"><div class="report-section-title">📣 新作訴求 / LP</div>`;
-  filtered.forEach(({ brand, record }) => {
-    if (!record.lp?.length) return;
-    html += `<div class="report-brand-block"><div class="report-brand-name">${brand.name}</div>`;
-    record.lp.forEach(i => {
-      html += `<div class="report-row"><span class="report-label">${h(i.tag||'')}</span><span class="report-value">${h(i.title||'')}${i.desc ? ' — ' + h(i.desc) : ''}</span></div>`;
-    });
-    const imgs = record.lp.filter(i => i.imageUrl);
-    if (imgs.length) {
-      html += `<div class="report-images">` + imgs.map(i => `<img class="report-img" src="${h(i.imageUrl)}" onerror="this.style.display='none'">`).join('') + `</div>`;
-    }
-    html += `</div>`;
-  });
-  html += `</div>`;
+  // AI総括
+  if (aiComment) {
+    html += `<div class="report-section">
+      <div class="report-section-title">🤖 AI総括コメント</div>
+      <div style="background:var(--accent-dim);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:14px 16px;font-size:13px;color:var(--text);line-height:1.8;">${h(aiComment)}</div>
+    </div>`;
+  }
 
-  html += `<div class="report-section"><div class="report-section-title">🏆 EC売れ筋 TOP3</div>`;
-  filtered.forEach(({ brand, record }) => {
-    const ec = filterEC(record.ec||[]).slice(0,3);
-    if (!ec.length) return;
-    html += `<div class="report-brand-block"><div class="report-brand-name">${brand.name}</div>`;
-    ec.forEach((i, idx) => {
-      html += `<div class="report-row"><span class="report-label">${idx+1}位 ${h(i.category||'')}</span><span class="report-value">${h(i.name||'')}${i.price ? ' / ' + h(i.price) : ''}</span></div>`;
-    });
-    const imgs = ec.filter(i => i.imageUrl);
-    if (imgs.length) {
-      html += `<div class="report-images">` + imgs.map(i => `<img class="report-img" src="${h(i.imageUrl)}" onerror="this.style.display='none'">`).join('') + `</div>`;
+  // ブランドごとの変遷
+  byBrand.forEach(({ brand, records }) => {
+    html += `<div class="report-section">
+      <div class="report-section-title">📊 ${brand.name} の変遷</div>`;
+
+    if (records.length === 1) {
+      // 1件のみの場合はそのまま表示
+      const r = records[0];
+      const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+      html += `<div class="report-brand-block">
+        <div style="font-size:11px;color:var(--text3);margin-bottom:8px;">取得日: ${date}</div>`;
+      html += renderRecordForReport(r);
+      html += `</div>`;
+    } else {
+      // 複数件：変遷表示
+      // LP変遷
+      html += `<div style="margin-bottom:12px"><div style="font-size:11px;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">新作訴求 / LP の変遷</div>`;
+      html += `<div style="display:grid;grid-template-columns:repeat(${Math.min(records.length,3)},1fr);gap:10px;">`;
+      records.forEach(r => {
+        const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+        html += `<div style="background:var(--bg3);border-radius:var(--radius);padding:12px;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:8px;">📅 ${date}</div>`;
+        if ((r.lp||[]).length > 0) {
+          r.lp.forEach(i => {
+            html += `<div style="margin-bottom:6px;">
+              <div style="font-size:10px;color:var(--accent);font-weight:600;">${h(i.tag||'')}</div>
+              <div style="font-size:12px;color:var(--text);font-weight:500;">${h(i.title||'')}</div>
+              <div style="font-size:11px;color:var(--text2);">${h(i.desc||'')}</div>
+            </div>`;
+          });
+          const imgs = r.lp.filter(i=>i.imageUrl);
+          if (imgs.length) html += `<div style="display:flex;gap:4px;margin-top:6px;">` + imgs.map(i=>`<img style="width:60px;height:45px;object-fit:cover;border-radius:4px;" src="${h(i.imageUrl)}" onerror="this.style.display='none'">`).join('') + `</div>`;
+        } else {
+          html += `<div style="font-size:12px;color:var(--text3);">データなし</div>`;
+        }
+        html += `</div>`;
+      });
+      html += `</div></div>`;
+
+      // EC売れ筋変遷
+      html += `<div><div style="font-size:11px;color:var(--accent);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">EC売れ筋 の変遷</div>`;
+      html += `<div style="display:grid;grid-template-columns:repeat(${Math.min(records.length,3)},1fr);gap:10px;">`;
+      records.forEach(r => {
+        const date = new Date(r.fetchedAt).toLocaleDateString('ja-JP');
+        html += `<div style="background:var(--bg3);border-radius:var(--radius);padding:12px;border:1px solid var(--border);">
+          <div style="font-size:11px;color:var(--accent);font-weight:600;margin-bottom:8px;">📅 ${date}</div>`;
+        const ec = filterEC(r.ec||[]).slice(0,3);
+        if (ec.length > 0) {
+          ec.forEach((i,idx) => {
+            html += `<div style="display:flex;gap:6px;margin-bottom:6px;align-items:center;">
+              <div style="font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:${idx<3?'var(--accent)':'var(--border2)'};min-width:18px;">${idx+1}</div>
+              ${i.imageUrl ? `<img style="width:36px;height:36px;object-fit:cover;border-radius:4px;" src="${h(i.imageUrl)}" onerror="this.style.display='none'">` : ''}
+              <div>
+                <div style="font-size:11px;color:var(--text3);">${h(i.category||'')}</div>
+                <div style="font-size:12px;color:var(--text);font-weight:500;">${h(i.name||'')}</div>
+                <div style="font-size:11px;color:var(--accent);">${h(i.price||'')}</div>
+              </div>
+            </div>`;
+          });
+        } else {
+          html += `<div style="font-size:12px;color:var(--text3);">データなし</div>`;
+        }
+        html += `</div>`;
+      });
+      html += `</div></div>`;
     }
+
     html += `</div>`;
   });
-  html += `</div>`;
 
   document.getElementById('reportContent').innerHTML = html;
-  document.getElementById('reportModal').classList.add('open');
+}
+
+function renderRecordForReport(r) {
+  let html = '';
+  if ((r.lp||[]).length > 0) {
+    html += `<div style="margin-bottom:10px;"><div style="font-size:10px;color:var(--text3);margin-bottom:4px;">新作訴求 / LP</div>`;
+    r.lp.forEach(i => {
+      html += `<div class="report-row"><span class="report-label">${h(i.tag||'')}</span><span class="report-value">${h(i.title||'')}${i.desc?' — '+h(i.desc):''}</span></div>`;
+    });
+    html += `</div>`;
+  }
+  const ec = filterEC(r.ec||[]).slice(0,3);
+  if (ec.length > 0) {
+    html += `<div><div style="font-size:10px;color:var(--text3);margin-bottom:4px;">EC売れ筋 TOP3</div>`;
+    ec.forEach((i,idx) => {
+      html += `<div class="report-row"><span class="report-label">${idx+1}位 ${h(i.category||'')}</span><span class="report-value">${h(i.name||'')}${i.price?' / '+h(i.price):''}</span></div>`;
+    });
+    html += `</div>`;
+  }
+  return html;
+}
+
+function printReport() {
+  window.print();
 }
 
 // ======================================================
