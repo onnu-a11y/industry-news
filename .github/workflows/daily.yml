@@ -1,0 +1,44 @@
+name: daily
+# 毎朝の更新。GitHubの定時実行は時刻ちょうどに動く保証がないため、本番と予備の2回を設定する。
+#   本番 5:17 JST（= 前日 20:17 UTC）／予備 6:07 JST（= 前日 21:07 UTC。本番が作成済みなら何もしない）
+on:
+  schedule:
+    - cron: "17 20 * * *"
+    - cron: "7 21 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "作成済みでも作り直す（true/false）"
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: build today
+        run: |
+          if [ "${{ inputs.force }}" = "true" ]; then python scripts/daily.py --force; else python scripts/daily.py; fi
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PROFILE: ${{ secrets.PROFILE }}
+      - name: commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git commit -m "daily: $(TZ=Asia/Tokyo date +%F)" || echo "no changes"
+          git pull --rebase
+          git push
