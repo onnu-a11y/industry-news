@@ -302,6 +302,176 @@ def group_stories(items):
     return stories
 
 
+# ---------------------------------------------------------------- M4-3②：S・Aの話題の要約（30秒・要点・図解）
+SUMMARY_BATCH = 5
+NA = "記事に記載なし"
+SUM_SYSTEM = """あなたは日本のメンズスーツ専門店のEC・販促担当者向けのニュース編集者です。与えられた複数の話題それぞれを、スマホで30秒で把握できる形にまとめ、JSONだけを返します。
+{profile}
+
+厳守：入力に書かれていない数字・金額・割合・日付・社名は絶対に書かない。分からない項目は「記事に記載なし」と書く。推測で埋めない。
+話題ごとの材料の種類：
+ ・［本文あり］見出しと本文 → 30秒・要点・図解を作る
+ ・［冒頭のみ］見出しと本文の冒頭 → 30秒だけ作る。points は空配列、diagram の type は none
+ ・［見出しのみ］→ 30秒だけ作る。points は空配列、diagram の type は none
+形式：{{"items":[{{"key":"入力のkeyをそのまま",
+ "quick":{{"what":"何が起きたか（40字以内）","when":"いつから・いつまで（入力にある日付だけ。無ければ「記事に記載なし」）","me":"読み手の仕事への影響と、やること（40字以内）"}},
+ "points":["要点（各40字以内、3〜5個。入力に無い内容は書かない）"],
+ "diagram":{{"type":"change|steps|impact|none","title":"図の見出し（15字以内）",
+   "rows":[{{"label":"項目","before":"変更前","after":"変更後"}}],
+   "steps":[{{"label":"段階名","state":"done|now|todo"}}],
+   "impact":["送料設定|DM・はがき|EC基盤|メルマガ|ポイント|競合調査|価格設定|採用・人件費 から該当するもの"]}},
+ "level_recheck":"S|A|B|C"}}]}}
+図の選び方：料金・価格・条件が変わる話→change（rowsを使う）、法律・制度の進み具合→steps、それ以外で自社業務に関係→impact、図にする材料が無い→none。使わない欄は空配列。
+level_recheck：重要度Sの話題だけ、本文を読んだうえで重要度を付け直す。海外の話・読み手の仕事と無関係・Sの基準（国内の制度の決定や施行、運賃・郵便料金の改定、EC基盤の重大な脆弱性、直接競合の大きな動き）に当たらない場合は A/B/C に下げる。S以外の話題は空文字。
+入力の全keyについて必ず1件ずつ返す。"""
+
+QUESTION_OF = {"when": "いつから適用？", "what": "何が決まった？", "me": "自社への影響は？"}
+TODO_TAGS = {"制度・法令", "税・価格"}
+
+
+def norm_num(s: str) -> str:
+    import unicodedata
+    return unicodedata.normalize("NFKC", s or "").replace(",", "").replace("，", "")
+
+
+NUM_RE = re.compile(r"\d+(?:\.\d+)?")
+
+
+def unsupported_numbers(output, source_text: str):
+    """AIの出力に含まれる数字のうち、入力に無いものを返す（verify.py と同じ判定）。"""
+    src_nums = set(NUM_RE.findall(norm_num(source_text)))
+    out_text = norm_num(output if isinstance(output, str) else json.dumps(output, ensure_ascii=False))
+    bad = []
+    for n in NUM_RE.findall(out_text):
+        if n in src_nums or any(s.endswith(n) or s.lstrip("0") == n.lstrip("0") for s in src_nums):
+            continue
+        bad.append(n)
+    return sorted(set(bad))
+
+
+def _story_input(s, b):
+    head = [f"key={s['key']}", f"重要度：{s['level']}", f"話題：{s.get('story') or s['summary']}"]
+    for a in s["articles"][:6]:
+        head.append(f"・{a['title']}（{a.get('source', '')}）")
+    texts = (b or {}).get("texts") or []
+    partial = (b or {}).get("partial")
+    if texts:
+        kind = "本文あり"
+        for t, src, body in texts[:2]:
+            head.append(f"―― 本文：{t}（{src}）\n{body[:2500]}")
+    elif partial:
+        kind = "冒頭のみ"
+        head.append(f"―― 本文の冒頭：{partial[0]}（{partial[1]}）\n{partial[2][:1200]}")
+    else:
+        kind = "見出しのみ"
+    return f"【{kind}】" + "\n".join(head), kind
+
+
+def _clean_summary(o, src, kind):
+    """出力を整え、入力に無い数字を含む欄は捨てる。"""
+    def ok(text):
+        return not unsupported_numbers(str(text), src)
+
+    q = o.get("quick") or {}
+    quick = {}
+    for k, lim in (("what", 60), ("when", 60), ("me", 60)):
+        v = str(q.get(k) or "").strip()[:lim]
+        quick[k] = v if v and ok(v) else NA
+    out = {"quick": quick, "points": [], "diagram": {"type": "none"}}
+    if kind == "本文あり":
+        out["points"] = [str(p)[:60] for p in (o.get("points") or []) if p and NA not in str(p) and ok(p)][:5]
+        d = o.get("diagram") or {}
+        t = d.get("type") if d.get("type") in ("change", "steps", "impact") else "none"
+        dd = {"type": t, "title": str(d.get("title") or "")[:20] if ok(d.get("title") or "") else ""}
+        if t == "change":
+            rows = [{"label": str(r.get("label", ""))[:20], "before": str(r.get("before", ""))[:30], "after": str(r.get("after", ""))[:30]}
+                    for r in d.get("rows") or [] if isinstance(r, dict) and ok(json.dumps(r, ensure_ascii=False))]
+            rows = [r for r in rows if r["label"] and (r["before"] or r["after"])][:6]
+            dd["rows"] = rows
+            if not rows:
+                dd = {"type": "none"}
+        elif t == "steps":
+            steps = [{"label": str(x.get("label", ""))[:20], "state": x.get("state") if x.get("state") in ("done", "now", "todo") else "todo"}
+                     for x in d.get("steps") or [] if isinstance(x, dict) and x.get("label") and ok(x.get("label"))][:6]
+            dd["steps"] = steps
+            if len(steps) < 2:
+                dd = {"type": "none"}
+        elif t == "impact":
+            imp = [str(x)[:12] for x in d.get("impact") or [] if x][:6]
+            dd["impact"] = imp
+            if not imp:
+                dd = {"type": "none"}
+        out["diagram"] = dd
+    lr = o.get("level_recheck")
+    out["level_recheck"] = lr if lr in LEVELS else ""
+    return out
+
+
+def summarize(stories, bodies, token, log, profile):
+    """S・Aの話題に quick / points / diagram を付け、Sの再判定・要追加調査・質問を付ける。戻り値は統計。"""
+    stats = {"requests": 0, "done": 0, "failed": 0, "dropped_fields": 0, "demoted": 0}
+    targets = [s for s in stories if s["level"] in ("S", "A")]
+    targets.sort(key=lambda s: (s["level"] != "S", s.get("body") != "ok"))
+    today, used, budget = quota_left()
+    system = SUM_SYSTEM.format(profile=profile)
+    models = list(MODELS)
+    if token and budget > 0:
+        for i in range(0, len(targets), SUMMARY_BATCH):
+            if stats["requests"] >= budget:
+                log(f"summary: 無料枠の上限のため残り{len(targets) - i}話題は要約なし")
+                break
+            chunk = targets[i:i + SUMMARY_BATCH]
+            inputs = {s["key"]: _story_input(s, bodies.get(s["key"])) for s in chunk}
+            user = "\n\n".join(v[0] for v in inputs.values())
+            data = None
+            for attempt in range(4):
+                if stats["requests"] >= budget:
+                    break
+                model = models[attempt % len(models)]
+                stats["requests"] += 1
+                try:
+                    text, _ = call_model([{"role": "system", "content": system}, {"role": "user", "content": user}], model, token)
+                    m = re.search(r"\{.*\}", text, re.S)
+                    data = json.loads(m.group(0)) if m else None
+                    if data:
+                        break
+                except Exception as e:  # noqa: BLE001
+                    log(f"summary {i // SUMMARY_BATCH}: {type(e).__name__} {getattr(e, 'code', '')} on {model}")
+                    time.sleep(min(15 * (attempt + 1), 45))
+            got = {str(o.get("key")): o for o in (data or {}).get("items", []) if isinstance(o, dict)}
+            for s in chunk:
+                o = got.get(s["key"])
+                if not o:
+                    stats["failed"] += 1
+                    continue
+                src, kind = inputs[s["key"]]
+                before = json.dumps(o, ensure_ascii=False)
+                c = _clean_summary(o, src, kind)
+                if unsupported_numbers(before, src):
+                    stats["dropped_fields"] += 1
+                s["quick"], s["points"], s["diagram"] = c["quick"], c["points"], c["diagram"]
+                # Sの再判定：本文を読めた時だけ下げる（見出しだけで下げると取りこぼしが増えるため）
+                if s["level"] == "S" and s.get("body") == "ok" and c["level_recheck"] in ("A", "B", "C"):
+                    s["level_orig"] = "S"
+                    s["level"] = c["level_recheck"]
+                    stats["demoted"] += 1
+                    log(f"summary: S→{s['level']}「{(s.get('story') or s['summary'])[:24]}」")
+                stats["done"] += 1
+            time.sleep(7)
+        save_quota(today, used + stats["requests"])
+    # 要追加調査と質問（AIが使えなかった日も付ける）
+    for s in targets:
+        q = s.get("quick") or {}
+        s["questions"] = [QUESTION_OF[k] for k in ("when", "what", "me") if q and q.get(k) == NA]
+        s["todo"] = s.get("body", "none") == "none" and (
+            s.get("level_orig", s["level"]) == "S" or (s["level"] == "A" and bool(TODO_TAGS & set(s.get("tags") or []))))
+        if s["todo"] and not s["questions"]:
+            s["questions"] = ["いつから適用？", "自社への影響は？"]
+    log(f"summary: {stats['done']}話題（失敗 {stats['failed']}・数字の不一致で一部削除 {stats['dropped_fields']}・Sから下げ {stats['demoted']}）"
+        f" AI {stats['requests']}回")
+    return stats
+
+
 def write_report(items, stats, path):
     order = {l: i for i, l in enumerate(LEVELS)}
     items = sorted(items, key=lambda x: (order[x["level"]], x.get("published") or ""), reverse=False)

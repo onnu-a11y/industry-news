@@ -221,13 +221,31 @@ def main():
                     s["first_seen"] = str(d)
                     break
 
-    # 4) 保存（C=対象外は件数だけ残す）
+    # 3.5) M4-3：S・Aの本文・写真 → 要約（30秒・要点・図解）。どちらも失敗したら見出しモードで続行
+    bodies, enrich_stats, sum_stats = {}, {"mode": "headline"}, {}
+    try:
+        import enrich
+        stories, bodies, enrich_stats = enrich.enrich(stories, log)
+    except Exception as e:  # noqa: BLE001
+        log(f"enrich: {type(e).__name__}。見出しモードで続行します")
+    try:
+        sum_stats = judge.summarize(stories, bodies, token, log, profile)
+    except Exception as e:  # noqa: BLE001
+        log(f"summary: {type(e).__name__}。要約なしで続行します")
+    bodies = None  # 本文はここで捨てる（公開リポジトリに保存しない）
+    stories.sort(key=lambda s: (LEVEL_ORDER[s["level"]], -len(s["articles"]), s.get("latest") or ""))
+
+    # 4) 保存（C=対象外は見出し・URL・分野・日付だけ残す）
     keep = [s for s in stories if s["level"] != "C"]
+    c_items = [{"t": s["articles"][0]["title"][:120], "u": s["articles"][0]["url"], "lane": (s.get("lanes") or [""])[0],
+                "date": s.get("latest") or ""} for s in stories if s["level"] == "C" and s["articles"]]
     save(day_path, {
         "date": str(today), "generated": now.isoformat(timespec="minutes"), "hours": hours,
-        "stats": {k: stats.get(k) for k in ("model", "requests_sent", "failed_batches", "cluster_requests")},
+        "stats": dict({k: stats.get(k) for k in ("model", "requests_sent", "failed_batches", "cluster_requests")},
+                      enrich=enrich_stats, summary=sum_stats),
         "counts": {l: sum(1 for s in stories if s["level"] == l) for l in "SABC"},
         "stories": keep,
+        "c_items": c_items,
         "items": [{"id": it["id"], "title": it["title"], "url": it["url"]} for it in judged],
         "feeds": [{"feed": r["feed"], "http": r["http"], "n": r[f"within_{hours}h"]} for r in report],
         "logs": logs[-30:],
