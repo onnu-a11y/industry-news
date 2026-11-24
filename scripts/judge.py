@@ -217,7 +217,7 @@ def main():
     ap.add_argument("--report", action="store_true")
     a = ap.parse_args()
     token = os.environ.get("GEMINI_API_KEY", "").strip()
-    if token and not re.fullmatch(r"[A-Za-z0-9_\-]{20,80}", token):
+    if token and not re.fullmatch(r"[A-Za-z0-9_.\-]{20,120}", token):
         # 値はどこにも出力しない（公開リポジトリに残さないため）
         print("GEMINI_API_KEY の形式が正しくありません（英数字のキー1行だけを登録してください）。ルール判定で続行します。", flush=True)
         token = ""
