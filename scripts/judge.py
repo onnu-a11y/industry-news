@@ -49,13 +49,11 @@ SYSTEM = """あなたは日本のアパレル小売企業向けのニュース�
 {rubric}
 
 出力ルール:
-- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…","story":"…"}}]}}
+- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…"}}]}}
 - summary: 何が起きたかを主語・数字を残して40字以内の日本語で。見出しの言い換えで構わないが、煽り表現は削る。
 - why: S/Aのみ。読み手の仕事にどう関係するかを30字以内で。B/Cは空文字。
 - tags: 次から1〜2個 {tags}
 - company: 主役の企業名（なければ空文字）
-- story: その記事が扱う「話題」の名前を15字以内で（例：「タワレコ情報流出」「消費減税法案」「佐川急便運賃改定」）。同じ出来事・同じ制度の記事には必ず同じ名前を付ける。
-  既存の話題一覧に当てはまるものがあれば、その名前をそのまま使う。新しい話題のときだけ新しい名前を作る。
 - 入力の全idについて必ず1件ずつ返す。"""
 
 
@@ -123,7 +121,7 @@ def save_quota(today, used):
     QUOTA_FILE.write_text(json.dumps({"date": today, "used": used}))
 
 
-def judge(items, token, profile, log, known_stories=None):
+def judge(items, token, profile, log, prev_names=None):
     # ルールでS/Aになりそうな記事から先にAIへ回す（上限に達しても重要な記事は確実にAI判定される）
     prio = {"S": 0, "A": 1, "B": 2, "C": 3}
     items = sorted(items, key=lambda x: prio[rule_judge(x)["level"]])
@@ -131,7 +129,6 @@ def judge(items, token, profile, log, known_stories=None):
     log(f"quota: used={used} budget_this_run={budget}")
     system = SYSTEM.format(profile=profile, rubric=RUBRIC, tags="、".join(TAGS))
     models = list(MODELS)
-    stories = dict(known_stories or {})
     results, model_idx, stats = {}, 0, {"requests": 0, "failed_batches": 0, "model": None, "tokens_in": 0, "tokens_out": 0, "requests_sent": 0, "skipped_by_quota": 0}
     for i in range(0, len(items), BATCH):
         batch = items[i:i + BATCH]
@@ -141,8 +138,7 @@ def judge(items, token, profile, log, known_stories=None):
             if it.get("snippet"):
                 line += f' | {it["snippet"][:100]}'
             lines.append(line)
-        known = "、".join(list(stories)[-80:]) or "（なし）"
-        user = f"既存の話題一覧：{known}\n\n記事一覧：\n" + "\n".join(lines)
+        user = "記事一覧：\n" + "\n".join(lines)
         msgs = [{"role": "system", "content": system}, {"role": "user", "content": user}]
         if stats["requests_sent"] >= budget:
             stats["skipped_by_quota"] += len(batch)
@@ -161,9 +157,6 @@ def judge(items, token, profile, log, known_stories=None):
                 for r in parse(text):
                     if r.get("id") and r.get("level") in LEVELS:
                         results[r["id"]] = r
-                        st = (r.get("story") or "").strip()[:20]
-                        if st:
-                            stories[st] = stories.get(st, 0) + 1
                 break
             except urllib.error.HTTPError as e:
                 body = e.read().decode(errors="ignore")
@@ -187,7 +180,6 @@ def judge(items, token, profile, log, known_stories=None):
             stats["failed_batches"] += 1
         time.sleep(7)  # 無料枠の1分あたりの上限（10回）に配慮
 
-    save_quota(today, used + stats["requests_sent"])
     out = []
     for it in items:
         r = results.get(it["id"])
@@ -199,12 +191,68 @@ def judge(items, token, profile, log, known_stories=None):
                 "why": (r.get("why") or "")[:50] if r["level"] in ("S", "A") else "",
                 "tags": [t for t in r.get("tags", []) if t in TAGS][:2],
                 "company": (r.get("company") or "")[:30],
-                "story": (r.get("story") or "").strip()[:20],
             })
         else:  # AIで判定できなかった記事はキーワードのルールで判定する
             merged.update(rule_judge(it))
         out.append(merged)
+    if models:
+        n = cluster(out, token, models, log, budget - stats["requests_sent"], prev_names=prev_names)
+        stats["requests_sent"] += n
+        stats["cluster_requests"] = n
+    save_quota(today, used + stats["requests_sent"])
     return out, stats
+
+
+CLUSTER_SYSTEM = """あなたはニュース編集者です。記事一覧のうち「同じ出来事」を扱う記事をグループにまとめ、JSONだけを返します。
+同じ出来事とは：同じ企業の同じ件（例：タワーレコードの情報流出）、同じ制度の同じ改正・法案（例：消費税減税法案）、同じ会社の同じ料金改定（例：佐川急便の運賃改定）。
+禁止：テーマや分野でまとめること（「情報漏えい」「為替」「販促」「その他」などの総称でまとめない）。別の企業の別々の出来事は必ず別グループ。
+グループ名（name）は固有名詞を含めて15字以内（例：「タワレコ情報流出」「消費税減税法案」「佐川急便運賃改定」）。
+記事が1件だけの出来事はグループにしない。
+{continuity}
+形式：{{"groups":[{{"name":"…","ids":["…","…"]}}]}}"""
+
+
+def cluster(items, token, models, log, budget_left, prev_names=None):
+    """S/Aの記事を出来事ごとにまとめ、各記事に story を付ける。戻り値は使ったリクエスト数。"""
+    targets = [it for it in items if it.get("level") in ("S", "A")]
+    for it in items:
+        it["story"] = ""
+    if not targets or not token or budget_left <= 0:
+        return 0
+    cont = ""
+    if prev_names:
+        cont = "過去の話題名（同じ出来事の続報なら、この名前をそのまま使う）：" + "、".join(prev_names[:60])
+    system = CLUSTER_SYSTEM.format(continuity=cont)
+    used = 0
+    for i in range(0, len(targets), 120):
+        if used >= budget_left:
+            break
+        chunk = targets[i:i + 120]
+        lines = [f'id={it["id"]} | {it["title"][:60]}' for it in chunk]
+        msgs = [{"role": "system", "content": system}, {"role": "user", "content": "\n".join(lines)}]
+        for model in models:
+            used += 1
+            try:
+                text, _ = call_model(msgs, model, token)
+                data = json.loads(text) if text.strip().startswith("{") else json.loads(re.search(r"\{.*\}", text, re.S).group(0))
+                ids_in_chunk = {it["id"] for it in chunk}
+                by_id = {it["id"]: it for it in chunk}
+                for g in data.get("groups", []):
+                    name = (g.get("name") or "").strip()[:20]
+                    ids = [x for x in g.get("ids", []) if x in ids_in_chunk]
+                    if name and len(ids) >= 2 and name not in BAD_STORY_NAMES:
+                        for x in ids:
+                            by_id[x]["story"] = name
+                break
+            except Exception as e:  # noqa: BLE001
+                log(f"cluster {i // 120}: {type(e).__name__} on {model}")
+                time.sleep(10)
+        time.sleep(7)
+    return used
+
+
+BAD_STORY_NAMES = {"その他", "情報漏えい", "情報漏えい事故", "為替", "為替・金利", "販促", "競合販促", "トレンド", "消費・市況",
+                   "出店・閉店", "EC・販促", "セキュリティ", "ECサイト運用", "商品開発トレンド", "制度・法令"}
 
 
 def group_stories(items):
