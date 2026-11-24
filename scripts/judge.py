@@ -68,6 +68,17 @@ RULES = [
 ]
 
 
+WEB_BASE = r"PHP|WordPress|EC-CUBE|MakeShop|Apache HTTP|NGINX|nginx|OpenSSL|Shopify|決済|LINE"
+
+
+def cap_weekly(it):
+    """JPCERTの週次レポートの個別製品の脆弱性は、Web/ECの基盤に関係するものを除きB止まりにする。"""
+    if it["title"].startswith("Weekly Report") and not re.search(WEB_BASE, it["title"]):
+        if it.get("level") in ("S", "A"):
+            it["level"] = "B"
+            it["why"] = ""
+
+
 def rule_judge(it):
     text = it["title"] + " " + it.get("snippet", "")
     for level, tag, pat in RULES:
@@ -195,6 +206,8 @@ def judge(items, token, profile, log, prev_names=None):
         else:  # AIで判定できなかった記事はキーワードのルールで判定する
             merged.update(rule_judge(it))
         out.append(merged)
+    for it in out:
+        cap_weekly(it)
     if models:
         n = cluster(out, token, models, log, budget - stats["requests_sent"], prev_names=prev_names)
         stats["requests_sent"] += n
@@ -344,6 +357,8 @@ def main():
     else:
         log("GEMINI_API_KEY が未設定のため、ルール判定のみで処理します")
         items = [dict(it, **rule_judge(it)) for it in src["items"]]
+        for it in items:
+            cap_weekly(it)
         stats = {"requests": 0, "failed_batches": 0, "model": "rules-only", "tokens_in": 0, "tokens_out": 0}
     stats["profile"] = "secret" if os.environ.get("PROFILE", "").strip() else "default"
     if a.out:
