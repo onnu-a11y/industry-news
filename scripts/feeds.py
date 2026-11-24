@@ -21,7 +21,7 @@ FEEDS = [
     {"id": "g_suit_cos", "lane": "industry", "kind": "gnews", "name": "Google: 紳士服各社",
      "url": gnews('青山商事 OR 洋服の青山 OR AOKI OR コナカ OR はるやま OR "SUIT SELECT" OR "FABRIC TOKYO" OR "麻布テーラー"')},
     {"id": "g_suit_mkt", "lane": "industry", "kind": "gnews", "name": "Google: スーツ市場",
-     "url": gnews("スーツ OR オーダースーツ OR 紳士服 OR ビジネスウェア OR セットアップ")},
+     "url": gnews("スーツ OR オーダースーツ OR 紳士服 OR ビジネスウェア OR セットアップ -スーツケース -ウェットスーツ -ドライスーツ -宇宙服 -パワードスーツ")},
     {"id": "g_apparel", "lane": "industry", "kind": "gnews", "name": "Google: アパレル各社",
      "url": gnews("ユニクロ OR ファーストリテイリング OR ワークマン OR しまむら OR ZOZO OR アダストリア OR ユナイテッドアローズ OR オンワード")},
 
@@ -49,15 +49,17 @@ FEEDS = [
 
     # ---- IT・セキュリティ・規制 ----
     {"id": "jpcert", "lane": "it_sec", "kind": "direct", "name": "JPCERT/CC",
-     "url": "https://www.jpcert.or.jp/rss/jpcert.rdf"},
+     "url": "https://www.jpcert.or.jp/rss/jpcert.rdf", "hours": 168},
     {"id": "ipa", "lane": "it_sec", "kind": "direct", "name": "IPA 重要なセキュリティ情報",
-     "url": "https://www.ipa.go.jp/security/alert-rss.rdf"},
+     "url": "https://www.ipa.go.jp/security/alert-rss.rdf", "hours": 168},
     {"id": "itm_news", "lane": "it_sec", "kind": "direct", "name": "ITmedia NEWS",
      "url": "https://rss.itmedia.co.jp/rss/2.0/news_bursts.xml"},
     {"id": "g_sec", "lane": "it_sec", "kind": "gnews", "name": "Google: 脆弱性・漏えい",
      "url": gnews("脆弱性 OR 不正アクセス OR 情報漏えい OR クレジットカード情報 流出 OR 緊急メンテナンス")},
     {"id": "g_rule", "lane": "it_sec", "kind": "gnews", "name": "Google: 規制・ルール",
-     "url": gnews("個人情報保護法 OR 特定商取引法 OR 景品表示法 OR ステマ規制 OR 送信ドメイン認証 OR Gmail ガイドライン", "7d")},
+     "url": gnews("個人情報保護法 OR 特定商取引法 OR 景品表示法 OR ステマ規制 OR 送信ドメイン認証 OR Gmail ガイドライン", "7d"), "hours": 168},
+    {"id": "g_policy", "lane": "economy", "kind": "gnews", "name": "Google: 制度・税",
+     "url": gnews("消費税 OR 消費減税 OR インボイス OR 電子帳簿保存 OR 下請法 OR 取適法 OR 社会保険 適用拡大 OR 改正法 施行", "3d")},
 ]
 
 LANES = {

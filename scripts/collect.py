@@ -69,13 +69,22 @@ def fetch_feed(feed):
     return {"status": status, "error": err, "entries": parsed.entries, "secs": round(time.time() - started, 1)}
 
 
+def snippet(entry, kind) -> str:
+    if kind == "gnews":
+        return ""  # Googleニュースの説明欄はリンクの羅列なので使わない
+    raw = entry.get("summary") or entry.get("description") or ""
+    txt = re.sub(r"<[^>]+>", " ", raw)
+    txt = re.sub(r"\s+", " ", txt).strip()
+    return txt[:140]
+
+
 def collect(hours: int):
     now = dt.datetime.now(JST)
-    since = now - dt.timedelta(hours=hours)
     report, items = [], []
     for feed in FEEDS:
         res = fetch_feed(feed)
         kept = 0
+        since = now - dt.timedelta(hours=max(hours, feed.get("hours", 0)))
         for e in res["entries"]:
             pub = published(e)
             if pub and pub < since:
@@ -89,6 +98,7 @@ def collect(hours: int):
                 "title": title,
                 "url": link,
                 "source": source_of(e, feed),
+                "snippet": snippet(e, feed["kind"]),
                 "lane": feed["lane"],
                 "feed": feed["id"],
                 "published": pub.isoformat() if pub else None,
@@ -132,7 +142,9 @@ def write_probe(now, report, clusters, hours):
     out = ROOT / "data" / "probe"
     out.mkdir(parents=True, exist_ok=True)
     stamp = now.strftime("%Y-%m-%d_%H%M")
-    (out / f"{stamp}.json").write_text(json.dumps({"generated": now.isoformat(), "report": report, "items": clusters}, ensure_ascii=False, indent=1), encoding="utf-8")
+    payload = json.dumps({"generated": now.isoformat(), "report": report, "items": clusters}, ensure_ascii=False, indent=1)
+    (out / f"{stamp}.json").write_text(payload, encoding="utf-8")
+    (out / "latest.json").write_text(payload, encoding="utf-8")
 
     lines = [f"# 取得元の検証レポート（{now:%Y-%m-%d %H:%M} JST・直近{hours}時間）", ""]
     lines += ["| レーン | 取得元 | 種類 | HTTP | 全件 | 期間内 | エラー |", "|---|---|---|---|---|---|---|"]
