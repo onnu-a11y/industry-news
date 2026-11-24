@@ -127,6 +127,7 @@ def judge(items, token, profile, log):
     today, used, budget = quota_left()
     log(f"quota: used={used} budget_this_run={budget}")
     system = SYSTEM.format(profile=profile, rubric=RUBRIC, tags="、".join(TAGS))
+    models = list(MODELS)
     results, model_idx, stats = {}, 0, {"requests": 0, "failed_batches": 0, "model": None, "tokens_in": 0, "tokens_out": 0, "requests_sent": 0, "skipped_by_quota": 0}
     for i in range(0, len(items), BATCH):
         batch = items[i:i + BATCH]
@@ -140,10 +141,10 @@ def judge(items, token, profile, log):
         if stats["requests_sent"] >= budget:
             stats["skipped_by_quota"] += len(batch)
             continue
-        for attempt in range(4):
-            if stats["requests_sent"] >= budget:
+        for attempt in range(5):
+            if stats["requests_sent"] >= budget or not models:
                 break
-            model = MODELS[model_idx]
+            model = models[model_idx % len(models)]
             stats["requests_sent"] += 1
             try:
                 text, usage = call_model(msgs, model, token)
@@ -156,18 +157,23 @@ def judge(items, token, profile, log):
                         results[r["id"]] = r
                 break
             except urllib.error.HTTPError as e:
-                msg = e.read().decode(errors="ignore")[:200]
-                log(f"batch {i // BATCH}: HTTP {e.code} on {model}: {msg}")
-                if e.code in (400, 403, 404) and model_idx + 1 < len(MODELS):
-                    model_idx += 1  # モデルが使えない → 次のモデルへ
+                body = e.read().decode(errors="ignore")
+                m = re.search(r'"message":\s*"([^"]{0,120})', body)
+                log(f"batch {i // BATCH}: HTTP {e.code} on {model}: {m.group(1) if m else ''}")
+                if e.code in (400, 403, 404):
+                    models.remove(model)  # このモデルは使えない → 候補から外す
                     continue
                 if e.code == 429:
-                    time.sleep(int(e.headers.get("retry-after", "30") or 30))
+                    time.sleep(min(int(e.headers.get("retry-after", "30") or 30), 60))
+                    model_idx += 1
                     continue
-                time.sleep(5)
+                # 500/503など（混雑・一時的な障害）：別のモデルに切り替え、待ち時間を延ばして再試行
+                model_idx += 1
+                time.sleep(min(10 * (2 ** attempt), 60))
             except Exception as e:  # noqa: BLE001
                 log(f"batch {i // BATCH}: {type(e).__name__}")  # 例外の本文にはヘッダー値が含まれうるので出さない
-                time.sleep(5)
+                model_idx += 1
+                time.sleep(10)
         else:
             stats["failed_batches"] += 1
         time.sleep(7)  # 無料枠の1分あたりの上限（10回）に配慮
