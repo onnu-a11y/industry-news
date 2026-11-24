@@ -1,0 +1,30 @@
+name: probe-feeds
+# M1 検証用：全取得元を一括で試し、件数レポートを data/probe/latest.md に保存する
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "何時間前までの記事を数えるか"
+        default: "72"
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/collect.py --probe --hours "${{ inputs.hours }}"
+      - name: commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/probe
+          git commit -m "probe: feed report" || echo "no changes"
+          git push
