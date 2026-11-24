@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T14:32:45.824343+09:00",
+ "generated": "2026-11-24T14:45:39.806432+09:00",
  "report": [
   {
    "feed": "wwd",
@@ -10,7 +10,7 @@
    "error": null,
    "total": 100,
    "within_72h": 43,
-   "secs": 1.0
+   "secs": 0.5
   },
   {
    "feed": "fsnap",
@@ -21,7 +21,7 @@
    "error": null,
    "total": 34,
    "within_72h": 34,
-   "secs": 1.4
+   "secs": 0.1
   },
   {
    "feed": "g_suit_cos",
@@ -30,9 +30,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 22,
-   "within_72h": 22,
-   "secs": 0.4
+   "total": 20,
+   "within_72h": 20,
+   "secs": 0.3
   },
   {
    "feed": "g_suit_mkt",
@@ -41,9 +41,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 100,
-   "within_72h": 100,
-   "secs": 0.7
+   "total": 87,
+   "within_72h": 87,
+   "secs": 0.4
   },
   {
    "feed": "g_apparel",
@@ -54,7 +54,7 @@
    "error": null,
    "total": 100,
    "within_72h": 100,
-   "secs": 0.6
+   "secs": 0.4
   },
   {
    "feed": "g_ec",
@@ -63,9 +63,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 19,
-   "within_72h": 19,
-   "secs": 0.6
+   "total": 18,
+   "within_72h": 18,
+   "secs": 0.3
   },
   {
    "feed": "g_ec_platform",
@@ -74,9 +74,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 23,
-   "within_72h": 23,
-   "secs": 0.5
+   "total": 22,
+   "within_72h": 22,
+   "secs": 0.4
   },
   {
    "feed": "g_crm",
@@ -85,8 +85,8 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 47,
-   "within_72h": 47,
+   "total": 46,
+   "within_72h": 46,
    "secs": 0.4
   },
   {
@@ -98,7 +98,7 @@
    "error": null,
    "total": 3,
    "within_72h": 3,
-   "secs": 0.4
+   "secs": 0.2
   },
   {
    "feed": "g_post",
@@ -120,7 +120,7 @@
    "error": null,
    "total": 20,
    "within_72h": 7,
-   "secs": 0.5
+   "secs": 0.4
   },
   {
    "feed": "toyokeizai",
@@ -131,7 +131,7 @@
    "error": null,
    "total": 20,
    "within_72h": 20,
-   "secs": 0.5
+   "secs": 0.6
   },
   {
    "feed": "nhk_econ",
@@ -140,9 +140,9 @@
    "kind": "direct",
    "http": 301,
    "error": null,
-   "total": 83,
+   "total": 84,
    "within_72h": 13,
-   "secs": 0.9
+   "secs": 0.5
   },
   {
    "feed": "g_macro",
@@ -153,7 +153,7 @@
    "error": null,
    "total": 28,
    "within_72h": 28,
-   "secs": 0.4
+   "secs": 0.3
   },
   {
    "feed": "g_labor",
@@ -164,7 +164,7 @@
    "error": null,
    "total": 100,
    "within_72h": 100,
-   "secs": 0.6
+   "secs": 0.4
   },
   {
    "feed": "jpcert",
@@ -175,7 +175,7 @@
    "error": null,
    "total": 31,
    "within_72h": 26,
-   "secs": 0.2
+   "secs": 0.3
   },
   {
    "feed": "ipa",
@@ -186,7 +186,7 @@
    "error": null,
    "total": 30,
    "within_72h": 5,
-   "secs": 0.9
+   "secs": 0.4
   },
   {
    "feed": "itm_news",
@@ -197,7 +197,7 @@
    "error": null,
    "total": 50,
    "within_72h": 8,
-   "secs": 0.5
+   "secs": 0.4
   },
   {
    "feed": "g_sec",
@@ -206,9 +206,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 42,
-   "within_72h": 42,
-   "secs": 0.4
+   "total": 41,
+   "within_72h": 41,
+   "secs": 0.3
   },
   {
    "feed": "g_rule",
@@ -217,9 +217,9 @@
    "kind": "gnews",
    "http": 200,
    "error": null,
-   "total": 4,
-   "within_72h": 4,
-   "secs": 0.4
+   "total": 3,
+   "within_72h": 3,
+   "secs": 0.2
   },
   {
    "feed": "g_policy",
@@ -230,10 +230,26 @@
    "error": null,
    "total": 1,
    "within_72h": 1,
-   "secs": 0.3
+   "secs": 0.2
   }
  ],
  "items": [
+  {
+   "id": "105e24e04347",
+   "title": "EV補助金受け付け終了で赤澤経産相「空白期間の対応検討」",
+   "url": "https://news.web.nhk/newsweb/na/nd-20261124de80532",
+   "source": "NHK 経済",
+   "snippet": "EV＝電気自動車などを購入する際の補助金が先週、受け付けを終了したことについて、赤澤経済産業大臣は、2027年度も補助金の継続を要求しているとした上で、要求が認められても受け付けや支給の期間に空白が生…",
+   "lane": "economy",
+   "feed": "nhk_econ",
+   "published": "2026-11-24T14:33:33+09:00",
+   "sources": [
+    "NHK 経済"
+   ],
+   "lanes": [
+    "economy"
+   ]
+  },
   {
    "id": "f8e935b91f25",
    "title": "第10回ユニクロ日本ジュニアゴルフカップ2026/8地区対抗戦出場選手60名が決定",
@@ -349,6 +365,22 @@
    ]
   },
   {
+   "id": "c40bddab0229",
+   "title": "スマートに見えて暖かい ORIHICA冬の人気商品「スマ暖®パンツ」を大幅拡充！",
+   "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE92U0RjYW5YQXIwQmw4Sy1Ha0ttaEFNdXVEUFdVQ1ZBM3FkNjBISXJ5RGNwOGJORkJHeDc1TS1acFE5MVk?oc=5",
+   "source": "Digital PR Platform",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_cos",
+   "published": "2026-11-24T14:00:39+09:00",
+   "sources": [
+    "Digital PR Platform"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "0a1015885d25",
    "title": "遊園地「むさしの村」、LINE登録者最大6万4,702名の情報漏えい-COMSBIへの不正アクセスで",
    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNai1QZWpManBLSTE5S1JidFJtRnVtSGNlT0MzM09uS3ZoN2NqcUpxVXUxQ2hvX3B2QlBLRDVmR1BPVGpGT0dMT1dOS1ZrUUx4Zk1aTU9XR01kc2xuQXBsdk1PSGRHNmFmYTY1X1AxTHl3SjB3ODNXbmZycUxnNHVsYWR6OGNZSHphRTNJMzBpcG5EWV9ScG5qQ2M3UXJNWHI3TnpGUkFSajA?oc=5",
@@ -397,22 +429,6 @@
    ]
   },
   {
-   "id": "9aab9cecf16f",
-   "title": "スマートに見えて暖かい ORIHICA冬の人気商品「スマ暖®パンツ」を大幅拡充！",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE93RlJBek9CNXJ1VmR5a3RGWXhRRWJDR2ZmdGw0enktdHlLc1U1RUlTaHBJWmRRM1ZmdWdCNnFiUVlocVB1R1RyRnNNWl9PM0o0RE1CNEZBeVQ1ZVVrYkE?oc=5",
-   "source": "沖縄タイムス社",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_cos",
-   "published": "2026-11-24T14:00:00+09:00",
-   "sources": [
-    "沖縄タイムス社"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "7b3ea8cb001d",
    "title": "ブルガリ・グループ会長のパオロ・ブルガリが死去、89歳",
    "url": "https://www.fashionsnap.com/article/2026-11-24/paolo-bulgari-obituary/",
@@ -438,7 +454,8 @@
    "feed": "g_labor",
    "published": "2026-11-24T13:49:10+09:00",
    "sources": [
-    "Yahoo!ニュース"
+    "Yahoo!ニュース",
+    "ｄメニューニュース"
    ],
    "lanes": [
     "economy"
@@ -509,19 +526,18 @@
    ]
   },
   {
-   "id": "12a9e0bd7af0",
-   "title": "売上高の95％がEC 上海の高級ランジェリーセレクト「リンジャーセット」が広い実店舗を持つワケ",
-   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFB1R0w3ZXllaFBFX3BweXFNRU01dWVVMUVwWVFJOFpXR1p5NmVaT0ttT3c1QjhUdVF6NFFmVmZZQTM2cUxYOS1IUDF6aDQxWW1BZDQ4?oc=5",
-   "source": "WWDJAPAN",
+   "id": "fb6e63a93826",
+   "title": "スヌーピー バッグやポーチなど しまむら全国にて11月25日発売!",
+   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQOU9pNkM2WEstZzFhWVpWcGdnb1h2QXE5ZjBRX25SdjNhRjd3QTRNNmdXV0Y5YUNuYzAwMERJVnIzc09rckZUTWllMl8zTFZ3VEt4Qlo4RGNKdWlGNVlILW9BdXZqcmZzLWhsN0ZQZnRNZ3k5Nk5VQVl3M3dsQVpLMG0zVXpURm8?oc=5",
+   "source": "コラボカフェ",
    "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_ec",
-   "published": "2026-11-24T13:18:45+09:00",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-24T13:13:56+09:00",
    "sources": [
-    "WWDJAPAN"
+    "コラボカフェ"
    ],
    "lanes": [
-    "retail_ec",
     "industry"
    ]
   },
@@ -735,16 +751,16 @@
    ]
   },
   {
-   "id": "05c3cd58f977",
+   "id": "4f6d7054dd23",
    "title": "立民、消費減税の対案提出",
-   "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1kNi1DN1ZkNDVFRzQwdndDWjR2Zm5KekxDOHpWbHdDaE9Jc0JvcFNqbzdlTVJwR0c2NTlZU2pGYXRNelJvazdpZUdETWxvQVFKYU9XbjgxZw?oc=5",
-   "source": "松本経済新聞",
+   "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9DaHRsOUM4LVhhLVdoWWxMRGYzNzkwZU13TkFtdlZFZWpsNjhMRkh5U2JHMjQyWVJOQW1wLUJRa3NRbTNCUU80Y2ZSV0Vqa2lqRVZfXw?oc=5",
+   "source": "浅草経済新聞",
    "snippet": "",
    "lane": "economy",
    "feed": "g_labor",
-   "published": "2026-11-24T12:24:55+09:00",
+   "published": "2026-11-24T12:24:59+09:00",
    "sources": [
-    "松本経済新聞",
+    "浅草経済新聞",
     "Infoseek",
     "時事通信ニュース",
     "大分合同新聞",
@@ -821,16 +837,16 @@
    ]
   },
   {
-   "id": "1d6fe8fb0d8f",
+   "id": "3564689b1cb6",
    "title": "青山商事、資源循環の取り組みを伝える「服を集めて、森をもりもり！ゲーム 」をバーチャル空間に展開",
-   "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1SNlBZRy1IQXJ4X0xNbjJGWEFlX24tNlpaWG9ENFhyNzNBOF9FQUEza281dTZYWmU5SVBrVUgwRWlqZFQzeEF5a295OXFUaHFsM3NtUXJmNHh1RE82NmNkMlVjQXBqTS1ES3c?oc=5",
-   "source": "PR TIMES",
+   "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE54NmxSNGV2aEMzQzR5ZnIwNlhIUFRMQXRkTng4bHl6YmVlaHNvUmRTRzQ3Ym9YSFVsU3ZFZ0hpX2xoNzlWaFB6QW5QbE1mNUg3Q3NqcFp2QmxWR1RHb2tSQ0s1UFoyM2VuTHEtZVk4djY?oc=5",
+   "source": "山陽新聞",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_cos",
-   "published": "2026-11-24T12:15:17+09:00",
+   "published": "2026-11-24T12:15:00+09:00",
    "sources": [
-    "PR TIMES"
+    "山陽新聞"
    ],
    "lanes": [
     "industry"
@@ -1020,6 +1036,22 @@
    ]
   },
   {
+   "id": "da269557bae8",
+   "title": "リー・チン×チェン・ジャーユエン共演 中国ロマンス・アクション時代劇 「笑歌行－Fated Hearts－」DVD発売決定＆日本版予告編公開！",
+   "url": "https://news.google.com/rss/articles/CBMiQkFVX3lxTFA3T1R2M0tmSi1wYmtWdTlZaElma096ZFlsSzJ0ZWRBeXZtSmFyMWMxeFQ1RTJUa0FtaVlOSFRRREZEUQ?oc=5",
+   "source": "PR EDGE",
+   "snippet": "",
+   "lane": "retail_ec",
+   "feed": "g_ec",
+   "published": "2026-11-24T12:00:02+09:00",
+   "sources": [
+    "PR EDGE"
+   ],
+   "lanes": [
+    "retail_ec"
+   ]
+  },
+  {
    "id": "df0a608efd18",
    "title": "ウェブセミナー『EC売上“再起動”セミナー! 伸び悩むECがまず見直すべき売上構造と改善の基本』を2026年12月8日に開催！",
    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBPRUpkaW5rNjFPOTdVME1YUG5DOFR1MldhMzl3SEVfQ3pxbUZueTlYUFg2ZkYzSlNNOXhrS3lyZVA5dVVQWTZreVRCNjRMTXhNMDFWZExyY1Y5SnJWb3Bwa29BbkRIdzFsUEE?oc=5",
@@ -1052,22 +1084,6 @@
    ]
   },
   {
-   "id": "9265bd4e342a",
-   "title": "＜重ね着が苦手でもOK！＞【しまむら】1枚で完成♡『レイヤード風スウェット』",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNaTlOaFZrc0h5ZVRfdGVsZ1R2LVd5c250ak96QVZsWU91UldsQnZDRWpFNkgtV3Yzcm4zMkxheTNJRTMzUVRIRHhwWVpyUTFnQWlvdkJFOWlnTE5ZcTFhOGpCVGc1blFaQ2g4bkZfLXRyLUNCX2lqZ3M1MTA2U1pwR1E3MlR0WGtabTFoQ1p1Z2JPeVdXWlAxOTJuT3hoNk5yTVk2bzQzcUFjcllJTEVQWTN0OG9ZN0JoMkHSAboBQVVfeXFMTWk5TmhWa3NIeWVUX3RlbGdUdi1XeXNudGpPekFWbFlPdVJXbEJ2Q0VqRTZILVd2M3JuMzJMYXkzSUUzM1FUSER4cFlaclExZ0Fpb3ZCRTlpZ0xOWXExYThqQlRnNW5RWkNoOG5GXy10ci1DQl9pamdzNTEwNlNacEdRNzJUdFhrWm0xaENadWdiT3lXV1pQMTkybk94aDZOck1ZNm80M3FBY3JZSUxFUFkzdDhvWTdCaDJB?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T12:00:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "589df6c0b1c4",
    "title": "株価 一時2800円超の値上がり エヌビディアのCEO復帰発表受け",
    "url": "https://news.web.nhk/newsweb/na/nd-20261124de80352",
@@ -1081,23 +1097,6 @@
    ],
    "lanes": [
     "economy"
-   ]
-  },
-  {
-   "id": "51004dd16742",
-   "title": "青山商事、世界最大級のメタバースイベント 夏に続き「バーチャルマーケット2026 Winter」に出展！",
-   "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE9PUEZyNllWMkZxS212U0s5cDg2UzRra3VfOFRpNHhlcUZBVFYxUjZtemtEeU9XaEtrQTRXZmdnUlkxUGM?oc=5",
-   "source": "Digital PR Platform",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_cos",
-   "published": "2026-11-24T11:51:07+09:00",
-   "sources": [
-    "Digital PR Platform",
-    "ライブドアニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -1214,22 +1213,6 @@
    ]
   },
   {
-   "id": "4e523a2a0661",
-   "title": "消費税減税法案めぐり 立民が最大5万円給付など対案を国会提出",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9SWlVzUHB0Z1E4ajJpRTMwMU02SEN4eDZTSTV6Njdqc3JlX2t5WEhBM19mc1d6cXBvd2d2Z3BzLXhzSDJfVzRkWFFfMTE2SnhuVmYzZUxwQnpfbWxUR0J3?oc=5",
-   "source": "NHKニュース",
-   "snippet": "",
-   "lane": "economy",
-   "feed": "g_labor",
-   "published": "2026-11-24T11:39:03+09:00",
-   "sources": [
-    "NHKニュース"
-   ],
-   "lanes": [
-    "economy"
-   ]
-  },
-  {
    "id": "a3b3f184be70",
    "title": "ZOZO、KARTEへの不正アクセスで顧客情報漏えい ZOZOTOWN約1,518万人が対象",
    "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBGM0N1UkU1UnZiaWowNzJ4XzR0UVp5ZGJtWmtuTkg3WlBxMHRicWR1NW9qMWVJZ0J5SWtrOGZ4U1FzdWVSTWFvT1JzREdNYTRSOUg4ZXBWaVlHZkpydHJyaXpR?oc=5",
@@ -1273,6 +1256,23 @@
    "published": "2026-11-24T11:30:00+09:00",
    "sources": [
     "WWDJAPAN"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "47131994873e",
+   "title": "青山商事、世界最大級のメタバースイベント夏に続き「バーチャルマーケット2026 Winter」に出展！ (2026年11月24日掲載)",
+   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9XaFNjQkdMejBwWV81R0x2eHBhdmw1Q3MzZ3JnaVJRREtWNW1yN0VfSGpCajh4Uno3X1BBcmt6aW13Z01vMFYzaVRmYXdRbS14dkUtbWJuM1JuQjU5UUtoTzd3?oc=5",
+   "source": "ライブドアニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_cos",
+   "published": "2026-11-24T11:30:00+09:00",
+   "sources": [
+    "ライブドアニュース",
+    "PR TIMES"
    ],
    "lanes": [
     "industry"
@@ -1340,6 +1340,22 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "27de711a0c51",
+   "title": "しまむら、ブラックフライデー開催 27日は本体96円の商品も登場",
+   "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBOS3JOcGpfMDgzSXFsZ2xSSlQ2T3dTRWFwVHRHb1daZFlCYi1SY3JJSm1SRWJEellMNnc3RzZFUE8yenREN09TdVV1R0xGNy1fc2ZQT3BYc3RoRFJDV2FJeGpLSlk2UQ?oc=5",
+   "source": "RBB TODAY",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-24T11:17:18+09:00",
+   "sources": [
+    "RBB TODAY"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -1467,22 +1483,6 @@
    "published": "2026-11-24T11:00:00+09:00",
    "sources": [
     "WWDJAPAN"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "b1ffca11ed25",
-   "title": "「カジュアルすぎない」「気軽に着られる」【ユニクロ】40代ユニ女が選ぶ『1,990円トップス』",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOS2FHZjh3UU1ZNmhNYWFJNEViUGdEN2VGSkZocnh4Mk5oVjF5QlBnTEVCcVFnWk4xY1BvZHlWSzhnaWVEVjE4Nm5Ocm1oV29MSlFDUXRKTkl0ZGhoVVhqSVVSdGpiY0R5TjdSX1ozYS1adkR6Y0hDUkVIWG5QXzBncXlQYy1KajNDOG9rOE9GaE01QlI3dzJsbDdsU25FQXA5SV9ZcFJ0WdIBpwFBVV95cUxOS2FHZjh3UU1ZNmhNYWFJNEViUGdEN2VGSkZocnh4Mk5oVjF5QlBnTEVCcVFnWk4xY1BvZHlWSzhnaWVEVjE4Nm5Ocm1oV29MSlFDUXRKTkl0ZGhoVVhqSVVSdGpiY0R5TjdSX1ozYS1adkR6Y0hDUkVIWG5QXzBncXlQYy1KajNDOG9rOE9GaE01QlI3dzJsbDdsU25FQXA5SV9ZcFJ0WQ?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T11:00:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
    ],
    "lanes": [
     "industry"
@@ -1732,22 +1732,6 @@
    ]
   },
   {
-   "id": "02c58ba73af3",
-   "title": "多彩なメディアとコンテンツの力で、新たな価値を創出した5つの広告企画が受賞 「講談社メディアアワード2026」贈賞式",
-   "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5zQzBJU091VjJ6Y0J1Zk93dUxxblF6UmhBWWxVWG1mWHdHMDItLTFndkQzNGhvMFp0NWoxbERKMlhhRW9UeTRHcWVRcG5kUF9JR2dsZmZIRzA?oc=5",
-   "source": "講談社Cステーション",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_cos",
-   "published": "2026-11-24T10:09:33+09:00",
-   "sources": [
-    "講談社Cステーション"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "96ba7dc5cac6",
    "title": "しまむらで「リラックマ」モノクロデザインなアイテムが11月25日発売！バックやチャームのほか、カー用品もラインナップ",
    "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5lU283VV9SYlNoSVVwWm9VMERNZUotRzdvU1NKODU4djdDTkR5RTdQV0dveEtES0tsdUV6WktvVUF1QWFqc09pQTF6YTdpMmR4YzJMR1dJbkI2c1VpZk9kdzJQdjlGcjVBLU9xLUVOamp4VUZWVEhrUlpXR05FdFU?oc=5",
@@ -1822,22 +1806,6 @@
    "published": "2026-11-24T10:00:00+09:00",
    "sources": [
     "WWDJAPAN"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "6065e79b1e93",
-   "title": "「ZOZOCOSME」で、服の生産過程で出た残反を活用したオリジナル巾着が当たるキャンペーン実施",
-   "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOcEY1NGZEZDNhamF1M2syQS1DeTMtSWhlcmlzTmhWT2UxNlE4aGhmMDNlVGhnWXhudVFkYUFwNmwxSDdpY0x6bGRaUEZQSGhHcjBTYzBRUHBKZzVXUVh1bDFWb2xWZkRDUDhBcGVoeWc2RGM4YnJkSDFLVU5VRC1QQ3ZIOEZSMldKaHIwV05GeS1adUM0Q2FFRERydVprNTFSZUpKT2k3MUhDQTY4SlNxcmJQWmfSAbQBQVVfeXFMTnBGNTRmRGQzYWphdTNrMkEtQ3kzLUloZXJpc05oVk9lMTZROGhoZjAzZVRoZ1l4bnVRZGFBcDZsMUg3aWNMemxkWlBGUEhoR3IwU2MwUVBwSmc1V1FYdWwxVm9sVmZEQ1A4QXBlaHlnNkRjOGJyZEgxS1VOVUQtUEN2SDhGUjJXSmhyMFdORnktWnVDNENhRUREcnVaazUxUmVKSk9pNzFIQ0E2OEpTcXJiUFpn?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T10:00:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
    ],
    "lanes": [
     "industry"
@@ -1950,7 +1918,6 @@
    "published": "2026-11-24T09:51:30+09:00",
    "sources": [
     "北海道新聞デジタル",
-    "新潟日報",
     "Yahoo!ニュース",
     "中日新聞Web",
     "南日本新聞",
@@ -2180,8 +2147,7 @@
    "published": "2026-11-24T08:54:21+09:00",
    "sources": [
     "Yahoo!ニュース",
-    "日刊SPA!",
-    "Infoseek"
+    "日刊SPA!"
    ],
    "lanes": [
     "industry"
@@ -2217,22 +2183,6 @@
    ],
    "lanes": [
     "economy"
-   ]
-  },
-  {
-   "id": "073d587dfbb8",
-   "title": "【ユニクロ＆GU】3990円以下の名品も！50代が買うべき高見えシンプルニット (HALMEK up)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQdF9VSTJKYi1rOW5HSVc0NWF3bFNjM1dsU3psMHR2ZmtVY2JEN2MyeEZPSVlIMHJOZWxvZFRtQWhCRE9iVmJPUWlYX051bHZMX1dmNUxoOXR0ZW95Ynhkb0luZ1ZVS2xFZDVHdWhZekF0SGF3T3ZXNFBxU1lxZEJuTDV3UG1uWTFBLThNRThB?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T08:30:31+09:00",
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -2482,47 +2432,13 @@
    "source": "ダイヤモンド・チェーンストアオンライン",
    "snippet": "",
    "lane": "retail_ec",
-   "feed": "g_consume",
+   "feed": "g_ec",
    "published": "2026-11-24T07:49:41+09:00",
    "sources": [
     "ダイヤモンド・チェーンストアオンライン"
    ],
    "lanes": [
     "retail_ec"
-   ]
-  },
-  {
-   "id": "ccc6dfc1108d",
-   "title": "【ユニクロ感謝祭】目玉（3）「着て帰ってきた」♪ 6990円→5990円！パフテックジャケットで防寒 (LASISA)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQWGR3d2lSVUFoNTV4ay12aHVxanhpY2k2SmxsUEJuVk5LZmJ6aWZQR1lOSG5KNmJ3ZUFSWE1aN05SZUFDQzNpdVVyMldwUGNnemMwbFBDWUpHNW5uOW1ZdkNtQXU2N1pDNUlzQTJMTXZyeVdqTnhhMk5Da0xqVVFFVjJHblo4MVdjSklIaFVn?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T07:45:36+09:00",
-   "sources": [
-    "Yahoo!ニュース",
-    "ｄメニューニュース",
-    "lasisa.net"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "a4b68f09eeaa",
-   "title": "「これ買っておけば間違いない」ユニクロのパンツが好評「ゆったりはけてスッキリ見え」「この質感でこの価格は神」",
-   "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5HU3hjU0gwOC02bzZDVXJBTDhOZmlSclFqMnlicmZlRnVfV3REVGpmN3FzSXlUSXJBUnkxM25BVHhLQW1vQWxqZ3pHeVhELUZvX0ljUjFTaGJtT0RldHVYejN0YXFlMkExMVRneDd6N3BIQ096bzN2Wk5Qa9IBe0FVX3lxTE5HU3hjU0gwOC02bzZDVXJBTDhOZmlSclFqMnlicmZlRnVfV3REVGpmN3FzSXlUSXJBUnkxM25BVHhLQW1vQWxqZ3pHeVhELUZvX0ljUjFTaGJtT0RldHVYejN0YXFlMkExMVRneDd6N3BIQ096bzN2Wk5Qaw?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-24T07:45:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -2648,6 +2564,38 @@
    "published": "2026-11-24T07:20:00+09:00",
    "sources": [
     "QUICK Money World"
+   ],
+   "lanes": [
+    "economy"
+   ]
+  },
+  {
+   "id": "d6553e621377",
+   "title": "【ユニクロ＆GU】3990円以下の名品も！50代が買うべき高見えシンプルニット（HALMEK up）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBsTGNJZlNzdGJVT3JIc1J3VGk5WlB2REEzTU1ud25oMjA1Z2tUOGV1TUcyQlZ6Q25BWTJmVHdWMFpiTVhUNUc1YXQwQ3JHd2FscVJIZmV0YWstLUQ2dUFKSFdOUkhLSDBwbHN2TWh3VldFekZUSk9wdS1rNmI4b1k?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-24T07:15:04+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "2079cb63bde8",
+   "title": "事業者負担増大に懸念相次ぐ 消費減税法案の地方公聴会",
+   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5zZVNTSHZ3WWxpOXFIVEJoVHB0aVVUMm1qSllXZGZIZlhuSWxPTEx3Z3pwazNTZWZJNV9CWnQ5YUx0MjM4ZnJXYllBZzcteHAxaUxaSXZTVEpMcloxSkUtcVEzcDVVR3c?oc=5",
+   "source": "山陽新聞",
+   "snippet": "",
+   "lane": "economy",
+   "feed": "g_labor",
+   "published": "2026-11-24T07:09:31+09:00",
+   "sources": [
+    "山陽新聞"
    ],
    "lanes": [
     "economy"
@@ -2907,6 +2855,23 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "008f5e0938a8",
+   "title": "【ユニクロ感謝祭】目玉（3）「着て帰ってきた」♪ 6990円→5990円！パフテックジャケットで防寒（LASISA）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE90cWU5ZUlEMlJ6SWJMMFBLV3dNbG1wYVhNN1c0UHRfcXhrd3dzXy1URDJxRksxQ2VqaTZtdjZId0JHVmx4RjhtMU5acW44dkRtR0xXZXlhdFZNOENCdUplcnVwemltTXZCZngteC1YbGtWV3ZPbndNOFl1YzB4RzA?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-24T06:15:00+09:00",
+   "sources": [
+    "Yahoo!ニュース",
+    "lasisa.net"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -3497,7 +3462,6 @@
    "published": "2026-11-24T01:10:02+09:00",
    "sources": [
     "PR TIMES",
-    "Excite エキサイト",
     "Infoseek"
    ],
    "lanes": [
@@ -3505,21 +3469,32 @@
    ]
   },
   {
-   "id": "aff4b800e0a5",
-   "title": "KEY TO LIT、『Oggi』表紙＆スーツ企画に登場 “シゴデキ”な5人と過ごすオフィスライフ、仕事観にも迫る",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5OUmxVREVSNXV0WmlFblVKOHRYTkRKbFR1ZUFvSkFfQkxDbUo0Z1NsMXpIQmhiUGV4V3FpTFFQVk5PUUU1UkFVVFFZbTZJanlGcWxsejdYc1dsNDVH?oc=5",
-   "source": "山陽新聞",
+   "id": "b621c6405cdb",
+   "title": "スーツ、法律事務所応援キャンペーンを実施 3社限定で導入を無料支援",
+   "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTFBNdzF5QjR0bUxQTjFzc0tBd2dpZ0tZc3RDU3U0bUUwcS10ZEhYSlJQYVA0V0Eyem1sTjkydDkxTDBpeHdCTTNR?oc=5",
+   "source": "Dellows News",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
-   "published": "2026-11-24T01:00:20+09:00",
+   "published": "2026-11-24T01:10:02+09:00",
    "sources": [
-    "山陽新聞",
-    "福井新聞社",
-    "Yahoo!ニュース",
-    "オリコンニュース",
-    "AGARA 紀伊民報",
-    "ｄメニューニュース"
+    "Dellows News"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "162e07110e62",
+   "title": "この冬はユニクロカーディガンが当たりすぎる♡今すぐ買っとかないと後悔…おすすめアイテム5選",
+   "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE9aZHpUNTZiemlaVHhSajVCeThyY0ZLVXExbmxQWVBsdHJhcXIyWjhLYV9ac0htRWNZbC1rbHU0Wm5MMGpEQ3c?oc=5",
+   "source": "モデルプレス",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-24T00:18:37+09:00",
+   "sources": [
+    "モデルプレス"
    ],
    "lanes": [
     "industry"
@@ -3606,22 +3581,6 @@
    ]
   },
   {
-   "id": "1821b4eaa95d",
-   "title": "ユニクロは、スタジオジブリとのコラボレーションによる第4弾となるUTコレクションを発売する予定です。",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQQ3JPRHUtSFpaT2FPY0dkR2JRV1NXRW5maGdGVjlIMDNpcTZCc1dtSFhjbWlZbUh4ZHJFNUk4Y3A3Zk53VnV4RUU1RkhqaF9SN1d5WDR6WXluR05nbno4ZS1qbnllNzNndDQ5MGREM2lTTEowSHpsMlVubnVwVVFaUlFwcFpWaUN2dEZqSzZtUng?oc=5",
-   "source": "Vietnam.vn",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T23:26:13+09:00",
-   "sources": [
-    "Vietnam.vn"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "c9c52e3b14c5",
    "title": "【11月23日更新】楽天モバイルキャンペーンまとめ - 14,000ポイントもらえる三木谷社長の紹介キャンペーン詳しく解説＆新規・乗り換えで人気iPhoneもお得",
    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBkdFV2VE1DRENIOGt0ZTFDNXBYdmI3VFJ4UXpJQlRCM2NDZlZiczZoTlNDTzQ1UWJ1SkcxTjNQQW9EeC1Ic2xtTl9OOVNod01XUmRuTjR5bjRtRFI0VWlPZGpDem92RklENkE?oc=5",
@@ -3654,6 +3613,22 @@
    ]
   },
   {
+   "id": "5ff81005b5dc",
+   "title": "「試着して即決！」「暖かいのにキレイ見え」【しまむらマニア】が惚れた『2,189円暖パン』",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRUtuNUNDUFZMbEU4cGZUMDJlOHNmeXg2RFNaRUNQTHFDdVlvcUZIS0drSXU3dDZnZWRmUXdvQVA3WVhDbVY5cUFya2JkTmJQc2djdEZvMk9STjdjdUxXVlg3eTBKYy1MNTZrSTV5UHJFMm0wR3J2aGpMMEo1UEVpa2VxMlV2REtxNndkM01MbC0td2JpUHlyd0h4NVJsVXFQSXfSAacBQVVfeXFMTU1STWRWWXJPN1NXLXlna0stZzd6UnprSTJOeXlQSTZPUFNmTkNZZ2ZhcUVFci1DMG5zSjY2S2VkV2tZQlFxMnpiSzktdDBFTHFzWFFORW90R1ZfdGFfZEdJQXVmX2U1aXJYcDhQQ1dQb016MWVnNHBmbjNPLVlhbFJhMWJ5c3RkamFuM1VIU210Q0Fqem03NjVKMFdUYU02b1NIYzUyVDA?oc=5",
+   "source": "ｄメニューニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T23:00:00+09:00",
+   "sources": [
+    "ｄメニューニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "7a15a6db13d0",
    "title": "まもなくイスラエル基準金利の発表",
    "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTFBra3o2ZHlzM1VwZGM2bEItdHJDMHkwbVNnVldOVGFWcU51ZXRlOGlveWh3cTZzRGdlTW5keFlUQVp0c1JLN2c?oc=5",
@@ -3668,6 +3643,22 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "672b900dc9d4",
+   "title": "俳優ホ・ナムジュン、ディオールビューティーのイベントに登場！洗練されたブラックスーツ姿で魅了 - K-POP、韓国エンタメニュース、取材レポートならコレポ！",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE11UllSb05RcFRPYlNENWc3d2cyMm1oZ3JFZjVPVzgtdnIzTE9PRFJZcDMybFRZWjhQZC1LWmRlS2JuZXVodm1jRzFfYw?oc=5",
+   "source": "K-POP、韓国エンタメニュース、取材レポートならコレポ！",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T22:24:41+09:00",
+   "sources": [
+    "K-POP、韓国エンタメニュース、取材レポートならコレポ！"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -3744,7 +3735,8 @@
    "feed": "g_apparel",
    "published": "2026-11-23T21:40:00+09:00",
    "sources": [
-    "Yahoo!ニュース"
+    "Yahoo!ニュース",
+    "ねとらぼ"
    ],
    "lanes": [
     "industry"
@@ -3767,48 +3759,15 @@
    ]
   },
   {
-   "id": "710608483df6",
-   "title": "寒暖差に負けない！ワークマン新作〈ポケット付きカーデガン〉が薄手でさらっと羽織れて便利。汚れがつきにくくて1790円！",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQLXR3VVJ2TUN5dU5leGpwNjY3SG5mLXFBcDk1T1lzODZ2TGExMVFlek95OVBzSi1ITm1OdUtFNzg2d01SVDNvWHBCbkNCdFhFM0ZVQVdjdVlSeDJXUTZzT25zR20wbHoxcGVicEJxZVJMYjRTNlgyRDlQQWJqbjQzWmF6Y0VTR0Yyc3RSaUpn?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T21:30:33+09:00",
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "561688c59c61",
-   "title": "アラフォーの【ユニクロ通】が「これ無しで、冬乗り越えられない！」オシャレ◎ 機能◎『優勝服』",
-   "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPb0xUQkIxclVnSVZuN0NEVlI3ejJiUS1jc2dIMlNJQzdBSm80MEhCTXdpbEhWQnNqRkI5c2NqRHlnNHBkMjk4SFFtNWZTOUZ3Z3JuSVlQZzJjMC1Kc0ViZzhxY28zSXFkNFBCVEdwV3AzMFYtS2hiT3FRVGhXbVM5LTlKOHB0aW0yY2g2Yi0zRERVZnFaalc1R25PR09KSWdwLXNTYW5ITdIBpwFBVV95cUxPb0xUQkIxclVnSVZuN0NEVlI3ejJiUS1jc2dIMlNJQzdBSm80MEhCTXdpbEhWQnNqRkI5c2NqRHlnNHBkMjk4SFFtNWZTOUZ3Z3JuSVlQZzJjMC1Kc0ViZzhxY28zSXFkNFBCVEdwV3AzMFYtS2hiT3FRVGhXbVM5LTlKOHB0aW0yY2g2Yi0zRERVZnFaalc1R25PR09KSWdwLXNTYW5ITQ?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T21:04:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "0a0ab6b78bf2",
+   "id": "48f9c3137b7e",
    "title": "廃漁網がセットアップに！アーバンリサーチの製品に廃漁網由来素材amuca(R)が採用",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5ZcE9MR19uc1h4NVpmLTlDbG1neGp6TkZjZDVCdlBRaUtRNGxMSFVNWFdLbjR3TVBpU0R5eTRnbDJncklvZlJHRGJ4bXFkaGNFY2hYT2E1b0k4ZVVhemcw?oc=5",
-   "source": "千葉テレビ放送",
+   "url": "https://news.google.com/rss/articles/CBMizAJBVV95cUxNNHJpQ3ZRS29QQXN4RUJaZkN0YWVWWDMtT1lBVnZzcXJybkJYdTdiT0diQmRVVkd1R2NfY0I4WjNBR194QjFFeXJBLWZhVjV3UmVYR0EtSnE1NWhnejZsYlI3MHVZblpNTzlNNk5tV2JhV3dEcTZ1MDV5UVNTTGNZVjd1YWN0UndWYjN2YkIxNHhEbklreUx0QW9LcHFheFJMWjNvcHhSbXBGclM3VE1NQUdtNnJ3dGIySjF5N3lXcF9wc0xCTEUtZ21MdWlZZ1M0RXgxQUxFUG1MUjZsWFk5a3U1RzdQWV9mdGtIeGlaOF9pR1k0UGZRS1FCU29NaGhIcnlicEVoZGFORmxZNmIwU0htaG16dUxETmpZMTJnTU1FcDh2c3J3Zk9FY1hRMlVJSEpPd05uZnhhdWxFb1NMb3dDUzR1WjFqTml2Yg?oc=5",
+   "source": "ラブすぽ",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
-   "published": "2026-11-23T21:02:37+09:00",
+   "published": "2026-11-23T21:02:16+09:00",
    "sources": [
-    "千葉テレビ放送",
     "ラブすぽ"
    ],
    "lanes": [
@@ -3897,22 +3856,6 @@
    ]
   },
   {
-   "id": "35a98b2cb43a",
-   "title": "M!LK塩﨑太智、フォーマルなスーツにネクタイ姿で“故郷”和歌山県知事と“滅ポーズ”「スーツかっこいい」「ぴかぴか笑顔でかわいい!!!」：山陽新聞デジタル｜さんデジ",
-   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBwM1pqNDctc1VsQWNNcUlQU1dKRHhYX1BqRy14Nnozd0tBOVh5bk40OEZOSEUxQkxmLTd1cjVkWURRbmptTnQ1NkJGX3lHek9mSXl4RkFnazlzSnBKU2sxUGRCQXhLVHM?oc=5",
-   "source": "山陽新聞",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T20:36:04+09:00",
-   "sources": [
-    "山陽新聞"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "ad77a29470bb",
    "title": "【2026年11月】iPhoneの乗り換えキャンペーン最新比較！一番お得なキャリアはどこ？",
    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1vSml6dUZ4VUVNWV9IQjllcVVGLXZjSWU5YVkwMlVkRXJYcVNWYU4wRUZSbnBSREdITDVHb2RPc19WV2piNHFYb1VlZ2RsWmNFWG56T2R6TmFiUQ?oc=5",
@@ -3978,54 +3921,6 @@
    ]
   },
   {
-   "id": "2dca62553c5e",
-   "title": "「エブール」のきれい色ツイードセットアップで、日常に心地よい特別感を｜優美なグリーンが装いに華やぎを添える",
-   "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBzamdROFplYUNfOERIQ0FsUU9vdUlzM1JHaU1JcXY1TS1neEZjT1ZCbm5KUkN5OFExd3ZOdGlJZGU1d05zRnRWUXc0T3g?oc=5",
-   "source": "Precious.jp",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T20:00:00+09:00",
-   "sources": [
-    "Precious.jp"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "2d594eb33e9e",
-   "title": "＜無地ばっかり＞マンネリ気味な人へ！【大人のしまむら】30・40代に似合う『柄ニット』",
-   "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQUGlXVEVMQU1tRHpxLW5SZnBrRFNMVngxQWNfYjBqX25vN0VVb1ZkcHEwa2FmTUZtZ05TbHBrVFlHZXpxa2JKX3M5RkhFS2dHdWpxTFFZam1JTktuVUQ0N19Gemt5NEZKZHRRMFBpYTlIYlhGUG9BTTg3Ul9HcDVsU0dYNzgyNFZ3bmJXN2lxV0k3djBYOWtuSnJRQ0FLcHI0aEd1Qk43LWw4ck5PcXpieDZLcVJEaFVpSWfSAboBQVVfeXFMUFBpV1RFTEFNbUR6cS1uUmZwa0RTTFZ4MUFjX2Iwal9ubzdFVW9WZHBxMGthZk1GbWdOU2xwa1RZR2V6cWtiSl9zOUZIRUtnR3VqcUxRWWptSU5LblVENDdfRnpreTRGSmR0UTBQaWE5SGJYRlBvQU04N1JfR3A1bFNHWDc4MjRWd25iVzdpcVdJN3YwWDlrbkpyUUNBS3ByNGhHdUJONy1sOHJOT3F6Yng2S3FSRGhVaUln?oc=5",
-   "source": "ｄメニューニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T20:00:00+09:00",
-   "sources": [
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "802f0f893eb7",
-   "title": "【本日から26日まで】ユニクロ感謝祭は何が安い？ 最大40%OFFの目玉商品と豪華ノベルティー条件",
-   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5qUkVRanYxVTB1TDJNSFpwSGNQYUVGeFY0RVFudFFMdTV6S05MakpYZWhUdHVCVnZGYUtOZHNtY3VIdmg0b3ZtTF9RVWh3MU1nTnJ0cGRGblJDOXo3VFVJdjJqSQ?oc=5",
-   "source": "朝日新聞",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T19:59:03+09:00",
-   "sources": [
-    "朝日新聞"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "fb3d1358a6ed",
    "title": "物価上昇 安全重視の大学やマンションでも資産運用見直す動き",
    "url": "https://news.web.nhk/newsweb/na/nd-20261123de80214",
@@ -4039,6 +3934,24 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "28fe9fa03282",
+   "title": "ショーパンに黒ブーツ、冬のセットアップコーデ公開 TBS「サンモニ」出演29歳アナ「夏はミニはかないけど」",
+   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBaMGVaNU04cU9lUjBuV3BoXzR6cnljeEdMT19oX3E0NnJqSnJNTk1tLWl5YXA3TVYxN2dfS2lHdjVCcjd5c09SdEZQYWlHRXRVRmJ5bDJxREZBdkxvQmc?oc=5",
+   "source": "ライブドアニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T19:02:27+09:00",
+   "sources": [
+    "ライブドアニュース",
+    "Yahoo!ニュース",
+    "よろず〜ニュース"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -4269,9 +4182,9 @@
    ]
   },
   {
-   "id": "97a7820f73aa",
+   "id": "97ddb3ea576e",
    "title": "ワークマンの“コスパ抜群アイテム”3選！はき心地のいい「リペアテックストレッチジョガーパンツ」は980円とかなりお手頃価格です！",
-   "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQcUNpYlZNN0F1NTVyM0RYSjFYQmlTTVVyQmZZaGRrY2ozZVU4VHNqUGlTYUxwOFRoTFRqU0tfckNKblZGNHpSRDVfbTdHNk9hMlQ3cE10UFp4RGx4d3FMbEdKczhyN25jYTY2b2VmRWc2N3U2dEl3X0xTeDJaWVNiMUlmanE1OGJ0RDhPRXAyeEpJM1Vp?oc=5",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBBSmRDQjZsVG1HXy1PM0NXOEFzSGZMVGVPVmc4d09sS1JNZXJwWmtXVHRfeGhLUDlZRzV5NmNvSVJVMlp4akFRNllyOUhPUWhDVnZTSDFmVEg2Wnk2Q0tXdkQ3LUFaTXQ2aVdoS0VFYmZ4b3VHTVpVYw?oc=5",
    "source": "ハフポスト",
    "snippet": "",
    "lane": "industry",
@@ -4362,41 +4275,6 @@
    ],
    "lanes": [
     "economy"
-   ]
-  },
-  {
-   "id": "8f0292155e36",
-   "title": "ショーパンに黒ブーツ、冬のセットアップコーデ公開 TBS「サンモニ」出演29歳アナ「夏はミニはかないけど」",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNel81OFNTMkRsdy15RkY4dFlHUkZPNEVvelBJLVRfS2Z6MEpiYjR5Y3Y0c3FLV0JIZDBqbXNkbVEwYnY2cUx3OFF3MlRacFVRM0plUXBmWS0yNFdjQjlyMkFCRjhNUUQ0TTlGX3N4V2dqX2pWYkt5Qmh1VFV0di1ORGRuSzFuREZwOWlEMGhn?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T17:40:09+09:00",
-   "sources": [
-    "Yahoo!ニュース",
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "ca4fa8bc5863",
-   "title": "画像・写真 Koki,、姉・Cocomi撮影のブラックセットアップコーデを披露 スラリと伸びる9頭身スタイルに「いいね！」殺到(9/134)",
-   "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPSWRyLW9wQzJDS0oweVhHNlFER3MwLU1DaXhhMDBnal9mSUtuRkszU0lHYjdiOWVBZXgzVnVmZm9TSFJoMXcxT3RFSno5cGFsVTd3WHJnU0dPMVB3QkhwSThNbXJXU0YxVUJ3bHdBQ1BwYnJiRm5nRVQ3Tms0OThjaml4VDdWQmx6UGE1TExFM2JrcWVqT09qdEl2NlBHX19RNjhudHh5clFudG10Y2ktYkpkTm5PbVZ0NGdrMHcwOWNnZTJZc3lqdHNEaTZ3SmQ4LUtlSHFIUQ?oc=5",
-   "source": "WEBザテレビジョン",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T17:36:46+09:00",
-   "sources": [
-    "WEBザテレビジョン",
-    "Yahoo!ニュース",
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -4528,16 +4406,16 @@
    ]
   },
   {
-   "id": "a46a76ee5903",
-   "title": "【写真あり】《知性と美しさを引き立ててる》タイトフィットな「コーラルオレンジのセットアップ」姿の愛子さま",
-   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9rdUpQZnB6d09yMi1QMjA3RjVDYktRQ3RDcG5TamluZjdNdHNzWFFQYUtURE9seFR2bVU4MDhyYkpZU05MUDFJZjNHMTFYbmdxX3hHZi1MRUZ0bmhN?oc=5",
-   "source": "女性自身",
+   "id": "b57897a1c40f",
+   "title": "【UNIQLO（ユニクロ）】新作「フリースフロントボタンベスト」を試着レビュー！ アウターにも重ね着にも使える暖かな一枚 #BAILA読む試着室｜＠BAILA（バイラ）",
+   "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5waFF0U0xQM2lMc2pPVlJBa3Z1VnI5eS1Edks2QmlXanRBV2JhSWVsakFrMkFac0c1Ynk3RGxmTWNyR19iVm16bjZuR2NlclFxa25IVkNLZUdpRmJj?oc=5",
+   "source": "BAILA（バイラ）",
    "snippet": "",
    "lane": "industry",
-   "feed": "g_suit_mkt",
+   "feed": "g_apparel",
    "published": "2026-11-23T17:00:00+09:00",
    "sources": [
-    "女性自身"
+    "BAILA（バイラ）"
    ],
    "lanes": [
     "industry"
@@ -4557,22 +4435,6 @@
    ],
    "lanes": [
     "economy"
-   ]
-  },
-  {
-   "id": "71d69e9916e2",
-   "title": "《知性と美しさを引き立ててる》愛子さま タイトフィットな「コーラルオレンジのセットアップ」姿が称賛…確立される“バッジで公務”の可能性",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9CYk13amRtTUFzazNCSGxRU0pSdExOY0FYVGZIYUdnM1JDMEFxamE0bTNGSG93Ukx0VVdCUVdpd2k2Q1VxV05tUnhaTU9RX3BqajFRa3BpX1RTeUFnVEJZ?oc=5",
-   "source": "千葉テレビ放送",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T16:41:33+09:00",
-   "sources": [
-    "千葉テレビ放送"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -4688,6 +4550,22 @@
    ]
   },
   {
+   "id": "ea66d59e75c5",
+   "title": "「また同じニット…」50代の冬服マンネリに！ユニクロ・GUも使う7着の着回し術 (HALMEK up)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOVWpFcUdQb3M5THFub2pNZ0d3TjloLXpaMzJlZktRYUlQU1h3MXFHMUNCNm4zOTVWdERvejZ1WGhjV0ZpM243OVB6SENTMzdGejcxWGlCYkl1bkZqX1RIVzlGV05JRXI0a3NlaW45clNOVHNRTEZWV3lzQjh5dVN3WXl0WFBhemxPU0kxYzRR?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T15:35:02+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "9a2b14e79ead",
    "title": "50代ユニクロ・GU「シンプルなのに高見え」7着で叶える冬の着回し5Days (HALMEK up)",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSHlyV3JpQWFfYVJIbkdnQV9zYURHZmFLMDNlclhDd25oRUJRWE8wcW5idHN0X2M2Zzh5Vy1UbmZYeUptVklvX2owTVFPemVLZUkwSGNaRmx6ODExUTVKRkZuS3BOSElwMU95Y0dUZl9SSWVIbm44bXJ5akZFU3daZGVWcnVPZFFtU3dPdHJR?oc=5",
@@ -4713,24 +4591,39 @@
    "feed": "g_suit_mkt",
    "published": "2026-11-23T15:11:26+09:00",
    "sources": [
-    "Yahoo!ニュース",
-    "Infoseek"
+    "Yahoo!ニュース"
    ],
    "lanes": [
     "industry"
    ]
   },
   {
-   "id": "7304b9da1970",
-   "title": "オリックス・藤浪晋太郎、誕生！スーツ姿で入団会見「非常にうれしく思う」「地元でプレーできる」１９７センチ右腕が地元・大阪で再起へ 今季ＤｅＮＡで３登板のみ…９月末に戦力外通告 ＮＰＢ通算５８勝の３２歳",
-   "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVEdPaDExSjZWTTdQREM0S0dnWlIzX2ZIWEwxOUl4Vk5IbEVrS3dVZTcwanVZQnpCSXo0RlVvc09mb1l4NGFMaEFBRTAzX0p2UGhrbkNscncxSXoxNTJXUW0zVVRSOTd6U2JXQUdaN0lQVzd5cFNRMmQtVDNoZzcwckExZWPSAYoBQVVfeXFMTm9JWnJYUk91UG10NmprVFFPelVabEt0RW5PZWQ5QnRGcnk5SENZTVhGSWRjYkhSR2hMc3VLUW1QN1VleFFnMV9qVXpORHotWDA0eTQtOGc5LVdtYmZhM012REtxeUJEdUwxSlFqUHhHbXMxNHRZZzU0ejY1TzVob3dqN3lBUktTeGpn?oc=5",
+   "id": "0e33b068d3eb",
+   "title": "【 本田望結 】 「スケートの季節ですね」屋外リンクで華麗なスケーティング動画公開 白リボン＆千鳥格子のセットアップ姿に「氷上の女神」と反響",
+   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1xVGFlZ3lUS2RQMWs5S0NVSmE2WldwejVueDN4SEYwV3ZfeGJzNnh4WEFpYWU0SkhZZk5KVkVzeldhMTBYU0xCNHVqV2pQWWRDRmlDM2dtQ2hYbWUzQjBNZXNiVzNyeF9oWlhNMWo1MEpSUXN6UmRCadIBfkFVX3lxTE1yRUg2UVBRRDBOX2lLcFZfcWVwU2tVVzBGTjJFdWFMcFpGTXROZ3o3UWRQZFRoT2FIcVc5UDVXaFVsYmdLOUp4MVBnSGVJZW9RS0N2cUtoMDB4bldDaF9FbTBrNG03ZjhoeGJaeVpyTVphbk9PdmN5WUhtSmlWUQ?oc=5",
    "source": "ｄメニューニュース",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
-   "published": "2026-11-23T15:02:00+09:00",
+   "published": "2026-11-23T15:06:00+09:00",
    "sources": [
     "ｄメニューニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "c8a372b73dc5",
+   "title": "「スーツ姿が素敵な人だったのに」婚活パーティーで好印象だった男性。初デートも順調。それでも私が戸惑ってしまった理由",
+   "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9WM1c3TXB5Qnd4SWNkbEFoN0dOd1REQURzdHY3NlFxYjYzRmNrTmszNk12QlkxWnVhVjRJN1pTUmp2TGpOa2lwVG1vNTF2UTA?oc=5",
+   "source": "TRILL",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T15:05:00+09:00",
+   "sources": [
+    "TRILL"
    ],
    "lanes": [
     "industry"
@@ -4817,6 +4710,22 @@
    ]
   },
   {
+   "id": "4b0c2b96e96e",
+   "title": "「もっと早く見つけたかった」 ワークマンの“1500円シューズ”が高評価 「軽く、脱ぎ履きしやすい」「とにかく歩きやすい！」 (ねとらぼ)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbEFHYVRvbUpyQmMyMHgzQzdvLTV2OGpxejV6OWZPODRodnVVbFBxYTA0NjhFbU9uNm1CcnI2VDNFT015QzFTVlRqc1p1RnJxVmVsS2FIanVFQjEtUV9MdlV1UmlsOFNfQU56UHFXcEFNb1JXWFpudk9udDBIV00yZWxGSkhGcXVMRVF1dU5B?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T14:05:00+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "e7ff2e16f975",
    "title": "セキュリティコード含むクレカ情報流出｜六花亭が不正利用を確認",
    "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBHckZQbVNwM0pYQThELVlfcXJ1cnFrY1hPU0U0M3ZhLVlDaTc4SDlfODZGWTNUY25DSlRaM0R3U2k4eDBwU3YtUTBFQnZRWnpnQjFKWXBJY1NEV25PVDZ0QW1iX2NLMnNuSHlwazc1eHh1S0xjZkFLSnJB?oc=5",
@@ -4830,6 +4739,22 @@
    ],
    "lanes": [
     "it_sec"
+   ]
+  },
+  {
+   "id": "d468a7595f58",
+   "title": "Koki,、姉・Cocomi撮影のブラックセットアップコーデを披露 スラリと伸びる9頭身スタイルに「いいね！」殺到 (WEBザテレビジョン)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNWDF2ZGlSQmxNd01lQURjNEEyNlMzVWFaRU5rekNvWTB1REpxa0xmbnpBNWhjZEh0V3dYWTFKNFVLeXpCaE5nUE1tdHctTnU2QTZFWE5ObVZaRy1CY2dWTEdHZy16ci1aRGIyZ2x0Z2JCd0dJU250X2FlSl85Z3NZZzZYU21wT1NiMXQ0bFZn?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T14:01:11+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -4849,6 +4774,22 @@
    ]
   },
   {
+   "id": "33828ee08633",
+   "title": "「とにかく着心地が良くてパジャマとして最適」 ワークマンの“1900円リカバリーウェア”が好評 「休日はずっとこの格好」「価格の割には生地もしっかり」 (ねとらぼ)",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPNG0xVUVnMUdUS1JqRE5sTkp4RkVCNXlLMmxRVDIwMGFJanhwUzV5UmJTMUhFdXNtM29EU24zUFRfbTN1TjFQSFRpMHpsYkVjZnV5LU9naTJfdXhKOGsyRl9mcVBseXlwbFRWSVp2WW9TS0hXa1o0YUZtTGZuanRFNXBZRHNsMkNwbVhseGh3?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T13:40:00+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "697ba61c008f",
    "title": "ベトナムのたばこ規制改正｜EC販売禁止と18歳未満への販売対策 - https://access-online.net/",
    "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9nUXhKUDJxa0VaclF4dEswdWlnWFRNYVJpa2VtRGNaaU9ueUFrczlUWFJHSllGUHlPSXRvUG53WERROURrUlk1T3oxc0NrYy0yUUJ3MHBKY0ZPTExLR2t3U1h5WkFsZV9fTldoSU5FdWVxQQ?oc=5",
@@ -4862,6 +4803,40 @@
    ],
    "lanes": [
     "retail_ec"
+   ]
+  },
+  {
+   "id": "1736d2ef2142",
+   "title": "(画像9/12) SixTONES、黒スーツ衣装巡りスタッフと攻防戦「揉めました」6周年は“集大成”ではなく7周年への追い風に【囲み取材全文／MILESixTONES】",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5FRGdwWmR6aFR6OXZUb3psem1TeVAxQ25EcnloRzRNSFl5eDFfLVZSWEpsaEdweXJGUUVnaWkwWl9tNXJxWlhaM3VIYTlTUQ?oc=5",
+   "source": "モデルプレス",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T13:33:36+09:00",
+   "sources": [
+    "モデルプレス",
+    "ｄメニューニュース",
+    "ライブドアニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "85054a545630",
+   "title": "《知性と美しさを引き立ててる》愛子さま タイトフィットな「コーラルオレンジのセットアップ」姿が称賛…確立される“バッジで公務”の可能性",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5jLXduVnk1bkRHT2N2WGtIeGg1MlhESXV2TzIwU0J1ZmtYQThFR2JxR0I1eFVpdmNYb1RrNnZ4WHJXWHRaLVZITXVQZw?oc=5",
+   "source": "女性自身",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T13:30:00+09:00",
+   "sources": [
+    "女性自身"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -4927,6 +4902,22 @@
    ],
    "lanes": [
     "retail_ec"
+   ]
+  },
+  {
+   "id": "9191eebf00e3",
+   "title": "スヌーピーがDJに♪「PEANUTS×ユニクロ」ミュージックタイムテーマのコレクションが登場【12月中旬発売】",
+   "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5LVHZHbjlEVDNzeldQN2h2cTd5N200c1htS3lhaHM0WkpmX19oRExnZzZobXJUeWVxSGtTUDJ0ZVQyNTVkZ3dmTk9qZUdjUGU2WGNWRDFBRHpmRDBXcVFsdl9n?oc=5",
+   "source": "アニメ！アニメ！",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T13:00:03+09:00",
+   "sources": [
+    "アニメ！アニメ！"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -5052,6 +5043,22 @@
    "published": "2026-11-23T12:00:37+09:00",
    "sources": [
     "FASHIONSNAP"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "fb0f6e04efd9",
+   "title": "ユニクロ・GU・プラステが同時に「感謝祭」！11月20日スタート、初日はユニクロで先着「あんぱん」プレゼントも",
+   "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE52X0lSZm01RmtYQ1JESGNVZjBVNElUbElzU3dlb1l5UVYybUdNWGNJYWpNRzNsUXhkT0NUSElaVUMtTWc0X1JUTEtJcjJYMFlSa1U5OGlWV3MtcUR6RWxoQmR5a3VJbDJkMGFYSk13?oc=5",
+   "source": "au Webポータル",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T12:00:31+09:00",
+   "sources": [
+    "au Webポータル"
    ],
    "lanes": [
     "industry"
@@ -5186,22 +5193,6 @@
    ]
   },
   {
-   "id": "65de3b1ddb8e",
-   "title": "【ユニクロ感謝祭】目玉（2）今冬「これで生きていける」！ 2990円→1990円フリース、洗いやすさも◎ (LASISA)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPTldad3UzZERzek11eVB0ZTBCZzhTMGl2Ri1KdGp4NXJlUVpDX2Zkd1hGRUd3SVVoZ1piTF8zY2hsZHF0S3hRUUtabkhZZlQzbmpReW90TUJTdXI5anhHbVhHMlFXb09lTHRfWEE2QlBHa2Q3dDNzeEszdVJOV28yWUV6N2NlQ2dXaEJJdDh3?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-23T11:15:00+09:00",
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "cfcf01b40e0c",
    "title": "3位・豊田自動織機、4位・ユニクロが一時失格から上訴を経て復活／クイーンズ駅伝",
    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9pMHFlbTdOUzdGZUJsU2FqRDE1anhfVmVoQTNRNkhJVUZOUWQwV3FBUEF6SEh2M09IVS1rSjhfUDloaU1UdTNtNEdvelg2b2V1WFZCUnFRRXBJZw?oc=5",
@@ -5315,16 +5306,16 @@
    ]
   },
   {
-   "id": "1034cefa87e5",
-   "title": "「クリーニング代なんか払うくらいなら」大切なスーツをシミだらけにしたママ友。返却時に言われた信じられない一言",
-   "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96SDlydzByaFoxN05FRnFDM25tdGc2TmlMalFZZjV3cjRoVzM3UVB1TlZLbFRNb2l0a0JjSkpTc1ZPOE9HeElodFgxbmhrS2NmYWpsbEdaYkhmRThIclpLcEFOb2E?oc=5",
-   "source": "千葉テレビ放送株式会社",
+   "id": "dfa017e615e9",
+   "title": "【本日から26日まで】ユニクロ感謝祭は何が安い？ 最大40%OFFの目玉商品と豪華ノベルティー条件",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBUYmliLWxJSjQ2Q3F0VVlIQ0NXS2xwT1JqNnMwakY5VC1EVHhKOWI2RzBVWFJhMDduZmU2cnB5UXktTEJRQVJERDN6TEg4N2ZJb2dSaW9qcWZRY3BfbzNxYm9EYw?oc=5",
+   "source": "朝日新聞",
    "snippet": "",
    "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T10:30:23+09:00",
+   "feed": "g_apparel",
+   "published": "2026-11-23T10:22:43+09:00",
    "sources": [
-    "千葉テレビ放送株式会社"
+    "朝日新聞"
    ],
    "lanes": [
     "industry"
@@ -5507,6 +5498,22 @@
    ]
   },
   {
+   "id": "8b9b52d6c81f",
+   "title": "48歳女性、ユニクロのスウェットを“部屋着用”に購入→着てみたら…… まさかの姿に「部屋着にするんですか!?」「もったいない」",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE4wWUoyTTcxWHdnWGd5QzFicnRyNzJiN2NTdFpmTzRVdzhnRlc0YU00YmRVdWV1RHdEWks1TnpHTHFlUXA2RS10QXpVMWxLOFI4RFJLdnV1aEtDRTFGR2U0MTdLZHJFRVF1OEwxSGh2bU1IdzNKSUFabFVMSko0NXM?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-23T08:30:00+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "c227ada246d3",
    "title": "【海外イケオジに学ぶ】 キッチリなのに楽チンな「セットアップ」が狙い目です！",
    "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA0WllkckJ1aGpQS0MxMU9WUTZIZGFxUkNtZ3hpbUNUZFA5YzF4aVZrdmhHakdnbVlUZGJIRURZejN4YmgxVGZ6V0pwNA?oc=5",
@@ -5552,6 +5559,22 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "4727263e11b9",
+   "title": "A.B.C-Z、デビュー15周年記念写真集の新カット解禁！カラースーツで大人の魅力、メンバー全員とのハイタッチイベントも決定",
+   "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE8tOUloekhscVFkLVh6Q2I4cmpNX3M3YUp1VEVZcUFKcmt4cGc3NktCQnJsQ3o5VVltcjFwVDhsVF80X2JVUEZDSl9YTHpTUl9JeFNoWEVxdVRWbHI1aHJTS1YyNA?oc=5",
+   "source": "WWSチャンネル",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-23T08:05:13+09:00",
+   "sources": [
+    "WWSチャンネル"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -5635,35 +5658,36 @@
    ]
   },
   {
-   "id": "c79f697622f7",
-   "title": "保湿フェイスクリーム市場、2035年へ向け成長：プレミアム化と世代別イノベーションが牽引 - ニュースと統計",
-   "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPeVVyVURFSTl0TG1CaHVBLUxJbWFsRk5qUVo1QVl5QjZLYmR2bl9IcTl3SUJaVE9GN1hUbXZJNHF1dkFaQTd2c0JKUXpHczh6T2VKeENCYlByUEp3MDlCaVAzSTk2MHZfNml5U2JuX0pjTDNSaUR4WDRmemdNTVYyYkNraXVKSi1hVFBZc2ZWWHduVHhQTDJGalB1QlVjZFU4RVUzLV82b0dYMEZ6V25TdnRUcEd6OVYzTmE0aXlWWGp2cTl0NFdlcnlWSU1LaGxDclhmeUdB?oc=5",
-   "source": "IndexBox",
-   "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_ec",
-   "published": "2026-11-23T07:36:04+09:00",
-   "sources": [
-    "IndexBox"
-   ],
-   "lanes": [
-    "retail_ec"
-   ]
-  },
-  {
-   "id": "f60fb8de6e9f",
-   "title": "｢ユニクロ服にさらにお金をかける！？｣ 若者､推し活勢､インバウンド客も注目《700円からの刺繍》が映す\"消費の変化\"",
-   "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9yUWdockhERlhlV05kLXIwdTdoMDhOcFhFdWpVcTk3YzFuU3RoWGRRZUs4MENVTS1qZ2xoWkYzbFVfTUE5eUJyZUVfeVp3ZTdxN2JTLXpuQXlQYlk?oc=5",
-   "source": "東洋経済オンライン",
+   "id": "46447487d2cf",
+   "title": "「ユニクロ服にさらにお金をかける!?」 若者、推し活勢、インバウンド客も注目《700円からの刺繍》が映す“消費の変化”",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQQjRLczhfSG1GdlFTb1BjWnUxX0ZIQzN6U3pNaVBoQUNzYUpzYi1reVNEZzVyTF94Q0hUdVZFTVJTUXhkbUNsVkFNMjFlSjZMaGtoRG15MGtJdW02ZEhQRXRlSkN5LXZLc0g1UjVVMmJEWnpPSDF1V0s2NzNOWkFBQ1F0ZkNhRk52ZW9JWXJB?oc=5",
+   "source": "Yahoo!ニュース",
    "snippet": "",
    "lane": "industry",
    "feed": "g_apparel",
-   "published": "2026-11-23T07:30:00+09:00",
+   "published": "2026-11-23T07:30:39+09:00",
    "sources": [
+    "Yahoo!ニュース",
     "東洋経済オンライン"
    ],
    "lanes": [
     "industry"
+   ]
+  },
+  {
+   "id": "39b2beca4076",
+   "title": "木原氏、財源「無駄な歳出削減」 消費税減税で",
+   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPUmRFOXVMTDJWZ2duejc3LUR6d2VRbi1FakhablBCUzlPZFh4bGVmamlWQXdvQVBOOHFtdkJFdW9SMjB0c0VtV0ZKaDRBVV9rckRFS1NqeGNnME5pU09SZUU3ejFUM2xlRmNfYXlsZXlBYnJDSlJoVFB2M2p3LVFZUTZ3?oc=5",
+   "source": "山陽新聞",
+   "snippet": "",
+   "lane": "economy",
+   "feed": "g_labor",
+   "published": "2026-11-23T07:23:24+09:00",
+   "sources": [
+    "山陽新聞"
+   ],
+   "lanes": [
+    "economy"
    ]
   },
   {
@@ -5765,22 +5789,6 @@
    ]
   },
   {
-   "id": "1fdcfcb85a86",
-   "title": "入らない原因はセットアップが間違っているから！「入る」パッティングのコツを解説",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9KNVdhR0F4d05aM09TdWNjcC12QU5paFZLSkdjOTJ1cjVlZTJHeUN1STM0WDFCaVNqblNETGo5NzU0a2Y1YVlZbThVUHNaMlEzdnhaSDB1bzBLOFZaQW9r?oc=5",
-   "source": "千葉テレビ放送",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T06:03:27+09:00",
-   "sources": [
-    "千葉テレビ放送"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "14d5f369416d",
    "title": "秋山成勲さん ５１歳で格闘技引退 青木真也対秋山成勲戦の写真がとても美しく見えた話",
    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5uRDJ4a1UtdGNlLXhLd3VfUzNfYkFqcHF6YWVYOFZCSFhCX3R6NzFCa29tNHlsNzk2MEpQYWtBUVkyZ1czLURXckE3U0NSeDNT?oc=5",
@@ -5845,22 +5853,6 @@
    ]
   },
   {
-   "id": "ee0cc4defd5b",
-   "title": "「スーツ姿が素敵な人だったのに」婚活パーティーで好印象だった男性。初デートも順調。それでも私が戸惑ってしまった理由",
-   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB4MkFGbVRmdmRkYlMwd1piempDemR4Y1FmVjJ4Q3dmZjlWQTJ6T1Z4OU9heEsxb2lKdnQ0REpyV0kxMFFiRC1tZUJsRW00TlgxTjRQd0xIcWVrVkIzNkNZ?oc=5",
-   "source": "千葉テレビ放送",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T05:00:35+09:00",
-   "sources": [
-    "千葉テレビ放送"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "f6e767514520",
    "title": "ZOZO執行役員「ムシンサと韓国事業拡大」 ソウルにポップアップ店",
    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9IM3hwZkpOWkRzSXgxc2s5ZVVublU5aVIyZ3ZSY1Z6VlRRN2lEcEhJaEZJWHFmZmxmMFdhN2lCZHVvX2JTdmFkVnRsUVN1VDJjRFZtTHpQYzNEMDNFZ2dfU3BJZVd0bnRDLVpvZg?oc=5",
@@ -5910,55 +5902,6 @@
    ]
   },
   {
-   "id": "a82bdfc445b6",
-   "title": "無印良品の情報流出、クレカ情報もアクセスされた可能性 109万件 ネットストアの利用者も該当「深くお詫び申し上げます」",
-   "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBsUkFkMl9WRUc3TmhvT0RKQk0yUXF2eXBiajBTd3J4LThvelZXWVhRVmRQVUsyZEFFNDdOUjhab0sxMU5FS3ZIaGoxbGRpSlNYSDBoTVBRWVFEYk1DQzY0V3g3Um55M0Y0em1XYjZrZw?oc=5",
-   "source": "山陽新聞",
-   "snippet": "",
-   "lane": "it_sec",
-   "feed": "g_sec",
-   "published": "2026-11-23T04:17:03+09:00",
-   "sources": [
-    "山陽新聞"
-   ],
-   "lanes": [
-    "it_sec"
-   ]
-  },
-  {
-   "id": "ee1c12fa43a8",
-   "title": "『今日好き』秋山みづき、永瀬さらら4人が登場 “運命スーツ”で新たな一歩を応援",
-   "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1OZDNiVm9lcGFVMXBUVUR3Qy1feTZBYV81MDEzWGRQUGhZa1ZBelQzUmRLY0tJU3Z5aXVfSk1sSDY2OFFCd2tSRm4yb0g2NDBqQzY5ZnVLNVJtSjJ6d2VVRXpOTTY?oc=5",
-   "source": "山陽新聞",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_cos",
-   "published": "2026-11-23T04:07:23+09:00",
-   "sources": [
-    "山陽新聞"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
-   "id": "3e287ec05e8d",
-   "title": "SixTONES、黒スーツ衣装巡りスタッフと攻防戦「揉めました」6周年は“集大成”ではなく7周年への追い風に【囲み取材全文／MILESixTONES】",
-   "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE9UaWFjMmlqcHp3dERtSFRYUEJVRTA4U1R5TjVFcVFiTTZhRUhuM19NRnhQVkxrQjY5SjNMVDlsRTVsb1U?oc=5",
-   "source": "モデルプレス",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-23T04:00:00+09:00",
-   "sources": [
-    "モデルプレス",
-    "ｄメニューニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "eb7f29f4fb53",
    "title": "AOKIが年春夏商品を発表 酷暑踏まえ、通気性などで訴求",
    "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1meUNqMHZ2UFVTT2VCVjMyVHhwZG90c2QtbXdHRUcwOGk5LVJQek5RanVSd002a3cyNnVhQUpvc01fdGVSb2FLajBIMDVBNU1vMURtcG1MVDhyMzlZMGxV?oc=5",
@@ -5985,22 +5928,6 @@
    "published": "2026-11-23T02:43:06+09:00",
    "sources": [
     "BigGo ファイナンス"
-   ],
-   "lanes": [
-    "retail_ec"
-   ]
-  },
-  {
-   "id": "e8a812d06c1b",
-   "title": "米国発 AIで変わる小売り最前線",
-   "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE8zQVBNQk5DdUlBQ1diMFN1S1h5SU1FTUJyUHVwZXFLNWY5azdFS1o4ZjhPYlNFSHMyRF94VHdLb2hLeVRROXhDNEJVOGpxcEdTWFo2bE1ESEJOWENRRkE?oc=5",
-   "source": "日経クロストレンド",
-   "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_ec",
-   "published": "2026-11-23T02:20:30+09:00",
-   "sources": [
-    "日経クロストレンド"
    ],
    "lanes": [
     "retail_ec"
@@ -6066,6 +5993,7 @@
    "sources": [
     "山陽新聞",
     "Yahoo!ニュース",
+    "ライブドアニュース",
     "オリコンニュース"
    ],
    "lanes": [
@@ -6134,6 +6062,22 @@
    ],
    "lanes": [
     "economy"
+   ]
+  },
+  {
+   "id": "b87662a2a710",
+   "title": "サンベルクス、テスクの「商談.net リベート管理システム」を導入",
+   "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9oWFVubVhaejAyaS0wdllhd29XYjlNYnBwQVU1bnVOTEhYMzdaMUVGdkJfSlBreGRhSWZodWpyVFdUNXdQalp3bS1fMVVMNUlrSE53?oc=5",
+   "source": "ダイヤモンド・チェーンストアオンライン",
+   "snippet": "",
+   "lane": "retail_ec",
+   "feed": "g_ec",
+   "published": "2026-11-22T23:51:33+09:00",
+   "sources": [
+    "ダイヤモンド・チェーンストアオンライン"
+   ],
+   "lanes": [
+    "retail_ec"
    ]
   },
   {
@@ -6217,22 +6161,6 @@
    ]
   },
   {
-   "id": "eee0eb4bb408",
-   "title": "Base Ball Bear「天使だったじゃないか」TOUR セットリストまとめ - もとりょこblog -",
-   "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBoQ2laX3lURWdlU3BuYTNPYlI2Vi13MTM4c3FmSkp0NmJBcUZ4NXAzOGZ0UDBxNC1UWmMyRzV3ZEZxZ1FPRW55UzFR?oc=5",
-   "source": "もとりょこblog -",
-   "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_ec_platform",
-   "published": "2026-11-22T22:08:47+09:00",
-   "sources": [
-    "もとりょこblog -"
-   ],
-   "lanes": [
-    "retail_ec"
-   ]
-  },
-  {
    "id": "d99e7a6285a8",
    "title": "Base Ball Bear 25th Anniversary「(This Is The) Base Ball Bear part.4」セットリストまとめ - もとりょこblog -",
    "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9IbkVINldvSmM1dHAzTC03WmhNZm1xQTJ5TTRwX014Ukx4N2IxV19qVVA3WTlnU29yZ0N0MFRqTDdUZThZaUVTSTV3?oc=5",
@@ -6297,9 +6225,9 @@
    ]
   },
   {
-   "id": "847bca98fc54",
-   "title": "『着せ恋』喜多川海夢が“バニースーツ”姿でフィギュア化！劇中劇のキャラに扮し…光沢感ある衣装や美シルエットを全方位から再現 (オタク総研)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNSFRiQmt1ODlnSmk3SEYyb1ZpYzdJMV92X3BOX2NzZnowY1IzS2RjNjUza1ZlblhvZnBydTNtajByQjhmcVFJWHZxUk5rbFlhZ1hTQXRCVFpkX1c1SWJNRk5qMFdOR0MybXN0Uy1VLVo4MWlYSVVqNDgwenlOMjZCWDJBWnVjazVrbHVoU21B?oc=5",
+   "id": "24fd9efa8216",
+   "title": "『着せ恋』喜多川海夢が“バニースーツ”姿でフィギュア化！劇中劇のキャラに扮し…光沢感ある衣装や美シルエットを全方位から再現（オタク総研）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1xZGhxMXN6bXdkUW4zVXhPb2JmRDN3eWYtZlMxWXZSbHZGd0V4MnpZcjZqZ0pGN0RqOWk5S2JzeXpHSzlva1JIOUZ1WDNaYi1xOWtxLWR6el9sdE9tbVhQWXJUdUVTWTZIcm00VjkzVlUtVmJ2MFl3NkMxV3RlNDA?oc=5",
    "source": "Yahoo!ニュース",
    "snippet": "",
    "lane": "industry",
@@ -6329,15 +6257,16 @@
    ]
   },
   {
-   "id": "5982fb419c87",
+   "id": "684bbf78a6ba",
    "title": "累計50万着突破の作業着スーツ発祥ブランド「WWS」、ポイント最大10%還元のブラックフライデーを11月20日(金)より開催",
-   "url": "https://news.google.com/rss/articles/CBMixwJBVV95cUxOb19vYlZrY2NmRDlEb2JFdmNYdWU5V3R2X0xpRWdFYjllU2gzenRjTVBZbHk4cWNmZ2dQNDBia3JuZlotN3AxanhubTgta3R3MEI3MlRSX3QxSWJReUx2YW5SN1FkNEJ0OF8ycFJBY2d1a3BNaExHRmtnbVV0b180TU0zZnZvOEV1Tm5aRDN6U1R1WnRWSHh3a2trZ21FcjBsOXQzdk5yZ0p2VWRqaUgtbjZIMWR0a3gxT01sZU4zWjJfTjJ0QlE1MFN4RW9mbnNYVldRNWJzSnFKUmVOWWxiR0I4cHVMYWVkQ0FZMnRKMzBYUVEtN1JmLXpBVk1SblB5ZTQ1YjJNaDJGRFRoUzFWUEU2OHdGMEZrNU5rWlRsYWN6NXVjOUhvVDBGLTJNTmRuWTlvRVFfdlhqOG9nVURfM1lNaVdfS2c?oc=5",
-   "source": "ラブすぽ",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9VR1BWTXRqM0F3UHRMZjhYODN4RmRlbTJGeG5kc3c2MkNlMktmemhQajJyNmdkTGRYU1RnX1kxb0FFc0s3YXVNVHRxa1BsbDhMbGFfbkpXUFpEaTVUWUZr?oc=5",
+   "source": "千葉テレビ放送株式会社",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
-   "published": "2026-11-22T21:30:27+09:00",
+   "published": "2026-11-22T21:33:19+09:00",
    "sources": [
+    "千葉テレビ放送株式会社",
     "ラブすぽ"
    ],
    "lanes": [
@@ -6427,22 +6356,6 @@
    ]
   },
   {
-   "id": "2907fd76e190",
-   "title": "『第39回ジュノン・スーパーボーイ・コンテスト』より齋藤璃佑（C）ORICON NewS inc.",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNV2FJcVAwY0N4UnV3SGpfRFYyR1pMeVY3cDUxS3RPcEV1WXQyM1I0MFdtblJPOFZGMmVQcmFQSFVwUkwxRHhzSnRQeHFmWUM4STZLUThQRGR2TFM2dkVvT0NXbnNvTl9fNUs2dHZ4b0FDTmdRLWhpNmNyTFhLZW8tUU9hNE9yMXpRU3d2VUpWRDJBeEJiZW9JZjdzZmhMT3hWalE?oc=5",
-   "source": "産経ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-22T21:01:09+09:00",
-   "sources": [
-    "産経ニュース"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "ca89b9cdab42",
    "title": "シャンプーだけで白髪が染まる 累計販売数350万個突破の「KUROクリームシャンプー」がリニューアル",
    "url": "https://www.wwdjapan.com/articles/2558537",
@@ -6472,6 +6385,22 @@
    ],
    "lanes": [
     "it_sec"
+   ]
+  },
+  {
+   "id": "ec46dc648f94",
+   "title": "【ユニクロ】セーターと三角スカーフは色を揃えるのが正解！大人コーデ＆巻き方アレンジ【LEE編集部の「お気に入り、語らせて！」 #87",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0tM1VIY3J5Uy1sZ3FxTHhuOF81M0l0MDNHZXkyMWk1cUY3THNrQVJKcUowYlRpQ0ZOS01KUlhaQmZibWNqQUtIUFNsdWpYZm5lWmpxd3JWejFRbXBub0lwQzRFLTlWckhjZ2ZjdlhHVlhld1l1RGdOeHRyMmFKeHM?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-22T20:50:21+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -6511,6 +6440,22 @@
    ]
   },
   {
+   "id": "e5e9155bba6f",
+   "title": "「平成の修学旅行で買ったやつ！」しまむらパークの『ハローキティのウォーターキーホルダー』がレトロ感あってかわいい「しかも1100円」（LIMO）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAtZlpSMHlzNFJYc3J4dGRfYVJmYU5Ddk45cTUtRVpibVc3Z0tuUGhxTlAtUmxsdnhtM2JKd3JZdUNOWUljVWliN0gxbEo0M3h0UjVuYWhKUVBTWFRhcVljUjRNSWItXzNkQkdyX1pzN1lBTDhONVlZNDlpbTJIOG8?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-22T20:15:33+09:00",
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "d7bb79761846",
    "title": "大胆ボディスーツまで抜群の”再現度”だった実写化3選 絶賛された「伝説のハマり役」女優たちが凄い (マグミクス)",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQaGRTdm9zc25UVlhfUnlDa2Rick1wUFZGMXF2S1hoMjdUOEpRa0pDbTh3QndKNW9SSi1BWHpnVGNRWmVGR0Y4elZfX3RUUjBWR2g3YWplQWpJanNHSmZFUW05Q2h3cDNnTXdUMlBKQ3FRdHhVd2VDb21GZ2xtSGFhc0d3UkVrWkhHZ0ZDMjFR?oc=5",
@@ -6521,7 +6466,7 @@
    "published": "2026-11-22T20:10:00+09:00",
    "sources": [
     "Yahoo!ニュース",
-    "ｄメニューニュース"
+    "マグミクス"
    ],
    "lanes": [
     "industry"
@@ -6554,6 +6499,22 @@
    "published": "2026-11-22T20:00:00+09:00",
    "sources": [
     "WWDJAPAN"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "8184d450e768",
+   "title": "【しまむら】MUMUさんコラボの「ハッピーバッグ」は4点セットで3300円！各アイテムを正直レビュー",
+   "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9sbmlkWTdXN0k1RmFiVzhOWlBXV080bHd6UG5wNzJCYmZVelN4ZHhzRDdUSGpuX2lMWGp0Qlh5NmpKUnNGMHRFdW9mNlN5M0h1VHlCNzl0R0tpZmlXMzhJ?oc=5",
+   "source": "ぴあエンタメ情報",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-22T20:00:00+09:00",
+   "sources": [
+    "ぴあエンタメ情報"
    ],
    "lanes": [
     "industry"
@@ -6608,23 +6569,6 @@
    ]
   },
   {
-   "id": "a674209ffa6d",
-   "title": "KEY TO LIT、“シゴデキ”スーツ姿で「Oggi」表紙登場 デビュー目前の思いも (モデルプレス)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQcE9yY01yV2YxSDFNU0JhY1hZQ0FoTlg2OXVsZWRqVzVjdldhY2ZNdUNGOWk0RnBnTWtnQ2xuQ2ZVUGxkOWR4ckh3Q2U3cUYweFhYVHAwTGxFeFJfNUxXZzRDZlhzd2pBUld2elFJc2lWUTYwbTBSSTBoVE5Ram5qWEFBeHUzUl9RQlRMMFJ3?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-22T19:22:42+09:00",
-   "sources": [
-    "Yahoo!ニュース",
-    "モデルプレス"
-   ],
-   "lanes": [
-    "industry"
-   ]
-  },
-  {
    "id": "6d3a41468159",
    "title": "タワレコ、顧客名やメルアドなど1100万件流出 通販サイトに不正アクセス",
    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1xRjg0UkVrQVNiT0pyeXM1Rkwwc0xFSDJQYl9IdFZtaFZhS3ZCa05ZUTdVaEl5ekFuMmlsQTNkV1cwUzd3R3FyakdXVGJkeW13bWlmYXMzVWFKT01qcU9yaW5IcVFoZnZWdjFMb3lKbm9oRk1jY0E?oc=5",
@@ -6641,22 +6585,6 @@
    ]
   },
   {
-   "id": "2079cb63bde8",
-   "title": "事業者負担増大に懸念相次ぐ 消費減税法案の地方公聴会",
-   "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5zZVNTSHZ3WWxpOXFIVEJoVHB0aVVUMm1qSllXZGZIZlhuSWxPTEx3Z3pwazNTZWZJNV9CWnQ5YUx0MjM4ZnJXYllBZzcteHAxaUxaSXZTVEpMcloxSkUtcVEzcDVVR3c?oc=5",
-   "source": "山陽新聞",
-   "snippet": "",
-   "lane": "economy",
-   "feed": "g_labor",
-   "published": "2026-11-22T19:17:00+09:00",
-   "sources": [
-    "山陽新聞"
-   ],
-   "lanes": [
-    "economy"
-   ]
-  },
-  {
    "id": "4b3226855e61",
    "title": "KEY TO LIT5人がスーツ姿で『Oggi』表紙に登場！デビュー直前の心境、これからへの思いを明かす (THE FIRST TIMES)",
    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPZERjXzNOR2k1RTdOM1ZKWG85OXZPbDNPa2JySWx0SkMwRW8yR1Z3aV9rZ2R1UmN4c1g2dzZvSEN2eG5Ed0dsS2Jxa1NybnZsNzhHN1oya1hsdmZIYXBJSjNBcF95ajRLeGMxT0xWZ3J0QkhYb29NN0xrelQ1SzNLVnBCN2IyRXpPb0Y2VE5B?oc=5",
@@ -6666,7 +6594,9 @@
    "feed": "g_suit_mkt",
    "published": "2026-11-22T19:16:00+09:00",
    "sources": [
-    "Yahoo!ニュース"
+    "Yahoo!ニュース",
+    "THE FIRST TIMES",
+    "ライブドアニュース"
    ],
    "lanes": [
     "industry"
@@ -6688,22 +6618,6 @@
    ],
    "lanes": [
     "it_sec"
-   ]
-  },
-  {
-   "id": "e7115a9d5cda",
-   "title": "28日発売のファッション雑誌『Oggi』1月号特別版（小学館）に登場するKEY TO LIT",
-   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWFJQZ2NIWE1WRl9wblZyVERFTDRPTFZ1X0ZUSm56c3l2SEJRT3lWWlRHNU1jUWZ0LVl6SHRYb2l4alVnS2E5RmJkaHRkZTJPT2dWajZQcWVvVFp3NUxJeVhVTEhvbHpKazJIeW5sVzhhUjlTb1FWbUxOcWlMMFlYTXpoNm5uQlpQVHFseTBOYjdzMzVLV3I3MlZURUdKTzY3Z1E?oc=5",
-   "source": "産経ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_suit_mkt",
-   "published": "2026-11-22T19:01:05+09:00",
-   "sources": [
-    "産経ニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -6746,13 +6660,14 @@
    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE90djlIcC16YWpocFFQbzhpbFBvS2I4ZFQ3QnZ2QTNnSlczVEdOQzJRVlhvQWotQ2cwUnFZVnhLT0p5TTl1ZGd4TThtYkdxeHZiaFlmYWF2anNHOVVjOElTQ3AyMHZpdDlzOEpPd1RrUE1ibGpBZW5r?oc=5",
    "source": "Bloomberg.com",
    "snippet": "",
-   "lane": "it_sec",
-   "feed": "g_sec",
+   "lane": "industry",
+   "feed": "g_apparel",
    "published": "2026-11-22T18:46:26+09:00",
    "sources": [
     "Bloomberg.com"
    ],
    "lanes": [
+    "industry",
     "it_sec"
    ]
   },
@@ -6783,6 +6698,22 @@
    "published": "2026-11-22T18:25:57+09:00",
    "sources": [
     "WWDJAPAN"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "3a79ce975e28",
+   "title": "シャルル・ルクレール、フレデリック・バスール、ルイス・ハミルトン：赤いレーシングスーツ姿のドライバー、ヘッドセットを着けたチーム代表、サングラス姿のドライバーを並べた3分割の画像 - Formula1-Data",
+   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9CQ2dzTlhyZThjU0xWSTlpVkgxX19GWHpuMC0tQThuc1c1bHlnUG9WdUR1MXhPNjYza3lIcXZtTmFEbzQ0MnZOZ1dXc1gwdw?oc=5",
+   "source": "Formula1-Data",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-22T18:22:09+09:00",
+   "sources": [
+    "Formula1-Data"
    ],
    "lanes": [
     "industry"
@@ -6870,6 +6801,40 @@
    ]
   },
   {
+   "id": "ed358286954d",
+   "title": "KEY TO LIT、『Oggi』表紙&スーツ企画に登場 “シゴデキ”な5人と過ごすオフィスライフ、仕事観にも迫る",
+   "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE45d29wbXEwMDVZRnVfbVNoWE9Sc0pSYWRUanpKUGtoYUZ2U3JCbndQS011TnhKbUZwVUw4SVd1VDFqTXJvOWR1Mk1TQmVfQU0?oc=5",
+   "source": "オリコンニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-22T18:00:00+09:00",
+   "sources": [
+    "オリコンニュース",
+    "ライブドアニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "6ffc93c56552",
+   "title": "KEY TO LIT、“シゴデキ”スーツ姿で「Oggi」表紙登場 デビュー目前の思いも",
+   "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFA4enRLc0JUX3ZTNVREYXN3MFNON0ZTbWNRV0F1aWJHSVB6eGFRLWNuNTRjZUtUWmFaM240VmJTR0J0NEZHbzNyZlh4UdIBR0FVX3lxTFA2eXZNX3d5YkVWQXM1SVB5ck9iR0IwSjNXQnJydWxIeVJ2SVhIRFROR1JmZHdiOENFX3gyTVRTWE5oLVlWM0Q0?oc=5",
+   "source": "モデルプレス",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-22T18:00:00+09:00",
+   "sources": [
+    "モデルプレス",
+    "ライブドアニュース"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
    "id": "90e132ef5c3c",
    "title": "【ユニクロ】大人が着たいおしゃれな「フリース」を試着レビュー（＠BAILA）",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMldScU1aOHNKNkEwdFBaeGZrYkJYYnZVdGhMeWIxanllYjZLVnVFUWVlRU9OdXZqeXpUN09WUnpnLUM1MnhGT2RLdWh5Y0UzcXpTeGh4N08tMWQzYXY0SnBnTUI2WHk5UmJpc19GaXVwN2lXWGNkMHZSWktVZzJGdllUaTF5WmhM?oc=5",
@@ -6883,23 +6848,6 @@
    ],
    "lanes": [
     "industry"
-   ]
-  },
-  {
-   "id": "dc0c574edb7d",
-   "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ",
-   "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8tbjBCaVNvLU1jeV9ZVUtOZ2o2N3BnQXQxSnFwRHozZHAzVGxWd2Y4UTR0eG5FbjY1c0xET2MwS2JOUTBEWnVQOGRhajV6NzVDeDlJOWxVTzB2dDhvekJJdEpmMjVxVURJZmpOREtkdHVnZUk0elpTNw?oc=5",
-   "source": "ニコニコニュース",
-   "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_ec",
-   "published": "2026-11-22T17:30:22+09:00",
-   "sources": [
-    "ニコニコニュース",
-    "Infoseek"
-   ],
-   "lanes": [
-    "retail_ec"
    ]
   },
   {
@@ -6967,17 +6915,16 @@
    ]
   },
   {
-   "id": "ff90f37fff04",
-   "title": "「フィジカルAI」など学ぶ連続講座 岡山市の高校で始まる ロボットスーツ開発者などが講師（KSB瀬戸内海放送）",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPeFBSTERnX3l5QVNYLWpZTjFaNHBRTndTOGlpX01fMjlWMXBKTHVTZHpLSG5yOUlxWnBsYkxzLUtNbnhidEV5SGxxLXlIcHQ3N2FfajN0MTFrc2s0RkgyRUNPUi1qOFFMeUh5dmhtLXNfRWZfZmthMlZNeGIxT1Q1VjlqMERxd280Z3pQdExB?oc=5",
+   "id": "db0038d592b0",
+   "title": "「フィジカルAI」など学ぶ連続講座 岡山市の高校で始まる ロボットスーツ開発者が講師（KSB瀬戸内海放送）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE14NkExVk9hLUVjQXJFNEozM0h1anRLeXFuUG9wMHNiRHhkS0xVYmtqX05BYXdtcmdpX0prLWxLeXAwOGdVZF96SzNKbjloVExRZ3Y3TkNtWlNZOV85b1RNdjhUbEdiZHBWVFI4dzZkY3BDNE5CaFpIR0tDaHAyZms?oc=5",
    "source": "Yahoo!ニュース",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
    "published": "2026-11-22T17:06:36+09:00",
    "sources": [
-    "Yahoo!ニュース",
-    "KSBニュース"
+    "Yahoo!ニュース"
    ],
    "lanes": [
     "industry"
@@ -7000,6 +6947,22 @@
    ]
   },
   {
+   "id": "0ad660459292",
+   "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ まもるくん」の提供を開始 登録から1か月無料",
+   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9aX182V2tsNllqS2tNRkRpWFJpQXJNWUgwWGdCQ0JYQ18yZkZVOExqdXUxQkhZeXBQRTJKSHJxM3A0dU5SVkp1TjhQTDQtWENScDk0SG1oTFJjaFU5SFRIMFNrTkhMRFN6SjYzd21hQ1lPQQ?oc=5",
+   "source": "Infoseek",
+   "snippet": "",
+   "lane": "retail_ec",
+   "feed": "g_ec_platform",
+   "published": "2026-11-22T17:00:22+09:00",
+   "sources": [
+    "Infoseek"
+   ],
+   "lanes": [
+    "retail_ec"
+   ]
+  },
+  {
    "id": "510bb52ff642",
    "title": "OZworld、MIKADOらが新成人を祝福！ 「ハブッシュ」が全国6都市で入場無料のヒップホップイベント開催",
    "url": "https://www.wwdjapan.com/articles/2558437",
@@ -7010,6 +6973,22 @@
    "published": "2026-11-22T17:00:00+09:00",
    "sources": [
     "WWDJAPAN"
+   ],
+   "lanes": [
+    "industry"
+   ]
+  },
+  {
+   "id": "3251de5da6a0",
+   "title": "「これ買っておけば間違いない」ユニクロのパンツが好評「ゆったりはけてスッキリ見え」「この質感でこの価格は神」",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1eS1jOTMtV1d2XzRWUEQxdWotTEE5WDF4YzRjZnZjRDNMTzhhUllNZmFnenpCbkc0R2lENm9KZ0xGZFVveTJ4MUZNZG51QlhEeVZCMXNkUm10OVI2eEp3aUpxSmhuQmZXTExNNnZWLXJLN2VOTzZpbVQ3WXlPdjg?oc=5",
+   "source": "Yahoo!ニュース",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_apparel",
+   "published": "2026-11-22T17:00:00+09:00",
+   "sources": [
+    "Yahoo!ニュース"
    ],
    "lanes": [
     "industry"
@@ -7080,33 +7059,32 @@
    ]
   },
   {
-   "id": "2ac6428f48c4",
-   "title": "「今日好き」りんか、ミニ丈セットアップ×透けソックスで美ウエストちらり「可愛いサンタさん」「お人形さんみたい」と反響【サツコレ2026AW】 (モデルプレス)",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQWDhWd2J0TS0yWERRdmtjV0FEQXZ2SjRhVElZQ2JPRkU0OTl3UGpvbzllOWs5NTVqTVVFSmVuNjN6UC1nb1NRYlRvSnpkWUVqdVhxN1NreUUzVlA2OXVCaHc4eXZ3YjhzYk5ZM0NUWXpqQ1FWUUs0UHg3aDdlc3RJZmY4RDNMQUlaOWRaQTB3?oc=5",
+   "id": "1abe054bc11e",
+   "title": "「今日好き」りんか、ミニ丈セットアップ×透けソックスで美ウエストちらり「可愛いサンタさん」「お人形さんみたい」と反響【サツコレ2026AW】（モデルプレス）",
+   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBsU19uYThybTA2bjQ2d1lCSGR6NDAzRFRnWmlIUXBwaXBRcVBNS0NwYXBwTEF3NzlwZWpKblQwUVFrUy11dDFaREVSeFRJUC1Tc0tETmdXWldEM2c2M1JXRDdKajhVUHluQThxOC1Cc25Jc2Z6VkpOUlpVTXVaMXM?oc=5",
    "source": "Yahoo!ニュース",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
    "published": "2026-11-22T16:44:49+09:00",
    "sources": [
-    "Yahoo!ニュース",
-    "モデルプレス"
+    "Yahoo!ニュース"
    ],
    "lanes": [
     "industry"
    ]
   },
   {
-   "id": "13ca1d8b002e",
+   "id": "253490d3b272",
    "title": "AIタスク管理・プロジェクト管理ツール「スーツアップ」、中小企業（社歴10年以上20年以内）経営者応援キャンペーン",
-   "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBJdTFDcHotc2M1MFAxQU9JVG5Nc0dzSF9WZXdHZlZCQjYyMWZPRnN0T2xqVlV3RFZGeUQ4QkdkQ2xwWGplVVlFMHN5eVItSnNnRE4yak90c3VkaHg4Y1hHT2JvdS1KR2Y2OVdGWjJYTS1MQQ?oc=5",
-   "source": "Infoseek",
+   "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBrUFhhQmJnQVZldzU4WS1oVHQzT0ZuWGQxWm1EaUNJQ3M2WGhEMmtkWkU5RUE5R3RkcHEzX1JTcUZGVFJNMkNtbDBMV1BqY1p3U0dtWGxqaENFN3lUMThicWtSYjdYX0lLYTZF?oc=5",
+   "source": "時事ドットコム",
    "snippet": "",
    "lane": "industry",
    "feed": "g_suit_mkt",
    "published": "2026-11-22T16:40:00+09:00",
    "sources": [
-    "Infoseek"
+    "時事ドットコム"
    ],
    "lanes": [
     "industry"
@@ -7126,6 +7104,22 @@
    ],
    "lanes": [
     "retail_ec"
+   ]
+  },
+  {
+   "id": "76f9350d102c",
+   "title": "多聞くん​今どっち!? F/ACE「黒スーツ」描き下ろしグッズ 1月発売",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOV3J4QUpaQlRidHFlSW1kN0dqSFl2NU8tYlA0c3piLTBvTTRuNVFRV0dpaTZLTG9JSzVfVm8tTTB1ZDhnUlF5MERua2FQektTWmdSTlI1c1pxSzlWcXR3UjRiUV9nSXBtSzRxVHpHLUxrZUJLWWQteE4zekV5blZZYjNWX20tYlRNRUFhU245dU0?oc=5",
+   "source": "コラボカフェ",
+   "snippet": "",
+   "lane": "industry",
+   "feed": "g_suit_mkt",
+   "published": "2026-11-22T16:07:04+09:00",
+   "sources": [
+    "コラボカフェ"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -7238,22 +7232,6 @@
    ],
    "lanes": [
     "economy"
-   ]
-  },
-  {
-   "id": "cbb82bdcddac",
-   "title": "「色違いで3本購入」 ワークマンの“1900円パンツ”が大人気 「あたたかくて履き心地も抜群」「仕事でもプライベートでも重宝します」",
-   "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1PUllGTV9QZ0x4OGVFRlhwWFhEclhTWklfTXlHQTY5VTMwT0g1TGNKODNwMDJKbUJHTElUUUFiVnNFcWdFR2FHckFxbDZJa2p3WTV5VWJVdVpZV3dwYnNJZkswRDBWRjNIU21MMjJMN2xNU3k0VEl4NTZ5bTZfWlU?oc=5",
-   "source": "Yahoo!ニュース",
-   "snippet": "",
-   "lane": "industry",
-   "feed": "g_apparel",
-   "published": "2026-11-22T14:35:00+09:00",
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "lanes": [
-    "industry"
    ]
   },
   {
@@ -7430,6 +7408,22 @@
    ],
    "lanes": [
     "retail_ec"
+   ]
+  },
+  {
+   "id": "f425853423bc",
+   "title": "売上高の95％がEC 上海の高級ランジェリーセレクト「リンジャーセット」が広い実店舗を持つワケ",
+   "url": "https://www.wwdjapan.com/articles/2556558",
+   "source": "WWDJAPAN",
+   "snippet": "中国・上海の旧フランス租界の面影が残る梧桐区建国西路は、センスのいいカフェやレストラン、ホテルが立ち並ぶおしゃれなエリアだ。「ラパルトマン リンジャーセット（L'APPARTEMENT LINGERSET、以下リンジャー [&#8230;] The post 売上高の95％がEC",
+   "lane": "industry",
+   "feed": "wwd",
+   "published": "2026-11-22T10:00:00+09:00",
+   "sources": [
+    "WWDJAPAN"
+   ],
+   "lanes": [
+    "industry"
    ]
   },
   {
@@ -7654,22 +7648,6 @@
    ],
    "lanes": [
     "industry"
-   ]
-  },
-  {
-   "id": "df9c9f78b64b",
-   "title": "Amazonブラックフライデーが今年も開催！先行セールはいつから？ポイント還元の条件とは",
-   "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1XQXVoaXA4NENkS1FQQ2lYSUJ5SXV3ajBZZzdZYWJBcmdLdlczM01QNGZJWUU1QVFQRDJxY1BRNWxCVGxSOHpnZU1xajVsdw?oc=5",
-   "source": "DXマガジン",
-   "snippet": "",
-   "lane": "retail_ec",
-   "feed": "g_crm",
-   "published": "2026-11-21T19:43:56+09:00",
-   "sources": [
-    "DXマガジン"
-   ],
-   "lanes": [
-    "retail_ec"
    ]
   },
   {
@@ -7926,38 +7904,6 @@
    ],
    "lanes": [
     "industry"
-   ]
-  },
-  {
-   "id": "464faeae3f37",
-   "title": "メルカリ AIに入力した個人情報漏えいか「リスト型攻撃」も",
-   "url": "https://news.web.nhk/newsweb/na/nd-20261121de79616",
-   "source": "NHK 経済",
-   "snippet": "フリマアプリ大手のメルカリは、業務で利用しているAIツールを提供する会社の委託先が不正アクセスを受けた影響で、従業員が入力した顧客や取引先などの個人情報が流出した可能性があることを明らかにしました。 …",
-   "lane": "economy",
-   "feed": "nhk_econ",
-   "published": "2026-11-21T14:33:40+09:00",
-   "sources": [
-    "NHK 経済"
-   ],
-   "lanes": [
-    "economy"
-   ]
-  },
-  {
-   "id": "7789ebfcdbc3",
-   "title": "個人情報保護法 2026年改正内容を解説～「初の課徴金制度」だけでなく、押さえておきたいポイントは？",
-   "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOY29iZ2xvbjJzcTh5VkstNHVPTUhROHNrakJmMlUxXy1EdE5tX01qU2JaSlZwOWF3bS1sSkt1bmtHdmRhckZRVXNiamZLM0d2cHNlaEtYTkgzYnl1dVFUS3R4NTVOVjlqQzRDaG5sMWJWRDhydWdoX1dXVkJWQ0tVRXJmVzNQcVE?oc=5",
-   "source": "www.trendmicro.com",
-   "snippet": "",
-   "lane": "it_sec",
-   "feed": "g_rule",
-   "published": "2026-11-20T20:46:39+09:00",
-   "sources": [
-    "www.trendmicro.com"
-   ],
-   "lanes": [
-    "it_sec"
    ]
   },
   {
