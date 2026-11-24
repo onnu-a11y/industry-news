@@ -1,0 +1,49 @@
+name: verify
+# M4-1.5 検証用（手動実行のみ）：本文・写真の取得率と、見出しだけ／本文ありの要約の比較
+#   結果は data/verify/report.md と result.json に保存される
+on:
+  workflow_dispatch:
+    inputs:
+      day:
+        description: "対象日（YYYY-MM-DD。空欄なら最新日）"
+        default: ""
+      b_sample:
+        description: "写真の取得率を見るBの件数"
+        default: "30"
+      n_summary:
+        description: "要約を比べる話題の数（1話題でAIを2回使う）"
+        default: "10"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt "googlenewsdecoder==0.2.2" "trafilatura==2.4.0" "requests==2.34.2"
+      - name: verify
+        run: |
+          ARGS="--b-sample ${{ inputs.b_sample }} --n-summary ${{ inputs.n_summary }}"
+          if [ -n "${{ inputs.day }}" ]; then ARGS="$ARGS --day ${{ inputs.day }}"; fi
+          python scripts/verify.py $ARGS
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PROFILE: ${{ secrets.PROFILE }}
+      - name: commit result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/verify data/state
+          git commit -m "verify: M4-1.5 result" || echo "no changes"
+          git pull --rebase
+          git push
