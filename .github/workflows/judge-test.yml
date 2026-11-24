@@ -1,0 +1,36 @@
+name: judge-test
+# M2 検証用：取得 → AI判定 → data/probe/judge.md に判定結果を保存
+on:
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: "何時間前までの記事を判定するか"
+        default: "72"
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  judge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: python scripts/collect.py --probe --hours "${{ inputs.hours }}"
+      - run: python scripts/judge.py --input data/probe/latest.json --report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE: ${{ secrets.PROFILE }}
+      - name: commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add data/probe
+          git commit -m "judge-test: report" || echo "no changes"
+          git pull --rebase
+          git push
