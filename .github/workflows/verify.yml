@@ -4,6 +4,9 @@ name: verify
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: "probe＝本文・写真の取得率と要約比較 ／ refill＝取れなかった話題を別記事で補えるか（AIなし）"
+        default: "probe"
       day:
         description: "対象日（YYYY-MM-DD。空欄なら最新日）"
         default: ""
@@ -33,6 +36,7 @@ jobs:
       - run: pip install -r requirements.txt "googlenewsdecoder==0.2.2" "trafilatura==2.4.0" "requests==2.34.2"
       - name: verify
         run: |
+          if [ "${{ inputs.mode }}" = "refill" ]; then python scripts/verify_refill.py; exit 0; fi
           ARGS="--b-sample ${{ inputs.b_sample }} --n-summary ${{ inputs.n_summary }}"
           if [ -n "${{ inputs.day }}" ]; then ARGS="$ARGS --day ${{ inputs.day }}"; fi
           python scripts/verify.py $ARGS
