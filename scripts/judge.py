@@ -1,7 +1,8 @@
 """収集した記事をAIで判定する（重要度S/A/B/C・1行要約・関係する理由・タグ）。
 
-GitHub Models（無料枠）を GITHUB_TOKEN で呼ぶ。Actions では permissions: models: read が必要。
-前提メモ（自社の業務・使用システム）は公開しないため、環境変数 PROFILE（GitHub Secrets）から読む。
+Gemini API の無料枠を GEMINI_API_KEY（GitHub Secrets）で呼ぶ。
+キーがない／上限に達した／障害のときは、キーワードのルール判定に自動で切り替える（更新は止めない）。
+前提メモは環境変数 PROFILE（GitHub Secrets）があればそれを使い、なければ DEFAULT_PROFILE を使う。
 
 使い方:
   python scripts/judge.py --input data/probe/latest.json --report   # 検証レポート出力
@@ -17,8 +18,8 @@ import urllib.error
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-ENDPOINT = "https://models.github.ai/inference/chat/completions"
-MODELS = ["openai/gpt-4.1-mini", "openai/gpt-4o-mini"]  # 先頭から試し、使えなければ次へ
+ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+MODELS = ["gemini-3.5-flash-lite", "gemini-3.1-flash-lite"]  # 先頭から試し、使えなければ次へ
 BATCH = 20
 LEVELS = ["S", "A", "B", "C"]
 TAGS = ["制度・法令", "税・価格", "セキュリティ", "障害・規約", "競合", "新商品・サービス", "出店・閉店",
@@ -51,22 +52,42 @@ SYSTEM = """あなたは日本のアパレル小売企業向けのニュース�
 - 入力の全idについて必ず1件ずつ返す。"""
 
 
+RULES = [
+    ("S", "制度・法令", r"法案|改正|施行|成立|閣議決定|消費税|減税|増税|インボイス|最低賃金|社会保険|特定商取引|特商法|景品表示|景表法|個人情報保護法|下請法|取適法|ステマ規制|義務化"),
+    ("S", "セキュリティ", r"注意喚起|脆弱性対策|緊急メンテ|PHP|EC-CUBE|WordPress|MakeShop|Shopify|決済.*(障害|停止)|LINE.*(障害|仕様変更|終了)"),
+    ("A", "競合", r"青山商事|洋服の青山|AOKI|コナカ|フタタ|はるやま|SUIT SELECT|スーツセレクト|ORIHICA|FABRIC TOKYO|DIFFERENCE|麻布テーラー|KASHIYAMA|オーダースーツ"),
+    ("A", "セキュリティ", r"不正アクセス|情報漏え?い|流出|ランサム"),
+    ("A", "消費・市況", r"円安|円高|為替|物価|値上げ|日銀|利上げ|個人消費|消費動向"),
+    ("B", "トレンド", r"スーツ|紳士服|メンズ|アパレル|ファッション|ユニクロ|ZOZO|EC|通販|小売|百貨店"),
+]
+
+
+def rule_judge(it):
+    text = it["title"] + " " + it.get("snippet", "")
+    for level, tag, pat in RULES:
+        if re.search(pat, text, re.I):
+            return {"level": level, "summary": it["title"], "why": "", "tags": [tag], "company": "", "unjudged": True}
+    return {"level": "C", "summary": it["title"], "why": "", "tags": [], "company": "", "unjudged": True}
+
+
 def call_model(messages, model, token):
+    system = messages[0]["content"]
+    user = messages[1]["content"]
     body = json.dumps({
-        "model": model,
-        "messages": messages,
-        "temperature": 0.1,
-        "max_tokens": 3800,
-        "response_format": {"type": "json_object"},
+        "systemInstruction": {"parts": [{"text": system}]},
+        "contents": [{"role": "user", "parts": [{"text": user}]}],
+        "generationConfig": {"temperature": 0.1, "maxOutputTokens": 6000, "responseMimeType": "application/json"},
     }).encode()
-    req = urllib.request.Request(ENDPOINT, data=body, method="POST", headers={
-        "Authorization": f"Bearer {token}",
+    req = urllib.request.Request(ENDPOINT.format(model=model), data=body, method="POST", headers={
+        "x-goog-api-key": token,
         "Content-Type": "application/json",
-        "Accept": "application/json",
     })
     with urllib.request.urlopen(req, timeout=120) as r:
         data = json.loads(r.read())
-    return data["choices"][0]["message"]["content"], data.get("usage", {})
+    parts = data["candidates"][0]["content"]["parts"]
+    text = "".join(p.get("text", "") for p in parts)
+    meta = data.get("usageMetadata", {})
+    return text, {"prompt_tokens": meta.get("promptTokenCount", 0), "completion_tokens": meta.get("candidatesTokenCount", 0)}
 
 
 def parse(text):
@@ -116,7 +137,7 @@ def judge(items, token, profile, log):
                 time.sleep(5)
         else:
             stats["failed_batches"] += 1
-        time.sleep(4.5)  # 1分あたりのリクエスト上限に配慮
+        time.sleep(7)  # 無料枠の1分あたりの上限（10回）に配慮
 
     out = []
     for it in items:
@@ -130,8 +151,8 @@ def judge(items, token, profile, log):
                 "tags": [t for t in r.get("tags", []) if t in TAGS][:2],
                 "company": (r.get("company") or "")[:30],
             })
-        else:  # 判定できなかった記事は見出しのまま「B」で残す
-            merged.update({"level": "B", "summary": it["title"], "why": "", "tags": [], "company": "", "unjudged": True})
+        else:  # AIで判定できなかった記事はキーワードのルールで判定する
+            merged.update(rule_judge(it))
         out.append(merged)
     return out, stats
 
@@ -161,13 +182,17 @@ def main():
     ap.add_argument("--out")
     ap.add_argument("--report", action="store_true")
     a = ap.parse_args()
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise SystemExit("GITHUB_TOKEN がありません")
+    token = os.environ.get("GEMINI_API_KEY", "").strip()
     profile = os.environ.get("PROFILE", "").strip() or DEFAULT_PROFILE
     src = json.loads((ROOT / a.input).read_text(encoding="utf-8"))
     logs = []
-    items, stats = judge(src["items"], token, profile, lambda m: (print(m), logs.append(m)))
+    log = lambda m: (print(m, flush=True), logs.append(m))
+    if token:
+        items, stats = judge(src["items"], token, profile, log)
+    else:
+        log("GEMINI_API_KEY が未設定のため、ルール判定のみで処理します")
+        items = [dict(it, **rule_judge(it)) for it in src["items"]]
+        stats = {"requests": 0, "failed_batches": 0, "model": "rules-only", "tokens_in": 0, "tokens_out": 0}
     stats["profile"] = "secret" if os.environ.get("PROFILE", "").strip() else "default"
     if a.out:
         p = ROOT / a.out
