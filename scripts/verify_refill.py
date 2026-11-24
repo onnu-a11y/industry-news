@@ -47,6 +47,12 @@ def similar(a: str, b: str) -> float:
     return round(len(A & B) / max(1, min(len(A), len(B))), 2)
 
 
+def keywords(t: str) -> str:
+    """漢字・カタカナ・英数字のまとまり（2文字以上）を先頭から3つ並べた短い検索語。"""
+    words = [w for w in re.findall(r"[一-龥々ァ-ヶーA-Za-z0-9０-９]+", clean(t)) if len(w) >= 2]
+    return " ".join(words[:3])
+
+
 def search(query: str):
     url = f"https://news.google.com/rss/search?q={quote_plus(query + ' when:7d')}&hl=ja&gl=JP&ceid=JP:ja"
     p = feedparser.parse(url, agent=verify.UA)
@@ -80,6 +86,9 @@ def main():
             queries = [clean(lead["title"])[:60]]
             if s.get("summary") and clean(s["summary"]) != queries[0]:
                 queries.append(clean(s["summary"])[:40])
+            kw = keywords(s.get("story") or s.get("summary") or lead["title"])
+            if kw and kw not in queries:
+                queries.append(kw)  # 長い見出しで当たらない時のための短いキーワード検索
             tried = 0
             for q in queries:
                 row["queries"].append(q)
@@ -89,13 +98,14 @@ def main():
                     verify.log(f"search error {type(e).__name__}")
                     found = []
                 time.sleep(1.5)
+                row.setdefault("hits", []).append(len(found))
                 for c in found:
                     if row["refilled"] or tried >= MAX_CAND:
                         break
                     if c["url"] in seen or c["src_domain"] in BLOCKED or (c["src_domain"] and c["src_domain"] == row["orig_domain"]):
                         continue
                     sim = similar(clean(lead["title"]), clean(c["title"]))
-                    if sim < 0.35:  # 別の出来事の記事は使わない
+                    if sim < (0.25 if q == kw else 0.35):  # 別の出来事の記事は使わない
                         continue
                     seen.add(c["url"])
                     tried += 1
