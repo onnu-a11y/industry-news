@@ -1,0 +1,634 @@
+{
+ "summary": {
+  "day": "2026-11-24",
+  "targets": 23,
+  "refilled": 11,
+  "priority": 12,
+  "priority_refilled": 5,
+  "partial_100_399": 13,
+  "secs_total": 90.1
+ },
+ "rows": [
+  {
+   "level": "S",
+   "tags": [
+    "制度・法令"
+   ],
+   "title": "消費税減税法案 給付対象を５割以上で検討へ",
+   "priority": true,
+   "orig_domain": "zeiken.co.jp",
+   "orig_chars": 326,
+   "queries": [
+    "消費税減税法案 給付対象を５割以上で検討へ",
+    "消費税減税法案 給付対象を5割以上で検討へ"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.5
+  },
+  {
+   "level": "S",
+   "tags": [
+    "制度・法令"
+   ],
+   "title": "消費税減税 中間申告特例の税額計算における簡便な計算方法の可否",
+   "priority": true,
+   "orig_domain": "zeiken.co.jp",
+   "orig_chars": 205,
+   "queries": [
+    "消費税減税 中間申告特例の税額計算における簡便な計算方法の可否",
+    "消費税減税の中間申告特例の税額計算について"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.5
+  },
+  {
+   "level": "A",
+   "tags": [
+    "人・採用"
+   ],
+   "title": "岡山県の最低賃金「時給１１０４円」 ５７円増 岡山労働局が岡山駅前で街頭啓発",
+   "priority": false,
+   "orig_domain": "sanyonews.jp",
+   "orig_chars": 355,
+   "queries": [
+    "岡山県の最低賃金 時給１１０４円 ５７円増 岡山労働局が岡山駅前で街頭啓発",
+    "岡山県の最低賃金が1104円に引き上げ"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.5
+  },
+  {
+   "level": "A",
+   "tags": [
+    "EC・販促"
+   ],
+   "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ",
+   "priority": false,
+   "orig_domain": "news.nicovideo.jp",
+   "orig_chars": 0,
+   "queries": [
+    "楽天市場 Yahoo ショッピングの販売価格を毎日自動で調査し 価格変更まで自動化する 価格更新ロボ"
+   ],
+   "candidates": [
+    {
+     "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ まもるくん」の提供を開始 登録から1か月無料 - 写真・画像(1/1)",
+     "domain": "nishinippon.co.jp",
+     "sim": 1.0,
+     "chars": 86,
+     "ok": false,
+     "image": true,
+     "error": ""
+    },
+    {
+     "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ まもるくん」の提供を開始 登録から1か月無料",
+     "domain": "prtimes.jp",
+     "sim": 1.0,
+     "chars": 2441,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 5.8,
+   "refill": {
+    "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ まもるくん」の提供を開始 登録から1か月無料",
+    "domain": "prtimes.jp",
+    "sim": 1.0,
+    "chars": 2441,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "セキュリティ",
+    "EC・販促"
+   ],
+   "title": "菓子メーカー六花亭やタワレコ、ZOZOで情報流出－不正アクセス相次ぐ、市場に影響も",
+   "priority": false,
+   "orig_domain": "bloomberg.com",
+   "orig_chars": 0,
+   "queries": [
+    "菓子メーカー六花亭やタワレコ ZOZOで情報流出－不正アクセス相次ぐ 市場に影響も",
+    "六花亭やタワレコ ZOZOなどで情報流出の不正アクセス相次ぐ"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "人・採用",
+    "消費・市況"
+   ],
+   "title": "【最低賃金引き上げ競争】人口流出危機感が拍車 企業苦悩、遅れの副作用も",
+   "priority": false,
+   "orig_domain": "sanyonews.jp",
+   "orig_chars": 102,
+   "queries": [
+    "人口流出危機感が拍車 企業苦悩 遅れの副作用も",
+    "最低賃金引き上げ競争の加速と企業への影響"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "消費・市況",
+    "人・採用"
+   ],
+   "title": "縫製工場50カ所以上が休業、賃上げ要求で",
+   "priority": false,
+   "orig_domain": "nna.jp",
+   "orig_chars": 0,
+   "queries": [
+    "縫製工場50カ所以上が休業 賃上げ要求で"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 1.7
+  },
+  {
+   "level": "A",
+   "tags": [
+    "新商品・サービス",
+    "競合"
+   ],
+   "title": "非食用米でベルト 青山商事",
+   "priority": true,
+   "orig_domain": "agrinews.co.jp",
+   "orig_chars": 169,
+   "queries": [
+    "非食用米でベルト 青山商事",
+    "青山商事が非食用米由来の素材を使ったベルトを開発"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "EC・販促",
+    "新商品・サービス"
+   ],
+   "title": "ネイティブクリエイション、LINEで動画から購入できる新プラン AIが商品と表示時間を自動設定",
+   "priority": false,
+   "orig_domain": "netkeizai.com",
+   "orig_chars": 0,
+   "queries": [
+    "ネイティブクリエイション LINEで動画から購入できる新プラン AIが商品と表示時間を自動設定"
+   ],
+   "candidates": [
+    {
+     "title": "ネイティブクリエイション、LINEで動画から購入できる新プラン AIが商品と表示時間を自動設定（日本ネット経済新聞）",
+     "domain": "news.yahoo.co.jp",
+     "sim": 1.0,
+     "chars": 727,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 4.4,
+   "refill": {
+    "title": "ネイティブクリエイション、LINEで動画から購入できる新プラン AIが商品と表示時間を自動設定（日本ネット経済新聞）",
+    "domain": "news.yahoo.co.jp",
+    "sim": 1.0,
+    "chars": 727,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "EC・販促"
+   ],
+   "title": "Yahoo!ショッピング、AIが複数商品の購入日を提案 約50種類のクーポン・ポイント施策を考慮",
+   "priority": false,
+   "orig_domain": "netkeizai.com",
+   "orig_chars": 0,
+   "queries": [
+    "Yahoo ショッピング AIが複数商品の購入日を提案 約50種類のクーポン ポイント施策を考慮"
+   ],
+   "candidates": [
+    {
+     "title": "Yahoo!ショッピング、AIが複数商品の購入日を提案 約50種類のクーポン・ポイント施策を考慮（日本ネット経済新聞）",
+     "domain": "news.yahoo.co.jp",
+     "sim": 1.0,
+     "chars": 731,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 4.2,
+   "refill": {
+    "title": "Yahoo!ショッピング、AIが複数商品の購入日を提案 約50種類のクーポン・ポイント施策を考慮（日本ネット経済新聞）",
+    "domain": "news.yahoo.co.jp",
+    "sim": 1.0,
+    "chars": 731,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "title": "「全てにおいて文句のつけようがない」ユニクロの“ウォームスマートパンツ”が冬の通勤に頼れる。裏起毛なのに見た目はきれいめスラックス",
+   "priority": true,
+   "orig_domain": "article.auone.jp",
+   "orig_chars": 86,
+   "queries": [
+    "全てにおいて文句のつけようがない ユニクロの ウォームスマートパンツ が冬の通勤に頼れる 裏起毛なのに見た目はきれいめス",
+    "ユニクロのウォームスマートパンツが冬の通勤着として高評価"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.5
+  },
+  {
+   "level": "A",
+   "tags": [
+    "消費・市況"
+   ],
+   "title": "［徹底予測2027 小売り］消費減税効果限定的か 価格激化も中小は再編・淘汰",
+   "priority": false,
+   "orig_domain": "business.nikkei.com",
+   "orig_chars": 211,
+   "queries": [
+    "［徹底予測2027 小売り］消費減税効果限定的か 価格激化も中小は再編 淘汰",
+    "2027年小売り予測 消費減税や中小再編の動き"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.5
+  },
+  {
+   "level": "A",
+   "tags": [
+    "EC・販促"
+   ],
+   "title": "【LINEのショッピングタブの現状は】牛山氏「『激アツチャンスタイム』が好調。数日間で1万個以上販売も」",
+   "priority": false,
+   "orig_domain": "netkeizai.com",
+   "orig_chars": 0,
+   "queries": [
+    "牛山氏 激アツチャンスタイム が好調 数日間で1万個以上販売も"
+   ],
+   "candidates": [
+    {
+     "title": "【LINEのショッピングタブの現状は】牛山氏「『激アツチャンスタイム』が好調。数日間で1万個以上販売も」（日本ネット経済新聞）",
+     "domain": "news.yahoo.co.jp",
+     "sim": 1.0,
+     "chars": 1728,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 4.2,
+   "refill": {
+    "title": "【LINEのショッピングタブの現状は】牛山氏「『激アツチャンスタイム』が好調。数日間で1万個以上販売も」（日本ネット経済新聞）",
+    "domain": "news.yahoo.co.jp",
+    "sim": 1.0,
+    "chars": 1728,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "出店・閉店",
+    "競合"
+   ],
+   "title": "しまむら／福岡・天神に3事業複合型店舗12月2日オープン、天神西通りスクエアに出店",
+   "priority": true,
+   "orig_domain": "ryutsuu.biz",
+   "orig_chars": 342,
+   "queries": [
+    "しまむら／福岡 天神に3事業複合型店舗12月2日オープン 天神西通りスクエアに出店"
+   ],
+   "candidates": [
+    {
+     "title": "福岡・天神西通りに「しまむらFUKUOKA TENJIN」が、12/2（水）オープン！ しまむら・アベイル・バースデイの商品を販売する国内初の複合型店舗",
+     "domain": "prtimes.jp",
+     "sim": 0.46,
+     "chars": 1266,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 3.6,
+   "refill": {
+    "title": "福岡・天神西通りに「しまむらFUKUOKA TENJIN」が、12/2（水）オープン！ しまむら・アベイル・バースデイの商品を販売する国内初の複合型店舗",
+    "domain": "prtimes.jp",
+    "sim": 0.46,
+    "chars": 1266,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "新商品・サービス",
+    "トレンド"
+   ],
+   "title": "『オーダースーツ事業』異業種からの参入を全面バックアップ!!老舗テーラーが挑む",
+   "priority": false,
+   "orig_domain": "news.nicovideo.jp",
+   "orig_chars": 0,
+   "queries": [
+    "オーダースーツ事業 異業種からの参入を全面バックアップ 老舗テーラーが挑む",
+    "老舗テーラーが挑むオーダースーツ事業の異業種参入支援"
+   ],
+   "candidates": [
+    {
+     "title": "『オーダースーツ事業』異業種からの参入を全面バックアップ!!老舗テーラーが挑む ≪本物志向のオーダースーツOEM事業≫全国展開",
+     "domain": "news.infoseek.co.jp",
+     "sim": 1.0,
+     "chars": 6074,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 5.6,
+   "refill": {
+    "title": "『オーダースーツ事業』異業種からの参入を全面バックアップ!!老舗テーラーが挑む ≪本物志向のオーダースーツOEM事業≫全国展開",
+    "domain": "news.infoseek.co.jp",
+    "sim": 1.0,
+    "chars": 6074,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "EC・販促"
+   ],
+   "title": "＜画像6 / 20＞【写真特集】乃木坂46“イケメン男装姿”in「はるやま」新CM",
+   "priority": true,
+   "orig_domain": "walkerplus.com",
+   "orig_chars": 143,
+   "queries": [
+    "＜画像6 / 20＞ 乃木坂46 イケメン男装姿 in はるやま 新CM",
+    "はるやま 乃木坂46のイケメン男装姿の新CMを公開"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "EC・販促",
+    "消費・市況"
+   ],
+   "title": "しまむら、ブラックフライデー開催 27日は本体96円の商品も登場",
+   "priority": false,
+   "orig_domain": "rbbtoday.com",
+   "orig_chars": 293,
+   "queries": [
+    "しまむら ブラックフライデー開催 27日は本体96円の商品も登場"
+   ],
+   "candidates": [
+    {
+     "title": "しまむらのブラックフライデー、いよいよ11月25日から",
+     "domain": "yashion.jp",
+     "sim": 0.46,
+     "chars": 942,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 3.8,
+   "refill": {
+    "title": "しまむらのブラックフライデー、いよいよ11月25日から",
+    "domain": "yashion.jp",
+    "sim": 0.46,
+    "chars": 942,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "EC・販促"
+   ],
+   "title": "青山商事、世界最大級のメタバースイベント夏に続き「バーチャルマーケット2026 Winter」に出展！ (2026年11月24日掲載)",
+   "priority": true,
+   "orig_domain": "news.livedoor.com",
+   "orig_chars": 157,
+   "queries": [
+    "青山商事 世界最大級のメタバースイベント夏に続き バーチャルマーケット2026 Winter に出展"
+   ],
+   "candidates": [
+    {
+     "title": "青山商事、世界最大級のメタバースイベント 夏に続き「バーチャルマーケット2026 Winter」に出展！",
+     "domain": "digitalpr.jp",
+     "sim": 1.0,
+     "chars": 3721,
+     "ok": true,
+     "image": false,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 4.4,
+   "refill": {
+    "title": "青山商事、世界最大級のメタバースイベント 夏に続き「バーチャルマーケット2026 Winter」に出展！",
+    "domain": "digitalpr.jp",
+    "sim": 1.0,
+    "chars": 3721,
+    "ok": true,
+    "image": false,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "title": "下取りスーツから生まれた上質な風合いのコートが「KANSAIMAN collection」からデビュー、「コナカ・フタタ」全店舗で11月21日発売開始",
+   "priority": true,
+   "orig_domain": "chiba-tv.com",
+   "orig_chars": 129,
+   "queries": [
+    "下取りスーツから生まれた上質な風合いのコートが KANSAIMAN collection からデビュー コナカ フタタ "
+   ],
+   "candidates": [
+    {
+     "title": "下取りスーツから生まれた上質な風合いのコートが「KANSAIMAN collection」からデビュー、「コナカ・フタタ」全店舗で11月21日発売開始",
+     "domain": "love-spo.com",
+     "sim": 1.0,
+     "chars": 1671,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 4.5,
+   "refill": {
+    "title": "下取りスーツから生まれた上質な風合いのコートが「KANSAIMAN collection」からデビュー、「コナカ・フタタ」全店舗で11月21日発売開始",
+    "domain": "love-spo.com",
+    "sim": 1.0,
+    "chars": 1671,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合"
+   ],
+   "title": "ワークマンが続落、岡三証は投資判断引き下げ(ウエルスアドバイザー)",
+   "priority": true,
+   "orig_domain": "finance.yahoo.co.jp",
+   "orig_chars": 138,
+   "queries": [
+    "ワークマンが続落 岡三証は投資判断引き下げ",
+    "ワークマン株価続落 岡三証券が投資判断を引き下げ"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合"
+   ],
+   "title": "ワークマン－岡三がレーティング引き下げ 物流制約からマス化達成には時間を要しよう〔DZH 個別株情報〕(時事通信)",
+   "priority": true,
+   "orig_domain": "finance.yahoo.co.jp",
+   "orig_chars": 34,
+   "queries": [
+    "ワークマン－岡三がレーティング引き下げ 物流制約からマス化達成には時間を要しよう〔DZH 個別株情報〕",
+    "岡三証券がワークマンのレーティングを引き下げ"
+   ],
+   "candidates": [],
+   "refilled": false,
+   "secs": 3.4
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "EC・販促"
+   ],
+   "title": "オーダースーツSADA スペシャルマッチ",
+   "priority": true,
+   "orig_domain": "zweigen-kanazawa.jp",
+   "orig_chars": 0,
+   "queries": [
+    "オーダースーツSADA スペシャルマッチ"
+   ],
+   "candidates": [
+    {
+     "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+     "domain": "chiba-tv.com",
+     "sim": 1.0,
+     "chars": 110,
+     "ok": false,
+     "image": true,
+     "error": ""
+    },
+    {
+     "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+     "domain": "prtimes.jp",
+     "sim": 1.0,
+     "chars": 843,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 6.6,
+   "refill": {
+    "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+    "domain": "prtimes.jp",
+    "sim": 1.0,
+    "chars": 843,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  },
+  {
+   "level": "A",
+   "tags": [
+    "競合",
+    "EC・販促"
+   ],
+   "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+   "priority": true,
+   "orig_domain": "chiba-tv.com",
+   "orig_chars": 110,
+   "queries": [
+    "ツエーゲン金沢 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催"
+   ],
+   "candidates": [
+    {
+     "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+     "domain": "prtimes.jp",
+     "sim": 1.0,
+     "chars": 843,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 3.4,
+   "refill": {
+    "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
+    "domain": "prtimes.jp",
+    "sim": 1.0,
+    "chars": 843,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
+  }
+ ]
+}
