@@ -9,7 +9,6 @@ on:
 
 permissions:
   contents: write
-  models: read
 
 jobs:
   judge:
@@ -24,7 +23,7 @@ jobs:
       - run: python scripts/collect.py --probe --hours "${{ inputs.hours }}"
       - run: python scripts/judge.py --input data/probe/latest.json --report
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PROFILE: ${{ secrets.PROFILE }}
       - name: commit report
         run: |
