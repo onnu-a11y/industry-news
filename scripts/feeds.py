@@ -34,6 +34,8 @@ FEEDS = [
      "url": gnews('"LINE公式アカウント" OR "LINEヤフー" OR メルマガ OR ポイント還元 OR 販促 キャンペーン', "3d")},
     {"id": "g_consume", "lane": "retail_ec", "kind": "gnews", "name": "Google: 消費・百貨店",
      "url": gnews("百貨店 売上 OR 個人消費 OR 消費動向 OR 小売 既存店")},
+    {"id": "g_post", "lane": "retail_ec", "kind": "gnews", "name": "Google: 郵便・配送・印刷",
+     "url": gnews("郵便料金 OR 日本郵便 OR ゆうメール OR ゆうパケット OR 年賀はがき OR DM 郵送 OR 宅配便 運賃 OR ヤマト運輸 OR 佐川急便 OR 送料 値上げ OR 印刷 値上げ OR 用紙 価格", "3d")},
     {"id": "itm_biz", "lane": "retail_ec", "kind": "direct", "name": "ITmedia ビジネス",
      "url": "https://rss.itmedia.co.jp/rss/2.0/business.xml"},
 
