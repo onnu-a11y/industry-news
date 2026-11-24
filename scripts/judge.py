@@ -166,7 +166,7 @@ def judge(items, token, profile, log):
                     continue
                 time.sleep(5)
             except Exception as e:  # noqa: BLE001
-                log(f"batch {i // BATCH}: {type(e).__name__}: {e}")
+                log(f"batch {i // BATCH}: {type(e).__name__}")  # 例外の本文にはヘッダー値が含まれうるので出さない
                 time.sleep(5)
         else:
             stats["failed_batches"] += 1
@@ -217,10 +217,20 @@ def main():
     ap.add_argument("--report", action="store_true")
     a = ap.parse_args()
     token = os.environ.get("GEMINI_API_KEY", "").strip()
+    if token and not re.fullmatch(r"[A-Za-z0-9_\-]{20,80}", token):
+        # 値はどこにも出力しない（公開リポジトリに残さないため）
+        print("GEMINI_API_KEY の形式が正しくありません（英数字のキー1行だけを登録してください）。ルール判定で続行します。", flush=True)
+        token = ""
     profile = os.environ.get("PROFILE", "").strip() or DEFAULT_PROFILE
     src = json.loads((ROOT / a.input).read_text(encoding="utf-8"))
     logs = []
-    log = lambda m: (print(m, flush=True), logs.append(m))
+    def log(m):
+        m = str(m)
+        if token:
+            m = m.replace(token, "***")  # 念のため、キーが文字列に混ざっていたら伏せる
+        m = m[:300]
+        print(m, flush=True)
+        logs.append(m)
     if token:
         items, stats = judge(src["items"], token, profile, log)
     else:
