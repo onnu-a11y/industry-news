@@ -1,0 +1,2694 @@
+{
+ "summary": {
+  "day": "2026-11-24",
+  "generated": "2026-11-24T17:35+09:00",
+  "articles": 110,
+  "fetch_secs": 269,
+  "avg_secs": 1.9,
+  "groups": {
+   "S・A（Googleニュース経由）": {
+    "n": 71,
+    "resolved": "71/71（100%）",
+    "body": "38/71（53%）",
+    "image": "61/71（85%）"
+   },
+   "S・A（媒体の直接RSS）": {
+    "n": 9,
+    "resolved": "9/9（100%）",
+    "body": "8/9（88%）",
+    "image": "9/9（100%）"
+   },
+   "B（見本）": {
+    "n": 30,
+    "resolved": "30/30（100%）",
+    "body": "27/30（90%）",
+    "image": "29/30（96%）"
+   },
+   "全体": {
+    "n": 110,
+    "resolved": "110/110（100%）",
+    "body": "73/110（66%）",
+    "image": "99/110（90%）"
+   }
+  },
+  "errors": {
+   "HTTP 405": 1,
+   "ConnectTimeout": 1,
+   "HTTP 403": 7
+  },
+  "domains": [
+   {
+    "domain": "news.yahoo.co.jp",
+    "n": 16,
+    "body": 15,
+    "image": 16
+   },
+   {
+    "domain": "jpcert.or.jp",
+    "n": 15,
+    "body": 15,
+    "image": 15
+   },
+   {
+    "domain": "ipa.go.jp",
+    "n": 5,
+    "body": 5,
+    "image": 5
+   },
+   {
+    "domain": "sanyonews.jp",
+    "n": 5,
+    "body": 2,
+    "image": 4
+   },
+   {
+    "domain": "news.infoseek.co.jp",
+    "n": 3,
+    "body": 2,
+    "image": 3
+   },
+   {
+    "domain": "netkeizai.com",
+    "n": 3,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "zeiken.co.jp",
+    "n": 2,
+    "body": 0,
+    "image": 2
+   },
+   {
+    "domain": "novaist.jp",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "cybersecurity-jp.com",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "article.auone.jp",
+    "n": 2,
+    "body": 0,
+    "image": 2
+   },
+   {
+    "domain": "news.nicovideo.jp",
+    "n": 2,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "dxmagazine.jp",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "news.dellows.jp",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "prtimes.jp",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "biz.chosun.com",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "news.livedoor.com",
+    "n": 2,
+    "body": 1,
+    "image": 2
+   },
+   {
+    "domain": "chiba-tv.com",
+    "n": 2,
+    "body": 0,
+    "image": 2
+   },
+   {
+    "domain": "finance.yahoo.co.jp",
+    "n": 2,
+    "body": 0,
+    "image": 2
+   },
+   {
+    "domain": "wwdjapan.com",
+    "n": 2,
+    "body": 2,
+    "image": 2
+   },
+   {
+    "domain": "limo.media",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "sortiraparis.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "act1.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "ryukyushimpo.jp",
+    "n": 1,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "nikkei.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "finance.biggo.jp",
+    "n": 1,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "sankei.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "hokkaido-np.co.jp",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "47news.jp",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "abema.tv",
+    "n": 1,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "htb.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "excite.co.jp",
+    "n": 1,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "news.web.nhk",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "bloomberg.com",
+    "n": 1,
+    "body": 0,
+    "image": 0
+   },
+   {
+    "domain": "love-spo.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "nna.jp",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "tsuhanshimbun.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "agrinews.co.jp",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "kn.itmedia.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "netshop.impress.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "business.nikkei.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "itmedia.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "rocket-boys.co.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "scan.netsecurity.ne.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "ryutsuu.biz",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "walkerplus.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "fashionsnap.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "rbbtoday.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "sangyo-times.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "b-corsairs.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "inside-games.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "commercepick.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "zweigen-kanazawa.jp",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "kankyo-business.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "kumanichi.com",
+    "n": 1,
+    "body": 0,
+    "image": 1
+   },
+   {
+    "domain": "mbp-japan.com",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   },
+   {
+    "domain": "lp.p.pia.jp",
+    "n": 1,
+    "body": 1,
+    "image": 1
+   }
+  ],
+  "stories_SA": 64,
+  "stories_SA_with_body": 41
+ },
+ "articles": [
+  {
+   "id": "51e4c1f5c58e",
+   "level": "S",
+   "lane": "retail_ec",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/599acdf354cda76a59f7bd1db42e4e346ab49e9f",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1262,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261123-90000792-toushin-000-1-view.jpg?exp=10800",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "b27484a903f8",
+   "level": "S",
+   "lane": "retail_ec",
+   "source": "LIMO | くらしとお金の経済メディア",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://limo.media/articles/-/147070",
+   "domain": "limo.media",
+   "http": 200,
+   "body_chars": 730,
+   "body_ok": true,
+   "image": "https://img.limo.media/mw/a805f17ce7640a9db4f06f2b767135af172966.jpg?v=1&amp;variant=ogp",
+   "secs": 1.2,
+   "error": ""
+  },
+  {
+   "id": "4e71ec101e52",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "IPA 重要なセキュリティ情報",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.ipa.go.jp/security/security-alert/2026/1118-jre.html",
+   "domain": "ipa.go.jp",
+   "http": 200,
+   "body_chars": 1137,
+   "body_ok": true,
+   "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "bf10ef9007c4",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "IPA 重要なセキュリティ情報",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.ipa.go.jp/security/security-alert/2026/pre-alert20261119.html",
+   "domain": "ipa.go.jp",
+   "http": 200,
+   "body_chars": 2088,
+   "body_ok": true,
+   "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg",
+   "secs": 0.3,
+   "error": ""
+  },
+  {
+   "id": "b47053df6a66",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "IPA 重要なセキュリティ情報",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261119.html",
+   "domain": "ipa.go.jp",
+   "http": 200,
+   "body_chars": 2037,
+   "body_ok": true,
+   "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg",
+   "secs": 0.2,
+   "error": ""
+  },
+  {
+   "id": "d5cae10a4239",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "IPA 重要なセキュリティ情報",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261120.html",
+   "domain": "ipa.go.jp",
+   "http": 200,
+   "body_chars": 2629,
+   "body_ok": true,
+   "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg",
+   "secs": 0.5,
+   "error": ""
+  },
+  {
+   "id": "3cb2b6e8997f",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/at/2026/at260033.html",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 5311,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.6,
+   "error": ""
+  },
+  {
+   "id": "19b0fc8d181b",
+   "level": "S",
+   "lane": "economy",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/1ad09d9ec3cd6da39aec5be17147003e4903e498",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1079,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261123-00010000-bengojp-000-1-view.jpg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "dae6bc5f4ee9",
+   "level": "S",
+   "lane": "economy",
+   "source": "税務研究会",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.zeiken.co.jp/keieizaimu/article/no3777/ZA00037770701.html",
+   "domain": "zeiken.co.jp",
+   "http": 200,
+   "body_chars": 326,
+   "body_ok": false,
+   "image": "https://www.zeiken.co.jp/img/zaimu_logo_1.png",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "4a49ef112e25",
+   "level": "S",
+   "lane": "economy",
+   "source": "税務研究会",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.zeiken.co.jp/zeimutusin/article/no3925/TA00039250201.html",
+   "domain": "zeiken.co.jp",
+   "http": 200,
+   "body_chars": 205,
+   "body_ok": false,
+   "image": "https://www.zeiken.co.jp/img/tusinrogo_1.png",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "aacb5775853a",
+   "level": "S",
+   "lane": "it_sec",
+   "source": "IPA 重要なセキュリティ情報",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.ipa.go.jp/security/security-alert/2026/alert20261124.html",
+   "domain": "ipa.go.jp",
+   "http": 200,
+   "body_chars": 1541,
+   "body_ok": true,
+   "image": "https://www.ipa.go.jp/k3q2q400000050d7-img/k3q2q400000050dg.jpg",
+   "secs": 0.8,
+   "error": ""
+  },
+  {
+   "id": "9fcea7a4afe3",
+   "level": "S",
+   "lane": "economy",
+   "source": "Sortir à Paris",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sortiraparis.com/ja/nyusu/pari-de/articles/236979-2026nian12yue1rikara-bianwarukoto-zui-di-lin-jin-gasu-liao-jin-ofupiku-shi-jian",
+   "domain": "sortiraparis.com",
+   "http": 200,
+   "body_chars": 2870,
+   "body_ok": true,
+   "image": "https://cdn.sortiraparis.com/images/80/1467/994257-11-spots-photos-de-noel-canons-a-paris-2023-pour-profiter-des-illuminations-magiques-galerie-vivienne.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "ce328f3cfedd",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "NOVAIST",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://novaist.jp/articles/tower-records-data-breach/",
+   "domain": "novaist.jp",
+   "http": 200,
+   "body_chars": 1111,
+   "body_ok": true,
+   "image": "https://s.novaist.jp/media/2026/11/24114349/39158-20261124-024339-378-1200x630.png",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "1865892e9461",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/d89a61caa575b88c27143eda442fa8e9baa3b30f",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 695,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-00000002-technoed-000-1-view.jpg?exp=10800",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "4df527d056e2",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "サイバーセキュリティ.com",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://cybersecurity-jp.com/news/118782",
+   "domain": "cybersecurity-jp.com",
+   "http": 200,
+   "body_chars": 1862,
+   "body_ok": true,
+   "image": "https://cybersecurity-jp.com/wp-content/uploads/2026/11/img_118782.jpg",
+   "secs": 2.5,
+   "error": ""
+  },
+  {
+   "id": "eb306b4b936b",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "株式会社アクト",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://act1.co.jp/2026-11-24-01/",
+   "domain": "act1.co.jp",
+   "http": 200,
+   "body_chars": 1621,
+   "body_ok": true,
+   "image": "https://act1.co.jp/wp-content/uploads/2023/12/ogp.jpg",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "6649b9f1d614",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "琉球新報デジタル",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://ryukyushimpo.jp/national/entry-5611630.html",
+   "domain": "ryukyushimpo.jp",
+   "http": 405,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.3,
+   "error": "HTTP 405"
+  },
+  {
+   "id": "fd99d602850f",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "au Webポータル",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://article.auone.jp/957f18ae-6e6f-4170-81d0-f88b023dced1",
+   "domain": "article.auone.jp",
+   "http": 200,
+   "body_chars": 50,
+   "body_ok": false,
+   "image": "https://portal.auone.jp/media/thumbnails/2026/11/22/https___www_yomiuri_co_jp_economy_20261122-GYT1T00172__w1200.webp",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "06f22560a94d",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "日本経済新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.nikkei.com/article/DGXZQOUC221UL0S6A121C2000000/",
+   "domain": "nikkei.com",
+   "http": 200,
+   "body_chars": 254,
+   "body_ok": false,
+   "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3918914022112026000000-1.jpg?auto=compress&amp;bg=FFFF&amp;crop=focalpoint&amp;fit=crop&amp;fm=jpg&amp;fp-x=0.86&amp;fp-y=0.08&amp;h=630&amp;w=1200&amp;s=99e8d5757211041a976628781fd77091",
+   "secs": 2.2,
+   "error": ""
+  },
+  {
+   "id": "e814f5720da2",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "BigGo ファイナンス",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://finance.biggo.jp/news/aef1cc45-dc10-4994-b75d-0c8164628dbc",
+   "domain": "finance.biggo.jp",
+   "http": null,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 16.3,
+   "error": "ConnectTimeout"
+  },
+  {
+   "id": "08498d2e987c",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/2c435a45fad1b2e1a1a2b51fa3211f2e0b5f3144",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1004,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00188671-biz_plus-000-1-view.jpg?exp=10800",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "6d3a41468159",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "産経ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sankei.com/article/20261122-KPERAOO4LRPHNJDO7JVGTMAHFE/",
+   "domain": "sankei.com",
+   "http": 200,
+   "body_chars": 292,
+   "body_ok": false,
+   "image": "https://www.sankei.com/common/images/ogp_default_image.jpg",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "bc86278b3a77",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "北海道新聞デジタル",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.hokkaido-np.co.jp/article/1413213/",
+   "domain": "hokkaido-np.co.jp",
+   "http": 200,
+   "body_chars": 133,
+   "body_ok": false,
+   "image": "https://static.hokkaido-np.co.jp/image/article/size1/c/a/1/b/ca1b41abc65910dcdcd2ecda2e0df04f_1.webp?20261124172714",
+   "secs": 3.0,
+   "error": ""
+  },
+  {
+   "id": "00086f67aabd",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "47NEWS",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.47news.jp/15270629.html",
+   "domain": "47news.jp",
+   "http": 200,
+   "body_chars": 109,
+   "body_ok": false,
+   "image": "https://img.cf.47news.jp/static/renewal/common/img/thumb_large.png",
+   "secs": 2.5,
+   "error": ""
+  },
+  {
+   "id": "504971881d8a",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "ABEMA",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://abema.tv/video/episode/89-44_s0_p549778",
+   "domain": "abema.tv",
+   "http": 200,
+   "body_chars": 27,
+   "body_ok": false,
+   "image": "",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "613e73c484fd",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Infoseek",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.infoseek.co.jp/amp/article/stv_1497324040233501417/",
+   "domain": "news.infoseek.co.jp",
+   "http": 200,
+   "body_chars": 317,
+   "body_ok": false,
+   "image": "https://media.image.infoseek.co.jp/isnews/photos/stv/stv_1497324040233501417_0-enlarge.jpg",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "e60ae53e08e6",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "HTB 北海道テレビ",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.htb.co.jp/news/archives_40593.html",
+   "domain": "htb.co.jp",
+   "http": 200,
+   "body_chars": 409,
+   "body_ok": true,
+   "image": "https://www.htb.co.jp/news/photo/40593_52884.jpg",
+   "secs": 2.4,
+   "error": ""
+  },
+  {
+   "id": "903b035ba463",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Excite エキサイト",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "http://www.excite.co.jp/news/article/huffpost_1497163062014591467/",
+   "domain": "excite.co.jp",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.4,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "0a3aae8e0d93",
+   "level": "A",
+   "lane": "economy",
+   "source": "NHK 経済",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://news.web.nhk/newsweb/na/nd-20261124de80569",
+   "domain": "news.web.nhk",
+   "http": 200,
+   "body_chars": 124,
+   "body_ok": false,
+   "image": "https://imgu.web.nhk/news/u/news/nd/kiji/20261124de80569/20261124de80569_E0000147912_1_l.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "e1de9f28d796",
+   "level": "A",
+   "lane": "economy",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/70850fa328597be9a1fb07a44fd40357b6b06e90",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 792,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-00000204-spnannex-000-2-view.jpg?exp=10800",
+   "secs": 1.6,
+   "error": ""
+  },
+  {
+   "id": "6e780cea1fd9",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/expert/articles/7524c8cda5054afac7c414206c400b751ac221eb",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1651,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/iwiz-yn/creators/10037664/02765438/title-1794951430691.jpeg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "359aeaab9e0b",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Infoseek",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.infoseek.co.jp/article/mynavi_3248612/",
+   "domain": "news.infoseek.co.jp",
+   "http": 200,
+   "body_chars": 7127,
+   "body_ok": true,
+   "image": "https://media.image.infoseek.co.jp/isnews/photos/mynavi/mynavi_3248612_0-enlarge.jpg",
+   "secs": 1.5,
+   "error": ""
+  },
+  {
+   "id": "ff54334d9402",
+   "level": "A",
+   "lane": "economy",
+   "source": "山陽新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sanyonews.jp/article/1998663",
+   "domain": "sanyonews.jp",
+   "http": 200,
+   "body_chars": 355,
+   "body_ok": false,
+   "image": "https://static.sanyonews.jp/image/article/size1/1/5/c/6/15c63ec1d69e3aa35da1ca06e42e1367_1.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "dc0c574edb7d",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "ニコニコニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.nicovideo.jp/watch/nw20020753?news_ref=media274_media274",
+   "domain": "news.nicovideo.jp",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.2,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "60258f583042",
+   "level": "A",
+   "lane": "industry",
+   "source": "Bloomberg.com",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.bloomberg.com/jp/news/articles/2026-11-22/TOWANEKJH6V400",
+   "domain": "bloomberg.com",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.2,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "746d896781e2",
+   "level": "A",
+   "lane": "economy",
+   "source": "山陽新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sanyonews.jp/article/1943321",
+   "domain": "sanyonews.jp",
+   "http": 200,
+   "body_chars": 102,
+   "body_ok": false,
+   "image": "https://static.sanyonews.jp/image/article/size1/e/c/6/8/ec68530acec0e938a576e6ebf0e8c686_1.jpg",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "b95be973e525",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "DXマガジン",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://dxmagazine.jp/?p=922274",
+   "domain": "dxmagazine.jp",
+   "http": 200,
+   "body_chars": 883,
+   "body_ok": true,
+   "image": "https://dxmagazine.jp/cp/wp-content/uploads/2026/11/image-9-64.jpg",
+   "secs": 2.1,
+   "error": ""
+  },
+  {
+   "id": "0e73299dd708",
+   "level": "A",
+   "lane": "industry",
+   "source": "Dellows News",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.dellows.jp/948222/",
+   "domain": "news.dellows.jp",
+   "http": 200,
+   "body_chars": 1731,
+   "body_ok": true,
+   "image": "https://news.dellows.jp/wp-content/uploads/2026/10/948222_1.jpg",
+   "secs": 9.4,
+   "error": ""
+  },
+  {
+   "id": "5982fb419c87",
+   "level": "A",
+   "lane": "industry",
+   "source": "ラブすぽ",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://love-spo.com/article/%E7%B4%AF%E8%A8%8850%E4%B8%87%E7%9D%80%E7%AA%81%E7%A0%B4%E3%81%AE%E4%BD%9C%E6%A5%AD%E7%9D%80%E3%82%B9%E3%83%BC%E3%83%84%E7%99%BA%E7%A5%A5%E3%83%96%E3%83%A9%E3%83%B3%E3%83%89%E3%80%8Cwws%E3%80%8D/",
+   "domain": "love-spo.com",
+   "http": 200,
+   "body_chars": 2857,
+   "body_ok": true,
+   "image": "https://love-spo.com/wp-content/uploads/2026/11/35410-678-85c671485de680ad880dc6366135d683-1920x1080-1.jpg",
+   "secs": 2.1,
+   "error": ""
+  },
+  {
+   "id": "b66d9073f085",
+   "level": "A",
+   "lane": "economy",
+   "source": "NNAアジア",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.nna.jp/news/2991000",
+   "domain": "nna.jp",
+   "http": 200,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "https://www.nna.jp/files/images/nna_sns_logo.png",
+   "secs": 1.6,
+   "error": ""
+  },
+  {
+   "id": "eb7f29f4fb53",
+   "level": "A",
+   "lane": "industry",
+   "source": "通販新聞社",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.tsuhanshimbun.com/products/detail/8642",
+   "domain": "tsuhanshimbun.com",
+   "http": 200,
+   "body_chars": 1137,
+   "body_ok": true,
+   "image": "https://www.tsuhanshimbun.com/html/upload/save_image/1119162450_6afea4428a1d9.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "a82bdfc445b6",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "山陽新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sanyonews.jp/article/2015661?kw=%E5%8C%BB%E7%99%82",
+   "domain": "sanyonews.jp",
+   "http": 200,
+   "body_chars": 888,
+   "body_ok": true,
+   "image": "https://static.sanyonews.jp/image/article/size1/b/7/8/d/b78d1f8463dc01ef685083f60b9c52ab_1.jpg",
+   "secs": 1.6,
+   "error": ""
+  },
+  {
+   "id": "b6e7e24671af",
+   "level": "A",
+   "lane": "industry",
+   "source": "日本農業新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.agrinews.co.jp/economy/index/420569",
+   "domain": "agrinews.co.jp",
+   "http": 200,
+   "body_chars": 169,
+   "body_ok": false,
+   "image": "https://www.agrinews.co.jp/media/2026/11/23/MN20261123T501AB100A11_P1123TPT50035AJB_S.jpg",
+   "secs": 2.7,
+   "error": ""
+  },
+  {
+   "id": "6ce39a6e2138",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "キーマンズネット",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://kn.itmedia.co.jp/kn/article/2611/23/2000003393/",
+   "domain": "kn.itmedia.co.jp",
+   "http": 200,
+   "body_chars": 1552,
+   "body_ok": true,
+   "image": "https://kn.itmedia.co.jp/kn/article/ogp/2611/23/2000003393/10012772/2048",
+   "secs": 2.7,
+   "error": ""
+  },
+  {
+   "id": "a365576a4dee",
+   "level": "A",
+   "lane": "industry",
+   "source": "Dellows News",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.dellows.jp/1236713/",
+   "domain": "news.dellows.jp",
+   "http": 200,
+   "body_chars": 1769,
+   "body_ok": true,
+   "image": "https://news.dellows.jp/wp-content/uploads/2026/11/1236713_1.jpg",
+   "secs": 10.9,
+   "error": ""
+  },
+  {
+   "id": "d59dd32f7638",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "PR TIMES",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://prtimes.jp/main/html/rd/p/000000002.000177020.html",
+   "domain": "prtimes.jp",
+   "http": 200,
+   "body_chars": 2222,
+   "body_ok": true,
+   "image": "https://prcdn.freetls.fastly.net/release_image/177020/2/177020-2-2d58248dd98b9a056483ae0d90f3867e-778x1686.png?format=jpeg&amp;auto=webp&amp;fit=bounds&amp;width=2400&amp;height=1260",
+   "secs": 1.6,
+   "error": ""
+  },
+  {
+   "id": "1fad6db6ad12",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "日本ネット経済新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://netkeizai.com/articles/detail/20660",
+   "domain": "netkeizai.com",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.5,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "40be746400b3",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "Infoseek",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.infoseek.co.jp/article/prtimes_000000069_000078669/",
+   "domain": "news.infoseek.co.jp",
+   "http": 200,
+   "body_chars": 1006,
+   "body_ok": true,
+   "image": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
+   "secs": 1.5,
+   "error": ""
+  },
+  {
+   "id": "431eadc6d345",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "日本ネット経済新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://netkeizai.com/articles/detail/20661",
+   "domain": "netkeizai.com",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.5,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "87a5b0845b24",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "ネットショップ担当者フォーラム",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://netshop.impress.co.jp/e/2026/11/24/17080",
+   "domain": "netshop.impress.co.jp",
+   "http": 200,
+   "body_chars": 4256,
+   "body_ok": true,
+   "image": "https://netshop.impress.co.jp/sites/default/files/styles/1200x630/public/images/article/2026/news-node17080-ogp.png?itok=_tzy09Vj",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "2c8357bbf627",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "Chosunbiz",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://biz.chosun.com/jp/jp-retail/2026/11/23/D37HAV2HSZAVLHOFUOUDF6BC6M/",
+   "domain": "biz.chosun.com",
+   "http": 200,
+   "body_chars": 2152,
+   "body_ok": true,
+   "image": "https://biz.chosun.com/resizer/v2/AIAEVB2TQZHZDJCUFNZPCWOJGQ.png?auth=20190175a69b028907330fde7fa4630569d7510e53b9779ddd3b2be5725ec4bd&amp;width=1200&amp;height=630&amp;smart=true",
+   "secs": 2.4,
+   "error": ""
+  },
+  {
+   "id": "2474e2d76e9a",
+   "level": "A",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/db0d25da845ae111751637674195727019b3f6e4",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 649,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261123-03663676-clc_korea-000-1-view.jpg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "663a99a71258",
+   "level": "A",
+   "lane": "industry",
+   "source": "au Webポータル",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://article.auone.jp/b16b1c9a-3b4c-4604-b20e-db33be786c74",
+   "domain": "article.auone.jp",
+   "http": 200,
+   "body_chars": 86,
+   "body_ok": false,
+   "image": "https://portal.auone.jp/media/thumbnails/2026/11/23/https___news_allabout_co_jp_articles_o_134184__w640.webp",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "32d3e1fdd449",
+   "level": "A",
+   "lane": "industry",
+   "source": "山陽新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sanyonews.jp/article/2023748",
+   "domain": "sanyonews.jp",
+   "http": 200,
+   "body_chars": 1614,
+   "body_ok": true,
+   "image": "https://static.sanyonews.jp/image/article/size1https://prtimes.jp/img/115161/455/resize/d115161-455-ec58cbcf972db8570761-0.jpg",
+   "secs": 1.6,
+   "error": ""
+  },
+  {
+   "id": "8442f78dbda3",
+   "level": "A",
+   "lane": "economy",
+   "source": "日経ビジネス電子版",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://business.nikkei.com/atcl/gen/19/00951/111700007/",
+   "domain": "business.nikkei.com",
+   "http": 200,
+   "body_chars": 211,
+   "body_ok": false,
+   "image": "https://business.nikkei.com/atcl/gen/19/00951/111700007/fb.jpg",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "dec38bbce89b",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "ITmedia ビジネス",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.itmedia.co.jp/business/articles/2611/24/news006.html",
+   "domain": "itmedia.co.jp",
+   "http": 200,
+   "body_chars": 1095,
+   "body_ok": true,
+   "image": "https://image.itmedia.co.jp/business/articles/2611/24/cover_news006.jpg",
+   "secs": 0.3,
+   "error": ""
+  },
+  {
+   "id": "9dad79e3caca",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "合同会社ロケットボーイズ",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://rocket-boys.co.jp/security-measures-lab/ill_saas_staging_real_customer_data_api_credentials_breach_2026/",
+   "domain": "rocket-boys.co.jp",
+   "http": 200,
+   "body_chars": 3584,
+   "body_ok": true,
+   "image": "https://rocket-boys.co.jp/wp-content/uploads/2026/11/ill_saas_staging_real_customer_data_api_credentials_breach_2026.png",
+   "secs": 1.5,
+   "error": ""
+  },
+  {
+   "id": "ae919d5c41a0",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "ScanNetSecurity",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://scan.netsecurity.ne.jp/article/2026/11/24/56873.html",
+   "domain": "scan.netsecurity.ne.jp",
+   "http": 200,
+   "body_chars": 756,
+   "body_ok": true,
+   "image": "https://scan.netsecurity.ne.jp/imgs/ogp_f/56257.jpg",
+   "secs": 3.1,
+   "error": ""
+  },
+  {
+   "id": "6f5cb1c58533",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "サイバーセキュリティ.com",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://cybersecurity-jp.com/news/118781",
+   "domain": "cybersecurity-jp.com",
+   "http": 200,
+   "body_chars": 1894,
+   "body_ok": true,
+   "image": "https://cybersecurity-jp.com/wp-content/uploads/2026/11/img_118781.jpg",
+   "secs": 3.4,
+   "error": ""
+  },
+  {
+   "id": "07f3a0fd4236",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "日本ネット経済新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://netkeizai.com/articles/detail/20663",
+   "domain": "netkeizai.com",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.5,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "ac408272f7b3",
+   "level": "A",
+   "lane": "industry",
+   "source": "流通ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.ryutsuu.biz/store/s112443.html",
+   "domain": "ryutsuu.biz",
+   "http": 200,
+   "body_chars": 342,
+   "body_ok": false,
+   "image": "https://www.ryutsuu.biz/main/images/2026/11/20261124-shimamura.jpg",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "3f33b9ac2508",
+   "level": "A",
+   "lane": "industry",
+   "source": "ニコニコニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.nicovideo.jp/watch/nw20023566?news_ref=media274_media274",
+   "domain": "news.nicovideo.jp",
+   "http": 403,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 1.1,
+   "error": "HTTP 403"
+  },
+  {
+   "id": "66b1f9ec6ea9",
+   "level": "A",
+   "lane": "industry",
+   "source": "ウォーカープラス",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.walkerplus.com/article/136655/image764678.html",
+   "domain": "walkerplus.com",
+   "http": 200,
+   "body_chars": 143,
+   "body_ok": false,
+   "image": "https://news.walkerplus.com/article/136655/764675_615.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "d466cf930c9b",
+   "level": "A",
+   "lane": "industry",
+   "source": "PR TIMES",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://prtimes.jp/main/html/rd/p/000000299.000033942.html",
+   "domain": "prtimes.jp",
+   "http": 200,
+   "body_chars": 2949,
+   "body_ok": true,
+   "image": "https://prcdn.freetls.fastly.net/release_image/33942/299/33942-299-edeb28dee2d357f7ec7128fb0ee1864d-3900x1568.jpg?format=jpeg&amp;auto=webp&amp;fit=bounds&amp;width=2400&amp;height=1260",
+   "secs": 1.4,
+   "error": ""
+  },
+  {
+   "id": "98caefb99f37",
+   "level": "A",
+   "lane": "industry",
+   "source": "FASHIONSNAP",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.fashionsnap.com/article/2026-11-24/urban-tube-open/",
+   "domain": "fashionsnap.com",
+   "http": 200,
+   "body_chars": 798,
+   "body_ok": true,
+   "image": "https://fashionsnap-assets.com/asset/format=auto,width=1280,height=670,gravity=auto,fit=pad/article/images/2026/11/af0df53e-76eb-4eb1-a756-27be89b0a3a6.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "27de711a0c51",
+   "level": "A",
+   "lane": "industry",
+   "source": "RBB TODAY",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.rbbtoday.com/article/2026/11/24/256295.html",
+   "domain": "rbbtoday.com",
+   "http": 200,
+   "body_chars": 293,
+   "body_ok": false,
+   "image": "https://www.rbbtoday.com/imgs/ogp_f/1069782.jpg",
+   "secs": 2.2,
+   "error": ""
+  },
+  {
+   "id": "47131994873e",
+   "level": "A",
+   "lane": "industry",
+   "source": "ライブドアニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.livedoor.com/pr_topics/detail/32886441/",
+   "domain": "news.livedoor.com",
+   "http": 200,
+   "body_chars": 157,
+   "body_ok": false,
+   "image": "https://image.news.livedoor.com/newsimage/stf/4/2/42bb9_1871_8e91a299_1b0eff97.png",
+   "secs": 2.3,
+   "error": ""
+  },
+  {
+   "id": "a3b3f184be70",
+   "level": "A",
+   "lane": "industry",
+   "source": "NOVAIST",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://novaist.jp/articles/zozo-customer-data-leak/",
+   "domain": "novaist.jp",
+   "http": 200,
+   "body_chars": 1259,
+   "body_ok": true,
+   "image": "https://s.novaist.jp/media/2026/11/24113330/39149-20261124-023321-125-1200x630.png",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "8b2638a2833f",
+   "level": "A",
+   "lane": "industry",
+   "source": "千葉テレビ放送株式会社",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.chiba-tv.com/plus/detail/2026112253323",
+   "domain": "chiba-tv.com",
+   "http": 200,
+   "body_chars": 129,
+   "body_ok": false,
+   "image": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1497791208630223901/origin_1.png",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "8ad939dffdd5",
+   "level": "A",
+   "lane": "industry",
+   "source": "産業タイムズ社",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sangyo-times.jp/article.aspx?ID=15266",
+   "domain": "sangyo-times.jp",
+   "http": 200,
+   "body_chars": 2212,
+   "body_ok": true,
+   "image": "https://www.sangyo-times.jp/images/article/sns_15266.jpg",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "8d4f46a03c44",
+   "level": "A",
+   "lane": "industry",
+   "source": "横浜ビー・コルセアーズ",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://b-corsairs.com/news/event_20261124_1/",
+   "domain": "b-corsairs.com",
+   "http": 200,
+   "body_chars": 1666,
+   "body_ok": true,
+   "image": "https://b-corsairs.com/files/user/_/common/news/event/2026-27/ph_202627_1226matchday01.jpg",
+   "secs": 1.3,
+   "error": ""
+  },
+  {
+   "id": "b07db8d43365",
+   "level": "A",
+   "lane": "industry",
+   "source": "インサイド",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.inside-games.jp/release/prtimes/20261124/319768.html",
+   "domain": "inside-games.jp",
+   "http": 200,
+   "body_chars": 4223,
+   "body_ok": true,
+   "image": "https://www.inside-games.jp/release/imgs/list/559421.png",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "eb0e185516b6",
+   "level": "A",
+   "lane": "it_sec",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/18ecbb592fcb9d410030be9325c75ee42afd2a2c",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 772,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-00000006-impiw-000-1-view.jpg?exp=10800",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "17b4948cc2b0",
+   "level": "A",
+   "lane": "industry",
+   "source": "コマースピック",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.commercepick.com/archives/107640",
+   "domain": "commercepick.com",
+   "http": 200,
+   "body_chars": 672,
+   "body_ok": true,
+   "image": "https://www.commercepick.com/wp-content/uploads/2026/11/lucky-bag-20261124-11.jpg",
+   "secs": 2.7,
+   "error": ""
+  },
+  {
+   "id": "133a1d94f23c",
+   "level": "A",
+   "lane": "industry",
+   "source": "Yahoo!ファイナンス",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://finance.yahoo.co.jp/news/detail/e6e5ec4d3274b64a4a1bb92142d0a68c243f0096",
+   "domain": "finance.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 138,
+   "body_ok": false,
+   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
+   "secs": 2.2,
+   "error": ""
+  },
+  {
+   "id": "ff7db653ce2c",
+   "level": "A",
+   "lane": "industry",
+   "source": "Yahoo!ファイナンス",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://finance.yahoo.co.jp/news/detail/4321826328d17483f89019dc0dfb504f223ed3eb",
+   "domain": "finance.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 34,
+   "body_ok": false,
+   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "3121011b70f3",
+   "level": "A",
+   "lane": "industry",
+   "source": "ツエーゲン金沢 公式サイト",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.zweigen-kanazawa.jp/news/?id=19344",
+   "domain": "zweigen-kanazawa.jp",
+   "http": 200,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "https://www.zweigen-kanazawa.jp/files/image/19344/1/SPM.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "8cedcb774846",
+   "level": "A",
+   "lane": "industry",
+   "source": "千葉テレビ放送株式会社",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.chiba-tv.com/plus/detail/2026112253659",
+   "domain": "chiba-tv.com",
+   "http": 200,
+   "body_chars": 110,
+   "body_ok": false,
+   "image": "https://img.jp.ekkowassets.com/c_limit,w_360,f_auto,q_auto:eco/ch/images/1497810042380060038/origin_1.jpg",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "28025f2a7d36",
+   "level": "A",
+   "lane": "industry",
+   "source": "環境ビジネスオンライン",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.kankyo-business.jp/news/fe9b4ee0-646a-499c-99ad-6b04c461ca7c",
+   "domain": "kankyo-business.jp",
+   "http": 200,
+   "body_chars": 968,
+   "body_ok": true,
+   "image": "https://www.kankyo-business.jp/uploads/2026/11/23/1LTFEZHBPBwSYAqGDHEVOKfjBekZKegzibYhYl4z.webp",
+   "secs": 3.8,
+   "error": ""
+  },
+  {
+   "id": "c364ab99dce0",
+   "level": "A",
+   "lane": "retail_ec",
+   "source": "DXマガジン",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://dxmagazine.jp/news/2665ko33/",
+   "domain": "dxmagazine.jp",
+   "http": 200,
+   "body_chars": 756,
+   "body_ok": true,
+   "image": "https://dxmagazine.jp/cp/wp-content/uploads/2026/11/ytodanews-35.jpg",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "ad25bbf2ccdf",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#1",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.6,
+   "error": ""
+  },
+  {
+   "id": "6d9444480eec",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#2",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "7029dd986908",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#3",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "0e115fbfb428",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#4",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "82f60f126253",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#5",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "c90e1484045e",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#6",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "aa22d84d617f",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#8",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "b07dcda7206e",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#10",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "f65d6d007b7b",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#14",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "9656c99d360f",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#20",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "86782abdbcf5",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#21",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.2,
+   "error": ""
+  },
+  {
+   "id": "22fec3637317",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#22",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.2,
+   "error": ""
+  },
+  {
+   "id": "197ee7cc4493",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#23",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "e08aeb25d82d",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "JPCERT/CC",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.jpcert.or.jp/wr/2026/wr261118.html#24",
+   "domain": "jpcert.or.jp",
+   "http": 200,
+   "body_chars": 3671,
+   "body_ok": true,
+   "image": "https://www.jpcert.or.jp/common/image/ogp_image.jpg",
+   "secs": 0.4,
+   "error": ""
+  },
+  {
+   "id": "eeae4ce12133",
+   "level": "B",
+   "lane": "industry",
+   "source": "WWDJAPAN",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.wwdjapan.com/articles/2548067",
+   "domain": "wwdjapan.com",
+   "http": 200,
+   "body_chars": 1218,
+   "body_ok": true,
+   "image": "https://media.wwdjapan.com/wp-content/uploads/2026/11/22111320/20261122_LUSH_og.jpg",
+   "secs": 0.2,
+   "error": ""
+  },
+  {
+   "id": "7e058278ecec",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/796aba440b2ee57430cd26ef0346e445eefae4c3",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 897,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-10177429-it_nlab-000-1-view.jpg?exp=10800",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "369a53bdfcb5",
+   "level": "B",
+   "lane": "it_sec",
+   "source": "Chosunbiz",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://biz.chosun.com/jp/jp-finance/2026/11/22/34R27G7RNZFBDKCZBAKG44FSD4/",
+   "domain": "biz.chosun.com",
+   "http": 200,
+   "body_chars": 691,
+   "body_ok": true,
+   "image": "https://biz.chosun.com/resizer/v2/JZH7FNREJNEUXPYOMTFPCBL6VA.jpg?auth=ebe0d7ed31eac50add8aa42545f272b2b7522f46bcafefa13cb495a28aff78d0&amp;width=936&amp;height=491&amp;smart=true",
+   "secs": 2.5,
+   "error": ""
+  },
+  {
+   "id": "f38a99839a8b",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/7308b74940637b6a53e493fe9d809826307fdfae",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1032,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-10178456-it_favlog-000-1-view.jpg?exp=10800",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "ca3351aa4e38",
+   "level": "B",
+   "lane": "economy",
+   "source": "熊本日日新聞社",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://kumanichi.com/articles/2060766",
+   "domain": "kumanichi.com",
+   "http": 200,
+   "body_chars": 168,
+   "body_ok": false,
+   "image": "https://kumanichi.com/sites/default/files/styles/sns_share/public/2026-11/IP261122TAN000031000_02.jpg?itok=J5qNfll-",
+   "secs": 2.6,
+   "error": ""
+  },
+  {
+   "id": "399018542e12",
+   "level": "B",
+   "lane": "economy",
+   "source": "mbp-japan.com",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://mbp-japan.com/tokyo/housing-success/column/5245186/",
+   "domain": "mbp-japan.com",
+   "http": 200,
+   "body_chars": 594,
+   "body_ok": true,
+   "image": "https://mbp-japan.com/elements/tokyo/profiles/housing-success/profile/thumbnail_l_1731906487.jpg",
+   "secs": 2.0,
+   "error": ""
+  },
+  {
+   "id": "90e132ef5c3c",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/6a7f93c3a255c3f8689cc0f2e50b48bf6a1fd05b?page=2",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 670,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00010001-baila-000-1-view.jpg?exp=10800",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "c316095daac3",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/61dfbe7e029c2da6084577f9e83e2c77831a1b78",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1235,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00010004-monomax-000-1-view.jpg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "3736ca799d09",
+   "level": "B",
+   "lane": "economy",
+   "source": "ライブドアニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.livedoor.com/topics/detail/32875839/?_clicked=echoes_list",
+   "domain": "news.livedoor.com",
+   "http": 200,
+   "body_chars": 601,
+   "body_ok": true,
+   "image": "https://image.news.livedoor.com/newsimage/stf/6/2/623ce_1845_d29984f7_abc33a83.jpg",
+   "secs": 2.4,
+   "error": ""
+  },
+  {
+   "id": "d54427a37af8",
+   "level": "B",
+   "lane": "industry",
+   "source": "WWDJAPAN",
+   "gnews": false,
+   "resolved": true,
+   "final_url": "https://www.wwdjapan.com/articles/2558398",
+   "domain": "wwdjapan.com",
+   "http": 200,
+   "body_chars": 932,
+   "body_ok": true,
+   "image": "https://media.wwdjapan.com/wp-content/uploads/2026/11/22140744/1122_jwajoe_og_B_1200x630.jpg",
+   "secs": 0.1,
+   "error": ""
+  },
+  {
+   "id": "0b831d92d59f",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/643e5632136c105e966d3f9d07a552691e456d6c",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 966,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-10178261-it_nlab-000-1-view.jpg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "fad660dcbd25",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/f821b848fadf75d6f10f1a6aaf781cecfc3f864c/images/001",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 22,
+   "body_ok": false,
+   "image": "https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFhNrRI0RUQxg5aFkrX0xDg1_T0wXrbEJjtNGtrf1o9y32aKHaE9S6KKOAHNM7AL26vmlwhSc6KNZ7gxRkqj-Ymml1WtI_6FFAeY-W3R3Xry77TqPzuhYbsTa178-qe0mlWUrKpCC7dGufD0AtkMqTkcxVYt5CiZIZ_Rl1lGWFu6ZntdI2Cf_aWKhVzXErN-y7w==",
+   "secs": 1.7,
+   "error": ""
+  },
+  {
+   "id": "455f6b602754",
+   "level": "B",
+   "lane": "economy",
+   "source": "山陽新聞",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://www.sanyonews.jp/photo/detail?article_id=2005903",
+   "domain": "sanyonews.jp",
+   "http": 200,
+   "body_chars": 0,
+   "body_ok": false,
+   "image": "",
+   "secs": 12.6,
+   "error": ""
+  },
+  {
+   "id": "549da8274a50",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/ca84b4a19575670eb77319a943603b1fddf4875f",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 1136,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-10177666-it_nlab-000-1-view.jpg?exp=10800",
+   "secs": 1.8,
+   "error": ""
+  },
+  {
+   "id": "8184d450e768",
+   "level": "B",
+   "lane": "industry",
+   "source": "ぴあエンタメ情報",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://lp.p.pia.jp/article/news/517238/index.html",
+   "domain": "lp.p.pia.jp",
+   "http": 200,
+   "body_chars": 1597,
+   "body_ok": true,
+   "image": "https://lp.p.pia.jp/shared/materials/e6be59c1-b302-4f43-86cf-96d46588b5f0/origin.jpg",
+   "secs": 1.9,
+   "error": ""
+  },
+  {
+   "id": "e5e9155bba6f",
+   "level": "B",
+   "lane": "industry",
+   "source": "Yahoo!ニュース",
+   "gnews": true,
+   "resolved": true,
+   "final_url": "https://news.yahoo.co.jp/articles/986166dd09646e980ae0df47120c407aa63befd1",
+   "domain": "news.yahoo.co.jp",
+   "http": 200,
+   "body_chars": 908,
+   "body_ok": true,
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-90000677-toushin-000-1-view.jpg?exp=10800",
+   "secs": 1.6,
+   "error": ""
+  }
+ ],
+ "comparisons": [
+  {
+   "key": "2026-11-24:佐川急便運賃改定",
+   "level": "S",
+   "story": "佐川急便運賃改定",
+   "articles": 2,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "佐川急便が2027年1月に宅配便運賃を平均13.8%値上げ",
+     "when": "2027年1月1日から",
+     "me": "ECの送料・梱包コスト見直しと配送費用の影響を検証する",
+     "points": [
+      "佐川急便が2027年1月1日から宅配便運賃を平均13.8%値上げ",
+      "関東から関西の140サイズは350円値上げで2660円になる",
+      "60サイズは20円の値上げとなる"
+     ],
+     "diagram": {
+      "type": "change",
+      "title": "佐川急便運賃改定",
+      "rows": [
+       {
+        "label": "関東-関西140サイズ",
+        "before": "記事に記載なし",
+        "after": "2660円（350円増）"
+       },
+       {
+        "label": "60サイズ",
+        "before": "記事に記載なし",
+        "after": "20円の値上げ"
+       }
+      ],
+      "steps": [],
+      "impact": [
+       "送料設定"
+      ]
+     }
+    },
+    "filled": 8,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "佐川急便が2027年1月1日より宅配便等の運賃を平均13.8％値上げ",
+     "when": "2027年1月1日から",
+     "me": "ECの送料設定や利益率への影響を精査し、必要に応じて価格改定を検討する",
+     "points": [
+      "飛脚宅配便等の平均改定率は約13.8％、航空便等は約2.7％",
+      "関東から関西への運賃例：60サイズは20円、140サイズは350円の値上げ",
+      "170サイズ以上の飛脚ラージサイズ宅配便は20％〜25％の大幅値上げ",
+      "紙の請求書発行手数料が1通100円から200円へ引き上げ"
+     ],
+     "diagram": {
+      "type": "change",
+      "title": "関東から関西の運賃改定例",
+      "rows": [
+       {
+        "label": "60サイズ",
+        "before": "1040円",
+        "after": "1060円"
+       },
+       {
+        "label": "140サイズ",
+        "before": "2310円",
+        "after": "2660円"
+       },
+       {
+        "label": "170サイズ",
+        "before": "3360円",
+        "after": "4200円"
+       }
+      ],
+      "steps": [],
+      "impact": [
+       "送料設定",
+       "価格設定"
+      ]
+     }
+    },
+    "filled": 10,
+    "unsupported_numbers": [],
+    "model": "gemini-3.1-flash-lite"
+   },
+   "titles": [
+    "佐川急便が1月から宅配便を平均13.8％値上げ、関東から関西の140サイズは2660円に。60サイズはいくら上がる？（LIMO）",
+    "佐川急便が2027年1月1日から運賃改定、関東から関西の140サイズは「350円」上がる。60サイズは20円の値上げ"
+   ]
+  },
+  {
+   "key": "2026-11-24:4e71ec101e52",
+   "level": "S",
+   "story": "Oracle Javaの脆弱性対策について（2026年11月）",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "Oracle Javaの脆弱性対策が公開された",
+     "when": "2026年11月",
+     "me": "ECサイトの基盤や関連システムの安全性を確認する",
+     "points": [
+      "Oracle Javaの脆弱性対策情報が公開された",
+      "IPAより重要なセキュリティ情報として発表された"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC基盤の安全確認",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 5,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "Oracle Javaの脆弱性対策情報が公表された",
+     "when": "2026年11月18日",
+     "me": "EC・社内システムの脆弱性確認と更新対応を進める",
+     "points": [
+      "ネットワーク経由で攻撃を受ける脆弱性が報告されている",
+      "悪用されるとパソコン制御や異常終了のリスクがある",
+      "サポート中の複数バージョンのOracle Javaが対象",
+      "最新版へのセキュリティ更新プログラム適用が必要"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "影響と対応",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 7,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "Oracle Java の脆弱性対策について(2026年11月)"
+   ]
+  },
+  {
+   "key": "2026-11-24:bf10ef9007c4",
+   "level": "S",
+   "story": "PHPのセキュリティリリース公開予定の事前準備",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "PHPのセキュリティリリース公開予定に向けた事前準備の要請",
+     "when": "11月",
+     "me": "ECサイトのセキュリティリスクに備え、PHPの更新準備を行う",
+     "points": [
+      "IPAからPHPのセキュリティリリース公開予定に関する事前準備の案内が出ている",
+      "対象時期は11月となっている"
+     ],
+     "diagram": {
+      "type": "none",
+      "title": "",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 5,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "11月にPHPのセキュリティリリースが公開予定、事前準備を推奨",
+     "when": "2026年11月19日 23:00～23:30ころ（日本時間）",
+     "me": "自社ECサイトのPHP利用状況を棚卸しし、公開後の速やかな適用に備える。",
+     "points": [
+      "2026年11月19日にPHPのセキュリティリリースが公開予定",
+      "現時点では脆弱性の影響を受けるバージョンや修正版は未確認",
+      "開発・運用しているPHPプログラムの棚卸しを実施する",
+      "修正プログラム公開後は速やかに適用できるよう準備する"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC担当者の対応事項",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 7,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "【事前準備のお願い】PHPのセキュリティリリース公開予定について（11月）"
+   ]
+  },
+  {
+   "key": "2026-11-24:b47053df6a66",
+   "level": "S",
+   "story": "NGINXの複数の脆弱性対策に関する注意喚起",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "NGINXの複数脆弱性に関する注意喚起が公開された",
+     "when": "記事に記載なし",
+     "me": "EC基盤のセキュリティ点検と早急な対策が必要",
+     "points": [
+      "NGINXの複数脆弱性対策について注意喚起が公表された",
+      "CVE-2026-123007やCVE-2026-123633などが対象"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC運営への影響",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 4,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "NGINXの複数脆弱性対策に関する注意喚起",
+     "when": "2026年11月19日公開",
+     "me": "ECサイトのサーバー環境を確認し、必要に応じて修正版へアップデートする。",
+     "points": [
+      "NGINX Open SourceおよびPlusに複数の脆弱性が判明",
+      "CVSS v4.0で9.2（Critical）と評価された脆弱性が5件存在",
+      "修正版としてNGINX 1.30.7および1.31.9が公開",
+      "利用中のOSやパッケージ提供元の情報を確認し、修正版へアップデートが必要",
+      "HTTP/2無効化は一部の脆弱性への暫定対応であり、全対策にはならない"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC基盤のセキュリティ対応",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 8,
+    "unsupported_numbers": [],
+    "model": "gemini-3.1-flash-lite"
+   },
+   "titles": [
+    "NGINXの複数の脆弱性対策について（CVE-2026-123007、CVE-2026-123633等）"
+   ]
+  },
+  {
+   "key": "2026-11-24:d5cae10a4239",
+   "level": "S",
+   "story": "PHPの脆弱性対策について（2026年11月）",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "PHPの脆弱性対策情報が公開された",
+     "when": "2026年11月",
+     "me": "ECサイトのセキュリティ確認と早急な対応が必要",
+     "points": [
+      "PHPの脆弱性対策についての情報が公開された",
+      "IPAから重要なセキュリティ情報として発信された"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC運営への影響",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 5,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "PHPの複数の脆弱性を修正するセキュリティリリース公開",
+     "when": "2026年11月20日公開",
+     "me": "自社ECサイトのPHP環境の脆弱性対応と更新を確認する",
+     "points": [
+      "セッション処理やメモリ管理などに関する複数の脆弱性が公表された",
+      "PHP 8.2.36、8.3.37、8.4.28、8.5.13などの修正版が公開された",
+      "利用環境の設定や構成により影響の有無が異なるため調査が必要",
+      "開発元の情報をもとに利用している系統の最新版へアップデートを行う"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC運営への影響",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 7,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "PHPの脆弱性対策について（2026年11月）"
+   ]
+  },
+  {
+   "key": "2026-11-24:3cb2b6e8997f",
+   "level": "S",
+   "story": "PHPにおける複数の脆弱性に関する注意喚起",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "PHPにおける複数の脆弱性に関する注意喚起が発表された",
+     "when": "記事に記載なし",
+     "me": "自社ECサイトの脆弱性リスクを確認し、必要に応じ対応を行う。",
+     "points": [
+      "PHPにおける複数の脆弱性（CVE-2026-109618、CVE-2026-109619）に関する注意喚起が更新された"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC基盤への影響",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 3,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "PHPの複数脆弱性に関する注意喚起と修正版公開",
+     "when": "2026-10-22（公開）、2026-11-20（更新）",
+     "me": "自社ECシステムのPHP環境を確認し、速やかに修正版への更新や調査を行う。",
+     "points": [
+      "PHPの複数の脆弱性（CVE-2026-109618、CVE-2026-109619など）が悪用されると任意のコードを実行される恐れがある。",
+      "2026年11月19日にリモートコード実行などの脆弱性を修正したPHP 8.5.13、8.4.28、8.3.37、8.2.36が公開された。",
+      "実証コードの公開や攻撃を試みる通信の観測が報告されており、関連情報の注視と速やかな対策適用が推奨されている。"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "ECシステムのPHP脆弱性対策",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 6,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "注意喚起: PHPにおける複数の脆弱性（CVE-2026-109618、CVE-2026-109619）に関する注意喚起 (更新)"
+   ]
+  },
+  {
+   "key": "2026-11-24:19b0fc8d181b",
+   "level": "S",
+   "story": "内部通報者への報復禁止等に関する改正法が施行",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "内部通報者への報復禁止等に関する改正法が12月1日施行",
+     "when": "12月1日",
+     "me": "社内体制や労務管理の点検と、必要に応じた周知徹底を行う。",
+     "points": [
+      "内部通報者への報復解雇や懲戒処分に3000万円以下の罰金が科される",
+      "“犯人捜し”も明確に禁止する改正法が12月1日に施行される"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "影響分野",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "採用・人件費"
+      ]
+     }
+    },
+    "filled": 5,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "改正公益通報者保護法が12月1日に施行される",
+     "when": "12月1日",
+     "me": "社内通報・コンプライアンス体制の見直しを確認する",
+     "points": [
+      "報復解雇・懲戒処分に「3000万円以下の罰金」が科される",
+      "“犯人捜し”も明確に禁止される改正法が施行される",
+      "従来の法律には報復に対する直接の罰則がなかった"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "業務への影響",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "採用・人件費"
+      ]
+     }
+    },
+    "filled": 6,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "内部通報者への報復解雇・懲戒処分に「3000万円以下の罰金」、“犯人捜し”も明確に禁止する改正法が12月1日施行"
+   ]
+  },
+  {
+   "key": "2026-11-24:aacb5775853a",
+   "level": "S",
+   "story": "VMware製品の脆弱性対策について公開",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "VMware製品の脆弱性対策情報が公開された",
+     "when": "記事に記載なし",
+     "me": "EC基盤のセキュリティを確認し、必要に応じ対応する",
+     "points": [
+      "VMware製品の脆弱性対策について公開された",
+      "対象はCVE-2026-123890である",
+      "IPAより重要なセキュリティ情報として発表された"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "対応領域",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 5,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "VMware vCenter Serverの認証回避脆弱性が公開",
+     "when": "2026年11月24日",
+     "me": "EC運営システムへの影響を確認し、必要に応じ修正プログラムの適用を急ぐ。",
+     "points": [
+      "VMware vCenter Serverに認証回避の脆弱性が確認された",
+      "悪用されるとシステムへの不正アクセスのおそれがある",
+      "すでに悪用が確認されており修正プログラムが提供されている"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "EC基盤のセキュリティ確認",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "EC基盤"
+      ]
+     }
+    },
+    "filled": 6,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "VMware製品の脆弱性対策について(CVE-2026-123890)"
+   ]
+  },
+  {
+   "key": "2026-11-24:9fcea7a4afe3",
+   "level": "S",
+   "story": "2026年12月1日からの最低賃金等の変更",
+   "articles": 1,
+   "has_body": true,
+   "headline": {
+    "out": {
+     "what": "2026年12月1日より最低賃金やエネルギー料金が改定",
+     "when": "2026年12月1日",
+     "me": "人件費と販促コストの再計算、利益率の確保に向けた価格戦略の見直し。",
+     "points": [
+      "2026年12月1日より最低賃金が変更される",
+      "同日よりガス料金が変更される",
+      "電力のオフピーク時間帯の運用が変更される"
+     ],
+     "diagram": {
+      "type": "impact",
+      "title": "業務への影響範囲",
+      "rows": [],
+      "steps": [],
+      "impact": [
+       "価格設定",
+       "採用・人件費"
+      ]
+     }
+    },
+    "filled": 6,
+    "unsupported_numbers": [],
+    "model": "gemini-3.1-flash-lite"
+   },
+   "body": {
+    "out": {
+     "what": "フランスでの2026年12月1日からの最低賃金等の変更",
+     "when": "2026年12月1日",
+     "me": "記事に記載なし",
+     "points": [
+      "最低賃金（SMIC）が1.6％引き上げられる",
+      "ガス基準価格が5.8％上昇し平均で約16ユーロ増える",
+      "電力のオフピーク時間帯の見直しが開始される",
+      "Free MobileがFreeに吸収合併される"
+     ],
+     "diagram": {
+      "type": "none",
+      "title": "記事に記載なし",
+      "rows": [],
+      "steps": [],
+      "impact": []
+     }
+    },
+    "filled": 6,
+    "unsupported_numbers": [],
+    "model": "gemini-3.5-flash-lite"
+   },
+   "titles": [
+    "2026年12月1日から変わること：最低賃金、ガス料金、電力のオフピーク時間帯…"
+   ]
+  }
+ ]
+}
