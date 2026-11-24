@@ -2,11 +2,11 @@
  "summary": {
   "day": "2026-11-24",
   "targets": 23,
-  "refilled": 11,
+  "refilled": 13,
   "priority": 12,
-  "priority_refilled": 5,
+  "priority_refilled": 7,
   "partial_100_399": 13,
-  "secs_total": 90.1
+  "secs_total": 115.4
  },
  "rows": [
   {
@@ -20,11 +20,36 @@
    "orig_chars": 326,
    "queries": [
     "消費税減税法案 給付対象を５割以上で検討へ",
-    "消費税減税法案 給付対象を5割以上で検討へ"
+    "消費税減税法案 給付対象を5割以上で検討へ",
+    "消費税減税法案 給付対象 5割以上"
    ],
-   "candidates": [],
-   "refilled": false,
-   "secs": 3.5
+   "candidates": [
+    {
+     "title": "立憲 消費税減税法案の対案を提出 年収600万円まで対象に最大5万円給付",
+     "domain": "news.ksb.co.jp",
+     "sim": 0.42,
+     "chars": 451,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 8.2,
+   "hits": [
+    15,
+    12,
+    15
+   ],
+   "refill": {
+    "title": "立憲 消費税減税法案の対案を提出 年収600万円まで対象に最大5万円給付",
+    "domain": "news.ksb.co.jp",
+    "sim": 0.42,
+    "chars": 451,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
   },
   {
    "level": "S",
@@ -37,11 +62,17 @@
    "orig_chars": 205,
    "queries": [
     "消費税減税 中間申告特例の税額計算における簡便な計算方法の可否",
-    "消費税減税の中間申告特例の税額計算について"
+    "消費税減税の中間申告特例の税額計算について",
+    "消費税減税 中間申告特例 税額計算"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.5
+   "secs": 5.1,
+   "hits": [
+    1,
+    3,
+    3
+   ]
   },
   {
    "level": "A",
@@ -54,11 +85,17 @@
    "orig_chars": 355,
    "queries": [
     "岡山県の最低賃金 時給１１０４円 ５７円増 岡山労働局が岡山駅前で街頭啓発",
-    "岡山県の最低賃金が1104円に引き上げ"
+    "岡山県の最低賃金が1104円に引き上げ",
+    "岡山県 最低賃金 1104円"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.5
+   "secs": 5.2,
+   "hits": [
+    3,
+    5,
+    5
+   ]
   },
   {
    "level": "A",
@@ -93,7 +130,10 @@
     }
    ],
    "refilled": true,
-   "secs": 5.8,
+   "secs": 5.7,
+   "hits": [
+    3
+   ],
    "refill": {
     "title": "楽天市場・Yahoo!ショッピングの販売価格を毎日自動で調査し、価格変更まで自動化する「価格更新ロボ まもるくん」の提供を開始 登録から1か月無料",
     "domain": "prtimes.jp",
@@ -116,11 +156,17 @@
    "orig_chars": 0,
    "queries": [
     "菓子メーカー六花亭やタワレコ ZOZOで情報流出－不正アクセス相次ぐ 市場に影響も",
-    "六花亭やタワレコ ZOZOなどで情報流出の不正アクセス相次ぐ"
+    "六花亭やタワレコ ZOZOなどで情報流出の不正アクセス相次ぐ",
+    "六花亭 タワレコ ZOZO"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.2,
+   "hits": [
+    3,
+    10,
+    15
+   ]
   },
   {
    "level": "A",
@@ -134,11 +180,17 @@
    "orig_chars": 102,
    "queries": [
     "人口流出危機感が拍車 企業苦悩 遅れの副作用も",
-    "最低賃金引き上げ競争の加速と企業への影響"
+    "最低賃金引き上げ競争の加速と企業への影響",
+    "最低賃金引 競争 加速"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.1,
+   "hits": [
+    1,
+    0,
+    0
+   ]
   },
   {
    "level": "A",
@@ -151,11 +203,16 @@
    "orig_domain": "nna.jp",
    "orig_chars": 0,
    "queries": [
-    "縫製工場50カ所以上が休業 賃上げ要求で"
+    "縫製工場50カ所以上が休業 賃上げ要求で",
+    "縫製工場50カ所以上 休業 賃上"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 1.7
+   "secs": 3.4,
+   "hits": [
+    4,
+    4
+   ]
   },
   {
    "level": "A",
@@ -169,11 +226,17 @@
    "orig_chars": 169,
    "queries": [
     "非食用米でベルト 青山商事",
-    "青山商事が非食用米由来の素材を使ったベルトを開発"
+    "青山商事が非食用米由来の素材を使ったベルトを開発",
+    "青山商事 非食用米由来 素材"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.1,
+   "hits": [
+    3,
+    0,
+    0
+   ]
   },
   {
    "level": "A",
@@ -200,7 +263,10 @@
     }
    ],
    "refilled": true,
-   "secs": 4.4,
+   "secs": 4.6,
+   "hits": [
+    5
+   ],
    "refill": {
     "title": "ネイティブクリエイション、LINEで動画から購入できる新プラン AIが商品と表示時間を自動設定（日本ネット経済新聞）",
     "domain": "news.yahoo.co.jp",
@@ -235,7 +301,10 @@
     }
    ],
    "refilled": true,
-   "secs": 4.2,
+   "secs": 4.3,
+   "hits": [
+    9
+   ],
    "refill": {
     "title": "Yahoo!ショッピング、AIが複数商品の購入日を提案 約50種類のクーポン・ポイント施策を考慮（日本ネット経済新聞）",
     "domain": "news.yahoo.co.jp",
@@ -258,11 +327,45 @@
    "orig_chars": 86,
    "queries": [
     "全てにおいて文句のつけようがない ユニクロの ウォームスマートパンツ が冬の通勤に頼れる 裏起毛なのに見た目はきれいめス",
-    "ユニクロのウォームスマートパンツが冬の通勤着として高評価"
+    "ユニクロのウォームスマートパンツが冬の通勤着として高評価",
+    "ユニクロ ウォームスマートパンツ 通勤着"
    ],
-   "candidates": [],
-   "refilled": false,
-   "secs": 3.5
+   "candidates": [
+    {
+     "title": "【ユニクロ】新作「ウォームスマートパンツ」の着用感、素材、サイズ感を写真でチェック！｜＠BAILA（バイラ）",
+     "domain": "baila.hpplus.jp",
+     "sim": 0.31,
+     "chars": 209,
+     "ok": false,
+     "image": false,
+     "error": ""
+    },
+    {
+     "title": "【UNIQLO（ユニクロ）】新作「ウォームスマートパンツ」を試着レビュー！ 暖かいのに美脚見え、通勤にも使える優秀パンツ #BAILA読む試着室",
+     "domain": "trilltrill.jp",
+     "sim": 0.27,
+     "chars": 4466,
+     "ok": true,
+     "image": true,
+     "error": ""
+    }
+   ],
+   "refilled": true,
+   "secs": 8.8,
+   "hits": [
+    1,
+    2,
+    6
+   ],
+   "refill": {
+    "title": "【UNIQLO（ユニクロ）】新作「ウォームスマートパンツ」を試着レビュー！ 暖かいのに美脚見え、通勤にも使える優秀パンツ #BAILA読む試着室",
+    "domain": "trilltrill.jp",
+    "sim": 0.27,
+    "chars": 4466,
+    "ok": true,
+    "image": true,
+    "error": ""
+   }
   },
   {
    "level": "A",
@@ -275,11 +378,17 @@
    "orig_chars": 211,
    "queries": [
     "［徹底予測2027 小売り］消費減税効果限定的か 価格激化も中小は再編 淘汰",
-    "2027年小売り予測 消費減税や中小再編の動き"
+    "2027年小売り予測 消費減税や中小再編の動き",
+    "2027年小売 予測 消費減税"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.5
+   "secs": 5.2,
+   "hits": [
+    6,
+    2,
+    15
+   ]
   },
   {
    "level": "A",
@@ -306,6 +415,9 @@
    ],
    "refilled": true,
    "secs": 4.2,
+   "hits": [
+    1
+   ],
    "refill": {
     "title": "【LINEのショッピングタブの現状は】牛山氏「『激アツチャンスタイム』が好調。数日間で1万個以上販売も」（日本ネット経済新聞）",
     "domain": "news.yahoo.co.jp",
@@ -341,7 +453,10 @@
     }
    ],
    "refilled": true,
-   "secs": 3.6,
+   "secs": 3.4,
+   "hits": [
+    9
+   ],
    "refill": {
     "title": "福岡・天神西通りに「しまむらFUKUOKA TENJIN」が、12/2（水）オープン！ しまむら・アベイル・バースデイの商品を販売する国内初の複合型店舗",
     "domain": "prtimes.jp",
@@ -363,8 +478,7 @@
    "orig_domain": "news.nicovideo.jp",
    "orig_chars": 0,
    "queries": [
-    "オーダースーツ事業 異業種からの参入を全面バックアップ 老舗テーラーが挑む",
-    "老舗テーラーが挑むオーダースーツ事業の異業種参入支援"
+    "オーダースーツ事業 異業種からの参入を全面バックアップ 老舗テーラーが挑む"
    ],
    "candidates": [
     {
@@ -378,7 +492,10 @@
     }
    ],
    "refilled": true,
-   "secs": 5.6,
+   "secs": 3.9,
+   "hits": [
+    3
+   ],
    "refill": {
     "title": "『オーダースーツ事業』異業種からの参入を全面バックアップ!!老舗テーラーが挑む ≪本物志向のオーダースーツOEM事業≫全国展開",
     "domain": "news.infoseek.co.jp",
@@ -401,11 +518,17 @@
    "orig_chars": 143,
    "queries": [
     "＜画像6 / 20＞ 乃木坂46 イケメン男装姿 in はるやま 新CM",
-    "はるやま 乃木坂46のイケメン男装姿の新CMを公開"
+    "はるやま 乃木坂46のイケメン男装姿の新CMを公開",
+    "乃木坂46 イケメン男装姿 新CM"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.2,
+   "hits": [
+    7,
+    0,
+    8
+   ]
   },
   {
    "level": "A",
@@ -432,7 +555,10 @@
     }
    ],
    "refilled": true,
-   "secs": 3.8,
+   "secs": 4.0,
+   "hits": [
+    4
+   ],
    "refill": {
     "title": "しまむらのブラックフライデー、いよいよ11月25日から",
     "domain": "yashion.jp",
@@ -458,24 +584,27 @@
    ],
    "candidates": [
     {
-     "title": "青山商事、世界最大級のメタバースイベント 夏に続き「バーチャルマーケット2026 Winter」に出展！",
-     "domain": "digitalpr.jp",
+     "title": "青山商事、世界最大級のメタバースイベント、夏に続き「バーチャルマーケット2026 Winter」に出展！",
+     "domain": "prtimes.jp",
      "sim": 1.0,
-     "chars": 3721,
+     "chars": 4598,
      "ok": true,
-     "image": false,
+     "image": true,
      "error": ""
     }
    ],
    "refilled": true,
-   "secs": 4.4,
+   "secs": 3.6,
+   "hits": [
+    2
+   ],
    "refill": {
-    "title": "青山商事、世界最大級のメタバースイベント 夏に続き「バーチャルマーケット2026 Winter」に出展！",
-    "domain": "digitalpr.jp",
+    "title": "青山商事、世界最大級のメタバースイベント、夏に続き「バーチャルマーケット2026 Winter」に出展！",
+    "domain": "prtimes.jp",
     "sim": 1.0,
-    "chars": 3721,
+    "chars": 4598,
     "ok": true,
-    "image": false,
+    "image": true,
     "error": ""
    }
   },
@@ -497,7 +626,7 @@
      "title": "下取りスーツから生まれた上質な風合いのコートが「KANSAIMAN collection」からデビュー、「コナカ・フタタ」全店舗で11月21日発売開始",
      "domain": "love-spo.com",
      "sim": 1.0,
-     "chars": 1671,
+     "chars": 1705,
      "ok": true,
      "image": true,
      "error": ""
@@ -505,11 +634,14 @@
    ],
    "refilled": true,
    "secs": 4.5,
+   "hits": [
+    7
+   ],
    "refill": {
     "title": "下取りスーツから生まれた上質な風合いのコートが「KANSAIMAN collection」からデビュー、「コナカ・フタタ」全店舗で11月21日発売開始",
     "domain": "love-spo.com",
     "sim": 1.0,
-    "chars": 1671,
+    "chars": 1705,
     "ok": true,
     "image": true,
     "error": ""
@@ -526,11 +658,17 @@
    "orig_chars": 138,
    "queries": [
     "ワークマンが続落 岡三証は投資判断引き下げ",
-    "ワークマン株価続落 岡三証券が投資判断を引き下げ"
+    "ワークマン株価続落 岡三証券が投資判断を引き下げ",
+    "ワークマン株価続落 岡三証券 投資判断"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.1,
+   "hits": [
+    1,
+    2,
+    2
+   ]
   },
   {
    "level": "A",
@@ -543,11 +681,17 @@
    "orig_chars": 34,
    "queries": [
     "ワークマン－岡三がレーティング引き下げ 物流制約からマス化達成には時間を要しよう〔DZH 個別株情報〕",
-    "岡三証券がワークマンのレーティングを引き下げ"
+    "岡三証券がワークマンのレーティングを引き下げ",
+    "岡三証券 ワークマン レーティング"
    ],
    "candidates": [],
    "refilled": false,
-   "secs": 3.4
+   "secs": 5.1,
+   "hits": [
+    1,
+    2,
+    2
+   ]
   },
   {
    "level": "A",
@@ -583,7 +727,10 @@
     }
    ],
    "refilled": true,
-   "secs": 6.6,
+   "secs": 7.1,
+   "hits": [
+    3
+   ],
    "refill": {
     "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
     "domain": "prtimes.jp",
@@ -620,6 +767,9 @@
    ],
    "refilled": true,
    "secs": 3.4,
+   "hits": [
+    8
+   ],
    "refill": {
     "title": "「ツエーゲン金沢」 オフィシャルスーツサプライヤーオーダースーツSADA スペシャルマッチ11月29日（日）開催",
     "domain": "prtimes.jp",
