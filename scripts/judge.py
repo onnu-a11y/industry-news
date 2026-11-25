@@ -132,13 +132,15 @@ def save_quota(today, used):
     QUOTA_FILE.write_text(json.dumps({"date": today, "used": used}))
 
 
-def judge(items, token, profile, log, prev_names=None):
+def judge(items, token, profile, log, prev_names=None, examples=""):
     # ルールでS/Aになりそうな記事から先にAIへ回す（上限に達しても重要な記事は確実にAI判定される）
     prio = {"S": 0, "A": 1, "B": 2, "C": 3}
     items = sorted(items, key=lambda x: prio[rule_judge(x)["level"]])
     today, used, budget = quota_left()
     log(f"quota: used={used} budget_this_run={budget}")
     system = SYSTEM.format(profile=profile, rubric=RUBRIC, tags="、".join(TAGS))
+    if examples:  # M4-4：読み手が付け直した評価（AIの呼び出し回数は増えない）
+        system += "\n\n" + examples
     models = list(MODELS)
     results, model_idx, stats = {}, 0, {"requests": 0, "failed_batches": 0, "model": None, "tokens_in": 0, "tokens_out": 0, "requests_sent": 0, "skipped_by_quota": 0}
     for i in range(0, len(items), BATCH):

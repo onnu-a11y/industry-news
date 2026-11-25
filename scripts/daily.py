@@ -24,6 +24,7 @@ import holidays
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import collect  # noqa: E402
 import judge  # noqa: E402
+import ratings  # noqa: E402
 
 JST = collect.JST
 ROOT = collect.ROOT
@@ -163,6 +164,11 @@ def main():
     now = dt.datetime.now(JST)
     today = dt.date.fromisoformat(a.date) if a.date else now.date()
     day_path = DATA / "days" / f"{today}.json"
+    # M4-4：画面で付けた評価を先に取り込む（作成済みで終える朝も取り込む。失敗しても本体は続行）
+    try:
+        ratings.merge(os.environ.get("RATINGS", ""), today=today)
+    except Exception as e:  # noqa: BLE001
+        print(f"ratings: {type(e).__name__}。取り込みを省いて続行します")
     if day_path.exists() and not a.force:
         print(f"{today} は作成済みのため終了します（予備実行）")
         return
@@ -205,7 +211,12 @@ def main():
                 prev_names.append(s["story"])
     profile = os.environ.get("PROFILE", "").strip() or judge.DEFAULT_PROFILE
     if token:
-        judged, stats = judge.judge(fresh, token, profile, log, prev_names=prev_names)
+        try:
+            ex = ratings.examples(today)
+        except Exception:  # noqa: BLE001
+            ex = ""
+        log(f"判定の手本：{ex.count(chr(10)) if ex else 0}件")
+        judged, stats = judge.judge(fresh, token, profile, log, prev_names=prev_names, examples=ex)
     else:
         judged = [dict(it, **judge.rule_judge(it)) for it in fresh]
         for it in judged:
