@@ -50,6 +50,7 @@ a{color:var(--A);text-decoration:none}
 .mk{font-size:.65rem;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}
 .mk.new{color:#fff;background:var(--ink)}.mk.cont{color:#9A3412;background:#FFF4ED}.mk.todo{color:var(--todo);background:var(--todobg);border:1px dashed var(--todoline);padding:1px 8px}
 .mk.rated{color:var(--sub);background:var(--line)}
+.mk.big{color:#9F1239;background:#FFE4E6}
 .rt{font-size:.82rem;font-weight:700;line-height:1.45}
 .rs{font-size:.72rem;color:var(--sub);line-height:1.5}
 .ph{width:64px;height:64px;border-radius:10px;flex:none;object-fit:cover;background:var(--noimg)}
@@ -183,6 +184,7 @@ function marks(s){
   let h="";
   if(s.first_seen&&s.first_seen!==DAY.date)h+=`<span class="mk cont">続報</span>`;
   else if(s.level==="S"||s.level==="A")h+=`<span class="mk new">新規</span>`;
+  if(s.big)h+=`<span class="mk big">大きく報道 ${s.big}本</span>`;
   if(s.todo)h+=`<span class="mk todo">要追加調査</span>`;
   if(rate[s.key])h+=`<span class="mk rated">評価 ${rate[s.key]}</span>`;
   return h;
