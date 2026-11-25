@@ -262,7 +262,19 @@ function openRate(el){
   d.querySelectorAll("button").forEach(b=>b.onclick=e=>{e.stopPropagation();setRate(k,b.dataset.r);d.remove();renderList()});
   el.after(d);
 }
-function setRate(k,l){if(rate[k]===l)delete rate[k];else rate[k]=l;LS.set("rate",rate);toast(rate[k]?`重要度 ${l} を記録しました（翌朝の判定に反映）`:"評価を取り消しました")}
+function setRate(k,l){if(rate[k]===l)delete rate[k];else rate[k]=l;LS.set("rate",rate);queueRate(k,rate[k]||"");toast(rate[k]?`重要度 ${l} を記録しました（次の朝の判定に反映）`:"評価を取り消しました")}
+// ---- M4-4：評価を Cloudflare の受け口へ送る（送れない時は端末にためて、開いた時・電波が戻った時に再送）
+const RATE_URL="https://industry-news-cron.unno-18f.workers.dev/";
+let rq=LS.get("rq",null);if(rq===null){rq=Object.assign({},rate);LS.set("rq",rq)}
+let rqT=null,rqBusy=false;
+function queueRate(k,l){rq[k]=l;LS.set("rq",rq);clearTimeout(rqT);rqT=setTimeout(flushRate,1500)}
+async function flushRate(){
+  const ks=Object.keys(rq).slice(0,50);if(!ks.length||rqBusy||!navigator.onLine)return;
+  rqBusy=true;const sent=ks.map(k=>[k,rq[k]]);let st=0;
+  try{const r=await fetch(RATE_URL,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify(sent),keepalive:true});st=r.status}catch(e){st=0}
+  rqBusy=false;
+  if(st===200||st===400){sent.forEach(([k,l])=>{if(rq[k]===l)delete rq[k]});LS.set("rq",rq);if(Object.keys(rq).length)rqT=setTimeout(flushRate,1500)}
+}
 function open(k){
   const c=cItems().find(s=>s.key===k);
   if(c){window.open(c.url,"_blank","noopener");return}
@@ -395,7 +407,8 @@ window.addEventListener("scroll",()=>{if(!location.hash.startsWith("#/s/")&&loca
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2400)}
 // 画面を開き直した時に新しいデータがあれば読み直す
 document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&LOADED_AT&&Date.now()-LOADED_AT>30*60e3){LOADED_AT=Date.now();OFFLINE=false;load()}});
-window.addEventListener("online",()=>{OFFLINE=false;load()});
+window.addEventListener("online",()=>{OFFLINE=false;load();setTimeout(flushRate,1500)});
+setTimeout(flushRate,3000);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")setTimeout(flushRate,1500)});
 if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 LOADED_AT=Date.now();load();
 </script>
