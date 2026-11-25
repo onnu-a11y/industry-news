@@ -1,552 +1,403 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>業界ニュース収集ツール</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#F6F5F2">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="業界ブリーフ">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>業界ブリーフ</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap');
-
-  :root {
-    --bg: #0f0f11;
-    --bg2: #161619;
-    --bg3: #1e1e22;
-    --border: #2a2a30;
-    --border2: #3a3a42;
-    --text: #e8e6e0;
-    --text2: #9a9890;
-    --text3: #5a5856;
-    --accent: #c8a96e;
-    --accent2: #e8c98e;
-    --accent-dim: rgba(200,169,110,0.12);
-    --suit: #6e8fc8;
-    --suit-dim: rgba(110,143,200,0.12);
-    --casual: #7ec8a0;
-    --casual-dim: rgba(126,200,160,0.12);
-    --fav: #c86e6e;
-    --fav-dim: rgba(200,110,110,0.12);
-    --radius: 10px;
-    --radius-sm: 6px;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.6; }
-
-  header { border-bottom: 1px solid var(--border); padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; background: var(--bg); z-index: 100; }
-  .logo { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; color: var(--accent); }
-  .logo span { color: var(--text2); font-weight: 400; font-size: 13px; margin-left: 8px; }
-  .header-right { display: flex; align-items: center; gap: 12px; }
-
-  .btn { font-family: 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 500; border-radius: var(--radius-sm); cursor: pointer; border: none; transition: all 0.2s; display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; }
-  .btn-primary { background: var(--accent); color: #0f0f11; }
-  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
-  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-  .btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border2); }
-  .btn-ghost:hover { background: var(--bg3); color: var(--text); }
-  .btn-ghost.active { background: var(--accent-dim); color: var(--accent); border-color: var(--accent); }
-  .btn-sm { padding: 4px 10px; font-size: 12px; }
-
-  .main-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 24px 80px; }
-
-  .stats-bar { display: flex; gap: 20px; padding: 12px 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 18px; font-size: 12px; color: var(--text3); flex-wrap: wrap; }
-  .stat-item { display: flex; align-items: center; gap: 6px; }
-  .stat-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .stat-num { font-weight: 600; color: var(--text); }
-
-  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
-  .tab { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; padding: 10px 18px; cursor: pointer; border: none; background: transparent; color: var(--text3); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
-  .tab:hover { color: var(--text2); }
-  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-  .tab-count { font-size: 11px; background: var(--bg3); color: var(--text2); border-radius: 20px; padding: 1px 7px; font-family: 'Noto Sans JP', sans-serif; font-weight: 400; }
-  .tab.active .tab-count { background: var(--accent-dim); color: var(--accent); }
-
-  .filter-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-  .search-box { flex: 1; min-width: 180px; max-width: 300px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; padding: 7px 12px; outline: none; transition: border-color 0.2s; }
-  .search-box:focus { border-color: var(--accent); }
-  .search-box::placeholder { color: var(--text3); }
-
-  .articles { display: flex; flex-direction: column; gap: 2px; }
-
-  .article-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; transition: all 0.18s; display: flex; gap: 14px; align-items: flex-start; }
-  .article-card:hover { border-color: var(--border2); background: var(--bg3); }
-  .article-card.unread { border-left: 3px solid var(--accent); padding-left: 16px; }
-  .article-card.favorited { border-left: 3px solid var(--fav); padding-left: 16px; }
-
-  .card-left { flex: 1; min-width: 0; }
-  .card-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
-
-  .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; flex-wrap: wrap; }
-  .cat-badge { font-size: 11px; font-weight: 500; border-radius: 4px; padding: 2px 8px; }
-  .cat-suit { background: var(--suit-dim); color: var(--suit); }
-  .cat-casual { background: var(--casual-dim); color: var(--casual); }
-  .card-date { color: var(--text3); font-size: 12px; }
-  .card-source { color: var(--text3); font-size: 11px; border: 1px solid var(--border); border-radius: 4px; padding: 1px 6px; }
-  .unread-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 2px; }
-
-  .card-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 5px; line-height: 1.5; }
-  .card-summary { font-size: 13px; color: var(--text2); line-height: 1.6; }
-
-  .summary-box { margin-top: 10px; padding: 10px 14px; background: var(--bg3); border-left: 2px solid var(--accent); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 13px; color: var(--text2); line-height: 1.7; }
-  .summary-label { font-size: 11px; color: var(--accent); font-weight: 500; margin-bottom: 4px; letter-spacing: 0.04em; }
-
-  .fav-btn { width: 28px; height: 28px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text3); cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
-  .fav-btn:hover { border-color: var(--fav); color: var(--fav); background: var(--fav-dim); }
-  .fav-btn.active { border-color: var(--fav); color: var(--fav); background: var(--fav-dim); }
-
-  .link-btn { font-size: 12px; color: var(--text3); background: transparent; border: none; cursor: pointer; padding: 2px 6px; border-radius: 4px; transition: all 0.15s; text-decoration: none; }
-  .link-btn:hover { color: var(--accent); }
-
-  /* 設定パネル */
-  .settings-panel { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.72); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
-  .settings-panel.open { display: flex; }
-  .settings-box { background: var(--bg2); border: 1px solid var(--border2); border-radius: 14px; width: 100%; max-width: 480px; padding: 28px; position: relative; }
-  .settings-title { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 20px; color: var(--accent); }
-  .modal-close { position: absolute; top: 16px; right: 16px; width: 28px; height: 28px; border: 1px solid var(--border2); border-radius: 6px; background: transparent; color: var(--text2); cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
-  .modal-close:hover { background: var(--bg3); }
-  .form-group { margin-bottom: 18px; }
-  .form-label { font-size: 12px; color: var(--text3); margin-bottom: 6px; display: block; letter-spacing: 0.04em; text-transform: uppercase; }
-  .form-input { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: 'Noto Sans JP', sans-serif; font-size: 13px; padding: 9px 12px; outline: none; transition: border-color 0.2s; }
-  .form-input:focus { border-color: var(--accent); }
-  .form-hint { font-size: 11px; color: var(--text3); margin-top: 4px; }
-
-  .loading-bar { display: none; height: 2px; background: linear-gradient(90deg, var(--accent), var(--suit), var(--casual), var(--accent)); background-size: 300% 100%; animation: loadingAnim 1.5s linear infinite; position: fixed; top: 0; left: 0; right: 0; z-index: 999; }
-  .loading-bar.active { display: block; }
-  @keyframes loadingAnim { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
-
-  .empty-state { text-align: center; padding: 60px 20px; color: var(--text3); }
-  .empty-icon { font-size: 40px; margin-bottom: 14px; opacity: 0.5; }
-  .empty-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-  .empty-desc { font-size: 13px; }
-
-  .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--bg3); border: 1px solid var(--border2); border-radius: var(--radius); padding: 10px 18px; font-size: 13px; color: var(--text); z-index: 999; opacity: 0; transition: opacity 0.3s; pointer-events: none; white-space: nowrap; }
-  .toast.show { opacity: 1; }
-
-  @media (max-width: 640px) {
-    header { padding: 0 16px; }
-    .main-wrap { padding: 16px 12px 60px; }
-    .article-card { flex-direction: column; }
-    .card-right { flex-direction: row; align-items: center; }
-  }
+:root{color-scheme:light only;--bg:#F6F5F2;--card:#FFFFFF;--ink:#1A1A1A;--sub:#5B5B57;--mute:#77766F;--line:#EEEDE9;--line2:#DEDCD6;--seg:#ECEAE5;--S:#C2410C;--A:#1D4ED8;--todo:#B45309;--todobg:#FFF7E6;--todoline:#F5C77E;--noimg:#F1EFE8}
+html{font-size:17px;-webkit-text-size-adjust:100%;background:var(--bg)}
+@supports (font: -apple-system-body){html{font:-apple-system-body}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP","Yu Gothic UI",sans-serif;line-height:1.5}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--A);text-decoration:none}
+.wrap{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(env(safe-area-inset-bottom) + 40px)}
+.head{display:flex;justify-content:space-between;align-items:center;padding:0 4px}
+.ttl{font-size:1.3rem;font-weight:700}
+.upd{font-size:.72rem;color:var(--sub)}
+.icon-btn{width:44px;height:44px;border-radius:22px;border:1px solid #D6D4CE;background:#fff;display:flex;align-items:center;justify-content:center}
+.tabs{display:flex;gap:16px;margin:10px -16px 0;padding:2px 20px 0;border-bottom:1px solid var(--line2);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:transparent;padding:0 0 10px;font-size:.82rem;font-weight:500;color:var(--sub);white-space:nowrap}
+.tab.on{border-bottom:3px solid var(--ink);padding-bottom:7px;font-weight:700;color:var(--ink)}
+.n{font-weight:700;color:var(--mute)}.n.s{color:var(--S)}
+.seg{display:flex;gap:4px;background:var(--seg);border-radius:10px;padding:4px;margin-top:12px}
+.seg button{flex:1;height:36px;border:0;border-radius:8px;background:transparent;color:var(--sub);font-size:.78rem;font-weight:500}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 0 0 1px #D6D4CE;font-weight:700}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:0 4px;margin-top:4px}
+.crumb{font-size:.72rem;color:var(--sub)}
+.tg{display:flex;align-items:center;gap:8px;font-size:.78rem;font-weight:500;min-height:40px;border:0;background:transparent;padding:0}
+.sw{width:44px;height:26px;border-radius:13px;background:#C9C7C0;display:flex;align-items:center;padding:3px;transition:.15s}
+.sw i{width:20px;height:20px;border-radius:10px;background:var(--bg);display:block}
+.tg.on .sw{background:var(--ink);justify-content:flex-end}
+.list{background:var(--card);border-radius:14px;padding:2px 16px;margin-top:8px;overflow:hidden}
+.row{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:center;position:relative;touch-action:pan-y;transition:transform .15s}
+.row:last-child{border-bottom:0}
+.row .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.row.read .rt{color:var(--sub);font-weight:500}
+.badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.lv{color:#fff;font-size:.65rem;font-weight:700;border-radius:4px;padding:2px 6px}
+.lv.S{background:var(--S)}.lv.A{background:var(--A)}.lv.B{background:#77766F}.lv.C{background:#A8A69F}
+.mk{font-size:.65rem;font-weight:700;border-radius:999px;padding:2px 8px;white-space:nowrap}
+.mk.new{color:#fff;background:var(--ink)}.mk.cont{color:#9A3412;background:#FFF4ED}.mk.todo{color:var(--todo);background:var(--todobg);border:1px dashed var(--todoline);padding:1px 8px}
+.mk.rated{color:var(--sub);background:var(--line)}
+.rt{font-size:.82rem;font-weight:700;line-height:1.45}
+.rs{font-size:.72rem;color:var(--sub);line-height:1.5}
+.ph{width:64px;height:64px;border-radius:10px;flex:none;object-fit:cover;background:var(--noimg)}
+.noimg{width:64px;height:64px;border-radius:10px;flex:none;background:var(--noimg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#8A887F;font-size:.55rem;font-weight:700;white-space:nowrap}
+.rate{display:flex;gap:6px;padding:0 0 12px}
+.rate button{flex:1;height:40px;border-radius:8px;border:1px solid #D6D4CE;background:#fff;font-weight:700;font-size:.8rem}
+.rate button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.notice{background:#fff;border-radius:12px;padding:12px 14px;margin-top:12px;border-left:4px solid var(--todo)}
+.notice b{display:block;font-size:.8rem}.notice span{font-size:.72rem;color:var(--sub)}
+.notice.err{border-left-color:var(--S)}
+.holi{background:#fff;border-radius:14px;padding:14px 16px;margin-top:12px}
+.holi h3{margin:0;font-size:.9rem}.holi .rs{margin-top:2px}
+.holi ul{margin:8px 0 0;padding:0 0 0 1.1em;font-size:.8rem}
+.empty{padding:28px 0;text-align:center;color:var(--sub);font-size:.8rem}
+.more{display:block;width:100%;margin-top:10px;height:44px;border-radius:10px;border:1px solid #D6D4CE;background:#fff;font-size:.8rem;color:var(--sub)}
+/* 開いた画面 */
+.back{display:inline-block;font-size:.85rem;padding:8px 0;font-weight:500}
+.hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:14px;background:var(--noimg);display:block;margin-top:6px}
+.meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.meta .d{font-size:.7rem;color:var(--sub)}
+.h1{font-size:1.15rem;font-weight:700;line-height:1.45;margin:8px 0 0}
+.box{background:#fff;border-radius:14px;padding:14px 16px;margin-top:12px}
+.box h4{margin:0 0 8px;font-size:.75rem;color:var(--sub);font-weight:700}
+.q{display:grid;grid-template-columns:3.6em 1fr;gap:6px 10px;font-size:.85rem}
+.q .k{font-size:.7rem;font-weight:700;color:var(--sub);padding-top:.15em}
+.q .na{color:var(--mute)}
+.chg{display:flex;flex-direction:column;gap:10px;font-size:.85rem}
+.chg .r{display:flex;flex-direction:column;gap:2px;padding-bottom:10px;border-bottom:1px solid var(--line)}.chg .r:last-child{border-bottom:0;padding-bottom:0}
+.chg .l{font-weight:700;font-size:.72rem;color:var(--sub)}.chg .v{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.chg .b{color:var(--sub);text-decoration:line-through;text-decoration-color:#C9C7C0}.chg .a{font-weight:700;color:var(--S)}.chg .ar{color:var(--mute)}
+.steps{display:flex;gap:4px}
+.steps div{flex:1;text-align:center;font-size:.7rem;padding:8px 2px;border-radius:8px;background:var(--seg);color:var(--sub)}
+.steps .done{background:#E7E5DF;color:var(--ink)}.steps .now{background:var(--ink);color:#fff;font-weight:700}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:.75rem;border-radius:999px;padding:5px 12px;background:var(--seg);border:1px solid transparent}
+button.chip.on{background:var(--todobg);border-color:var(--todoline);color:var(--todo);font-weight:700}
+ol.pts{margin:0;padding:0;list-style:none;counter-reset:p;display:flex;flex-direction:column;gap:8px}
+ol.pts li{counter-increment:p;display:flex;gap:10px;font-size:.85rem}
+ol.pts li::before{content:counter(p);flex:none;width:1.4em;height:1.4em;border-radius:50%;background:var(--seg);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:.1em}
+.todo-box{background:var(--todobg);border:1px dashed var(--todoline);border-radius:14px;padding:12px 14px;margin-top:12px}
+.todo-box b{color:var(--todo);font-size:.82rem}.todo-box div{font-size:.78rem;margin-top:4px}
+.big{display:block;width:100%;height:48px;border-radius:12px;border:0;background:var(--ink);color:#fff;font-weight:700;font-size:.85rem;margin-top:12px}
+.arts a{display:flex;flex-direction:column;padding:10px 0;border-top:1px solid var(--line)}
+.arts a:first-of-type{border-top:0}
+.arts .t{font-size:.82rem;font-weight:500;color:var(--ink)}
+.arts .s{font-size:.7rem;color:var(--sub)}
+.arts a.vis .t{color:var(--sub)}
+.foot{font-size:.65rem;color:var(--mute);text-align:center;margin-top:24px}
+/* 検索 */
+.sbox{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid #D6D4CE;border-radius:12px;padding:0 12px;height:48px;flex:1}
+.sbox input{border:0;outline:0;flex:1;font:inherit;font-size:.9rem;background:transparent}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 24px);transform:translateX(-50%);background:var(--ink);color:#fff;font-size:.75rem;padding:10px 16px;border-radius:999px;opacity:0;transition:.2s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
 </style>
 </head>
 <body>
-
-<div class="loading-bar" id="loadingBar"></div>
-
-<header>
-  <div class="logo">INDUSTRY WATCH <span>スーツ・メンズ業界</span></div>
-  <div class="header-right">
-    <button class="btn btn-ghost" id="settingsBtn">⚙ 設定</button>
-    <button class="btn btn-primary" id="fetchBtn" onclick="fetchAllRSS()">▶ ニュース取得</button>
-  </div>
-</header>
-
-<div class="main-wrap">
-
-  <div class="stats-bar">
-    <div class="stat-item"><div class="stat-dot" style="background:var(--accent)"></div>合計 <span class="stat-num" id="statTotal">0</span>件</div>
-    <div class="stat-item"><div class="stat-dot" style="background:var(--suit)"></div>スーツ業界 <span class="stat-num" id="statSuit">0</span>件</div>
-    <div class="stat-item"><div class="stat-dot" style="background:var(--casual)"></div>メンズカジュアル <span class="stat-num" id="statCasual">0</span>件</div>
-    <div class="stat-item"><div class="stat-dot" style="background:var(--fav)"></div>お気に入り <span class="stat-num" id="statFav">0</span>件</div>
-    <div class="stat-item" style="margin-left:auto;font-size:11px" id="lastFetch"></div>
-  </div>
-
-  <div class="tabs">
-    <button class="tab active" onclick="switchTab('all')" id="tab-all">すべて <span class="tab-count" id="cnt-all">0</span></button>
-    <button class="tab" onclick="switchTab('suit')" id="tab-suit">スーツ業界 <span class="tab-count" id="cnt-suit">0</span></button>
-    <button class="tab" onclick="switchTab('casual')" id="tab-casual">メンズカジュアル <span class="tab-count" id="cnt-casual">0</span></button>
-    <button class="tab" onclick="switchTab('favorites')" id="tab-favorites">★ お気に入り <span class="tab-count" id="cnt-fav">0</span></button>
-  </div>
-
-  <div class="filter-bar">
-    <input class="search-box" type="text" id="searchBox" placeholder="キーワード検索..." oninput="renderArticles()">
-    <button class="btn btn-ghost" id="filterUnread" onclick="toggleFilter('unread')">未読のみ</button>
-  </div>
-
-  <div class="articles" id="articleList"></div>
-</div>
-
-<!-- 設定パネル -->
-<div class="settings-panel" id="settingsPanel" onclick="closeSettings(event)">
-  <div class="settings-box">
-    <button class="modal-close" onclick="closeSettings()">✕</button>
-    <div class="settings-title">設定</div>
-    <div class="form-group">
-      <label class="form-label">Worker URL</label>
-      <input type="text" class="form-input" id="workerUrlInput" placeholder="https://your-worker.workers.dev">
-      <div class="form-hint">Cloudflare WorkerをデプロイしたあとのURLを入力してください。</div>
-    </div>
-    <div class="form-group">
-      <label class="form-label">ニュース保持期間（日数）</label>
-      <input type="number" class="form-input" id="retentionInput" value="60" min="7" max="365">
-      <div class="form-hint">お気に入りに登録した記事は期間に関わらず保持されます。</div>
-    </div>
-    <div style="display:flex;gap:10px;margin-top:4px">
-      <button class="btn btn-primary" onclick="saveSettings()">保存</button>
-      <button class="btn btn-ghost" onclick="closeSettings()">キャンセル</button>
-    </div>
-  </div>
-</div>
-
+<div class="wrap" id="app"><div class="empty">読み込み中…</div></div>
 <div class="toast" id="toast"></div>
-
 <script>
-// ======================================================
-// RSSフィード定義
-// ======================================================
-const RSS_FEEDS = [
-  // スーツ業界
-  { url: 'https://www.wwdjapan.com/rss/business',        category: 'suit',   source: 'WWDジャパン',              keywords: ['スーツ','紳士服','ビジネスウェア','オーダー','AOKI','青山','はるやま','コナカ','ORIHICA','SUIT SELECT','SUIT SQUARE','DIFFERENCE','KASHIYAMA','FABRIC TOKYO','麻布テーラー'] },
-  { url: 'https://senken.co.jp/rss',                     category: 'suit',   source: '繊研新聞',                  keywords: ['スーツ','紳士服','ビジネスウェア','オーダー'] },
-  { url: 'https://diamond-rm.net/feed',                  category: 'suit',   source: 'ダイヤモンドCS',            keywords: ['スーツ','紳士服','アパレル','ビジネスウェア'] },
-  // メンズカジュアル・EC・デジタル・セレクト系
-  { url: 'https://www.wwdjapan.com/rss/fashion',         category: 'casual', source: 'WWDジャパン(ファッション)', keywords: ['メンズ','販促','EC','デジタル','アプリ','OMO','DX','リブランド','新ブランド','BEAMS','ユナイテッドアローズ','SHIPS','TOMORROWLAND','EDIFICE','新サービス','AI','TikTok'] },
-  { url: 'https://diamond-rm.net/feed',                  category: 'casual', source: 'ダイヤモンドCS',            keywords: ['EC','デジタル','販促','アプリ','OMO','SNS','リブランド','DX','AI','システム','新サービス','CRM','ライブコマース'] },
-  { url: 'https://netshop.impress.co.jp/rss',            category: 'casual', source: 'ネットショップ担当者フォーラム', keywords: ['アパレル','ファッション','EC','AI','OMO','デジタル','販促','システム','CRM','新サービス'] },
-];
+"use strict";
+const LANES={industry:"業界",retail_ec:"小売EC",economy:"経済",it_sec:"IT"};
+const TABS=[["all","すべて"],["weekly","週間10選"],["law","制度・郵便"],["industry","業界"],["retail_ec","小売EC"],["economy","経済"],["it_sec","IT"]];
+const LAW_TAGS=["制度・法令","税・価格"];
+const RIVALS=["青山商事","AOKI","コナカ","はるやま","SUIT SELECT","ORIHICA","FABRIC TOKYO","DIFFERENCE","麻布テーラー","KASHIYAMA"];
+const RIVAL_PAT={"青山商事":/青山商事|洋服の青山/,"コナカ":/コナカ|フタタ/,"SUIT SELECT":/SUIT SELECT|スーツセレクト/i,"FABRIC TOKYO":/FABRIC TOKYO|ファブリックトウキョウ/i,"DIFFERENCE":/DIFFERENCE|ディファレンス/i};
+const NA="記事に記載なし";
+const WD="日月火水木金土";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+// 日付は端末の時刻設定に関係なく日本時間で表示する
+const jst=d=>{const x=new Date(d);return isNaN(x)?null:new Date(x.getTime()+9*3600e3)};
+const md=d=>{const x=jst(d);return x?`${x.getUTCMonth()+1}/${x.getUTCDate()}`:""};
+const mdw=d=>{const x=jst(d+"T12:00:00+09:00");return x?`${x.getUTCMonth()+1}/${x.getUTCDate()}（${WD[x.getUTCDay()]}）`:""};
 
-// ======================================================
-// データ管理
-// ======================================================
-const STORAGE_KEY  = 'industry_news_v4';
-const SETTINGS_KEY = 'industry_news_settings_v4';
+// ---- 端末に残す状態（既読・評価・UI）
+const LS={get(k,d){try{const v=localStorage.getItem("ib_"+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem("ib_"+k,JSON.stringify(v))}catch(e){}}};
+const read=new Set(LS.get("read",[]));const vis=new Set(LS.get("vis",[]));const rate=LS.get("rate",{});
+const ui=Object.assign({tab:"all",lv:"S",unread:false},LS.get("ui",{}));
+const saveUI=()=>LS.set("ui",ui);
+const markRead=k=>{if(!read.has(k)){read.add(k);LS.set("read",[...read].slice(-3000))}};
+const markVis=id=>{vis.add(id);LS.set("vis",[...vis].slice(-5000))};
 
-let articles = [];
-let currentTab = 'all';
-let filters = { unread: false };
+let IDX=null,DAY=null,DIG=null,WEEK=null,OFFLINE=false,LOADED_AT=null;
+const DAYS={};
 
-function loadData() {
-  try { const r = localStorage.getItem(STORAGE_KEY); if (r) articles = JSON.parse(r); } catch(e) { articles = []; }
+async function getJSON(p){
+  const r=await fetch(p,{cache:"no-cache"});
+  if(!r.ok)throw new Error(r.status);
+  if(r.headers.get("x-from-cache"))OFFLINE=true;
+  return r.json();
 }
-function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(articles)); }
-
-function loadSettings() {
-  try {
-    const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-    if (s.retention) document.getElementById('retentionInput').value = s.retention;
-    if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
-    if (s.lastFetch) document.getElementById('lastFetch').textContent = `最終取得: ${new Date(s.lastFetch).toLocaleDateString('ja-JP')}`;
-  } catch(e) {}
-}
-
-function saveSettings() {
-  const workerUrl = document.getElementById('workerUrlInput').value.trim();
-  const retention = document.getElementById('retentionInput').value;
-  const existing = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...existing, workerUrl, retention }));
-  showToast('設定を保存しました');
-  closeSettings();
-}
-
-function getWorkerUrl() {
-  try { return JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}').workerUrl || ''; } catch(e) { return ''; }
-}
-
-function cleanOldArticles() {
-  try {
-    const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-    const days = parseInt(s.retention || 60);
-    const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
-    const before = articles.length;
-    articles = articles.filter(a => a.favorited || a.id.startsWith('i') || new Date(a.fetchedAt).getTime() > cutoff);
-    if (articles.length !== before) saveData();
-  } catch(e) {}
-}
-
-// ======================================================
-// RSS取得（無料）
-// ======================================================
-async function fetchAllRSS() {
-  const workerUrl = getWorkerUrl();
-  if (!workerUrl) {
-    document.getElementById('settingsPanel').classList.add('open');
-    showToast('Worker URLを設定してください');
-    return;
-  }
-
-  const btn = document.getElementById('fetchBtn');
-  const bar = document.getElementById('loadingBar');
-  btn.disabled = true;
-  btn.textContent = '取得中...';
-  bar.classList.add('active');
-
-  const existingUrls = new Set(articles.map(a => a.url));
-  let added = 0;
-
-  for (const feed of RSS_FEEDS) {
-    try {
-      const res = await fetch(workerUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ mode: 'rss', url: feed.url })
-      });
-      const xml = await res.text();
-      const items = parseRSS(xml, feed, existingUrls);
-      for (const item of items) {
-        articles.unshift(item);
-        existingUrls.add(item.url);
-        added++;
-      }
-    } catch(e) { console.error('RSS fetch error:', feed.source, e); }
-  }
-
-  saveData();
-  const s = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
-  s.lastFetch = new Date().toISOString();
-  localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
-  document.getElementById('lastFetch').textContent = `最終取得: ${new Date().toLocaleDateString('ja-JP')}`;
-
-  renderArticles();
-  updateCounts();
-  btn.disabled = false;
-  btn.innerHTML = '▶ ニュース取得';
-  bar.classList.remove('active');
-  showToast(added > 0 ? `${added}件の新着ニュースを取得しました` : '新着ニュースはありませんでした');
-}
-
-function parseRSS(xml, feed, existingUrls) {
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(xml, 'application/xml');
-  const items = Array.from(doc.querySelectorAll('item'));
-  const now = new Date().toISOString();
-  const result = [];
-
-  for (const item of items) {
-    const title   = item.querySelector('title')?.textContent?.trim() || '';
-    const url     = item.querySelector('link')?.textContent?.trim() || '';
-    const pubDate = item.querySelector('pubDate')?.textContent?.trim() || '';
-    const desc    = item.querySelector('description')?.textContent?.replace(/<[^>]+>/g,'').trim() || '';
-
-    if (!title || !url || existingUrls.has(url)) continue;
-
-    // キーワードフィルタリング
-    const text = (title + ' ' + desc).toLowerCase();
-    const hit  = feed.keywords.some(k => text.includes(k.toLowerCase()));
-    if (!hit) continue;
-
-    // 日付パース
-    let date = now.slice(0, 10);
-    try { date = new Date(pubDate).toISOString().slice(0, 10); } catch(e) {}
-
-    result.push({
-      id: 'rss_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
-      title,
-      url,
-      desc: desc.slice(0, 120) + (desc.length > 120 ? '...' : ''),
-      source: feed.source,
-      category: feed.category,
-      date,
-      fetchedAt: now,
-      read: false,
-      favorited: false,
-      summary: null,      // AI要約（未取得）
-      summarizing: false, // 取得中フラグ
-    });
-  }
-  return result;
-}
-
-// ======================================================
-// AI要約（記事単位・有料）
-// ======================================================
-async function summarizeArticle(id) {
-  const workerUrl = getWorkerUrl();
-  if (!workerUrl) { showToast('Worker URLを設定してください'); return; }
-
-  const a = articles.find(x => x.id === id);
-  if (!a || a.summarizing) return;
-
-  a.summarizing = true;
-  renderArticles();
-
-  try {
-    const res = await fetch(workerUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ mode: 'summarize', title: a.title, url: a.url })
-    });
-    const data = await res.json();
-    if (data.summary) {
-      a.summary = data.summary;
-      showToast('要約を取得しました');
-    } else {
-      showToast('要約の取得に失敗しました');
-    }
-  } catch(e) {
-    showToast('エラーが発生しました');
-  } finally {
-    a.summarizing = false;
-    saveData();
-    renderArticles();
+async function load(){
+  try{
+    IDX=await getJSON("data/index.json");
+    DAY=await getJSON(`data/days/${IDX.latest}.json`);DAYS[IDX.latest]=DAY;
+    try{DIG=await getJSON(`data/digest/${IDX.latest}.json`)}catch(e){DIG=null}
+    try{WEEK=IDX.weekly&&IDX.weekly[0]?await getJSON(`data/weekly/${IDX.weekly[0]}.json`):null}catch(e){WEEK=null}
+    if(!navigator.onLine)OFFLINE=true;
+    route();
+  }catch(e){
+    $("#app").innerHTML=`<div class="notice err"><b>読み込めませんでした</b><span>電波を確認してから、もう一度開いてください。</span></div>`;
   }
 }
 
-// ======================================================
-// 表示
-// ======================================================
-function getFiltered() {
-  let list = [...articles];
-  if (currentTab === 'suit')      list = list.filter(a => a.category === 'suit');
-  else if (currentTab === 'casual')    list = list.filter(a => a.category === 'casual');
-  else if (currentTab === 'favorites') list = list.filter(a => a.favorited);
-  if (filters.unread) list = list.filter(a => !a.read);
-  const kw = document.getElementById('searchBox').value.trim().toLowerCase();
-  if (kw) list = list.filter(a => a.title.toLowerCase().includes(kw) || (a.source||'').toLowerCase().includes(kw));
-  return list.sort((a, b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
+// ---- 一覧で使うデータ
+function stories(){return (DAY&&DAY.stories)||[]}
+function lanesOf(s){return s.lanes||[]}
+function inTab(s,tab){
+  if(tab==="all")return true;
+  if(tab==="law")return (s.tags||[]).some(t=>LAW_TAGS.includes(t));
+  if(s.c)return s.lane===tab;
+  return lanesOf(s).includes(tab);
+}
+function cItems(){return ((DAY&&DAY.c_items)||[]).map((c,i)=>({c:true,key:`${DAY.date}:c${i}`,level:"C",summary:c.t,url:c.u,lane:c.lane,latest:c.date,tags:[]}))}
+function pool(tab,lv){
+  const base=lv==="C"?cItems():stories().filter(s=>s.level===lv);
+  return base.filter(s=>inTab(s,tab));
+}
+function unreadCount(tab){return stories().filter(s=>(s.level==="S"||s.level==="A")&&inTab(s,tab)&&!read.has(s.key)).length}
+function hasUnreadS(tab){return stories().some(s=>s.level==="S"&&inTab(s,tab)&&!read.has(s.key))}
+function laneLabel(s){
+  if((s.tags||[]).some(t=>LAW_TAGS.includes(t)))return "制度・郵便";
+  const l=s.c?s.lane:lanesOf(s)[0];return LANES[l]||"";
 }
 
-function renderArticles() {
-  const list = document.getElementById('articleList');
-  const filtered = getFiltered();
-  updateStats();
+// ---- 画面の部品
+function thumb(s){
+  return s.image?`<img class="ph" loading="lazy" referrerpolicy="no-referrer" src="${esc(s.image)}" alt="" onerror="this.outerHTML='<div class=&quot;noimg&quot;>NO IMAGE</div>'">`:`<div class="noimg">NO IMAGE</div>`;
+}
+function marks(s){
+  let h="";
+  if(s.first_seen&&s.first_seen!==DAY.date)h+=`<span class="mk cont">続報</span>`;
+  else if(s.level==="S"||s.level==="A")h+=`<span class="mk new">新規</span>`;
+  if(s.todo)h+=`<span class="mk todo">要追加調査</span>`;
+  if(rate[s.key])h+=`<span class="mk rated">評価 ${rate[s.key]}</span>`;
+  return h;
+}
+function sub(s){
+  if(s.c)return `${esc(laneLabel(s))} ／ ${md(s.latest)}`;
+  if(s.todo)return `${esc(laneLabel(s))} ／ 見出しのみ（本文を取得できず）`;
+  const why=(s.quick&&s.quick.me&&s.quick.me!==NA)?s.quick.me:s.why;
+  return `${esc(laneLabel(s))}${why?" ／ 関係："+esc(why):""}`;
+}
+function row(s){
+  const rd=read.has(s.key)?" read":"";
+  return `<div class="row${rd}" data-key="${esc(s.key)}">
+    <div class="body"><div class="badges"><span class="lv ${s.level}">${s.level}</span>${s.c?"":marks(s)}</div>
+    <div class="rt">${esc(s.summary)}</div><div class="rs">${sub(s)}</div></div>${s.c?"":thumb(s)}</div>`;
+}
+function notices(){
+  let h="";
+  const now=new Date(),today=new Date(now.getTime()+9*3600e3).toISOString().slice(0,10);
+  const jstH=new Date(now.getTime()+9*3600e3).getUTCHours();
+  if(OFFLINE)h+=`<div class="notice"><b>電波がありません</b><span>前回読み込んだ内容（${esc(DAY.generated.slice(5,16).replace("T"," ").replace("-","/"))}）を表示中。つながると自動で最新になります</span></div>`;
+  else if(IDX.latest<today&&jstH>=7)h+=`<div class="notice err"><b>今朝の更新がまだです</b><span>最終更新 ${mdw(IDX.latest)} ${esc(DAY.generated.slice(11,16))}。前回の内容を表示中</span></div>`;
+  const st=DAY.stats||{};
+  if(st.model==="rules-only"||(st.failed_batches||0)>2)h+=`<div class="notice"><b>今日は簡易判定です</b><span>AIが混雑していたため、一部をキーワードによる判定に切り替えました。重要度の精度が下がっています</span></div>`;
+  return h;
+}
+function holiday(){
+  if(!DIG||!DIG.after_holiday||!DIG.lines||!DIG.lines.length)return "";
+  return `<div class="holi"><h3>休み中のまとめ</h3><div class="rs">${esc(DIG.span)}</div>
+   <ul>${DIG.lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ul></div>`;
+}
 
-  if (filtered.length === 0) {
-    list.innerHTML = `<div class="empty-state"><div class="empty-icon">📰</div><div class="empty-title">${currentTab==='favorites'?'お気に入りはまだありません':'ニュースがありません'}</div><div class="empty-desc">${currentTab==='favorites'?'記事の ☆ ボタンでお気に入りに追加できます':'「ニュース取得」ボタンで最新情報を取得してください'}</div></div>`;
-    return;
+// ---- 一覧
+function renderList(){
+  const tabs=TABS.map(([id,lb])=>{
+    if(id==="weekly")return `<button class="tab${ui.tab===id?" on":""}" data-tab="${id}">${lb}</button>`;
+    const n=unreadCount(id);
+    return `<button class="tab${ui.tab===id?" on":""}" data-tab="${id}">${lb}${n?` <span class="n${hasUnreadS(id)?" s":""}">${n}</span>`:""}</button>`;
+  }).join("");
+  let body="";
+  if(ui.tab==="weekly")body=renderWeekly();
+  else{
+    const segs=["S","A","B","C"].map(l=>{const n=pool(ui.tab,l).length;return `<button class="${ui.lv===l?"on":""}" data-lv="${l}">${l} <span class="n${l==="S"&&n?" s":""}">${n}</span></button>`}).join("");
+    let items=pool(ui.tab,ui.lv);
+    const un=items.filter(s=>!read.has(s.key)).length;
+    if(ui.unread&&ui.lv!=="C")items=items.filter(s=>!read.has(s.key));
+    const tabName=TABS.find(t=>t[0]===ui.tab)[1];
+    body=`<div class="seg">${segs}</div>
+      <div class="bar"><span class="crumb">${tabName} ／ ${ui.lv}${ui.lv==="C"?"（見出しのみ）":` ／ 未読 ${un}`}</span>
+      <button class="tg${ui.unread?" on":""}" id="unr" aria-pressed="${ui.unread}">未読のみ<span class="sw"><i></i></span></button></div>
+      ${items.length?`<div class="list" id="list">${items.slice(0,200).map(row).join("")}</div>`:`<div class="empty">${ui.unread?"未読はありません":"この区分の話題はありません"}</div>`}`;
   }
-
-  list.innerHTML = filtered.map(a => `
-    <div class="article-card ${!a.read?'unread':''} ${a.favorited?'favorited':''}" onclick="markRead('${a.id}')">
-      <div class="card-left">
-        <div class="card-meta">
-          ${!a.read ? '<div class="unread-dot"></div>' : ''}
-          <span class="cat-badge ${a.category==='suit'?'cat-suit':'cat-casual'}">${a.category==='suit'?'スーツ業界':'メンズカジュアル'}</span>
-          <span class="card-date">${a.date}</span>
-          ${a.source?`<span class="card-source">${h(a.source)}</span>`:''}
-        </div>
-        <div class="card-title">${h(a.title)}</div>
-        ${a.desc ? `<div class="card-summary">${h(a.desc)}</div>` : ''}
-        ${a.summary ? `
-          <div class="summary-box">
-            <div class="summary-label">AI 要約</div>
-            ${h(a.summary)}
-          </div>` : ''}
-        <div style="display:flex;align-items:center;gap:8px;margin-top:10px">
-          ${a.url ? `<a class="btn btn-ghost btn-sm" href="${h(a.url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">元記事 ↗</a>` : ''}
-          ${!a.summary ? `
-            <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();summarizeArticle('${a.id}')" ${a.summarizing?'disabled':''}>
-              ${a.summarizing ? '要約中...' : '✦ AIで要約'}
-            </button>` : ''}
-          <button class="btn btn-ghost btn-sm" onclick="event.stopPropagation();deleteArticle('${a.id}')" style="color:var(--fav);border-color:var(--fav);margin-left:auto">✕ 削除</button>
-        </div>
-      </div>
-      <div class="card-right">
-        <button class="fav-btn ${a.favorited?'active':''}" onclick="event.stopPropagation();toggleFav('${a.id}')">${a.favorited?'★':'☆'}</button>
-      </div>
-    </div>`).join('');
+  $("#app").innerHTML=`<div class="head"><div><div class="ttl">業界ブリーフ</div><div class="upd">${mdw(DAY.date)} ${esc((DAY.generated||"").slice(11,16))} 更新</div></div>
+    <button class="icon-btn" aria-label="検索" onclick="location.hash='#/search'"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg></button></div>
+    <div class="tabs" role="tablist">${tabs}</div>${notices()}${ui.tab==="all"&&ui.lv==="S"?holiday():""}${body}
+    <div class="foot">右にスワイプで重要度を付けられます</div>`;
+  $("#app").querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{ui.tab=b.dataset.tab;saveUI();renderList()});
+  $("#app").querySelectorAll("[data-lv]").forEach(b=>b.onclick=()=>{ui.lv=b.dataset.lv;saveUI();renderList()});
+  const u=$("#unr");if(u)u.onclick=()=>{ui.unread=!ui.unread;saveUI();renderList()};
+  bindRows();
+  const on=$(".tab.on");if(on)on.scrollIntoView({inline:"center",block:"nearest"});
+}
+function bindRows(){
+  $("#app").querySelectorAll(".row").forEach(el=>{
+    let x0=null,y0=null,dx=0;
+    el.addEventListener("touchstart",e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY;dx=0},{passive:true});
+    el.addEventListener("touchmove",e=>{if(x0===null)return;dx=e.touches[0].clientX-x0;const dy=e.touches[0].clientY-y0;if(Math.abs(dy)>Math.abs(dx)){x0=null;el.style.transform="";return}if(dx>0)el.style.transform=`translateX(${Math.min(dx,90)}px)`},{passive:true});
+    el.addEventListener("touchend",()=>{el.style.transform="";if(x0!==null&&dx>70)openRate(el);x0=null});
+    el.addEventListener("click",()=>{if(dx>10)return;open(el.dataset.key)});
+  });
+}
+function openRate(el){
+  const k=el.dataset.key;if(k.includes(":c")&&/:c\d+$/.test(k))return;
+  const nx=el.nextElementSibling;if(nx&&nx.classList.contains("rate")){nx.remove();return}
+  const d=document.createElement("div");d.className="rate";
+  d.innerHTML=["S","A","B","C"].map(l=>`<button class="${rate[k]===l?"on":""}" data-r="${l}">${l}</button>`).join("");
+  d.querySelectorAll("button").forEach(b=>b.onclick=e=>{e.stopPropagation();setRate(k,b.dataset.r);d.remove();renderList()});
+  el.after(d);
+}
+function setRate(k,l){if(rate[k]===l)delete rate[k];else rate[k]=l;LS.set("rate",rate);toast(rate[k]?`重要度 ${l} を記録しました（翌朝の判定に反映）`:"評価を取り消しました")}
+function open(k){
+  const c=cItems().find(s=>s.key===k);
+  if(c){window.open(c.url,"_blank","noopener");return}
+  location.hash="#/s/"+encodeURIComponent(k);
 }
 
-function updateStats() {
-  document.getElementById('statTotal').textContent  = articles.length;
-  document.getElementById('statSuit').textContent   = articles.filter(a=>a.category==='suit').length;
-  document.getElementById('statCasual').textContent = articles.filter(a=>a.category==='casual').length;
-  document.getElementById('statFav').textContent    = articles.filter(a=>a.favorited).length;
+// ---- 週間10選
+function renderWeekly(){
+  if(!WEEK||!WEEK.picks||!WEEK.picks.length)return `<div class="empty">今週の10選はまだありません（週の最初の営業日に作成）</div>`;
+  const rows=WEEK.picks.map((p,i)=>{
+    const s=findStory(p.key);const title=s?s.summary:p.key.split(":").slice(1).join(":");
+    return `<div class="row" data-key="${esc(p.key)}"><div style="width:1.6em;font-weight:700;color:var(--mute);flex:none;text-align:center">${i+1}</div>
+      <div class="body"><div class="badges">${s?`<span class="lv ${s.level}">${s.level}</span><span class="rs">${esc(laneLabel(s))}</span>`:""}</div>
+      <div class="rt">${esc(title)}</div>${p.reason?`<div class="rs">${esc(p.reason)}</div>`:""}</div>${s?thumb(s):""}</div>`;
+  }).join("");
+  setTimeout(()=>preloadWeek(),0);
+  return `<div class="crumb" style="margin-top:12px;padding:0 4px">${esc(WEEK.range)} の週に「読んだ方がいい」10件</div><div class="list">${rows}</div>`;
 }
-function updateCounts() {
-  document.getElementById('cnt-all').textContent    = articles.length;
-  document.getElementById('cnt-suit').textContent   = articles.filter(a=>a.category==='suit').length;
-  document.getElementById('cnt-casual').textContent = articles.filter(a=>a.category==='casual').length;
-  document.getElementById('cnt-fav').textContent    = articles.filter(a=>a.favorited).length;
-}
-
-// ======================================================
-// タブ・フィルター
-// ======================================================
-function switchTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-'+tab).classList.add('active');
-  renderArticles();
-}
-function toggleFilter(type) {
-  filters[type] = !filters[type];
-  document.getElementById('filter'+type[0].toUpperCase()+type.slice(1)).classList.toggle('active', filters[type]);
-  renderArticles();
+function findStory(k){const d=k.split(":")[0];const doc=DAYS[d];return doc?doc.stories.find(s=>s.key===k):null}
+let weekLoading=false;
+async function preloadWeek(){
+  if(weekLoading||!WEEK)return;const need=[...new Set(WEEK.picks.map(p=>p.date))].filter(d=>!DAYS[d]);if(!need.length)return;
+  weekLoading=true;for(const d of need){try{DAYS[d]=await getJSON(`data/days/${d}.json`)}catch(e){}}weekLoading=false;if(ui.tab==="weekly"&&!location.hash.startsWith("#/s/"))renderList();
 }
 
-// ======================================================
-// お気に入り・既読
-// ======================================================
-function deleteArticle(id) {
-  articles = articles.filter(x => x.id !== id);
-  saveData(); renderArticles(); updateCounts();
-  showToast('記事を削除しました');
-}
-function toggleFav(id) {
-  const a = articles.find(x=>x.id===id);
-  if (!a) return;
-  a.favorited = !a.favorited;
-  saveData(); renderArticles(); updateCounts();
-  showToast(a.favorited ? 'お気に入りに追加しました' : 'お気に入りから削除しました');
-}
-function markRead(id) {
-  const a = articles.find(x=>x.id===id);
-  if (a && !a.read) { a.read=true; saveData(); renderArticles(); }
-}
-
-// ======================================================
-// 設定
-// ======================================================
-document.getElementById('settingsBtn').addEventListener('click', () => {
-  const s = JSON.parse(localStorage.getItem(SETTINGS_KEY)||'{}');
-  if (s.workerUrl) document.getElementById('workerUrlInput').value = s.workerUrl;
-  if (s.retention) document.getElementById('retentionInput').value = s.retention;
-  document.getElementById('settingsPanel').classList.add('open');
-});
-function closeSettings(e) {
-  if (e && e.target !== document.getElementById('settingsPanel')) return;
-  document.getElementById('settingsPanel').classList.remove('open');
-}
-
-// ======================================================
-// ユーティリティ
-// ======================================================
-function h(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2600);
-}
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeSettings(); });
-
-// ======================================================
-// 初期化
-// ======================================================
-loadData();
-if (!localStorage.getItem('initial_v5_loaded')) {
-  const INITIAL = [
-    { id:'i01', title:'紳士服業界2024年度決算：売上高3,564億円横ばいも営業利益6%増に回復', desc:'上場紳士服7社の2024年度スーツ事業売上高は3,564億円で横ばい。営業利益は177億円と前年比6%増。オーダースーツ需要増加による客単価引き上げが利益面を押し上げ。', url:'https://www.tdb.co.jp/report/industry/250606_suit24fy/', source:'帝国データバンク', category:'suit', date:'2025-06-06', fetchedAt:'2025-03-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i02', title:'青山商事・AOKIが客単価上昇も販売着数減少：メンズスーツ平均単価が3万円超に', desc:'青山商事の2025年3月期メンズスーツ平均単価が3万4,076円と前期比7.3%上昇した一方、販売着数は104万8,000着で10.7%減少。AOKIも同様の傾向。', url:'https://www.nikkei.com/compass/industry_s/0573', source:'日本経済新聞', category:'suit', date:'2025-04-01', fetchedAt:'2025-04-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i03', title:'FABRIC TOKYOがライオンと共同開発：洗濯機「標準コース」で洗えるスーツを業界初発売', desc:'FABRIC TOKYOとライオンが共同開発した「SPEED WASH ONE」を発売。家庭用洗濯機の標準コースで洗えるスーツは業界初。毛羽立ちにくい素材と専用洗濯ネットで実現。', url:'https://www.nikkei.com/article/DGXZQOUC2634S0W6A220C2000000/', source:'日本経済新聞', category:'suit', date:'2025-03-26', fetchedAt:'2025-03-26T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i04', title:'DIFFERENCEが採寸アプリを改良：スーツ・コートのオンライン採寸が可能に', desc:'コナカのオーダースーツブランド「DIFFERENCE」が採寸アプリを改良し、スーツやコートのオンライン採寸にも対応。首都圏百貨店への初出店も同時進行。', url:'https://www.wwdjapan.com/articles/978187', source:'WWDジャパン', category:'suit', date:'2025-03-15', fetchedAt:'2025-03-15T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i05', title:'KASHIYAMAが最短1週間納期を武器に全国60店舗以上へ拡大', desc:'オンワード樫山のオーダースーツブランドKASHIYAMAが業界最短納期を強みに全国60店舗以上へ拡大。初回購入26,400円（20%OFF）キャンペーンで新規獲得を積極展開。', url:'https://custom-fashion-magazine.jp/8507/', source:'カスタムファッションマガジン', category:'suit', date:'2025-03-05', fetchedAt:'2025-03-05T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i06', title:'AOKIの「パジャマスーツ」と「金のスーツ」が好調：快適性と高付加価値の両極戦略', desc:'AOKIホールディングスが推進するパジャマスーツと高価格帯「金のスーツ」が市場で存在感を発揮。カジュアル化する市場と富裕層需要の双方を取り込む両軸戦略が奏功。', url:'https://www.tdb-publish.com/2024/03/242d97009bee1563df2419217e58ea0441e9d64b.php', source:'帝国データバンク', category:'suit', date:'2025-03-20', fetchedAt:'2025-03-20T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i07', title:'青山商事「10年後オーダー比率50%」目標を推進：麻布テーラー買収後の戦略を加速', desc:'青山商事は麻布テーラーを軸に、既製服とオーダーの比率を10年後に同等にする計画を進めている。「Quality Order SHITATE」全店舗導入完了。OMO戦略も本格化。', url:'https://diamond-rm.net/management/222476/', source:'ダイヤモンドCS', category:'suit', date:'2025-03-10', fetchedAt:'2025-03-10T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i08', title:'スーツ離れは「構造的変化」：着用率3割以下の中でオーダー市場はCAGR11.6%成長予測', desc:'全国調査でスーツ勤務の割合が3割以下に。一方でオーダーメイド衣料品市場は2025〜2032年にCAGR11.6%成長と予測。量産スーツ需要の減少とオーダーへの集中が加速。', url:'https://note.com/hengenjizai_fgf/n/nd723e3d530ff', source:'ヘンゲンジザイ', category:'suit', date:'2025-04-15', fetchedAt:'2025-04-15T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i09', title:'ZOZOが語る「AI×新しい売り方」：ファッションECのパーソナライズ戦略が加速', desc:'ZOZO澤田宏太郎社長がAIを活用したEC進化戦略を語る。AIによるスタイリング提案・サイズレコメンドが精度向上し、スーツ業界にも応用可能な個別提案型ECの実装が進む。', url:'https://www.wwdjapan.com/articles/978187', source:'WWDジャパン', category:'casual', date:'2025-03-18', fetchedAt:'2025-03-18T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i10', title:'ワークマンが「Workman Colors」へリブランディング：機能性×デザイン性の両立戦略に転換', desc:'「#ワークマン女子」から「Workman Colors」へのリブランディング。機能性だけでなくデザイン性を前面に押し出す戦略へ転換。スーツ業界の次の訴求フェーズへのヒントになりうる。', url:'https://diamond-rm.net/management/505451/', source:'ダイヤモンドCS', category:'casual', date:'2025-04-02', fetchedAt:'2025-04-02T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i11', title:'ユニクロ以外が「儲からなくなった」理由：正しいポジショニングとスーツ業界のオーダー回帰', desc:'ユニクロが量産・低価格・品質安定で圧倒的地位を築く中、他のアパレルが生き残るための差別化は「体験価値・個別提案・ブランドストーリー」。スーツ業界のオーダー回帰も同じ文脈。', url:'https://diamond-rm.net/management/505452/', source:'ダイヤモンドCS', category:'casual', date:'2025-03-01', fetchedAt:'2025-03-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i12', title:'日本人の服が「ペラペラ」になった理由：品質低下の構造的問題とスーツ業界への示唆', desc:'アパレル全体のコスト削減競争による品質低下を分析。スーツ業界の「単価上昇・着数減少」トレンドの背景理解につながる。「量より質」の路線維持には総合的品質向上が不可欠。', url:'https://diamond-rm.net/management/505453/', source:'ダイヤモンドCS', category:'casual', date:'2025-03-19', fetchedAt:'2025-03-19T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i13', title:'洋服の青山「みんなのスーツ」が3ヶ月で2万着突破：業界の禁じ手で離れた客層を取り戻す', desc:'青山商事が2025年11月に発売した「みんなのスーツ」が発売3ヶ月で累計2万着を突破し当初計画を3割上回る。業界慣習を覆す設計で若者・中高年層を取り込んだ異例のヒット商品。競合各社も強い関心を示している。', url:'https://xtrend.nikkei.com/atcl/contents/18/00589/00305/', source:'日経クロストレンド', category:'suit', date:'2026-02-26', fetchedAt:'2026-02-26T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i14', title:'2026年スーツトレンド：リラックスフィット・アースカラーが主流に', desc:'2026年のスーツトレンドはゆったりシルエットとアースカラーに二極化。肩パッドなど硬い芯材を省いたアンコン仕立て、タック入りワイドパンツが増加。ベージュ・ブラウン系のダスティーカラーが台頭。', url:'https://www.suit-ya.com/column/how-to-dress/suit-trend/', source:'Suit Ya', category:'suit', date:'2026-02-26', fetchedAt:'2026-02-26T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i15', title:'TikTok Shop日本ローンチから3ヶ月で流通総額約30億円・アパレルが約20%を占める', desc:'2025年6月30日に日本でサービス開始したTikTok Shopが3ヶ月で国内流通総額約30億円に達した。売上の約20%をアパレルカテゴリが占め、流通総額の約70%がショート動画・ライブ配信起点の購入。', url:'https://ebisumart.com/blog/apparel-ec/', source:'ebisumart', category:'casual', date:'2026-01-07', fetchedAt:'2026-01-07T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i16', title:'GoogleがAIバーチャル試着サービスを開始：アパレルECの購入体験を大幅に変える可能性', desc:'2025年10月にGoogleがAI活用のバーチャル試着サービスを開始。サイズ感の不安を解消することでECの購入ハードルを低下させる効果が期待される。スーツのようなフィット感重視の商品カテゴリへの応用も注目。', url:'https://netshop.impress.co.jp/n/2026/01/08/15395', source:'ネットショップ担当者フォーラム', category:'casual', date:'2026-01-07', fetchedAt:'2026-01-07T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i17', title:'ChatGPT広告解禁：EC・リテール企業への影響と「対話型コマース」時代の集客戦略', desc:'OpenAIがChatGPTへの広告掲載を解禁。LLMプラットフォーム経由の流入ユーザーは他チャネル比でCVRが約1.5倍高いとのデータも。「検索から対話」へのパラダイムシフトに対応したEC戦略が求められる。', url:'https://www.w2solution.co.jp/useful_info_ec/8244/', source:'W2ソリューション', category:'casual', date:'2026-01-30', fetchedAt:'2026-01-30T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i18', title:'2026年「ポストCookie時代」本格化：アパレルECにファーストパーティデータ活用が必須に', desc:'GoogleのサードパーティCookie廃止プロセスが完了し2026年から本格的な影響が出始める。リターゲティング広告の精度低下により、メルマガ・LINEなど自社顧客データを活用したCRM戦略の重要性が増している。', url:'https://www.fulloutsourcing.jp/marketing-blog/promotion_calendar/', source:'GMOメイクショップ', category:'casual', date:'2025-12-22', fetchedAt:'2026-01-01T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i19', title:'メルカリが生成AI活用の絞り込み検索機能を実装：自然な言葉で直感的な検索が可能に', desc:'メルカリが生成AIを活用した絞り込み検索機能を実装。「ゆったりしたネイビーのジャケット」など自然言語で商品検索できる。アパレルECにおけるAI検索の実用化事例として注目。', url:'https://netshop.impress.co.jp/n/2026/01/08/15395', source:'ネットショップ担当者フォーラム', category:'casual', date:'2026-01-08', fetchedAt:'2026-01-08T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-    { id:'i20', title:'アパレルECのオーガニック検索が前年比9%減・有料ソーシャルは18%増：集客構造が変化', desc:'世界6,500サイト990億件以上のデータ分析によると、アパレルECのオーガニック検索トラフィックが前年比9%減、有料検索も7%低下。一方で有料ソーシャルは18%増。SNS起点の購買が主流になりつつある。', url:'https://martechlab.gaprise.jp/archives/mtl/apparel-ec-2026-pdp-strategy/', source:'MarTechLab', category:'casual', date:'2026-02-12', fetchedAt:'2026-02-12T00:00:00', read:false, favorited:false, summary:null, summarizing:false },
-  ];
-  for (const item of INITIAL) {
-    if (!articles.find(a => a.id === item.id)) articles.push(item);
+// ---- 開いた画面
+async function renderDetail(k){
+  const d=k.split(":")[0];
+  if(!DAYS[d]){try{DAYS[d]=await getJSON(`data/days/${d}.json`)}catch(e){}}
+  const s=DAYS[d]&&DAYS[d].stories.find(x=>x.key===k);
+  if(!s){$("#app").innerHTML=`<a class="back" href="#/">‹ 一覧に戻る</a><div class="empty">この話題は見つかりませんでした</div>`;return}
+  markRead(k);
+  const q=s.quick||null,todo=!!s.todo;
+  const qrow=(lb,v)=>`<span class="k">${lb}</span><span class="${!v||v===NA?"na":""}">${esc(v||NA)}</span>`;
+  let h=`<a class="back" href="#/">‹ 一覧に戻る</a>`;
+  if(s.image)h+=`<img class="hero" referrerpolicy="no-referrer" src="${esc(s.image)}" alt="" onerror="this.remove()">`;
+  h+=`<div class="meta"><span class="lv ${s.level}">${s.level}</span>${marks(s)}<span class="rs">${esc(laneLabel(s))}</span>
+     <span class="d">${s.first_seen&&s.first_seen!==d?`初報 ${md(s.first_seen)} ・ `:""}更新 ${md(s.latest||d)}</span></div>
+     <div class="h1">${esc(s.summary)}</div>`;
+  if(todo){
+    h+=`<div class="todo-box"><b>追加調査が必要</b><div>本文を読めませんでした（会員記事・取得不可など）。同じ件の無料記事も見つからず、下は<b>見出しから分かることだけ</b>です。</div></div>`;
   }
-  articles.sort((a,b) => new Date(b.fetchedAt) - new Date(a.fetchedAt));
-  saveData();
-  localStorage.setItem('initial_v5_loaded', '1');
+  if(q){
+    h+=`<div class="box"><h4>30秒で${todo||s.body!=="ok"?"（見出しから）":""}</h4><div class="q">${qrow("何が",q.what)}${qrow("いつ",q.when)}${qrow("自分に",q.me)}</div></div>`;
+  }else if(s.why){
+    h+=`<div class="box"><h4>関係</h4><div style="font-size:.85rem">${esc(s.why)}</div></div>`;
+  }
+  const dg=s.diagram||{};
+  if(dg.type==="change"&&dg.rows&&dg.rows.length){
+    h+=`<div class="box"><h4>${esc(dg.title||"変わる所")}</h4><div class="chg">${dg.rows.map(r=>{const vague=!r.before||/^(旧|従来|現行|変更前|改定前)?(価格|料金|運賃)?$/.test(r.before.trim());
+      return `<div class="r"><span class="l">${esc(r.label)}</span><span class="v">${vague?"":`<span class="b">${esc(r.before)}</span><span class="ar" aria-hidden="true">→</span>`}<span class="a">${esc(r.after||"―")}</span></span></div>`}).join("")}</div></div>`;
+  }else if(dg.type==="steps"&&dg.steps&&dg.steps.length){
+    h+=`<div class="box"><h4>${esc(dg.title||"進み具合")}</h4><div class="steps">${dg.steps.map(x=>`<div class="${x.state}">${esc(x.label)}</div>`).join("")}</div></div>`;
+  }else if(dg.type==="impact"&&dg.impact&&dg.impact.length){
+    h+=`<div class="box"><h4>${esc(dg.title||"影響する業務")}</h4><div class="chips">${dg.impact.map(x=>`<span class="chip">${esc(x)}</span>`).join("")}</div></div>`;
+  }
+  if(s.points&&s.points.length){
+    h+=`<div class="box"><h4>もっと詳しく：要点</h4><ol class="pts">${s.points.map(p=>`<li><span>${esc(p)}</span></li>`).join("")}</ol>${s.refill?`<div class="rs" style="margin-top:8px">本文は同じ件の別記事（${esc(s.refill.source)}）から</div>`:""}</div>`;
+  }
+  const qs=s.questions||[];
+  if(qs.length||todo){
+    h+=`<div class="box"><h4>足りない所をClaudeで調べる</h4><div class="chips" id="qs">${qs.map((x,i)=>`<button class="chip on" data-q="${i}">＋${esc(x)}</button>`).join("")}</div>
+      <button class="big" id="askq">Claudeで調べる（見出し＋質問を渡す）</button></div>`;
+  }
+  h+=`<div class="box"><h4>この話題の重要度（翌朝の判定に反映）</h4><div class="rate" style="padding:0">${["S","A","B","C"].map(l=>`<button class="${rate[k]===l?"on":""}" data-r="${l}">${l}</button>`).join("")}</div>
+     ${qs.length||todo?"":`<button class="big" id="ask">Claudeに聞く</button>`}</div>`;
+  const arts=s.articles||[];const un=arts.filter(a=>!vis.has(a.id)).length;
+  h+=`<div class="box arts"><h4>関連記事 ${arts.length}件${un&&arts.length>1?` ／ 未読 ${un}`:""}</h4>${arts.map(a=>`<a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer" data-id="${esc(a.id)}" class="${vis.has(a.id)?"vis":""}"><span class="t">${esc(a.title)}</span><span class="s">${esc(a.source||"")} ・ ${md(a.published)}${vis.has(a.id)?" ・ 既読":""}</span></a>`).join("")}
+     ${s.refill?`<a href="${esc(s.refill.url)}" target="_blank" rel="noopener noreferrer"><span class="t">${esc(s.refill.title)}</span><span class="s">${esc(s.refill.source)} ・ 補った記事</span></a>`:""}</div>`;
+  $("#app").innerHTML=h;window.scrollTo(0,0);
+  $("#app").querySelectorAll(".rate [data-r]").forEach(b=>b.onclick=()=>{setRate(k,b.dataset.r);renderDetail(k)});
+  $("#app").querySelectorAll("[data-id]").forEach(a=>a.addEventListener("click",()=>{markVis(a.dataset.id);setTimeout(()=>renderDetail(k),300)}));
+  $("#app").querySelectorAll("#qs .chip").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
+  const sel=()=>[...$("#app").querySelectorAll("#qs .chip.on")].map(b=>qs[+b.dataset.q]);
+  const ask=$("#ask")||$("#askq");if(ask)ask.onclick=()=>askClaude(s,sel());
 }
-loadSettings();
-cleanOldArticles();
-renderArticles();
-updateCounts();
+function askClaude(s,qs){
+  const q=s.quick||{};
+  const lines=["メンズスーツ専門店のEC・販促担当です。次のニュースについて、最新の情報を調べて教えてください。","",
+    `話題：${s.summary}`];
+  if(q.what&&q.what!==NA)lines.push(`分かっていること：${q.what}${q.when&&q.when!==NA?"（"+q.when+"）":""}`);
+  (s.articles||[]).slice(0,3).forEach(a=>lines.push(`記事：${a.title}（${a.source||""}） ${a.url}`));
+  lines.push("",qs&&qs.length?"知りたいこと："+qs.join("／"):"知りたいこと：自社（EC・メルマガ・DM・送料・価格表示）への影響と、やるべきこと");
+  const text=lines.join("\n");
+  try{navigator.clipboard&&navigator.clipboard.writeText(text)}catch(e){}
+  toast("質問文をコピーしました。入力欄が空なら貼り付けてください");
+  setTimeout(()=>window.open("https://claude.ai/new?q="+encodeURIComponent(text),"_blank","noopener"),400);
+}
+
+// ---- 検索（過去30日）
+let SEARCH={q:"",rival:""};
+async function renderSearch(){
+  $("#app").innerHTML=`<div style="display:flex;gap:10px;align-items:center"><label class="sbox"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+    <input id="q" type="search" enterkeyhint="search" placeholder="キーワードで過去の記事も検索" value="${esc(SEARCH.q)}"></label><a href="#/" style="font-weight:500">閉じる</a></div>
+    <div class="crumb" style="margin:14px 4px 6px">競合で絞る</div><div class="chips">${RIVALS.map(r=>`<button class="chip${SEARCH.rival===r?" on":""}" data-rv="${esc(r)}">${esc(r)}</button>`).join("")}</div>
+    <div id="res"><div class="empty">読み込み中…</div></div>`;
+  const inp=$("#q");let t;inp.oninput=()=>{clearTimeout(t);t=setTimeout(()=>{SEARCH.q=inp.value.trim();SEARCH.rival="";doSearch();$("#app").querySelectorAll("[data-rv]").forEach(b=>b.classList.remove("on"))},250)};
+  $("#app").querySelectorAll("[data-rv]").forEach(b=>b.onclick=()=>{SEARCH.rival=SEARCH.rival===b.dataset.rv?"":b.dataset.rv;SEARCH.q="";inp.value="";$("#app").querySelectorAll("[data-rv]").forEach(x=>x.classList.toggle("on",x.dataset.rv===SEARCH.rival));doSearch()});
+  if(!SEARCH.q&&!SEARCH.rival)inp.focus();
+  const days=(IDX.days||[]).slice(0,30);
+  for(const d of days){if(!DAYS[d]){try{DAYS[d]=await getJSON(`data/days/${d}.json`)}catch(e){}}}
+  doSearch();
+}
+function doSearch(){
+  const res=$("#res");if(!res)return;
+  const pat=SEARCH.rival?(RIVAL_PAT[SEARCH.rival]||new RegExp(SEARCH.rival.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i")):(SEARCH.q?new RegExp(SEARCH.q.split(/\s+/).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|"),"i"):null);
+  if(!pat){res.innerHTML=`<div class="empty">キーワードを入れるか、競合を選んでください</div>`;return}
+  const out=[];
+  Object.keys(DAYS).sort().reverse().forEach(d=>{const doc=DAYS[d];
+    doc.stories.forEach(s=>{const txt=[s.summary,s.story,s.company,...(s.articles||[]).map(a=>a.title)].join(" ");if(pat.test(txt))out.push(s)});
+    (doc.c_items||[]).forEach((c,i)=>{if(pat.test(c.t))out.push({c:true,key:`${d}:c${i}`,level:"C",summary:c.t,url:c.u,lane:c.lane,latest:c.date,tags:[]})});
+  });
+  const label=SEARCH.rival?`${SEARCH.rival} の記事`:`「${SEARCH.q}」`;
+  res.innerHTML=`<div class="crumb" style="margin:14px 4px 0">${esc(label)} ／ 過去${Object.keys(DAYS).length}日 ${out.length}件</div>`+
+    (out.length?`<div class="list">${out.slice(0,150).map(s=>`<div class="row${read.has(s.key)?" read":""}" data-key="${esc(s.key)}" data-url="${esc(s.url||"")}"><div class="body"><div class="badges"><span class="lv ${s.level}">${s.level}</span></div><div class="rt">${esc(s.summary)}</div><div class="rs">${esc(laneLabel(s))} ／ ${md(s.latest)}</div></div></div>`).join("")}</div>`:`<div class="empty">見つかりませんでした</div>`);
+  res.querySelectorAll(".row").forEach(el=>el.onclick=()=>{if(el.dataset.url){window.open(el.dataset.url,"_blank","noopener")}else location.hash="#/s/"+encodeURIComponent(el.dataset.key)});
+}
+
+// ---- 画面の切り替え
+let lastY=0;
+function route(){
+  if(!DAY)return;
+  const h=location.hash||"#/";
+  if(h.startsWith("#/s/"))renderDetail(decodeURIComponent(h.slice(4)));
+  else if(h==="#/search")renderSearch();
+  else{renderList();window.scrollTo(0,lastY)}
+}
+window.addEventListener("hashchange",()=>{route()});
+window.addEventListener("scroll",()=>{if(!location.hash.startsWith("#/s/")&&location.hash!=="#/search")lastY=window.scrollY},{passive:true});
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("on"),2400)}
+// 画面を開き直した時に新しいデータがあれば読み直す
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&LOADED_AT&&Date.now()-LOADED_AT>30*60e3){LOADED_AT=Date.now();OFFLINE=false;load()}});
+window.addEventListener("online",()=>{OFFLINE=false;load()});
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
+LOADED_AT=Date.now();load();
 </script>
 </body>
 </html>
