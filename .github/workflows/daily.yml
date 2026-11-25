@@ -1,18 +1,18 @@
 name: daily
-# 毎朝の更新。GitHubの定時実行は時刻ちょうどに動く保証がないため、本番と予備を設定する。
-#   本番 5:17 JST（= 前日 20:17 UTC）／予備 4:47・5:47・6:07 JST（作成済みなら何もしない）
-#   新しいリポジトリは定時実行が遅れたり飛ばされたりしやすいため、枠を複数用意する
+# 毎朝の更新。本番は Cloudflare（industry-news-cron）が 5:17・5:47 JST に起動し、直近の評価（ratings）を一緒に渡す。
+# GitHub の定時は 6:07 JST（= 21:07 UTC）だけを最後の予備として残す。
+#   それより早い枠があると、評価を持たずに今日の分を先に作ってしまい、評価の反映が翌日にずれるため。
 on:
   schedule:
-    - cron: "47 19 * * *"
-    - cron: "17 20 * * *"
-    - cron: "47 20 * * *"
     - cron: "7 21 * * *"
   workflow_dispatch:
     inputs:
       force:
         description: "作成済みでも作り直す（true/false）"
         default: "false"
+      ratings:
+        description: "画面で付けた評価（Cloudflare が自動で入れる。手動実行では空のまま）"
+        default: ""
 
 permissions:
   contents: write
@@ -37,6 +37,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PROFILE: ${{ secrets.PROFILE }}
+          RATINGS: ${{ inputs.ratings }}
       - name: commit data
         run: |
           git config user.name "github-actions[bot]"
