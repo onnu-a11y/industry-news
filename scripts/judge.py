@@ -166,7 +166,7 @@ def judge(items, token, profile, log, prev_names=None):
                 stats["tokens_in"] += usage.get("prompt_tokens", 0)
                 stats["tokens_out"] += usage.get("completion_tokens", 0)
                 for r in parse(text):
-                    if r.get("id") and r.get("level") in LEVELS:
+                    if isinstance(r, dict) and r.get("id") and r.get("level") in LEVELS:
                         results[r["id"]] = r
                 break
             except urllib.error.HTTPError as e:
@@ -367,6 +367,23 @@ def _story_input(s, b):
     return f"【{kind}】" + "\n".join(head), kind
 
 
+def _loads(text):
+    """AIの応答からJSONを取り出す。前後の説明文・コードの囲み・制御文字・末尾のカンマに耐える。"""
+    t = (text or "").strip()
+    t = re.sub(r"^```(?:json)?|```$", "", t, flags=re.M).strip()
+    m = re.search(r"\{.*\}", t, re.S)
+    if not m:
+        return None
+    t = m.group(0)
+    for cand in (t, re.sub(r",\s*([}\]])", r"\1", t)):
+        try:
+            d = json.loads(cand, strict=False)
+            return d if isinstance(d, dict) else None
+        except json.JSONDecodeError:
+            continue
+    return None
+
+
 def _clean_summary(o, src, kind):
     """出力を整え、入力に無い数字を含む欄は捨てる。"""
     def ok(text):
@@ -422,22 +439,37 @@ def summarize(stories, bodies, token, log, profile):
                 break
             chunk = targets[i:i + SUMMARY_BATCH]
             inputs = {s["key"]: _story_input(s, bodies.get(s["key"])) for s in chunk}
-            user = "\n\n".join(v[0] for v in inputs.values())
-            data = None
-            for attempt in range(4):
-                if stats["requests"] >= budget:
-                    break
-                model = models[attempt % len(models)]
-                stats["requests"] += 1
-                try:
-                    text, _ = call_model([{"role": "system", "content": system}, {"role": "user", "content": user}], model, token)
-                    m = re.search(r"\{.*\}", text, re.S)
-                    data = json.loads(m.group(0)) if m else None
-                    if data:
-                        break
-                except Exception as e:  # noqa: BLE001
-                    log(f"summary {i // SUMMARY_BATCH}: {type(e).__name__} {getattr(e, 'code', '')} on {model}")
-                    time.sleep(min(15 * (attempt + 1), 45))
+
+            def ask(keys, tries):
+                user = "\n\n".join(inputs[k][0] for k in keys)
+                for attempt in range(tries):
+                    if stats["requests"] >= budget:
+                        return None
+                    model = models[(attempt + stats["requests"]) % len(models)]
+                    stats["requests"] += 1
+                    try:
+                        text, _ = call_model([{"role": "system", "content": system}, {"role": "user", "content": user}], model, token)
+                        d = _loads(text)
+                        if d:
+                            return d
+                        log(f"summary {i // SUMMARY_BATCH}: 読めない応答 on {model}")
+                    except Exception as e:  # noqa: BLE001
+                        log(f"summary {i // SUMMARY_BATCH}: {type(e).__name__} {getattr(e, 'code', '')} on {model}")
+                        time.sleep(min(15 * (attempt + 1), 45))
+                return None
+
+            data = ask(list(inputs), 3)
+            items = list((data or {}).get("items", []))
+            got_keys = {str(o.get("key")) for o in items if isinstance(o, dict)}
+            missing = [k for k in inputs if k not in got_keys]
+            if missing and len(inputs) > 1:  # 束で失敗した話題は1話題ずつ（応答が短くなり読み取りやすい）
+                for k in missing:
+                    one = [o for o in (ask([k], 2) or {}).get("items", []) if isinstance(o, dict)]
+                    if len(one) == 1:
+                        one[0]["key"] = k  # 1話題だけ聞いたので、keyの書き間違いがあっても対応づける
+                    items += one
+                    time.sleep(4)
+            data = {"items": items}
             got = {str(o.get("key")): o for o in (data or {}).get("items", []) if isinstance(o, dict)}
             for s in chunk:
                 o = got.get(s["key"])
