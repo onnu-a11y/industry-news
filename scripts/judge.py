@@ -39,8 +39,26 @@ S＝最重要。「読み手の会社が今すぐ確認・対応すべきこと�
  ・ECサイトやWebの基盤（PHP、WordPress、カートシステム、決済、メール配信、LINE等）の重大な脆弱性・大規模障害・規約変更、公的機関（IPA・JPCERT等）の注意喚起
  ・直接競合の経営の大きな動き（統合・買収・撤退・大規模閉店・全面的な価格改定）
  ※次はSにしない（Aにする）：他社の情報漏えい・事故の報道、制度をめぐる国会の駆け引き・審議日程・賛否の論評・世論調査。
-A＝重要。直接競合の新商品・新サービス・販促・出店閉店・決算、他社ECの情報漏えい事故（再発防止の教訓）、制度の審議の動き、EC・CRM・販促の実務に使える事例、消費・物価・為替の大きな変化、アパレル大手の戦略的な動き。
-B＝参考。ファッション・アパレル全般の話題、小売一般、経済一般、テクノロジー一般で、読み手の業界と少しでも接点があるもの。
+ ※1つの道県・市町村だけの話（関東1都6県・関西2府4県を除く）はSにしない。仕事に関わるならA、そうでなければB。
+A＝重要。次のいずれか。
+ ・直接競合（上の前提メモの社名に限る）の新商品・新サービス・販促・出店閉店・決算
+ ・ユニクロ・ワークマン・しまむら・無印良品などスーツ専門店以外の大手は、決算・経営戦略・価格改定・スーツやビジネスウェアへの参入だけ
+ ・他社の情報漏えい・不正アクセスのうち、EC・通販・決済・メール配信が関わるもの、または100万件以上のもの
+ ・制度の審議の山場（成立の見通し・施行日・税率・対象が動いた）
+ ・EC・CRM・販促の実務にそのまま使える具体的な事例
+ ・日経平均・TOPIXが前日比2%以上動いた、または節目を越えた日の市況
+ ・日銀の金融政策の決定、利上げ時期の見方の大きな変化
+ ・消費者物価・個人消費・賃金・月例経済報告・GDPなど主要統計の公表
+ ・為替が節目（155円・160円など）を越えた、または1日に1円以上動いた
+ ・アパレル大手の戦略的な動き
+B＝参考。次はAではなくBにする（ただし大きく報道されている・業界で前例のない取り組みならA）。
+ ・商品のレビュー・おすすめ・口コミ・ランキング・セール紹介の記事（どの会社でも）
+ ・セミナー・ウェビナーの告知、資料の無料公開、サービスの宣伝
+ ・アナリスト評価・株価予想の小幅な変動
+ ・上の条件に当たらない他社の情報漏えい
+ ・毎日の為替・株式の見通しや市況コメント（節目を越えていない日）、制度をめぐる政局（問責・辞任・党の駆け引き）
+ ・論評・コラム・研究所のレポート・インタビュー（統計や決定そのものの公表はA）
+ ・そのほか、ファッション・アパレル全般、小売一般、経済一般、テクノロジー一般で、読み手の業界と少しでも接点があるもの。
 C＝対象外。芸能・エンタメ、スーツ以外の意味の「スーツ」、海外政治の詳細、読み手の仕事と接点がないもの。"""
 
 SYSTEM = """あなたは日本のアパレル小売企業向けのニュース編集者です。与えられた記事一覧を、読み手の仕事にとっての重要度で判定し、JSONだけを返します。
@@ -49,11 +67,12 @@ SYSTEM = """あなたは日本のアパレル小売企業向けのニュース�
 {rubric}
 
 出力ルール:
-- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…"}}]}}
+- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…","theme":"…"}}]}}
 - summary: 何が起きたかを主語・数字を残して40字以内の日本語で。見出しの言い換えで構わないが、煽り表現は削る。
 - why: S/Aのみ。読み手の仕事にどう関係するかを30字以内で。B/Cは空文字。
 - tags: 次から1〜2個 {tags}
 - company: 主役の企業名（なければ空文字）
+- theme: 同じ政策・同じ出来事の流れを表す短い名前（例：「消費税減税法案」「楽天証券の情報漏えい」）。同じ流れの記事には必ず同じ名前を付ける。「不正アクセス全般」「ユニクロの新商品」のような分野・会社のくくりは不可で、その場合は空文字
 - 入力の全idについて必ず1件ずつ返す。"""
 
 
@@ -204,6 +223,7 @@ def judge(items, token, profile, log, prev_names=None, examples=""):
                 "why": (r.get("why") or "")[:50] if r["level"] in ("S", "A") else "",
                 "tags": [t for t in r.get("tags", []) if t in TAGS][:2],
                 "company": (r.get("company") or "")[:30],
+                "theme": (r.get("theme") or "").strip()[:30] if isinstance(r.get("theme"), str) else "",
             })
         else:  # AIで判定できなかった記事はキーワードのルールで判定する
             merged.update(rule_judge(it))
@@ -317,6 +337,76 @@ def group_stories(items):
         })
     stories.sort(key=lambda x: (order[x["level"]], -len(x["articles"]), x["latest"]), reverse=False)
     return stories
+
+
+# ---------------------------------------------------------------- M4-6：判定の上限と「大きく報道」の引き上げ
+# AIの判断がぶれても確実に効くよう、話題（カード）単位でかける。
+NON_KK = ("北海道|青森|岩手|宮城|秋田|山形|福島|新潟|富山|石川|福井|山梨|長野|岐阜|静岡|愛知|三重|鳥取|島根|岡山|広島|山口"
+          "|徳島|香川|愛媛|高知|福岡|佐賀|長崎|熊本|大分|宮崎|鹿児島|沖縄")
+RE_REGION = re.compile(rf"(?:{NON_KK})(?:県|道|市|労働局)?|県内|市内|町内|村内|地元")
+RE_NATIONAL = re.compile(r"全国|政府|国会|閣議|全店|国内全|全都道府県")
+RE_REVIEW = re.compile(r"レビュー|試着|購入レポ|口コミ|絶賛|好評|狙い目|即買い|おすすめ|オススメ|\d+選|ランキング|第\d+位|使い心地|買ってよかった"
+                       r"|色違い|写真特集|＜画像|<画像|忖度なし|コスパ|買い逃|\d+アイテム|即完|お値段以上|驚いた")
+RE_PROMO = re.compile(r"セミナー|ウェビナー|オンライン開催|資料.{0,6}(?:公開|ダウンロード|プレゼント)|無料公開|アナリスト(?:評価|予想)|目標株価|レーティング|株予報")
+# スーツ専門店以外の大手は、経営の動き（決算・戦略・価格改定・出店閉店・参入）以外はBまで
+RE_MASS = re.compile(r"ユニクロ|ワークマン|しまむら|無印良品|ジーユー|\bGU\b|アベイル")
+RE_MASS_BIZ = re.compile(r"決算|業績|売上|営業利益|社長|戦略|値上げ|価格改定|出店|閉店|オープン|参入|買収|提携|上場|株価|不正アクセス|漏え|流出|障害")
+# 毎日の相場コメントはBまで（節目越え・急変・「○年ぶり」などの大きな動きはAのまま）
+RE_MARKET = re.compile(r"見通し|もみ合い|上値重|下値堅|底堅|注文情報|市況概況|マーケットダイジェスト|外為：|為替：|NY円|東京外為|東京為替|欧州為替|NY為替|予想レンジ|今日の外為|相場展望|を挟んだ取り引き|小幅な値動き")
+RE_BIGMOVE = re.compile(r"突破|割れ|超え|ぶり(?:の)?(?:高|安|水準)|急騰|急落|大幅|[0-9０-９,，]{4,}円(?:高|安|値上がり|値下がり)")
+BIG_MIN_ARTICLES, BIG_MIN_OUTLETS = 8, 4
+
+
+def finalize(stories, items, log=print):
+    """上限（地域はSにしない／レビュー・告知・株価予想はBまで）をかけ、同じテーマが大きく報道された日は代表1件をSにする。"""
+    order = {l: i for i, l in enumerate(LEVELS)}
+    st = {"region": 0, "review": 0, "promo": 0, "big": []}
+    for s in stories:
+        if s["level"] not in ("S", "A"):
+            continue
+        heads = " ".join(a["title"] for a in s["articles"][:3]) + " " + (s.get("summary") or "")
+        lead = s["articles"][0]["title"] if s["articles"] else ""
+        if RE_REVIEW.search(lead):
+            s["level"], s["capped"] = "B", "review"; st["review"] += 1
+        elif RE_MASS.search(lead) and not RE_MASS_BIZ.search(lead):
+            s["level"], s["capped"] = "B", "review"; st["review"] += 1
+        elif RE_MARKET.search(lead) and not RE_BIGMOVE.search(lead):
+            s["level"], s["capped"] = "B", "market"; st["market"] = st.get("market", 0) + 1
+        elif RE_PROMO.search(lead):
+            s["level"], s["capped"] = "B", "promo"; st["promo"] += 1
+        elif s["level"] == "S" and RE_REGION.search(heads) and not RE_NATIONAL.search(heads):
+            s["level"], s["capped"] = "A", "region"; st["region"] += 1
+        if s.get("capped"):
+            s["why"] = s["why"] if s["level"] == "A" else ""
+    # テーマごとの記事数・媒体数（C以外の記事を数える）
+    by_theme = {}
+    for it in items:
+        t = (it.get("theme") or "").strip()
+        if t and it.get("level") != "C":
+            d = by_theme.setdefault(t, {"n": 0, "outlets": set()})
+            d["n"] += 1
+            d["outlets"].add((it.get("sources") or [""])[0])
+    id_theme = {it["id"]: (it.get("theme") or "").strip() for it in items}
+    for s in stories:
+        ts = [id_theme.get(a["id"], "") for a in s["articles"]]
+        ts = [t for t in ts if t]
+        s["theme"] = max(set(ts), key=ts.count) if ts else ""
+    for t, d in by_theme.items():
+        if d["n"] < BIG_MIN_ARTICLES or len(d["outlets"]) < BIG_MIN_OUTLETS:
+            continue
+        cand = [s for s in stories if s.get("theme") == t and s["level"] in ("S", "A")]
+        for s in stories:
+            if s.get("theme") == t:
+                s["big"] = d["n"]
+        if not cand:
+            continue
+        if not any(s["level"] == "S" for s in cand):
+            rep = sorted(cand, key=lambda s: (order[s["level"]], -len(s["articles"]), -len(s.get("sources") or [])))[0]
+            rep["level"], rep["boosted"] = "S", True
+        st["big"].append(f"{t}:{d['n']}本/{len(d['outlets'])}媒体")
+    stories.sort(key=lambda x: (order[x["level"]], -len(x["articles"]), x.get("latest") or ""))
+    log(f"上限：地域{st['region']}件・レビュー{st['review']}件・告知等{st['promo']}件・相場コメント{st.get('market', 0)}件／大きく報道：{'、'.join(st['big']) or 'なし'}")
+    return st
 
 
 # ---------------------------------------------------------------- M4-3②：S・Aの話題の要約（30秒・要点・図解）

@@ -232,6 +232,13 @@ def main():
                     s["first_seen"] = str(d)
                     break
 
+    # 3.4) M4-6：上限（地域・レビュー・告知）と「大きく報道」の引き上げ。失敗しても続行
+    final_stats = {}
+    try:
+        final_stats = judge.finalize(stories, judged, log)
+    except Exception as e:  # noqa: BLE001
+        log(f"finalize: {type(e).__name__}。上限なしで続行します")
+
     # 3.5) M4-3：S・Aの本文・写真 → 要約（30秒・要点・図解）。どちらも失敗したら見出しモードで続行
     bodies, enrich_stats, sum_stats = {}, {"mode": "headline"}, {}
     try:
@@ -253,7 +260,7 @@ def main():
     save(day_path, {
         "date": str(today), "generated": now.isoformat(timespec="minutes"), "hours": hours,
         "stats": dict({k: stats.get(k) for k in ("model", "requests_sent", "failed_batches", "cluster_requests")},
-                      enrich=enrich_stats, summary=sum_stats),
+                      enrich=enrich_stats, summary=sum_stats, final=final_stats),
         "counts": {l: sum(1 for s in stories if s["level"] == l) for l in "SABC"},
         "stories": keep,
         "c_items": c_items,
