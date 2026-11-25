@@ -354,6 +354,9 @@ RE_MASS_BIZ = re.compile(r"決算|業績|売上|営業利益|社長|戦略|値�
 # 毎日の相場コメントはBまで（節目越え・急変・「○年ぶり」などの大きな動きはAのまま）
 RE_MARKET = re.compile(r"見通し|もみ合い|上値重|下値堅|底堅|注文情報|市況概況|マーケットダイジェスト|外為：|為替：|NY円|東京外為|東京為替|欧州為替|NY為替|予想レンジ|今日の外為|相場展望|を挟んだ取り引き|小幅な値動き")
 RE_BIGMOVE = re.compile(r"突破|割れ|超え|ぶり(?:の)?(?:高|安|水準)|急騰|急落|大幅|[0-9０-９,，]{4,}円(?:高|安|値上がり|値下がり)")
+# 大ヒット・記録・革新の言葉がある記事は上限をかけない（AIの判定を残す）
+RE_HIT = re.compile(r"大ヒット|ヒット商品|完売|売り切れ|品薄|過去最高|最高益|記録的|販売数.{0,6}(?:突破|超)|[0-9０-９]+万(?:枚|着|個|本|足)"
+                    r"|社会現象|業界初|世界初|日本初|国内初|新業態|新サービス|生成AI|\bAI\b|ＡＩ|DX")
 BIG_MIN_ARTICLES, BIG_MIN_OUTLETS = 8, 4
 
 
@@ -361,23 +364,6 @@ def finalize(stories, items, log=print):
     """上限（地域はSにしない／レビュー・告知・株価予想はBまで）をかけ、同じテーマが大きく報道された日は代表1件をSにする。"""
     order = {l: i for i, l in enumerate(LEVELS)}
     st = {"region": 0, "review": 0, "promo": 0, "big": []}
-    for s in stories:
-        if s["level"] not in ("S", "A"):
-            continue
-        heads = " ".join(a["title"] for a in s["articles"][:3]) + " " + (s.get("summary") or "")
-        lead = s["articles"][0]["title"] if s["articles"] else ""
-        if RE_REVIEW.search(lead):
-            s["level"], s["capped"] = "B", "review"; st["review"] += 1
-        elif RE_MASS.search(lead) and not RE_MASS_BIZ.search(lead):
-            s["level"], s["capped"] = "B", "review"; st["review"] += 1
-        elif RE_MARKET.search(lead) and not RE_BIGMOVE.search(lead):
-            s["level"], s["capped"] = "B", "market"; st["market"] = st.get("market", 0) + 1
-        elif RE_PROMO.search(lead):
-            s["level"], s["capped"] = "B", "promo"; st["promo"] += 1
-        elif s["level"] == "S" and RE_REGION.search(heads) and not RE_NATIONAL.search(heads):
-            s["level"], s["capped"] = "A", "region"; st["region"] += 1
-        if s.get("capped"):
-            s["why"] = s["why"] if s["level"] == "A" else ""
     # テーマごとの記事数・媒体数（C以外の記事を数える）
     by_theme = {}
     for it in items:
@@ -391,6 +377,30 @@ def finalize(stories, items, log=print):
         ts = [id_theme.get(a["id"], "") for a in s["articles"]]
         ts = [t for t in ts if t]
         s["theme"] = max(set(ts), key=ts.count) if ts else ""
+    for s in stories:
+        d = by_theme.get(s.get("theme") or "")
+        if d and d["n"] >= BIG_MIN_ARTICLES and len(d["outlets"]) >= BIG_MIN_OUTLETS:
+            s["big"] = d["n"]
+    for s in stories:
+        if s["level"] not in ("S", "A"):
+            continue
+        heads = " ".join(a["title"] for a in s["articles"][:3]) + " " + (s.get("summary") or "")
+        lead = s["articles"][0]["title"] if s["articles"] else ""
+        exempt = bool(s.get("big") or RE_HIT.search(lead))  # 大きく報道・大ヒット・革新の話題はBへの上限をかけない
+        if exempt:
+            pass
+        elif RE_REVIEW.search(lead):
+            s["level"], s["capped"] = "B", "review"; st["review"] += 1
+        elif RE_MASS.search(lead) and not RE_MASS_BIZ.search(lead):
+            s["level"], s["capped"] = "B", "review"; st["review"] += 1
+        elif RE_MARKET.search(lead) and not RE_BIGMOVE.search(lead):
+            s["level"], s["capped"] = "B", "market"; st["market"] = st.get("market", 0) + 1
+        elif RE_PROMO.search(lead):
+            s["level"], s["capped"] = "B", "promo"; st["promo"] += 1
+        if s["level"] == "S" and RE_REGION.search(heads) and not RE_NATIONAL.search(heads):
+            s["level"], s["capped"] = "A", "region"; st["region"] += 1
+        if s.get("capped"):
+            s["why"] = s["why"] if s["level"] == "A" else ""
     for t, d in by_theme.items():
         if d["n"] < BIG_MIN_ARTICLES or len(d["outlets"]) < BIG_MIN_OUTLETS:
             continue
