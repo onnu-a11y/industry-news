@@ -26,12 +26,19 @@
    "failed": 15,
    "dropped_fields": 2,
    "demoted": 0
+  },
+  "final": {
+   "region": 0,
+   "review": 0,
+   "promo": 0,
+   "big": [],
+   "market": 1
   }
  },
  "counts": {
-  "S": 2,
-  "A": 59,
-  "B": 151,
+  "S": 1,
+  "A": 38,
+  "B": 173,
   "C": 59
  },
  "stories": [
@@ -81,51 +88,8 @@
     "title": ""
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "S",
-   "summary": "愛媛県で特定最低賃金が12月25日から引き上げ",
-   "why": "店舗運営における人件費計算と賃金規定の確認が必要なため。",
-   "tags": [
-    "制度・法令"
-   ],
-   "company": "",
-   "lanes": [
-    "economy"
-   ],
-   "sources": [
-    "愛媛新聞"
-   ],
-   "latest": "2026-11-24T17:51:42+09:00",
-   "articles": [
-    {
-     "id": "f56d8aed4328",
-     "title": "県内特定最低賃金、12月25日から引き上げ 愛媛労働局",
-     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9PeVozX2hnalFockRKSW9DdVVrWUtIMnVLNHZuTldtckpBQWp3MVk3RDAyVUlHN0JvOHplQ2UxS0pEMXltOUhkZ1J5aW9GbmdXcFoybUthelFscFkwdzJFUQ?oc=5",
-     "source": "愛媛新聞",
-     "published": "2026-11-24T17:51:42+09:00",
-     "level": "S",
-     "src_url": "https://www.ehime-np.co.jp/article/news202611240213"
-    }
-   ],
-   "key": "2026-11-25:f56d8aed4328",
-   "image": "https://www.ehime-np.co.jp/media/images/news/20261124/imgffa6b054b8d5cc2a.jpeg?2",
-   "body": "partial",
-   "quick": {
-    "what": "愛媛県で特定最低賃金が引き上げ",
-    "when": "2026年12月25日から",
-    "me": "記事に記載なし"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [
-    "自社への影響は？"
-   ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "楽天証券情報漏えい",
@@ -194,7 +158,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "京王電鉄情報漏えい",
@@ -262,7 +227,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "PLANT情報流出",
@@ -319,7 +285,8 @@
     "title": ""
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "タワレコ情報流出",
@@ -383,7 +350,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "ヴェレダ情報流出",
@@ -446,69 +414,8 @@
     ]
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ビジネスアイテム人気ランキング（2026年10月）",
-   "why": "競合製品の市場での注目度を把握するため。",
-   "tags": [
-    "競合",
-    "トレンド"
-   ],
-   "company": "ワークマン",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "MonoMax web",
-    "ニコニコニュース"
-   ],
-   "latest": "2026-11-24T21:00:54+09:00",
-   "articles": [
-    {
-     "id": "4f937d121dee",
-     "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほか【ビジネスアイテムの人気記事ランキングベスト3】（2026年10月版） | 【公式】モノマックス（MonoMax）｜付録、カバン、時計、家電、カップ麺などの情報を",
-     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1zaFRWaEI1UFpxUTdEY2NRSmZXWEswUnV2cEVfV19WdmtKSDJURUZoS1pLSWxhYnhMajVrTDhkOS1lTHN0OTFQTk93RQ?oc=5",
-     "source": "MonoMax web",
-     "published": "2026-11-24T21:00:54+09:00",
-     "level": "A",
-     "src_url": "https://monomax.jp/archives/373873/"
-    },
-    {
-     "id": "8a5aae92d593",
-     "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほ",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Gek1HeTJPVVFZRlA5Q1lwcE93eFFyT3A4NVpDMktWWXR1cjh4U1ZRcUd3SEJUbzRPX1loS3NyMmNQa2NhWFVNZEozZTJXV09ORkhVVlpERDlWUnpSV0s3YTZVYWhIY2ZtRlpiOFVHQlZuWmc?oc=5",
-     "source": "ニコニコニュース",
-     "published": "2026-11-24T21:03:31+09:00",
-     "level": "A",
-     "src_url": "https://news.nicovideo.jp/watch/nw20026197?news_ref=search_search"
-    }
-   ],
-   "key": "2026-11-25:4f937d121dee",
-   "image": "https://monomax.jp/official/wp-content/uploads/2026/11/IMG_4865_result.webp",
-   "body": "ok",
-   "quick": {
-    "what": "2026年10月ビジネスアイテムランキング発表",
-    "when": "2026年10月",
-    "me": "高機能化するビジネスウェアやバッグのトレンドを自社の品揃え・訴求に活かす。"
-   },
-   "points": [
-    "3位はace.の最高峰バッグEVL-4.0の直営店限定ネイビー",
-    "2位はリーガルの最新素材を採用した進化系ローファー",
-    "1位は上下約9000円のワークマンリカバリースーツ"
-   ],
-   "diagram": {
-    "type": "impact",
-    "title": "トレンド調査",
-    "impact": [
-     "競合調査",
-     "価格設定"
-    ]
-   },
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "六花亭情報流出",
@@ -571,7 +478,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -623,360 +531,8 @@
     ]
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロのパンツが「質感と価格」で好評",
-   "why": "競合の価格訴求と顧客満足度のポイント把握のため。",
-   "tags": [
-    "競合",
-    "消費・市況"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T07:45:00+09:00",
-   "articles": [
-    {
-     "id": "3251de5da6a0",
-     "title": "「これ買っておけば間違いない」ユニクロのパンツが好評「ゆったりはけてスッキリ見え」「この質感でこの価格は神」",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1eS1jOTMtV1d2XzRWUEQxdWotTEE5WDF4YzRjZnZjRDNMTzhhUllNZmFnenpCbkc0R2lENm9KZ0xGZFVveTJ4MUZNZG51QlhEeVZCMXNkUm10OVI2eEp3aUpxSmhuQmZXTExNNnZWLXJLN2VOTzZpbVQ3WXlPdjg?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T07:45:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/369910bba67ed6386d2d26d1d2a65e4da4add4d6"
-    }
-   ],
-   "key": "2026-11-25:3251de5da6a0",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178466-it_favlog-000-1-view.jpg?exp=10800",
-   "body": "ok",
-   "quick": {
-    "what": "ユニクロのタックリラックスワイドパンツが質感と価格で好評",
-    "when": "2026年11月22日時点",
-    "me": "競合のトレンド商品や価格帯、訴求文句を自社の企画・販促に活かす。"
-   },
-   "points": [
-    "微起毛による暖かみと上質感のある生地を採用",
-    "縦横に伸びる素材で動きやすく快適な着心地を実現",
-    "すっきり見えるシルエットとリラックス感を両立",
-    "標準丈と丈長めをオンラインストア等で販売中"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "しまむらの大人かわいいバッグが紹介",
-   "why": "競合他社の周辺雑貨のトレンドと訴求方法の参考に",
-   "tags": [
-    "新商品・サービス",
-    "競合"
-   ],
-   "company": "しまむら",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T09:45:00+09:00",
-   "articles": [
-    {
-     "id": "64c804d43b40",
-     "title": "もう他のバッグが使えなくなる…！しまむらの「大人かわいいバッグ」背負ったまま財布が出せて感動！《購入レビュー》",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1EbnVLTXo1UXJJVUJkTTFIT0tVYXZUcHEyb0RleWtMTnFneUowUmVvLVlRZGhhbXVKYnd6M25DUUlSTzA4WkxJRDFZQ05ZTHpNcDNMaVN3NGlucjVUNUlvSkdVM3UwZTlucEFYVFVQUFk0TTkwZEtfbDdQZkREVFk?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T09:45:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/3de524862e80258241ae89be8ff90d86f5f09851"
-    }
-   ],
-   "key": "2026-11-25:64c804d43b40",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00403933-diamond-000-2-view.jpg?exp=10800",
-   "body": "ok",
-   "quick": {
-    "what": "しまむらの3WAYで使える大人かわいいバッグを紹介",
-    "when": "記事に記載なし",
-    "me": "異素材デザインや機能的な収納など、雑貨展開の参考になる。"
-   },
-   "points": [
-    "価格は2970円で、ブラックとアイボリーの2色展開",
-    "ポリエステル製の軽量生地とフェイクレザーの持ち手",
-    "リュックやボディバッグにもなる3WAY仕様",
-    "3つのスペースに分かれており荷物をスッキリ整理可能"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [
-    "いつから適用？"
-   ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ワークマン新作ボアフリースジャケットが発売",
-   "why": "競合他社の秋冬低価格アウターの展開状況把握に",
-   "tags": [
-    "新商品・サービス",
-    "競合"
-   ],
-   "company": "ワークマン",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "LIMO | くらしとお金の経済メディア"
-   ],
-   "latest": "2026-11-24T10:10:00+09:00",
-   "articles": [
-    {
-     "id": "cdae5195c956",
-     "title": "1990円で真冬も暖かい！ワークマン新作〈ボアフリースジャケット〉が見た目以上に軽くて、使い心地抜群！ワンマイルコーデにも休日のお出かけにも ブラックやパープルなど5色を展開！スナップボタンでさっと羽織れます | 概要 | LIMO | くらしとお金の経済メディア",
-     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFB2X3g1c2xpal9NMzlFR3NURHFULWtMNWEtSmZ4LWY2X3NCandzLTlnSk4xWTZHS21hVmNGdThTU3o0WDRWdkhVbWdBVm0?oc=5",
-     "source": "LIMO | くらしとお金の経済メディア",
-     "published": "2026-11-24T10:10:00+09:00",
-     "level": "A",
-     "src_url": "https://limo.media/articles/-/146933"
-    }
-   ],
-   "key": "2026-11-25:cdae5195c956",
-   "image": "https://img.limo.media/mw/7e08fbe2601118b7fdd81dd16967149695502.jpg?v=1&variant=ogp",
-   "body": "ok",
-   "quick": {
-    "what": "ワークマンの新作ボアフリースジャケットを紹介",
-    "when": "記事に記載なし",
-    "me": "防寒衣料のトレンドや価格帯の競合動向を把握する。"
-   },
-   "points": [
-    "1990円で真冬も暖かいボアフリースジャケットが発売",
-    "ブラックやパープルなど5色を展開",
-    "スナップボタンでさっと羽織れる仕様"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [
-    "いつから適用？"
-   ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロからハローキティ新作UTが12月7日発売",
-   "why": "競合のコラボ施策と商品展開の参考のため。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "インサイド"
-   ],
-   "latest": "2026-11-24T10:15:03+09:00",
-   "articles": [
-    {
-     "id": "d4332acd6bde",
-     "title": "ユニクロから「ハローキティ」新作UTが12月7日発売！「リボン」にフィーチャーした、大人向けのシンプルな4デザイン",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9oRU1aRHc0WHNtanFYQW9EaklhVlhzVFJGem1uOVgxaUdmSUpMcGdyOGpwMFZnWFVaYzlSY3g2N3V3MDFzVGkzRjE3YXRHandoRGxtekFqX0F3LS1NQ0ZsSE85Rm5ZOVM5eEE?oc=5",
-     "source": "インサイド",
-     "published": "2026-11-24T10:15:03+09:00",
-     "level": "A",
-     "src_url": "https://www.inside-games.jp/article/2026/11/24/191449.html"
-    }
-   ],
-   "key": "2026-11-25:d4332acd6bde",
-   "image": "https://www.inside-games.jp/imgs/ogp_f/1798887.jpg",
-   "body": "ok",
-   "refill": {
-    "source": "collabo-cafe.com",
-    "title": "ハローキティ × ユニクロ リボンがテーマのUT 12月上旬より発売!",
-    "url": "https://collabo-cafe.com/events/collabo/hellokitty-uniqlo-ut-ribbon-2026/",
-    "sim": 0.48
-   },
-   "quick": {
-    "what": "ユニクロがハローキティ新作UTを12月7日発売",
-    "when": "2026年12月上旬",
-    "me": "大手アパレルのキャラクターコラボ企画の動きを確認する。"
-   },
-   "points": [
-    "ハローキティを彩るリボンにフィーチャーしたデザイン",
-    "2026年12月上旬より一部店舗とオンラインストアで発売",
-    "ボクシーフィットのTシャツ全4種で、各1990円",
-    "サイズはWOMENのXSから3XLまで展開"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "しまむらのブラックフライデーが11月25日から開催",
-   "why": "競合他社の大規模販促・集客施策の動向把握に",
-   "tags": [
-    "EC・販促",
-    "競合"
-   ],
-   "company": "しまむら",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "やしおん"
-   ],
-   "latest": "2026-11-24T11:22:11+09:00",
-   "articles": [
-    {
-     "id": "84689089919b",
-     "title": "しまむらのブラックフライデー、いよいよ11月25日から",
-     "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE1acE51WXk4WHJwUjJEMklTV3F5TVZpYVZfa3A5TWRLVlY2bTd4SVByMGk4R1F4Q1VrYlY0OGNyZnplblE?oc=5",
-     "source": "やしおん",
-     "published": "2026-11-24T11:22:11+09:00",
-     "level": "A",
-     "src_url": "https://yashion.jp/news/47596"
-    }
-   ],
-   "key": "2026-11-25:84689089919b",
-   "image": "https://yashion.jp/contents/uploads/2026/11/main-33.jpg",
-   "body": "ok",
-   "quick": {
-    "what": "しまむらがブラックフライデーセールを11月25日から開催",
-    "when": "2026年11月25日から",
-    "me": "年末商戦に向けた他社の大型セール手法や集客施策を調査する。"
-   },
-   "points": [
-    "11月25日から冬アウターや寝具などを特別価格で販売",
-    "26日と27日には日替わり商品が登場",
-    "27日には黒にちなんだ本体96円の商品を販売",
-    "Webチラシにはモノクロのキャラクター限定商品も掲載"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロのカシミヤ100％セーターが9990円で好評",
-   "why": "競合の価格戦略と顧客の購買動機の分析のため。",
-   "tags": [
-    "競合",
-    "消費・市況"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T12:30:36+09:00",
-   "articles": [
-    {
-     "id": "541b602c81b3",
-     "title": "色違いで欲しくなる！＞【ユニクロ】カシミヤ100％セーターが9990円。「肌触りが最高」「これで4着目」 (婦人公論.jp)",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPY05CWUVHdy1DdVhRXzhHa2VXZVlPRWtPaW5PYzBoY2FJOFdxWGJBSjNxSlZpX0FMYnYxbUpuclJxc0tUR2hPZW0xdmhNb0poeW9YQThXcXNnX0FnQ3loOEFEWnVWZDhXRUJ4alQxak1ucjFXOG1OcVRsbTFKUzNOcG16REhfUjNQOGpuSFp3?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T12:30:36+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/9d5339fabd0e37b5ff4feab208767a0a88aa5a61/images/000"
-    }
-   ],
-   "key": "2026-11-25:541b602c81b3",
-   "image": "https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFhNrRI0RUQxg5aFkrX0xDg1_T0wXrbEJjtNGtrf1o9y32aKHaE9S6KKOAHNM7AL26vQh2pDR1rS3NXCqFgtim8RJ5ciDwKm-w2iF4UaUJNrMo5oDsJDpvFCGA19LZqcjnT4z6RQQrL1k9Vdbg7j9YFV7-qB9WK0BfZ-Io_VTn4nN",
-   "body": "ok",
-   "refill": {
-    "source": "topics.smt.docomo.ne.jp",
-    "title": "＜色違いで欲しくなる！＞【ユニクロ】カシミヤ100％セーターが9990円。「肌触りが最高」「これで4着目」",
-    "url": "https://topics.smt.docomo.ne.jp/amp/article/fujinkoron/life/fujinkoron-25000",
-    "sim": 1.0
-   },
-   "quick": {
-    "what": "ユニクロのカシミヤ100％セーターが9990円で好評",
-    "when": "2026年11月26日まで",
-    "me": "素材訴求や価格設定のベンチマークとして動向を注視する。"
-   },
-   "points": [
-    "カシミヤクルーネックセーターが期間限定の9990円で販売",
-    "手洗い可能で、ふくらみ感のあるカシミヤ100％を使用",
-    "全25色の豊富なカラーバリエーションを展開",
-    "サイズはXSから3XLまでの7種類を用意"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロ、ハローキティ新作UTを12月7日発売",
-   "why": "競合のコラボ施策と商品展開の参考のため。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "トラベル Watch",
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T12:47:37+09:00",
-   "articles": [
-    {
-     "id": "d0b754fb323c",
-     "title": "ユニクロ、「ハローキティ」新作ボクシーTは12月7日発売。“リボン”テーマに大人のシンプルデザイン全4種",
-     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vSndlY1h4MVlPMHlOMmFtclN4cVFET28xWE1DQWY3UTB5a0RSb2F4ZTNrdzRjbm1XS3NEOUZ3dDN3SkVXUHNEemN1OHIxeUswTUFzMjdkVlgxRGNtX0pXdzNJNWNJbEFC?oc=5",
-     "source": "トラベル Watch",
-     "published": "2026-11-24T12:47:37+09:00",
-     "level": "A",
-     "src_url": "https://travel.watch.impress.co.jp/docs/news/2158676.html"
-    }
-   ],
-   "key": "2026-11-25:d0b754fb323c",
-   "image": "https://travel.watch.impress.co.jp/img/trw/list/2158/676/01.jpg",
-   "body": "partial",
-   "quick": {
-    "what": "ユニクロがハローキティの新作UTを発売",
-    "when": "2026年12月7日",
-    "me": "大手アパレルのキャラクターコラボや価格帯のトレンドを把握する。「記事に記載なし」"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1026,7 +582,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1083,7 +640,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1128,7 +686,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1178,7 +737,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1242,7 +802,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1292,74 +853,8 @@
     ]
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロの新作ダウンジャケットの試着レビュー",
-   "why": "競合の機能性訴求や商品レビューの構成の参考のため。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T15:04:00+09:00",
-   "articles": [
-    {
-     "id": "948896e7597e",
-     "title": "【ユニクロ】新作「リバーシブルダウンショートジャケット」を試着レビュー！自宅で洗えて着回し力も高くて1万円台は買い！（LEE）",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE90WTd5LXZWRkNhaUZSaF9MTHg0Nmg4ckYxU1pHTDV1dW1XelRSS19hWFdmTjdYWDVzbHNFZTc0eXRUdjFGNTc5djJ3c0JyeFpsaDYzZ2xRNDctMW1SREVQMFh4dC03MTJpOFVUZ2Z5M1FrVHRrZm9vc2pYQ0JmaUk?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T15:04:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/a0ac7b28a59603854aa7ba0a67d87450fc75775f"
-    }
-   ],
-   "key": "2026-11-25:948896e7597e",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-00015001-lee-000-3-view.jpg?exp=10800",
-   "body": "ok",
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "小売・EC企業のAI活用事例30選資料を無料公開",
-   "why": "自社の業務効率化やEC運営の改善に活用できるため。",
-   "tags": [
-    "EC・販促"
-   ],
-   "company": "",
-   "lanes": [
-    "retail_ec"
-   ],
-   "sources": [
-    "財経新聞"
-   ],
-   "latest": "2026-11-24T15:22:12+09:00",
-   "articles": [
-    {
-     "id": "d82fe49c54b0",
-     "title": "資料「小売・EC企業のAI活用事例30選」を無料公開、発注業務など現場のAI..（株式会社くるみバディ プレスリリース）",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5PYXlvMkhKeThpTzY3UXRXOHNtdjhtWUZLWWxZSHp6aGFmcHFTdTcwM0N2cWpOYTlvbTUwSHBJTldxVzlPQXZURV81Q1A3MnJVOHJiTA?oc=5",
-     "source": "財経新聞",
-     "published": "2026-11-24T15:22:12+09:00",
-     "level": "A",
-     "src_url": "https://www.zaikei.co.jp/releases/3731014/"
-    }
-   ],
-   "key": "2026-11-25:d82fe49c54b0",
-   "image": "https://www.zaikei.co.jp/files/press/20261124170404655prt0.jpg",
-   "body": "ok",
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1391,7 +886,8 @@
    "image": "https://www.itmedia.co.jp/news/article/ogp/2611/24/2000003409/10012821/2048",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1435,41 +931,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロの3990円セーターに高評価の声",
-   "why": "低価格帯商品の顧客ニーズと訴求ポイントの参考のため。",
-   "tags": [
-    "競合",
-    "消費・市況"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T15:30:00+09:00",
-   "articles": [
-    {
-     "id": "d43c6223899f",
-     "title": "「制服のように毎日着てる」 ユニクロの“3990円セーター”に絶賛の声 「色違いで5着あります」「高級品と変わらない」「重ね着しても着心地は最高」（ねとらぼ）",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAwQnpSUzFoVXd6cVYwc3ZNbk9YVnA1RzNMQnAxTVVNVjFCR09HZEhYeU1tRmdPX2o4aUVsT28tUkUxNThZTGVzaXV0THRxdFp2UkdwZVMzX1JuYmtmdDBzaTJ5X0xmcVFnUUVDYkJWTnV1aVNTdGhjR0J5U1pJdlk?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T15:30:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/20731f185453a66b18232acf8b3209366e0c10cb"
-    }
-   ],
-   "key": "2026-11-25:d43c6223899f",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178542-it_nlab-000-1-view.jpg?exp=10800",
-   "body": "ok",
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1502,108 +965,54 @@
    "image": "https://cybersecurity-jp.com/wp-content/uploads/2026/11/img_118879.jpg",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
    "level": "A",
-   "summary": "ユニクロのヒートテックカシミヤブレンドTが全店販売",
-   "why": "競合のヒット商品の動向把握と販促の参考のため。",
+   "summary": "愛媛県で特定最低賃金が12月25日から引き上げ",
+   "why": "店舗運営における人件費計算と賃金規定の確認が必要なため。",
    "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "au Webポータル"
-   ],
-   "latest": "2026-11-24T16:20:00+09:00",
-   "articles": [
-    {
-     "id": "9ad67c2f9725",
-     "title": "「他の色も欲しい」ユニクロの「極暖ヒートテックカシミヤブレンドリブハイネックT」が待望の全店販売開始で話題",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9JUHg2Z0tyUngwX3UzWEtiUUtCLVYzRXB3QXd4THB5NmxWemk4Z0V5N01DcW9GcDgzWG44MHBDMkp0bHVuRS1BU1lLZExfeEZUZlp5QW9nenBBSi1GY0E2a0VLOWtkNTdsbUs3Qkdn?oc=5",
-     "source": "au Webポータル",
-     "published": "2026-11-24T16:20:00+09:00",
-     "level": "A",
-     "src_url": "https://article.auone.jp/fb41b362-3365-4afd-9d99-04dac6412d82"
-    }
-   ],
-   "key": "2026-11-25:9ad67c2f9725",
-   "image": "https://portal.auone.jp/media/thumbnails/2026/11/24/https___news_allabout_co_jp_articles_o_134327__w640.webp",
-   "body": "ok",
-   "refill": {
-    "source": "topics.smt.docomo.ne.jp",
-    "title": "「他の色も欲しい」ユニクロの「極暖ヒートテックカシミヤブレンドリブハイネックT」が待望の全店販売開始で話題",
-    "url": "https://topics.smt.docomo.ne.jp/article/allaboutnews/trend/allaboutnews-168256",
-    "sim": 1.0
-   },
-   "quick": {
-    "what": "ユニクロの極暖ヒートテックカシミヤブレンドTが全店販売開始",
-    "when": "11月20日から",
-    "me": "異業種の人気インナーの動向を把握し、自社店の防寒・重ね着提案の参考に。"
-   },
-   "points": [
-    "「極暖ヒートテックカシミヤブレンドリブハイネックT」が11月20日より全国のユニクロ店舗で販売開始",
-    "価格は2990円（税込）で、8色展開・7サイズ展開（一部サイズはオンライン限定）",
-    "首まわりと袖口のフリルやほどよい透け感があり、インナーや重ね着として幅広く活躍するアイテム"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "12/4開催：2027年のEC予測と移行キーワード解説セミナー",
-   "why": "EC戦略立案や今後のトレンド把握に役立つため。",
-   "tags": [
-    "EC・販促"
+    "制度・法令"
    ],
    "company": "",
    "lanes": [
-    "retail_ec"
+    "economy"
    ],
    "sources": [
-    "コマースピック"
+    "愛媛新聞"
    ],
-   "latest": "2026-11-24T17:13:47+09:00",
+   "latest": "2026-11-24T17:51:42+09:00",
    "articles": [
     {
-     "id": "cbba581174be",
-     "title": "12/4 オンライン開催：新・EC経営テーマ解説セミナー～2027年のEC予測と９つの「移行」キーワードを解説",
-     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5JcUdyWVpJaEJTcXZXc3pPOEs2dTNiZk9EOGZiblFLb2REVEU2UmJDUkRrWTFJRWZIMzZrUHZTR0RndHZnR24tTlFMdjJ5N1g4dHhwYk4zOA?oc=5",
-     "source": "コマースピック",
-     "published": "2026-11-24T17:13:47+09:00",
-     "level": "A",
-     "src_url": "https://www.commercepick.com/archives/107438"
+     "id": "f56d8aed4328",
+     "title": "県内特定最低賃金、12月25日から引き上げ 愛媛労働局",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9PeVozX2hnalFockRKSW9DdVVrWUtIMnVLNHZuTldtckpBQWp3MVk3RDAyVUlHN0JvOHplQ2UxS0pEMXltOUhkZ1J5aW9GbmdXcFoybUthelFscFkwdzJFUQ?oc=5",
+     "source": "愛媛新聞",
+     "published": "2026-11-24T17:51:42+09:00",
+     "level": "S",
+     "src_url": "https://www.ehime-np.co.jp/article/news202611240213"
     }
    ],
-   "key": "2026-11-25:cbba581174be",
-   "image": "https://www.commercepick.com/wp-content/uploads/2026/11/seminar-20261204-kyuu-ec-future.png",
-   "body": "ok",
+   "key": "2026-11-25:f56d8aed4328",
+   "image": "https://www.ehime-np.co.jp/media/images/news/20261124/imgffa6b054b8d5cc2a.jpeg?2",
+   "body": "partial",
    "quick": {
-    "what": "2027年のEC予測と移行キーワードを解説するオンラインセミナー開催",
-    "when": "2026年12月4日 14:00-14:45",
-    "me": "自社公式ECの利益改善やシステム移行の戦略作りに活用する。"
+    "what": "愛媛県で特定最低賃金が引き上げ",
+    "when": "2026年12月25日から",
+    "me": "記事に記載なし"
    },
-   "points": [
-    "株式会社 久のブランドEC成長支援室室長・立川哲夫氏が登壇",
-    "2027年のEC未来予測キーワードや、公式EC中心への移行テーマを解説",
-    "参加費は無料で、Zoomによるオンライン開催"
-   ],
+   "points": [],
    "diagram": {
-    "type": "none",
-    "title": ""
+    "type": "none"
    },
-   "questions": [],
-   "todo": false
+   "questions": [
+    "自社への影響は？"
+   ],
+   "todo": false,
+   "capped": "region",
+   "theme": ""
   },
   {
    "story": "",
@@ -1651,49 +1060,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "円相場、1ドル＝159円を挟んだ取り引きに",
-   "why": "輸入コストや価格戦略への影響を判断するため。",
-   "tags": [
-    "為替・金利",
-    "消費・市況"
-   ],
-   "company": "",
-   "lanes": [
-    "economy"
-   ],
-   "sources": [
-    "NHK 経済"
-   ],
-   "latest": "2026-11-24T18:20:00+09:00",
-   "articles": [
-    {
-     "id": "9511a3d3b483",
-     "title": "円相場 1ドル＝159円を挟んだ取り引きに",
-     "url": "https://news.web.nhk/newsweb/na/nd-20261124de80745",
-     "source": "NHK 経済",
-     "published": "2026-11-24T18:20:00+09:00",
-     "level": "A"
-    }
-   ],
-   "key": "2026-11-25:9511a3d3b483",
-   "image": "https://imgu.web.nhk/news/u/news/nd/kiji/20261124de80745/20261124de80745_E0000204522_1_l.jpg",
-   "body": "partial",
-   "quick": {
-    "what": "円相場が1ドル＝159円を挟んだ取り引きに",
-    "when": "2026年11月24日",
-    "me": "為替変動による輸入コストや仕入れ価格への影響を注視し、価格設定を確認する。「記事に記載なし」"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1743,7 +1111,8 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1791,7 +1160,8 @@
     "title": ""
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1851,99 +1221,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "オンワードHDのレーティングやや強気、目標株価930円",
-   "why": "同業他社の業績評価として参考になるため。",
-   "tags": [
-    "決算・業績"
-   ],
-   "company": "オンワードホールディングス",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ファイナンス"
-   ],
-   "latest": "2026-11-24T19:30:56+09:00",
-   "articles": [
-    {
-     "id": "440447160144",
-     "title": "【アナリスト評価】オンワードＨ、レーティングやや強気を据置き、目標株価930円に引上げ（日系大手証券）(アイフィス株予報)",
-     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNdTg1WFB5UVpOWHJSdHNHNTF2YVlLX0JrZWxHQXA0M1FGMjNrOFBSQWhiY1ZzOW5jalFQWkQ3eldtMEN4ckVoQTh5V250Vmg0Wlo2dXFnNU96ekxJU0lMZU43Nlhrekk4R3lwY1BEV2lkNkp4bjNkdnU5dEZDd2hHVGRGai1LUEk?oc=5",
-     "source": "Yahoo!ファイナンス",
-     "published": "2026-11-24T19:30:56+09:00",
-     "level": "A",
-     "src_url": "https://finance.yahoo.co.jp/news/detail/1b933a2e6ca89a1ff2620a737846a5dc40350a74"
-    }
-   ],
-   "key": "2026-11-25:440447160144",
-   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
-   "body": "none",
-   "quick": {
-    "what": "オンワードHDのレーティングやや強気、目標株価930円",
-    "when": "記事に記載なし",
-    "me": "競合の株価動向やアナリスト評価を把握し経営戦略の参考にすべし"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [
-    "いつから適用？"
-   ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロと無印良品のあったかインナー比較",
-   "why": "競合の機能性インナーの比較評価を把握するため。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T19:35:00+09:00",
-   "articles": [
-    {
-     "id": "bef72ad06167",
-     "title": "【あったかインナー比較】ユニクロ「極暖カシミヤヒートテック」と無印「あったか綿」の2着をチェック！ 暖かさや着心地は？",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE92T2xKaVltNE1GSFM2SkctYURBMXdoSnlPWGl0aGNuemMzWktOTXNzMEhxWUtfbmpCZVVXZWQwM2hYbko3MVRtSS1ZOVhFM3plaG02aUZIcURVYWhiYjEzSU9ZTU8yTDNYTHNST0tkZUFVQy1yU2ZCUHlnaEptWWc?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T19:35:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/f6342718269adad4eb95140ca368cac5c709db9c"
-    }
-   ],
-   "key": "2026-11-25:bef72ad06167",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178640-it_favlog-000-1-view.jpg?exp=10800",
-   "body": "ok",
-   "quick": {
-    "what": "ユニクロと無印良品のあったかインナー比較",
-    "when": "2026年11月26日まで",
-    "me": "競合の防寒インナーの仕様や価格帯を把握し、自社アウター・インナー販促の参考にする。"
-   },
-   "points": [
-    "ユニクロ極暖カシミヤヒートテックは期間限定価格を実施中",
-    "無印良品はあったか綿シリーズを展開",
-    "両社とも吸湿発熱やストレッチ等の機能を備える"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": ""
-   },
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -1996,7 +1275,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2041,7 +1321,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2091,260 +1372,8 @@
     ]
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ワークマンのリカバリースーツを検証",
-   "why": "低価格機能性スーツの市場動向と顧客評価の把握。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ワークマン",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "MonoMax web"
-   ],
-   "latest": "2026-11-24T21:27:16+09:00",
-   "articles": [
-    {
-     "id": "3297a7ddb384",
-     "title": "第1位 【上下約9,000円】ワークマンのリカバリースーツを忖度なし検証",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1TdW9ZWTMzQ0k2eHJULXlrREFDdlBEX2RGX2QxcUdOMjZqZHF4QjhBbVV4RUczdi1JeFp0R3JZRnZYTktYVUJjUTI0V0xra045N0wtV1hlUXJnMEFDNEhHWkFBZw?oc=5",
-     "source": "MonoMax web",
-     "published": "2026-11-24T21:27:16+09:00",
-     "level": "A",
-     "src_url": "https://monomax.jp/archives/373873/img_4870_result-2/"
-    }
-   ],
-   "key": "2026-11-25:3297a7ddb384",
-   "image": "https://monomax.jp/official/wp-content/uploads/2026/11/IMG_4870_result-1000x667.webp",
-   "body": "ok",
-   "refill": {
-    "source": "topics.smt.docomo.ne.jp",
-    "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほか【ビジネスアイテムの人気記事ランキングベスト3】（2026年10月版）",
-    "url": "https://topics.smt.docomo.ne.jp/amp/article/monomax/trend/monomax-373873",
-    "sim": 0.52
-   },
-   "quick": {
-    "what": "ワークマンのリカバリースーツなどがビジネス誌で話題",
-    "when": "2026年10月版",
-    "me": "異業種参入の高コスパ服に対する顧客のリアルな評価を確認する"
-   },
-   "points": [
-    "ワークマンのリカバリースーツがビジネスアイテムランキング1位を獲得",
-    "上下約9,000円の価格やチャリ通向けの隠し機能が注目を集める",
-    "シワの寄りやすさやスーツ必須職種への不向きなどリアルな検証も話題",
-    "リーガルのローファーやace.のバッグなど定番ブランドの進化もランクイン"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": "記事に記載なし"
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロの軽量ダウンがスーツ通勤用として評価",
-   "why": "競合の低価格商品がスーツ需要を代替する動向の把握。",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T21:30:00+09:00",
-   "articles": [
-    {
-     "id": "526a31fc89b7",
-     "title": "「5万円台のダウンと同性能です」 ユニクロの“7000円台軽量ダウン”に「スーツ通勤にも」「軽いのにしっかり暖かい」などの声",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GbVI1cTE5UkMxTENQMExka0M5OXdGMXNkdzJidEpzMGYzSmFLRVZqWXJnWHFCUld2cGdDRUxfMDB0LXhhbkFYbFdaWENjb1U4UWZQVGU0RHFaaWdicXlBVkdxZkVJRHhoeXk4WWpjYlpZYk1BV1ZuYWtTQ0JKTmc?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T21:30:00+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/0a1dd24e73641e145b1560bab2bc286e6cc938cb"
-    }
-   ],
-   "key": "2026-11-25:526a31fc89b7",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178586-it_nlab-000-1-view.jpg?exp=10800",
-   "body": "ok",
-   "quick": {
-    "what": "ユニクロの軽量ダウンがスーツ通勤用としても高評価",
-    "when": "2026年11月24日時点",
-    "me": "冬のビジネスアウターのトレンドや顧客の着用実感を把握する"
-   },
-   "points": [
-    "シームレスダウンジャケットが値下げ後の価格で販売",
-    "スーツの上から着用するためワンサイズ大きめを選ぶ声がある",
-    "軽さと暖かさ、防風性を兼ね備えた防寒アウターとして支持",
-    "公式オンラインや店舗で売切れ続出の状況"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": "記事に記載なし"
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ユニクロ感謝祭のセール商品が話題に",
-   "why": "競合の販促手法や価格訴求の参考になるため。",
-   "tags": [
-    "競合",
-    "EC・販促"
-   ],
-   "company": "ユニクロ",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "au Webポータル"
-   ],
-   "latest": "2026-11-24T21:42:58+09:00",
-   "articles": [
-    {
-     "id": "1c2e559f42ba",
-     "title": "1500円→990円でつい即買い！ユニクロ感謝祭の「狙い目セール商品」家でも外でも活躍する“隠れ名品”でした！",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5ZU19wNzl0OUlvWl9BLTFNREhFcDhLMVJiVTJxTFoyWGFoNGtTdFNBcV9UaUZieVJXSFB3YlVmYzFLbWpBUURlbXZnamRfWnRYRTU3M3d6cDdKY1V2TTRyNFRiOEY4VW1IZ3NXYlhB?oc=5",
-     "source": "au Webポータル",
-     "published": "2026-11-24T21:42:58+09:00",
-     "level": "A",
-     "src_url": "https://article.auone.jp/b817fc46-34cb-422c-b4b1-db39f2c51d1b"
-    }
-   ],
-   "key": "2026-11-25:1c2e559f42ba",
-   "image": "https://portal.auone.jp/media/thumbnails/2026/11/24/https___news_jp_i_1497941059442164619_w625.webp",
-   "body": "ok",
-   "refill": {
-    "source": "news.yahoo.co.jp",
-    "title": "1500円→990円で即買いした！ユニクロ感謝祭の「狙い目セール商品」家でも外でも活躍する、“隠れ名品”なんです！",
-    "url": "https://news.yahoo.co.jp/articles/3a31e71274d4ad0a8e6a87d8b15dde3783549ef0",
-    "sim": 0.87
-   },
-   "quick": {
-    "what": "ユニクロ感謝祭でアームウォーマーがセール価格に",
-    "when": "2026年11月26日まで",
-    "me": "防寒小物などの売れ筋トレンドや訴求の参考にす"
-   },
-   "points": [
-    "ユニクロ感謝祭の期間限定価格で販売されている",
-    "スフレヤーンニットアームウォーマーがお得に購入可能",
-    "フィンガーレスデザインでPC作業やスマホ操作がしやすい",
-    "手首を温める防寒アイテムとしてSNSやレビューで好評"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": "記事に記載なし"
-   },
-   "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "オンワードHDの27年2月期経常予想が微増",
-   "why": "同業他社の業績動向として確認が必要",
-   "tags": [
-    "競合",
-    "決算・業績"
-   ],
-   "company": "オンワードホールディングス",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ファイナンス"
-   ],
-   "latest": "2026-11-24T22:47:22+09:00",
-   "articles": [
-    {
-     "id": "8992af91ceba",
-     "title": "【アナリスト予想】オンワードＨ、27年2月期経常予想。対前週0.2%上昇。(アイフィス株予報)",
-     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPZnJiS3ZTc0ZOMVFXZFFFeGpNaEo3NDltUXc3ZE9nUVhkd2pXTG14N2p1MmhkdzE5NTlMM29rS0h2aml5emxLMExzWlNUQml4REdqSk15eUxqTV9zbzVsQ0tOQlBCMWFjeHVscmNuQ3R5WlpLYVlJTjYzMTNWMGVReU5pblJOdVE?oc=5",
-     "source": "Yahoo!ファイナンス",
-     "published": "2026-11-24T22:47:22+09:00",
-     "level": "A",
-     "src_url": "https://finance.yahoo.co.jp/news/detail/419203fe7482d89d6502e16fce3a7859d1e5a2cb"
-    }
-   ],
-   "key": "2026-11-25:8992af91ceba",
-   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
-   "body": "none",
-   "quick": {
-    "what": "オンワードHDの27年2月期経常予想が微増",
-    "when": "記事に記載なし",
-    "me": "競合の業績予想の動向を確認し自社ECの販促戦略に活かすすべし"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [
-    "いつから適用？"
-   ],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "ワークマンの2900円断熱パンツが暖房の部屋も快適",
-   "why": "直接競合ではないが低価格高機能衣料の動向把握に役立つ",
-   "tags": [
-    "競合",
-    "新商品・サービス"
-   ],
-   "company": "ワークマン",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "Yahoo!ニュース"
-   ],
-   "latest": "2026-11-24T22:50:34+09:00",
-   "articles": [
-    {
-     "id": "460953fe6188",
-     "title": "【ワークマン】冷気を通さない2900円の「エックスシェルター断熱βライトウォームパンツ」は暖房の部屋も蒸れにくい！（LIMO）",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0ySkh0RlJXYWJwUjJOaHdRTXdpLTNBN1FYNUw0Yko3ZzVVZ0VfaEVYYktoci1ZbVFNWWpIel81YVAwekpsdjktVHg0YmNSb1hKRWFnU0hKWlFNbXlkOU12cFhGRWx3azBZQ3pRQkZDS1VIVk5tOUQyWlFnZ2xNdDQ?oc=5",
-     "source": "Yahoo!ニュース",
-     "published": "2026-11-24T22:50:34+09:00",
-     "level": "A",
-     "src_url": "https://news.yahoo.co.jp/articles/bae58f92d8f5483db7ad3269705a736cf3f8142b"
-    }
-   ],
-   "key": "2026-11-25:460953fe6188",
-   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-90001005-toushin-000-1-view.jpg?exp=10800",
-   "body": "ok",
-   "quick": {
-    "what": "ワークマンの断熱パンツが暖房の部屋でも快適と話題",
-    "when": "2026年11月17日時点",
-    "me": "冬場の屋内・屋外の寒暖差に対応する機能性服の動向を掴む"
-   },
-   "points": [
-    "エックスシェルター断熱βライトウォームストレッチパンツが注目を集める",
-    "外の冷気を防ぎつつ、暖房の効いた屋内では蒸れにくい仕様",
-    "価格は手頃な設定で高評価を獲得している",
-    "立体裁断によりスリムな見た目と動きやすさを両立"
-   ],
-   "diagram": {
-    "type": "none",
-    "title": "記事に記載なし"
-   },
-   "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2393,52 +1422,8 @@
     "title": "記事に記載なし"
    },
    "questions": [],
-   "todo": false
-  },
-  {
-   "story": "",
-   "level": "A",
-   "summary": "はるやまが乃木坂46を起用した新CMを公開",
-   "why": "競合他社の販促手法およびタレント起用事例として。",
-   "tags": [
-    "EC・販促",
-    "競合"
-   ],
-   "company": "はるやま",
-   "lanes": [
-    "industry"
-   ],
-   "sources": [
-    "ウォーカープラス"
-   ],
-   "latest": "2026-11-25T03:37:24+09:00",
-   "articles": [
-    {
-     "id": "2d6b7bbcb437",
-     "title": "＜画像7 / 20＞【写真特集】乃木坂46“イケメン男装姿”in「はるやま」新CM",
-     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE90bDVMaFRYbFBlbnJzYnQ4UjBwRlFkUE8zT2ZidDRPdzBFY21QU1pvZmpFMDVuVG5QYnFOeGNGcFpkX2JId2tDbE9Ka3JLNW5zdzFudl9ia2JBNk1Ccjh6WnlnVTQwZ19CTUE?oc=5",
-     "source": "ウォーカープラス",
-     "published": "2026-11-25T03:37:24+09:00",
-     "level": "A",
-     "src_url": "https://www.walkerplus.com/article/136655/image764680.html"
-    }
-   ],
-   "key": "2026-11-25:2d6b7bbcb437",
-   "image": "https://news.walkerplus.com/article/136655/764675_615.jpg",
-   "body": "partial",
-   "quick": {
-    "what": "はるやまが乃木坂46を起用した新CMを公開",
-    "when": "記事に記載なし",
-    "me": "競合のタレント起用やプロモーション施策を自社の販促の参考にすべし"
-   },
-   "points": [],
-   "diagram": {
-    "type": "none"
-   },
-   "questions": [
-    "いつから適用？"
-   ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2471,7 +1456,8 @@
    "image": "https://ggo.ismcdn.jp/mwimgs/9/e/1200w/img_9ecd0699ca5c6dca71702c12aa3dfd90177738.jpg",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2504,7 +1490,8 @@
    "image": "https://media.image.infoseek.co.jp/isnews/pc/img/noimage_203x120_busi-econ-1.0.png",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2545,7 +1532,8 @@
     "sim": 1.0
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2584,7 +1572,8 @@
     "sim": 1.0
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2618,7 +1607,8 @@
    "image": "https://diamond-rm.imgix.net/wp-content/uploads/2026/11/iStock-2222772025.jpg?auto=format%2Ccompress&ixlib=php-3.3.0",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2651,7 +1641,8 @@
    "image": "https://imgopt.asahi.com/ogp/AS20261124003213_comm.jpg",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2684,7 +1675,8 @@
    "image": "https://www.sankei.com/resizer/v2/AL7QPNBLYNKSTD74H5PPEECQTI.jpg?auth=c6ce06209c3815533c097fbe902d013a499cebba87ecbcdd9796390946ca43f4&quality=50&smart=true&width=1200&height=675",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2729,7 +1721,8 @@
    "questions": [
     "いつから適用？"
    ],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2762,7 +1755,8 @@
    "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261125-00020678-netkeizai-000-1-view.jpg?exp=10800",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2795,7 +1789,8 @@
    "image": "https://media.image.infoseek.co.jp/isnews/photos/zaikai/zaikai_6895_0-enlarge.jpg",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2837,7 +1832,8 @@
     "type": "none"
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2870,7 +1866,8 @@
    "image": "https://scan.netsecurity.ne.jp/imgs/ogp_f/56543.jpg",
    "body": "ok",
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
   },
   {
    "story": "",
@@ -2923,7 +1920,123 @@
     ]
    },
    "questions": [],
-   "todo": false
+   "todo": false,
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ビジネスアイテム人気ランキング（2026年10月）",
+   "why": "",
+   "tags": [
+    "競合",
+    "トレンド"
+   ],
+   "company": "ワークマン",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "MonoMax web",
+    "ニコニコニュース"
+   ],
+   "latest": "2026-11-24T21:00:54+09:00",
+   "articles": [
+    {
+     "id": "4f937d121dee",
+     "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほか【ビジネスアイテムの人気記事ランキングベスト3】（2026年10月版） | 【公式】モノマックス（MonoMax）｜付録、カバン、時計、家電、カップ麺などの情報を",
+     "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1zaFRWaEI1UFpxUTdEY2NRSmZXWEswUnV2cEVfV19WdmtKSDJURUZoS1pLSWxhYnhMajVrTDhkOS1lTHN0OTFQTk93RQ?oc=5",
+     "source": "MonoMax web",
+     "published": "2026-11-24T21:00:54+09:00",
+     "level": "A",
+     "src_url": "https://monomax.jp/archives/373873/"
+    },
+    {
+     "id": "8a5aae92d593",
+     "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほ",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Gek1HeTJPVVFZRlA5Q1lwcE93eFFyT3A4NVpDMktWWXR1cjh4U1ZRcUd3SEJUbzRPX1loS3NyMmNQa2NhWFVNZEozZTJXV09ORkhVVlpERDlWUnpSV0s3YTZVYWhIY2ZtRlpiOFVHQlZuWmc?oc=5",
+     "source": "ニコニコニュース",
+     "published": "2026-11-24T21:03:31+09:00",
+     "level": "A",
+     "src_url": "https://news.nicovideo.jp/watch/nw20026197?news_ref=search_search"
+    }
+   ],
+   "key": "2026-11-25:4f937d121dee",
+   "image": "https://monomax.jp/official/wp-content/uploads/2026/11/IMG_4865_result.webp",
+   "body": "ok",
+   "quick": {
+    "what": "2026年10月ビジネスアイテムランキング発表",
+    "when": "2026年10月",
+    "me": "高機能化するビジネスウェアやバッグのトレンドを自社の品揃え・訴求に活かす。"
+   },
+   "points": [
+    "3位はace.の最高峰バッグEVL-4.0の直営店限定ネイビー",
+    "2位はリーガルの最新素材を採用した進化系ローファー",
+    "1位は上下約9000円のワークマンリカバリースーツ"
+   ],
+   "diagram": {
+    "type": "impact",
+    "title": "トレンド調査",
+    "impact": [
+     "競合調査",
+     "価格設定"
+    ]
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロのパンツが「質感と価格」で好評",
+   "why": "",
+   "tags": [
+    "競合",
+    "消費・市況"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T07:45:00+09:00",
+   "articles": [
+    {
+     "id": "3251de5da6a0",
+     "title": "「これ買っておけば間違いない」ユニクロのパンツが好評「ゆったりはけてスッキリ見え」「この質感でこの価格は神」",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB1eS1jOTMtV1d2XzRWUEQxdWotTEE5WDF4YzRjZnZjRDNMTzhhUllNZmFnenpCbkc0R2lENm9KZ0xGZFVveTJ4MUZNZG51QlhEeVZCMXNkUm10OVI2eEp3aUpxSmhuQmZXTExNNnZWLXJLN2VOTzZpbVQ3WXlPdjg?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T07:45:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/369910bba67ed6386d2d26d1d2a65e4da4add4d6"
+    }
+   ],
+   "key": "2026-11-25:3251de5da6a0",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178466-it_favlog-000-1-view.jpg?exp=10800",
+   "body": "ok",
+   "quick": {
+    "what": "ユニクロのタックリラックスワイドパンツが質感と価格で好評",
+    "when": "2026年11月22日時点",
+    "me": "競合のトレンド商品や価格帯、訴求文句を自社の企画・販促に活かす。"
+   },
+   "points": [
+    "微起毛による暖かみと上質感のある生地を採用",
+    "縦横に伸びる素材で動きやすく快適な着心地を実現",
+    "すっきり見えるシルエットとリラックス感を両立",
+    "標準丈と丈長めをオンラインストア等で販売中"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -2951,7 +2064,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:17dda2bbd512"
+   "key": "2026-11-25:17dda2bbd512",
+   "theme": ""
   },
   {
    "story": "",
@@ -2979,7 +2093,170 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ec3f6f7a5f98"
+   "key": "2026-11-25:ec3f6f7a5f98",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "しまむらの大人かわいいバッグが紹介",
+   "why": "",
+   "tags": [
+    "新商品・サービス",
+    "競合"
+   ],
+   "company": "しまむら",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T09:45:00+09:00",
+   "articles": [
+    {
+     "id": "64c804d43b40",
+     "title": "もう他のバッグが使えなくなる…！しまむらの「大人かわいいバッグ」背負ったまま財布が出せて感動！《購入レビュー》",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1EbnVLTXo1UXJJVUJkTTFIT0tVYXZUcHEyb0RleWtMTnFneUowUmVvLVlRZGhhbXVKYnd6M25DUUlSTzA4WkxJRDFZQ05ZTHpNcDNMaVN3NGlucjVUNUlvSkdVM3UwZTlucEFYVFVQUFk0TTkwZEtfbDdQZkREVFk?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T09:45:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/3de524862e80258241ae89be8ff90d86f5f09851"
+    }
+   ],
+   "key": "2026-11-25:64c804d43b40",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261122-00403933-diamond-000-2-view.jpg?exp=10800",
+   "body": "ok",
+   "quick": {
+    "what": "しまむらの3WAYで使える大人かわいいバッグを紹介",
+    "when": "記事に記載なし",
+    "me": "異素材デザインや機能的な収納など、雑貨展開の参考になる。"
+   },
+   "points": [
+    "価格は2970円で、ブラックとアイボリーの2色展開",
+    "ポリエステル製の軽量生地とフェイクレザーの持ち手",
+    "リュックやボディバッグにもなる3WAY仕様",
+    "3つのスペースに分かれており荷物をスッキリ整理可能"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [
+    "いつから適用？"
+   ],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ワークマン新作ボアフリースジャケットが発売",
+   "why": "",
+   "tags": [
+    "新商品・サービス",
+    "競合"
+   ],
+   "company": "ワークマン",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "LIMO | くらしとお金の経済メディア"
+   ],
+   "latest": "2026-11-24T10:10:00+09:00",
+   "articles": [
+    {
+     "id": "cdae5195c956",
+     "title": "1990円で真冬も暖かい！ワークマン新作〈ボアフリースジャケット〉が見た目以上に軽くて、使い心地抜群！ワンマイルコーデにも休日のお出かけにも ブラックやパープルなど5色を展開！スナップボタンでさっと羽織れます | 概要 | LIMO | くらしとお金の経済メディア",
+     "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFB2X3g1c2xpal9NMzlFR3NURHFULWtMNWEtSmZ4LWY2X3NCandzLTlnSk4xWTZHS21hVmNGdThTU3o0WDRWdkhVbWdBVm0?oc=5",
+     "source": "LIMO | くらしとお金の経済メディア",
+     "published": "2026-11-24T10:10:00+09:00",
+     "level": "A",
+     "src_url": "https://limo.media/articles/-/146933"
+    }
+   ],
+   "key": "2026-11-25:cdae5195c956",
+   "image": "https://img.limo.media/mw/7e08fbe2601118b7fdd81dd16967149695502.jpg?v=1&variant=ogp",
+   "body": "ok",
+   "quick": {
+    "what": "ワークマンの新作ボアフリースジャケットを紹介",
+    "when": "記事に記載なし",
+    "me": "防寒衣料のトレンドや価格帯の競合動向を把握する。"
+   },
+   "points": [
+    "1990円で真冬も暖かいボアフリースジャケットが発売",
+    "ブラックやパープルなど5色を展開",
+    "スナップボタンでさっと羽織れる仕様"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [
+    "いつから適用？"
+   ],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロからハローキティ新作UTが12月7日発売",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "インサイド"
+   ],
+   "latest": "2026-11-24T10:15:03+09:00",
+   "articles": [
+    {
+     "id": "d4332acd6bde",
+     "title": "ユニクロから「ハローキティ」新作UTが12月7日発売！「リボン」にフィーチャーした、大人向けのシンプルな4デザイン",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9oRU1aRHc0WHNtanFYQW9EaklhVlhzVFJGem1uOVgxaUdmSUpMcGdyOGpwMFZnWFVaYzlSY3g2N3V3MDFzVGkzRjE3YXRHandoRGxtekFqX0F3LS1NQ0ZsSE85Rm5ZOVM5eEE?oc=5",
+     "source": "インサイド",
+     "published": "2026-11-24T10:15:03+09:00",
+     "level": "A",
+     "src_url": "https://www.inside-games.jp/article/2026/11/24/191449.html"
+    }
+   ],
+   "key": "2026-11-25:d4332acd6bde",
+   "image": "https://www.inside-games.jp/imgs/ogp_f/1798887.jpg",
+   "body": "ok",
+   "refill": {
+    "source": "collabo-cafe.com",
+    "title": "ハローキティ × ユニクロ リボンがテーマのUT 12月上旬より発売!",
+    "url": "https://collabo-cafe.com/events/collabo/hellokitty-uniqlo-ut-ribbon-2026/",
+    "sim": 0.48
+   },
+   "quick": {
+    "what": "ユニクロがハローキティ新作UTを12月7日発売",
+    "when": "2026年12月上旬",
+    "me": "大手アパレルのキャラクターコラボ企画の動きを確認する。"
+   },
+   "points": [
+    "ハローキティを彩るリボンにフィーチャーしたデザイン",
+    "2026年12月上旬より一部店舗とオンラインストアで発売",
+    "ボクシーフィットのTシャツ全4種で、各1990円",
+    "サイズはWOMENのXSから3XLまで展開"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -3007,7 +2284,162 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d03e0062c1e0"
+   "key": "2026-11-25:d03e0062c1e0",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "しまむらのブラックフライデーが11月25日から開催",
+   "why": "",
+   "tags": [
+    "EC・販促",
+    "競合"
+   ],
+   "company": "しまむら",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "やしおん"
+   ],
+   "latest": "2026-11-24T11:22:11+09:00",
+   "articles": [
+    {
+     "id": "84689089919b",
+     "title": "しまむらのブラックフライデー、いよいよ11月25日から",
+     "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTE1acE51WXk4WHJwUjJEMklTV3F5TVZpYVZfa3A5TWRLVlY2bTd4SVByMGk4R1F4Q1VrYlY0OGNyZnplblE?oc=5",
+     "source": "やしおん",
+     "published": "2026-11-24T11:22:11+09:00",
+     "level": "A",
+     "src_url": "https://yashion.jp/news/47596"
+    }
+   ],
+   "key": "2026-11-25:84689089919b",
+   "image": "https://yashion.jp/contents/uploads/2026/11/main-33.jpg",
+   "body": "ok",
+   "quick": {
+    "what": "しまむらがブラックフライデーセールを11月25日から開催",
+    "when": "2026年11月25日から",
+    "me": "年末商戦に向けた他社の大型セール手法や集客施策を調査する。"
+   },
+   "points": [
+    "11月25日から冬アウターや寝具などを特別価格で販売",
+    "26日と27日には日替わり商品が登場",
+    "27日には黒にちなんだ本体96円の商品を販売",
+    "Webチラシにはモノクロのキャラクター限定商品も掲載"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロのカシミヤ100％セーターが9990円で好評",
+   "why": "",
+   "tags": [
+    "競合",
+    "消費・市況"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T12:30:36+09:00",
+   "articles": [
+    {
+     "id": "541b602c81b3",
+     "title": "色違いで欲しくなる！＞【ユニクロ】カシミヤ100％セーターが9990円。「肌触りが最高」「これで4着目」 (婦人公論.jp)",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPY05CWUVHdy1DdVhRXzhHa2VXZVlPRWtPaW5PYzBoY2FJOFdxWGJBSjNxSlZpX0FMYnYxbUpuclJxc0tUR2hPZW0xdmhNb0poeW9YQThXcXNnX0FnQ3loOEFEWnVWZDhXRUJ4alQxak1ucjFXOG1OcVRsbTFKUzNOcG16REhfUjNQOGpuSFp3?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T12:30:36+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/9d5339fabd0e37b5ff4feab208767a0a88aa5a61/images/000"
+    }
+   ],
+   "key": "2026-11-25:541b602c81b3",
+   "image": "https://news-pctr.c.yimg.jp/uUzvQ3lML_bkIqyakc1vFhNrRI0RUQxg5aFkrX0xDg1_T0wXrbEJjtNGtrf1o9y32aKHaE9S6KKOAHNM7AL26vQh2pDR1rS3NXCqFgtim8RJ5ciDwKm-w2iF4UaUJNrMo5oDsJDpvFCGA19LZqcjnT4z6RQQrL1k9Vdbg7j9YFV7-qB9WK0BfZ-Io_VTn4nN",
+   "body": "ok",
+   "refill": {
+    "source": "topics.smt.docomo.ne.jp",
+    "title": "＜色違いで欲しくなる！＞【ユニクロ】カシミヤ100％セーターが9990円。「肌触りが最高」「これで4着目」",
+    "url": "https://topics.smt.docomo.ne.jp/amp/article/fujinkoron/life/fujinkoron-25000",
+    "sim": 1.0
+   },
+   "quick": {
+    "what": "ユニクロのカシミヤ100％セーターが9990円で好評",
+    "when": "2026年11月26日まで",
+    "me": "素材訴求や価格設定のベンチマークとして動向を注視する。"
+   },
+   "points": [
+    "カシミヤクルーネックセーターが期間限定の9990円で販売",
+    "手洗い可能で、ふくらみ感のあるカシミヤ100％を使用",
+    "全25色の豊富なカラーバリエーションを展開",
+    "サイズはXSから3XLまでの7種類を用意"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロ、ハローキティ新作UTを12月7日発売",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "トラベル Watch",
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T12:47:37+09:00",
+   "articles": [
+    {
+     "id": "d0b754fb323c",
+     "title": "ユニクロ、「ハローキティ」新作ボクシーTは12月7日発売。“リボン”テーマに大人のシンプルデザイン全4種",
+     "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5vSndlY1h4MVlPMHlOMmFtclN4cVFET28xWE1DQWY3UTB5a0RSb2F4ZTNrdzRjbm1XS3NEOUZ3dDN3SkVXUHNEemN1OHIxeUswTUFzMjdkVlgxRGNtX0pXdzNJNWNJbEFC?oc=5",
+     "source": "トラベル Watch",
+     "published": "2026-11-24T12:47:37+09:00",
+     "level": "A",
+     "src_url": "https://travel.watch.impress.co.jp/docs/news/2158676.html"
+    }
+   ],
+   "key": "2026-11-25:d0b754fb323c",
+   "image": "https://travel.watch.impress.co.jp/img/trw/list/2158/676/01.jpg",
+   "body": "partial",
+   "quick": {
+    "what": "ユニクロがハローキティの新作UTを発売",
+    "when": "2026年12月7日",
+    "me": "大手アパレルのキャラクターコラボや価格帯のトレンドを把握する。「記事に記載なし」"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -3035,7 +2467,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:f556a692d6d0"
+   "key": "2026-11-25:f556a692d6d0",
+   "theme": ""
   },
   {
    "story": "",
@@ -3063,7 +2496,44 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7eff64b66ff5"
+   "key": "2026-11-25:7eff64b66ff5",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロの新作ダウンジャケットの試着レビュー",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T15:04:00+09:00",
+   "articles": [
+    {
+     "id": "948896e7597e",
+     "title": "【ユニクロ】新作「リバーシブルダウンショートジャケット」を試着レビュー！自宅で洗えて着回し力も高くて1万円台は買い！（LEE）",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE90WTd5LXZWRkNhaUZSaF9MTHg0Nmg4ckYxU1pHTDV1dW1XelRSS19hWFdmTjdYWDVzbHNFZTc0eXRUdjFGNTc5djJ3c0JyeFpsaDYzZ2xRNDctMW1SREVQMFh4dC03MTJpOFVUZ2Z5M1FrVHRrZm9vc2pYQ0JmaUk?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T15:04:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/a0ac7b28a59603854aa7ba0a67d87450fc75775f"
+    }
+   ],
+   "key": "2026-11-25:948896e7597e",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-00015001-lee-000-3-view.jpg?exp=10800",
+   "body": "ok",
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -3091,7 +2561,79 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c55e12acc411"
+   "key": "2026-11-25:c55e12acc411",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "小売・EC企業のAI活用事例30選資料を無料公開",
+   "why": "",
+   "tags": [
+    "EC・販促"
+   ],
+   "company": "",
+   "lanes": [
+    "retail_ec"
+   ],
+   "sources": [
+    "財経新聞"
+   ],
+   "latest": "2026-11-24T15:22:12+09:00",
+   "articles": [
+    {
+     "id": "d82fe49c54b0",
+     "title": "資料「小売・EC企業のAI活用事例30選」を無料公開、発注業務など現場のAI..（株式会社くるみバディ プレスリリース）",
+     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5PYXlvMkhKeThpTzY3UXRXOHNtdjhtWUZLWWxZSHp6aGFmcHFTdTcwM0N2cWpOYTlvbTUwSHBJTldxVzlPQXZURV81Q1A3MnJVOHJiTA?oc=5",
+     "source": "財経新聞",
+     "published": "2026-11-24T15:22:12+09:00",
+     "level": "A",
+     "src_url": "https://www.zaikei.co.jp/releases/3731014/"
+    }
+   ],
+   "key": "2026-11-25:d82fe49c54b0",
+   "image": "https://www.zaikei.co.jp/files/press/20261124170404655prt0.jpg",
+   "body": "ok",
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロの3990円セーターに高評価の声",
+   "why": "",
+   "tags": [
+    "競合",
+    "消費・市況"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T15:30:00+09:00",
+   "articles": [
+    {
+     "id": "d43c6223899f",
+     "title": "「制服のように毎日着てる」 ユニクロの“3990円セーター”に絶賛の声 「色違いで5着あります」「高級品と変わらない」「重ね着しても着心地は最高」（ねとらぼ）",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAwQnpSUzFoVXd6cVYwc3ZNbk9YVnA1RzNMQnAxTVVNVjFCR09HZEhYeU1tRmdPX2o4aUVsT28tUkUxNThZTGVzaXV0THRxdFp2UkdwZVMzX1JuYmtmdDBzaTJ5X0xmcVFnUUVDYkJWTnV1aVNTdGhjR0J5U1pJdlk?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T15:30:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/20731f185453a66b18232acf8b3209366e0c10cb"
+    }
+   ],
+   "key": "2026-11-25:d43c6223899f",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178542-it_nlab-000-1-view.jpg?exp=10800",
+   "body": "ok",
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -3119,7 +2661,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:93e4b32c5aa3"
+   "key": "2026-11-25:93e4b32c5aa3",
+   "theme": ""
   },
   {
    "story": "",
@@ -3147,7 +2690,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:5e12023c7856"
+   "key": "2026-11-25:5e12023c7856",
+   "theme": ""
   },
   {
    "story": "",
@@ -3175,7 +2719,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a664511d4683"
+   "key": "2026-11-25:a664511d4683",
+   "theme": ""
   },
   {
    "story": "",
@@ -3203,7 +2748,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1e0d27fc33e8"
+   "key": "2026-11-25:1e0d27fc33e8",
+   "theme": ""
   },
   {
    "story": "",
@@ -3231,7 +2777,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:11cdf71406db"
+   "key": "2026-11-25:11cdf71406db",
+   "theme": ""
   },
   {
    "story": "",
@@ -3259,7 +2806,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a76446eee060"
+   "key": "2026-11-25:a76446eee060",
+   "theme": ""
   },
   {
    "story": "",
@@ -3287,7 +2835,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:764c5e6077c0"
+   "key": "2026-11-25:764c5e6077c0",
+   "theme": ""
   },
   {
    "story": "",
@@ -3315,7 +2864,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7ab4e46c2b5d"
+   "key": "2026-11-25:7ab4e46c2b5d",
+   "theme": ""
   },
   {
    "story": "",
@@ -3343,7 +2893,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:5ab1b9706a88"
+   "key": "2026-11-25:5ab1b9706a88",
+   "theme": ""
   },
   {
    "story": "",
@@ -3371,7 +2922,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7205b3081b69"
+   "key": "2026-11-25:7205b3081b69",
+   "theme": ""
   },
   {
    "story": "",
@@ -3399,7 +2951,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:4c158a0c3422"
+   "key": "2026-11-25:4c158a0c3422",
+   "theme": ""
   },
   {
    "story": "",
@@ -3428,7 +2981,64 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ed547472ee55"
+   "key": "2026-11-25:ed547472ee55",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロのヒートテックカシミヤブレンドTが全店販売",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "au Webポータル"
+   ],
+   "latest": "2026-11-24T16:20:00+09:00",
+   "articles": [
+    {
+     "id": "9ad67c2f9725",
+     "title": "「他の色も欲しい」ユニクロの「極暖ヒートテックカシミヤブレンドリブハイネックT」が待望の全店販売開始で話題",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9JUHg2Z0tyUngwX3UzWEtiUUtCLVYzRXB3QXd4THB5NmxWemk4Z0V5N01DcW9GcDgzWG44MHBDMkp0bHVuRS1BU1lLZExfeEZUZlp5QW9nenBBSi1GY0E2a0VLOWtkNTdsbUs3Qkdn?oc=5",
+     "source": "au Webポータル",
+     "published": "2026-11-24T16:20:00+09:00",
+     "level": "A",
+     "src_url": "https://article.auone.jp/fb41b362-3365-4afd-9d99-04dac6412d82"
+    }
+   ],
+   "key": "2026-11-25:9ad67c2f9725",
+   "image": "https://portal.auone.jp/media/thumbnails/2026/11/24/https___news_allabout_co_jp_articles_o_134327__w640.webp",
+   "body": "ok",
+   "refill": {
+    "source": "topics.smt.docomo.ne.jp",
+    "title": "「他の色も欲しい」ユニクロの「極暖ヒートテックカシミヤブレンドリブハイネックT」が待望の全店販売開始で話題",
+    "url": "https://topics.smt.docomo.ne.jp/article/allaboutnews/trend/allaboutnews-168256",
+    "sim": 1.0
+   },
+   "quick": {
+    "what": "ユニクロの極暖ヒートテックカシミヤブレンドTが全店販売開始",
+    "when": "11月20日から",
+    "me": "異業種の人気インナーの動向を把握し、自社店の防寒・重ね着提案の参考に。"
+   },
+   "points": [
+    "「極暖ヒートテックカシミヤブレンドリブハイネックT」が11月20日より全国のユニクロ店舗で販売開始",
+    "価格は2990円（税込）で、8色展開・7サイズ展開（一部サイズはオンライン限定）",
+    "首まわりと袖口のフリルやほどよい透け感があり、インナーや重ね着として幅広く活躍するアイテム"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -3456,7 +3066,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c5ab412a7fd4"
+   "key": "2026-11-25:c5ab412a7fd4",
+   "theme": ""
   },
   {
    "story": "",
@@ -3484,7 +3095,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:844e2dcaebae"
+   "key": "2026-11-25:844e2dcaebae",
+   "theme": ""
   },
   {
    "story": "",
@@ -3512,7 +3124,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:835b8e457149"
+   "key": "2026-11-25:835b8e457149",
+   "theme": ""
   },
   {
    "story": "",
@@ -3540,7 +3153,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:2be7503d1d3f"
+   "key": "2026-11-25:2be7503d1d3f",
+   "theme": ""
   },
   {
    "story": "",
@@ -3568,7 +3182,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c98207033af8"
+   "key": "2026-11-25:c98207033af8",
+   "theme": ""
   },
   {
    "story": "",
@@ -3599,7 +3214,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:58eb039fc0bc"
+   "key": "2026-11-25:58eb039fc0bc",
+   "theme": ""
   },
   {
    "story": "",
@@ -3627,7 +3243,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:6b8a21280ceb"
+   "key": "2026-11-25:6b8a21280ceb",
+   "theme": ""
   },
   {
    "story": "",
@@ -3655,7 +3272,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:aa671d709005"
+   "key": "2026-11-25:aa671d709005",
+   "theme": ""
   },
   {
    "story": "",
@@ -3683,7 +3301,57 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9ee344f1d63d"
+   "key": "2026-11-25:9ee344f1d63d",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "12/4開催：2027年のEC予測と移行キーワード解説セミナー",
+   "why": "",
+   "tags": [
+    "EC・販促"
+   ],
+   "company": "",
+   "lanes": [
+    "retail_ec"
+   ],
+   "sources": [
+    "コマースピック"
+   ],
+   "latest": "2026-11-24T17:13:47+09:00",
+   "articles": [
+    {
+     "id": "cbba581174be",
+     "title": "12/4 オンライン開催：新・EC経営テーマ解説セミナー～2027年のEC予測と９つの「移行」キーワードを解説",
+     "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5JcUdyWVpJaEJTcXZXc3pPOEs2dTNiZk9EOGZiblFLb2REVEU2UmJDUkRrWTFJRWZIMzZrUHZTR0RndHZnR24tTlFMdjJ5N1g4dHhwYk4zOA?oc=5",
+     "source": "コマースピック",
+     "published": "2026-11-24T17:13:47+09:00",
+     "level": "A",
+     "src_url": "https://www.commercepick.com/archives/107438"
+    }
+   ],
+   "key": "2026-11-25:cbba581174be",
+   "image": "https://www.commercepick.com/wp-content/uploads/2026/11/seminar-20261204-kyuu-ec-future.png",
+   "body": "ok",
+   "quick": {
+    "what": "2027年のEC予測と移行キーワードを解説するオンラインセミナー開催",
+    "when": "2026年12月4日 14:00-14:45",
+    "me": "自社公式ECの利益改善やシステム移行の戦略作りに活用する。"
+   },
+   "points": [
+    "株式会社 久のブランドEC成長支援室室長・立川哲夫氏が登壇",
+    "2027年のEC未来予測キーワードや、公式EC中心への移行テーマを解説",
+    "参加費は無料で、Zoomによるオンライン開催"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "promo",
+   "theme": ""
   },
   {
    "story": "",
@@ -3713,7 +3381,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:e478941b6319"
+   "key": "2026-11-25:e478941b6319",
+   "theme": ""
   },
   {
    "story": "",
@@ -3741,7 +3410,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:5b6d3f9eb730"
+   "key": "2026-11-25:5b6d3f9eb730",
+   "theme": ""
   },
   {
    "story": "",
@@ -3769,7 +3439,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:bb4c666e394b"
+   "key": "2026-11-25:bb4c666e394b",
+   "theme": ""
   },
   {
    "story": "",
@@ -3797,7 +3468,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1912f7562307"
+   "key": "2026-11-25:1912f7562307",
+   "theme": ""
   },
   {
    "story": "",
@@ -3825,7 +3497,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d438536b7f7b"
+   "key": "2026-11-25:d438536b7f7b",
+   "theme": ""
   },
   {
    "story": "",
@@ -3853,7 +3526,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:aedfe2616957"
+   "key": "2026-11-25:aedfe2616957",
+   "theme": ""
   },
   {
    "story": "",
@@ -3882,7 +3556,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c3a872211a32"
+   "key": "2026-11-25:c3a872211a32",
+   "theme": ""
   },
   {
    "story": "",
@@ -3910,7 +3585,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ff1da9b49ceb"
+   "key": "2026-11-25:ff1da9b49ceb",
+   "theme": ""
   },
   {
    "story": "",
@@ -3938,7 +3614,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9e893191b89a"
+   "key": "2026-11-25:9e893191b89a",
+   "theme": ""
   },
   {
    "story": "",
@@ -3966,7 +3643,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d6bb728aa02f"
+   "key": "2026-11-25:d6bb728aa02f",
+   "theme": ""
   },
   {
    "story": "",
@@ -3994,7 +3672,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7be22c19892b"
+   "key": "2026-11-25:7be22c19892b",
+   "theme": ""
   },
   {
    "story": "",
@@ -4022,7 +3701,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:289d043cdbf8"
+   "key": "2026-11-25:289d043cdbf8",
+   "theme": ""
   },
   {
    "story": "",
@@ -4050,7 +3730,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a558f6c9aee4"
+   "key": "2026-11-25:a558f6c9aee4",
+   "theme": ""
   },
   {
    "story": "",
@@ -4078,7 +3759,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:6e609bb189d7"
+   "key": "2026-11-25:6e609bb189d7",
+   "theme": ""
   },
   {
    "story": "",
@@ -4106,7 +3788,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:752b79ff0c10"
+   "key": "2026-11-25:752b79ff0c10",
+   "theme": ""
   },
   {
    "story": "",
@@ -4134,7 +3817,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:4ee0c9d22630"
+   "key": "2026-11-25:4ee0c9d22630",
+   "theme": ""
   },
   {
    "story": "",
@@ -4162,7 +3846,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:2b9901a18aa7"
+   "key": "2026-11-25:2b9901a18aa7",
+   "theme": ""
   },
   {
    "story": "",
@@ -4190,7 +3875,52 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c2784f4a7adf"
+   "key": "2026-11-25:c2784f4a7adf",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "円相場、1ドル＝159円を挟んだ取り引きに",
+   "why": "",
+   "tags": [
+    "為替・金利",
+    "消費・市況"
+   ],
+   "company": "",
+   "lanes": [
+    "economy"
+   ],
+   "sources": [
+    "NHK 経済"
+   ],
+   "latest": "2026-11-24T18:20:00+09:00",
+   "articles": [
+    {
+     "id": "9511a3d3b483",
+     "title": "円相場 1ドル＝159円を挟んだ取り引きに",
+     "url": "https://news.web.nhk/newsweb/na/nd-20261124de80745",
+     "source": "NHK 経済",
+     "published": "2026-11-24T18:20:00+09:00",
+     "level": "A"
+    }
+   ],
+   "key": "2026-11-25:9511a3d3b483",
+   "image": "https://imgu.web.nhk/news/u/news/nd/kiji/20261124de80745/20261124de80745_E0000204522_1_l.jpg",
+   "body": "partial",
+   "quick": {
+    "what": "円相場が1ドル＝159円を挟んだ取り引きに",
+    "when": "2026年11月24日",
+    "me": "為替変動による輸入コストや仕入れ価格への影響を注視し、価格設定を確認する。「記事に記載なし」"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [],
+   "todo": false,
+   "theme": "",
+   "capped": "market"
   },
   {
    "story": "",
@@ -4218,7 +3948,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:12cb67d492f8"
+   "key": "2026-11-25:12cb67d492f8",
+   "theme": ""
   },
   {
    "story": "",
@@ -4246,7 +3977,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:98bab728d9cf"
+   "key": "2026-11-25:98bab728d9cf",
+   "theme": ""
   },
   {
    "story": "",
@@ -4274,7 +4006,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:860a93d4aa1d"
+   "key": "2026-11-25:860a93d4aa1d",
+   "theme": ""
   },
   {
    "story": "",
@@ -4302,7 +4035,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1f7f729201fc"
+   "key": "2026-11-25:1f7f729201fc",
+   "theme": ""
   },
   {
    "story": "",
@@ -4331,7 +4065,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1c7f55e4c130"
+   "key": "2026-11-25:1c7f55e4c130",
+   "theme": ""
   },
   {
    "story": "",
@@ -4359,7 +4094,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:234c7f88b956"
+   "key": "2026-11-25:234c7f88b956",
+   "theme": ""
   },
   {
    "story": "",
@@ -4388,7 +4124,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ee812ee1d600"
+   "key": "2026-11-25:ee812ee1d600",
+   "theme": ""
   },
   {
    "story": "",
@@ -4416,7 +4153,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:416d8e4b0ba6"
+   "key": "2026-11-25:416d8e4b0ba6",
+   "theme": ""
   },
   {
    "story": "",
@@ -4444,7 +4182,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:de7e0cb402b1"
+   "key": "2026-11-25:de7e0cb402b1",
+   "theme": ""
   },
   {
    "story": "",
@@ -4473,7 +4212,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7cbd22894b04"
+   "key": "2026-11-25:7cbd22894b04",
+   "theme": ""
   },
   {
    "story": "",
@@ -4504,7 +4244,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:decdb20e1f82"
+   "key": "2026-11-25:decdb20e1f82",
+   "theme": ""
   },
   {
    "story": "",
@@ -4533,7 +4274,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:04fce8277348"
+   "key": "2026-11-25:04fce8277348",
+   "theme": ""
   },
   {
    "story": "",
@@ -4561,7 +4303,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:efa653201c7a"
+   "key": "2026-11-25:efa653201c7a",
+   "theme": ""
   },
   {
    "story": "",
@@ -4589,7 +4332,54 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7c55bf4a93d2"
+   "key": "2026-11-25:7c55bf4a93d2",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "オンワードHDのレーティングやや強気、目標株価930円",
+   "why": "",
+   "tags": [
+    "決算・業績"
+   ],
+   "company": "オンワードホールディングス",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ファイナンス"
+   ],
+   "latest": "2026-11-24T19:30:56+09:00",
+   "articles": [
+    {
+     "id": "440447160144",
+     "title": "【アナリスト評価】オンワードＨ、レーティングやや強気を据置き、目標株価930円に引上げ（日系大手証券）(アイフィス株予報)",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNdTg1WFB5UVpOWHJSdHNHNTF2YVlLX0JrZWxHQXA0M1FGMjNrOFBSQWhiY1ZzOW5jalFQWkQ3eldtMEN4ckVoQTh5V250Vmg0Wlo2dXFnNU96ekxJU0lMZU43Nlhrekk4R3lwY1BEV2lkNkp4bjNkdnU5dEZDd2hHVGRGai1LUEk?oc=5",
+     "source": "Yahoo!ファイナンス",
+     "published": "2026-11-24T19:30:56+09:00",
+     "level": "A",
+     "src_url": "https://finance.yahoo.co.jp/news/detail/1b933a2e6ca89a1ff2620a737846a5dc40350a74"
+    }
+   ],
+   "key": "2026-11-25:440447160144",
+   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
+   "body": "none",
+   "quick": {
+    "what": "オンワードHDのレーティングやや強気、目標株価930円",
+    "when": "記事に記載なし",
+    "me": "競合の株価動向やアナリスト評価を把握し経営戦略の参考にすべし"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [
+    "いつから適用？"
+   ],
+   "todo": false,
+   "capped": "promo",
+   "theme": ""
   },
   {
    "story": "",
@@ -4617,7 +4407,58 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:e7218d04a292"
+   "key": "2026-11-25:e7218d04a292",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロと無印良品のあったかインナー比較",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T19:35:00+09:00",
+   "articles": [
+    {
+     "id": "bef72ad06167",
+     "title": "【あったかインナー比較】ユニクロ「極暖カシミヤヒートテック」と無印「あったか綿」の2着をチェック！ 暖かさや着心地は？",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE92T2xKaVltNE1GSFM2SkctYURBMXdoSnlPWGl0aGNuemMzWktOTXNzMEhxWUtfbmpCZVVXZWQwM2hYbko3MVRtSS1ZOVhFM3plaG02aUZIcURVYWhiYjEzSU9ZTU8yTDNYTHNST0tkZUFVQy1yU2ZCUHlnaEptWWc?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T19:35:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/f6342718269adad4eb95140ca368cac5c709db9c"
+    }
+   ],
+   "key": "2026-11-25:bef72ad06167",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178640-it_favlog-000-1-view.jpg?exp=10800",
+   "body": "ok",
+   "quick": {
+    "what": "ユニクロと無印良品のあったかインナー比較",
+    "when": "2026年11月26日まで",
+    "me": "競合の防寒インナーの仕様や価格帯を把握し、自社アウター・インナー販促の参考にする。"
+   },
+   "points": [
+    "ユニクロ極暖カシミヤヒートテックは期間限定価格を実施中",
+    "無印良品はあったか綿シリーズを展開",
+    "両社とも吸湿発熱やストレッチ等の機能を備える"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": ""
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -4645,7 +4486,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d84d701b4a8f"
+   "key": "2026-11-25:d84d701b4a8f",
+   "theme": ""
   },
   {
    "story": "",
@@ -4673,7 +4515,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:46e6a313a990"
+   "key": "2026-11-25:46e6a313a990",
+   "theme": ""
   },
   {
    "story": "",
@@ -4701,7 +4544,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a30293c753c9"
+   "key": "2026-11-25:a30293c753c9",
+   "theme": ""
   },
   {
    "story": "",
@@ -4729,7 +4573,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:2e92dc0f4c0f"
+   "key": "2026-11-25:2e92dc0f4c0f",
+   "theme": ""
   },
   {
    "story": "",
@@ -4757,7 +4602,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:18e58ca6dc42"
+   "key": "2026-11-25:18e58ca6dc42",
+   "theme": ""
   },
   {
    "story": "",
@@ -4785,7 +4631,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7227032f12d2"
+   "key": "2026-11-25:7227032f12d2",
+   "theme": ""
   },
   {
    "story": "",
@@ -4814,7 +4661,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:b742df1ba243"
+   "key": "2026-11-25:b742df1ba243",
+   "theme": ""
   },
   {
    "story": "",
@@ -4842,7 +4690,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:8d2b10fd926a"
+   "key": "2026-11-25:8d2b10fd926a",
+   "theme": ""
   },
   {
    "story": "",
@@ -4871,7 +4720,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a1983cce100b"
+   "key": "2026-11-25:a1983cce100b",
+   "theme": ""
   },
   {
    "story": "",
@@ -4899,7 +4749,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d80363eaf836"
+   "key": "2026-11-25:d80363eaf836",
+   "theme": ""
   },
   {
    "story": "",
@@ -4927,7 +4778,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:2134a8e6a8d6"
+   "key": "2026-11-25:2134a8e6a8d6",
+   "theme": ""
   },
   {
    "story": "",
@@ -4955,7 +4807,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:52ecd22b38d2"
+   "key": "2026-11-25:52ecd22b38d2",
+   "theme": ""
   },
   {
    "story": "",
@@ -4984,7 +4837,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:3762b2dbf81b"
+   "key": "2026-11-25:3762b2dbf81b",
+   "theme": ""
   },
   {
    "story": "",
@@ -5012,7 +4866,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ffe3c78483c0"
+   "key": "2026-11-25:ffe3c78483c0",
+   "theme": ""
   },
   {
    "story": "",
@@ -5040,7 +4895,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:3d6d95f99f77"
+   "key": "2026-11-25:3d6d95f99f77",
+   "theme": ""
   },
   {
    "story": "",
@@ -5068,7 +4924,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:61982e7297d4"
+   "key": "2026-11-25:61982e7297d4",
+   "theme": ""
   },
   {
    "story": "",
@@ -5096,7 +4953,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9adc30ec4945"
+   "key": "2026-11-25:9adc30ec4945",
+   "theme": ""
   },
   {
    "story": "",
@@ -5125,7 +4983,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c6bf54ac6572"
+   "key": "2026-11-25:c6bf54ac6572",
+   "theme": ""
   },
   {
    "story": "",
@@ -5153,7 +5012,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:3e7e10b5e068"
+   "key": "2026-11-25:3e7e10b5e068",
+   "theme": ""
   },
   {
    "story": "",
@@ -5181,7 +5041,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ff6a1ddb5ab9"
+   "key": "2026-11-25:ff6a1ddb5ab9",
+   "theme": ""
   },
   {
    "story": "",
@@ -5209,7 +5070,173 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:96af58aab450"
+   "key": "2026-11-25:96af58aab450",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ワークマンのリカバリースーツを検証",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ワークマン",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "MonoMax web"
+   ],
+   "latest": "2026-11-24T21:27:16+09:00",
+   "articles": [
+    {
+     "id": "3297a7ddb384",
+     "title": "第1位 【上下約9,000円】ワークマンのリカバリースーツを忖度なし検証",
+     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1TdW9ZWTMzQ0k2eHJULXlrREFDdlBEX2RGX2QxcUdOMjZqZHF4QjhBbVV4RUczdi1JeFp0R3JZRnZYTktYVUJjUTI0V0xra045N0wtV1hlUXJnMEFDNEhHWkFBZw?oc=5",
+     "source": "MonoMax web",
+     "published": "2026-11-24T21:27:16+09:00",
+     "level": "A",
+     "src_url": "https://monomax.jp/archives/373873/img_4870_result-2/"
+    }
+   ],
+   "key": "2026-11-25:3297a7ddb384",
+   "image": "https://monomax.jp/official/wp-content/uploads/2026/11/IMG_4870_result-1000x667.webp",
+   "body": "ok",
+   "refill": {
+    "source": "topics.smt.docomo.ne.jp",
+    "title": "ワークマン「働きながら疲労回復!?」上下8,980円のリカバリースーツ、即戦力の一生モノ靴！リーガルの大定番が進化…ほか【ビジネスアイテムの人気記事ランキングベスト3】（2026年10月版）",
+    "url": "https://topics.smt.docomo.ne.jp/amp/article/monomax/trend/monomax-373873",
+    "sim": 0.52
+   },
+   "quick": {
+    "what": "ワークマンのリカバリースーツなどがビジネス誌で話題",
+    "when": "2026年10月版",
+    "me": "異業種参入の高コスパ服に対する顧客のリアルな評価を確認する"
+   },
+   "points": [
+    "ワークマンのリカバリースーツがビジネスアイテムランキング1位を獲得",
+    "上下約9,000円の価格やチャリ通向けの隠し機能が注目を集める",
+    "シワの寄りやすさやスーツ必須職種への不向きなどリアルな検証も話題",
+    "リーガルのローファーやace.のバッグなど定番ブランドの進化もランクイン"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": "記事に記載なし"
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロの軽量ダウンがスーツ通勤用として評価",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T21:30:00+09:00",
+   "articles": [
+    {
+     "id": "526a31fc89b7",
+     "title": "「5万円台のダウンと同性能です」 ユニクロの“7000円台軽量ダウン”に「スーツ通勤にも」「軽いのにしっかり暖かい」などの声",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5GbVI1cTE5UkMxTENQMExka0M5OXdGMXNkdzJidEpzMGYzSmFLRVZqWXJnWHFCUld2cGdDRUxfMDB0LXhhbkFYbFdaWENjb1U4UWZQVGU0RHFaaWdicXlBVkdxZkVJRHhoeXk4WWpjYlpZYk1BV1ZuYWtTQ0JKTmc?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T21:30:00+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/0a1dd24e73641e145b1560bab2bc286e6cc938cb"
+    }
+   ],
+   "key": "2026-11-25:526a31fc89b7",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-10178586-it_nlab-000-1-view.jpg?exp=10800",
+   "body": "ok",
+   "quick": {
+    "what": "ユニクロの軽量ダウンがスーツ通勤用としても高評価",
+    "when": "2026年11月24日時点",
+    "me": "冬のビジネスアウターのトレンドや顧客の着用実感を把握する"
+   },
+   "points": [
+    "シームレスダウンジャケットが値下げ後の価格で販売",
+    "スーツの上から着用するためワンサイズ大きめを選ぶ声がある",
+    "軽さと暖かさ、防風性を兼ね備えた防寒アウターとして支持",
+    "公式オンラインや店舗で売切れ続出の状況"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": "記事に記載なし"
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ユニクロ感謝祭のセール商品が話題に",
+   "why": "",
+   "tags": [
+    "競合",
+    "EC・販促"
+   ],
+   "company": "ユニクロ",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "au Webポータル"
+   ],
+   "latest": "2026-11-24T21:42:58+09:00",
+   "articles": [
+    {
+     "id": "1c2e559f42ba",
+     "title": "1500円→990円でつい即買い！ユニクロ感謝祭の「狙い目セール商品」家でも外でも活躍する“隠れ名品”でした！",
+     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5ZU19wNzl0OUlvWl9BLTFNREhFcDhLMVJiVTJxTFoyWGFoNGtTdFNBcV9UaUZieVJXSFB3YlVmYzFLbWpBUURlbXZnamRfWnRYRTU3M3d6cDdKY1V2TTRyNFRiOEY4VW1IZ3NXYlhB?oc=5",
+     "source": "au Webポータル",
+     "published": "2026-11-24T21:42:58+09:00",
+     "level": "A",
+     "src_url": "https://article.auone.jp/b817fc46-34cb-422c-b4b1-db39f2c51d1b"
+    }
+   ],
+   "key": "2026-11-25:1c2e559f42ba",
+   "image": "https://portal.auone.jp/media/thumbnails/2026/11/24/https___news_jp_i_1497941059442164619_w625.webp",
+   "body": "ok",
+   "refill": {
+    "source": "news.yahoo.co.jp",
+    "title": "1500円→990円で即買いした！ユニクロ感謝祭の「狙い目セール商品」家でも外でも活躍する、“隠れ名品”なんです！",
+    "url": "https://news.yahoo.co.jp/articles/3a31e71274d4ad0a8e6a87d8b15dde3783549ef0",
+    "sim": 0.87
+   },
+   "quick": {
+    "what": "ユニクロ感謝祭でアームウォーマーがセール価格に",
+    "when": "2026年11月26日まで",
+    "me": "防寒小物などの売れ筋トレンドや訴求の参考にす"
+   },
+   "points": [
+    "ユニクロ感謝祭の期間限定価格で販売されている",
+    "スフレヤーンニットアームウォーマーがお得に購入可能",
+    "フィンガーレスデザインでPC作業やスマホ操作がしやすい",
+    "手首を温める防寒アイテムとしてSNSやレビューで好評"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": "記事に記載なし"
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -5237,7 +5264,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9663a5ebc220"
+   "key": "2026-11-25:9663a5ebc220",
+   "theme": ""
   },
   {
    "story": "",
@@ -5265,7 +5293,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a0b28a3ab679"
+   "key": "2026-11-25:a0b28a3ab679",
+   "theme": ""
   },
   {
    "story": "",
@@ -5293,7 +5322,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:5adbcc28bf59"
+   "key": "2026-11-25:5adbcc28bf59",
+   "theme": ""
   },
   {
    "story": "",
@@ -5321,7 +5351,106 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:0b5c2f6a966e"
+   "key": "2026-11-25:0b5c2f6a966e",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "オンワードHDの27年2月期経常予想が微増",
+   "why": "",
+   "tags": [
+    "競合",
+    "決算・業績"
+   ],
+   "company": "オンワードホールディングス",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ファイナンス"
+   ],
+   "latest": "2026-11-24T22:47:22+09:00",
+   "articles": [
+    {
+     "id": "8992af91ceba",
+     "title": "【アナリスト予想】オンワードＨ、27年2月期経常予想。対前週0.2%上昇。(アイフィス株予報)",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPZnJiS3ZTc0ZOMVFXZFFFeGpNaEo3NDltUXc3ZE9nUVhkd2pXTG14N2p1MmhkdzE5NTlMM29rS0h2aml5emxLMExzWlNUQml4REdqSk15eUxqTV9zbzVsQ0tOQlBCMWFjeHVscmNuQ3R5WlpLYVlJTjYzMTNWMGVReU5pblJOdVE?oc=5",
+     "source": "Yahoo!ファイナンス",
+     "published": "2026-11-24T22:47:22+09:00",
+     "level": "A",
+     "src_url": "https://finance.yahoo.co.jp/news/detail/419203fe7482d89d6502e16fce3a7859d1e5a2cb"
+    }
+   ],
+   "key": "2026-11-25:8992af91ceba",
+   "image": "https://s.yimg.jp/images/finance/common/image/ogp.png",
+   "body": "none",
+   "quick": {
+    "what": "オンワードHDの27年2月期経常予想が微増",
+    "when": "記事に記載なし",
+    "me": "競合の業績予想の動向を確認し自社ECの販促戦略に活かすすべし"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [
+    "いつから適用？"
+   ],
+   "todo": false,
+   "capped": "promo",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "ワークマンの2900円断熱パンツが暖房の部屋も快適",
+   "why": "",
+   "tags": [
+    "競合",
+    "新商品・サービス"
+   ],
+   "company": "ワークマン",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "Yahoo!ニュース"
+   ],
+   "latest": "2026-11-24T22:50:34+09:00",
+   "articles": [
+    {
+     "id": "460953fe6188",
+     "title": "【ワークマン】冷気を通さない2900円の「エックスシェルター断熱βライトウォームパンツ」は暖房の部屋も蒸れにくい！（LIMO）",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0ySkh0RlJXYWJwUjJOaHdRTXdpLTNBN1FYNUw0Yko3ZzVVZ0VfaEVYYktoci1ZbVFNWWpIel81YVAwekpsdjktVHg0YmNSb1hKRWFnU0hKWlFNbXlkOU12cFhGRWx3azBZQ3pRQkZDS1VIVk5tOUQyWlFnZ2xNdDQ?oc=5",
+     "source": "Yahoo!ニュース",
+     "published": "2026-11-24T22:50:34+09:00",
+     "level": "A",
+     "src_url": "https://news.yahoo.co.jp/articles/bae58f92d8f5483db7ad3269705a736cf3f8142b"
+    }
+   ],
+   "key": "2026-11-25:460953fe6188",
+   "image": "https://newsatcl-pctr.c.yimg.jp/t/amd-img/20261124-90001005-toushin-000-1-view.jpg?exp=10800",
+   "body": "ok",
+   "quick": {
+    "what": "ワークマンの断熱パンツが暖房の部屋でも快適と話題",
+    "when": "2026年11月17日時点",
+    "me": "冬場の屋内・屋外の寒暖差に対応する機能性服の動向を掴む"
+   },
+   "points": [
+    "エックスシェルター断熱βライトウォームストレッチパンツが注目を集める",
+    "外の冷気を防ぎつつ、暖房の効いた屋内では蒸れにくい仕様",
+    "価格は手頃な設定で高評価を獲得している",
+    "立体裁断によりスリムな見た目と動きやすさを両立"
+   ],
+   "diagram": {
+    "type": "none",
+    "title": "記事に記載なし"
+   },
+   "questions": [],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -5349,7 +5478,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:871965ac9904"
+   "key": "2026-11-25:871965ac9904",
+   "theme": ""
   },
   {
    "story": "",
@@ -5377,7 +5507,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:d874cc250974"
+   "key": "2026-11-25:d874cc250974",
+   "theme": ""
   },
   {
    "story": "",
@@ -5405,7 +5536,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:073803152ba3"
+   "key": "2026-11-25:073803152ba3",
+   "theme": ""
   },
   {
    "story": "",
@@ -5433,7 +5565,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:b2e6d5de3545"
+   "key": "2026-11-25:b2e6d5de3545",
+   "theme": ""
   },
   {
    "story": "",
@@ -5462,7 +5595,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1ef049a44ffc"
+   "key": "2026-11-25:1ef049a44ffc",
+   "theme": ""
   },
   {
    "story": "",
@@ -5490,7 +5624,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:59f7e7a5a2ae"
+   "key": "2026-11-25:59f7e7a5a2ae",
+   "theme": ""
   },
   {
    "story": "",
@@ -5519,7 +5654,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:bda5a89665c2"
+   "key": "2026-11-25:bda5a89665c2",
+   "theme": ""
   },
   {
    "story": "",
@@ -5547,7 +5683,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:0b2d5e281c1b"
+   "key": "2026-11-25:0b2d5e281c1b",
+   "theme": ""
   },
   {
    "story": "",
@@ -5575,7 +5712,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:f6533ce5545f"
+   "key": "2026-11-25:f6533ce5545f",
+   "theme": ""
   },
   {
    "story": "",
@@ -5604,7 +5742,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:96e4a3b2c4e1"
+   "key": "2026-11-25:96e4a3b2c4e1",
+   "theme": ""
   },
   {
    "story": "",
@@ -5632,7 +5771,55 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:8afb8bd8101b"
+   "key": "2026-11-25:8afb8bd8101b",
+   "theme": ""
+  },
+  {
+   "story": "",
+   "level": "B",
+   "summary": "はるやまが乃木坂46を起用した新CMを公開",
+   "why": "",
+   "tags": [
+    "EC・販促",
+    "競合"
+   ],
+   "company": "はるやま",
+   "lanes": [
+    "industry"
+   ],
+   "sources": [
+    "ウォーカープラス"
+   ],
+   "latest": "2026-11-25T03:37:24+09:00",
+   "articles": [
+    {
+     "id": "2d6b7bbcb437",
+     "title": "＜画像7 / 20＞【写真特集】乃木坂46“イケメン男装姿”in「はるやま」新CM",
+     "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE90bDVMaFRYbFBlbnJzYnQ4UjBwRlFkUE8zT2ZidDRPdzBFY21QU1pvZmpFMDVuVG5QYnFOeGNGcFpkX2JId2tDbE9Ka3JLNW5zdzFudl9ia2JBNk1Ccjh6WnlnVTQwZ19CTUE?oc=5",
+     "source": "ウォーカープラス",
+     "published": "2026-11-25T03:37:24+09:00",
+     "level": "A",
+     "src_url": "https://www.walkerplus.com/article/136655/image764680.html"
+    }
+   ],
+   "key": "2026-11-25:2d6b7bbcb437",
+   "image": "https://news.walkerplus.com/article/136655/764675_615.jpg",
+   "body": "partial",
+   "quick": {
+    "what": "はるやまが乃木坂46を起用した新CMを公開",
+    "when": "記事に記載なし",
+    "me": "競合のタレント起用やプロモーション施策を自社の販促の参考にすべし"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [
+    "いつから適用？"
+   ],
+   "todo": false,
+   "capped": "review",
+   "theme": ""
   },
   {
    "story": "",
@@ -5660,7 +5847,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:e63270731879"
+   "key": "2026-11-25:e63270731879",
+   "theme": ""
   },
   {
    "story": "",
@@ -5688,7 +5876,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1d7e5735e2ef"
+   "key": "2026-11-25:1d7e5735e2ef",
+   "theme": ""
   },
   {
    "story": "",
@@ -5716,7 +5905,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:8fbd632a4dd4"
+   "key": "2026-11-25:8fbd632a4dd4",
+   "theme": ""
   },
   {
    "story": "",
@@ -5744,7 +5934,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:77713d839f26"
+   "key": "2026-11-25:77713d839f26",
+   "theme": ""
   },
   {
    "story": "",
@@ -5772,7 +5963,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:bff77d4a9c4b"
+   "key": "2026-11-25:bff77d4a9c4b",
+   "theme": ""
   },
   {
    "story": "",
@@ -5800,7 +5992,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:10e9a7b920c0"
+   "key": "2026-11-25:10e9a7b920c0",
+   "theme": ""
   },
   {
    "story": "",
@@ -5829,7 +6022,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:28f17cd0ee45"
+   "key": "2026-11-25:28f17cd0ee45",
+   "theme": ""
   },
   {
    "story": "",
@@ -5857,7 +6051,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:0439c847a5e3"
+   "key": "2026-11-25:0439c847a5e3",
+   "theme": ""
   },
   {
    "story": "",
@@ -5885,7 +6080,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1d04c2580fcc"
+   "key": "2026-11-25:1d04c2580fcc",
+   "theme": ""
   },
   {
    "story": "",
@@ -5913,7 +6109,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:940e9c58c13c"
+   "key": "2026-11-25:940e9c58c13c",
+   "theme": ""
   },
   {
    "story": "",
@@ -5941,7 +6138,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:f22332268093"
+   "key": "2026-11-25:f22332268093",
+   "theme": ""
   },
   {
    "story": "",
@@ -5969,7 +6167,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:181f9cec4231"
+   "key": "2026-11-25:181f9cec4231",
+   "theme": ""
   },
   {
    "story": "",
@@ -5997,7 +6196,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9dae173df81e"
+   "key": "2026-11-25:9dae173df81e",
+   "theme": ""
   },
   {
    "story": "",
@@ -6025,7 +6225,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:bdf154eef923"
+   "key": "2026-11-25:bdf154eef923",
+   "theme": ""
   },
   {
    "story": "",
@@ -6053,7 +6254,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:34da43f1d4f7"
+   "key": "2026-11-25:34da43f1d4f7",
+   "theme": ""
   },
   {
    "story": "",
@@ -6081,7 +6283,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1cb77dd4c3ef"
+   "key": "2026-11-25:1cb77dd4c3ef",
+   "theme": ""
   },
   {
    "story": "",
@@ -6109,7 +6312,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7ec6c06b0c3b"
+   "key": "2026-11-25:7ec6c06b0c3b",
+   "theme": ""
   },
   {
    "story": "",
@@ -6137,7 +6341,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:9d8cacc9f334"
+   "key": "2026-11-25:9d8cacc9f334",
+   "theme": ""
   },
   {
    "story": "",
@@ -6165,7 +6370,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:4f237bc74e55"
+   "key": "2026-11-25:4f237bc74e55",
+   "theme": ""
   },
   {
    "story": "",
@@ -6193,7 +6399,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:1481f5bd16ae"
+   "key": "2026-11-25:1481f5bd16ae",
+   "theme": ""
   },
   {
    "story": "",
@@ -6221,7 +6428,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:018ad8b805ba"
+   "key": "2026-11-25:018ad8b805ba",
+   "theme": ""
   },
   {
    "story": "",
@@ -6249,7 +6457,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a49d77d98f94"
+   "key": "2026-11-25:a49d77d98f94",
+   "theme": ""
   },
   {
    "story": "",
@@ -6277,7 +6486,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:c0da25555543"
+   "key": "2026-11-25:c0da25555543",
+   "theme": ""
   },
   {
    "story": "",
@@ -6305,7 +6515,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:2d5aa766fcec"
+   "key": "2026-11-25:2d5aa766fcec",
+   "theme": ""
   },
   {
    "story": "",
@@ -6333,7 +6544,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7359c0d9b509"
+   "key": "2026-11-25:7359c0d9b509",
+   "theme": ""
   },
   {
    "story": "",
@@ -6361,7 +6573,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:98ffe4623bed"
+   "key": "2026-11-25:98ffe4623bed",
+   "theme": ""
   },
   {
    "story": "",
@@ -6389,7 +6602,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:cc54ca3500c5"
+   "key": "2026-11-25:cc54ca3500c5",
+   "theme": ""
   },
   {
    "story": "",
@@ -6417,7 +6631,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:11ba73da96bb"
+   "key": "2026-11-25:11ba73da96bb",
+   "theme": ""
   },
   {
    "story": "",
@@ -6445,7 +6660,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:b79bde438a1f"
+   "key": "2026-11-25:b79bde438a1f",
+   "theme": ""
   },
   {
    "story": "",
@@ -6473,7 +6689,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7bd50730503e"
+   "key": "2026-11-25:7bd50730503e",
+   "theme": ""
   },
   {
    "story": "",
@@ -6501,7 +6718,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:4e333ba50d4f"
+   "key": "2026-11-25:4e333ba50d4f",
+   "theme": ""
   },
   {
    "story": "",
@@ -6529,7 +6747,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:6cc158c45eef"
+   "key": "2026-11-25:6cc158c45eef",
+   "theme": ""
   },
   {
    "story": "",
@@ -6557,7 +6776,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:557134f30662"
+   "key": "2026-11-25:557134f30662",
+   "theme": ""
   },
   {
    "story": "",
@@ -6586,7 +6806,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:cff3ee6890d9"
+   "key": "2026-11-25:cff3ee6890d9",
+   "theme": ""
   },
   {
    "story": "",
@@ -6614,7 +6835,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:0b11b51ff711"
+   "key": "2026-11-25:0b11b51ff711",
+   "theme": ""
   },
   {
    "story": "",
@@ -6642,7 +6864,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:ca19534e0f26"
+   "key": "2026-11-25:ca19534e0f26",
+   "theme": ""
   },
   {
    "story": "",
@@ -6670,7 +6893,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:8140b0cd7739"
+   "key": "2026-11-25:8140b0cd7739",
+   "theme": ""
   },
   {
    "story": "",
@@ -6698,7 +6922,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:f5ae0f479dea"
+   "key": "2026-11-25:f5ae0f479dea",
+   "theme": ""
   },
   {
    "story": "",
@@ -6726,7 +6951,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:32a751af85a4"
+   "key": "2026-11-25:32a751af85a4",
+   "theme": ""
   },
   {
    "story": "",
@@ -6754,7 +6980,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:286c7f1f42d6"
+   "key": "2026-11-25:286c7f1f42d6",
+   "theme": ""
   },
   {
    "story": "",
@@ -6782,7 +7009,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:3756d8461d3b"
+   "key": "2026-11-25:3756d8461d3b",
+   "theme": ""
   },
   {
    "story": "",
@@ -6810,7 +7038,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:56439f63bebb"
+   "key": "2026-11-25:56439f63bebb",
+   "theme": ""
   },
   {
    "story": "",
@@ -6838,7 +7067,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:f2ed7891824f"
+   "key": "2026-11-25:f2ed7891824f",
+   "theme": ""
   },
   {
    "story": "",
@@ -6866,7 +7096,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:76a3d01bd8fe"
+   "key": "2026-11-25:76a3d01bd8fe",
+   "theme": ""
   },
   {
    "story": "",
@@ -6895,7 +7126,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:7a9114378efc"
+   "key": "2026-11-25:7a9114378efc",
+   "theme": ""
   },
   {
    "story": "",
@@ -6923,7 +7155,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:e7b6c9fa2333"
+   "key": "2026-11-25:e7b6c9fa2333",
+   "theme": ""
   },
   {
    "story": "",
@@ -6951,7 +7184,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:6e49d6cbc153"
+   "key": "2026-11-25:6e49d6cbc153",
+   "theme": ""
   },
   {
    "story": "",
@@ -6979,7 +7213,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:66b983f9e514"
+   "key": "2026-11-25:66b983f9e514",
+   "theme": ""
   },
   {
    "story": "",
@@ -7007,7 +7242,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a2708a24d385"
+   "key": "2026-11-25:a2708a24d385",
+   "theme": ""
   },
   {
    "story": "",
@@ -7035,7 +7271,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:dfd2f7c8e695"
+   "key": "2026-11-25:dfd2f7c8e695",
+   "theme": ""
   },
   {
    "story": "",
@@ -7064,7 +7301,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:5d9341d95ee8"
+   "key": "2026-11-25:5d9341d95ee8",
+   "theme": ""
   },
   {
    "story": "",
@@ -7092,7 +7330,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:0512d7a601b9"
+   "key": "2026-11-25:0512d7a601b9",
+   "theme": ""
   },
   {
    "story": "",
@@ -7120,7 +7359,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:e2def727ead1"
+   "key": "2026-11-25:e2def727ead1",
+   "theme": ""
   },
   {
    "story": "",
@@ -7148,7 +7388,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:a6136eb730ff"
+   "key": "2026-11-25:a6136eb730ff",
+   "theme": ""
   },
   {
    "story": "",
@@ -7176,7 +7417,8 @@
      "level": "B"
     }
    ],
-   "key": "2026-11-25:119300d8b543"
+   "key": "2026-11-25:119300d8b543",
+   "theme": ""
   }
  ],
  "c_items": [
