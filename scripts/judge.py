@@ -268,6 +268,11 @@ BAD_STORY_NAMES = {"その他", "情報漏えい", "情報漏えい事故", "為
                    "出店・閉店", "EC・販促", "セキュリティ", "ECサイト運用", "商品開発トレンド", "制度・法令"}
 
 
+def _bigrams(t):
+    t = re.sub(r"\s|【.*?】", "", t or "")
+    return {t[i:i + 2] for i in range(len(t) - 1)}
+
+
 def group_stories(items):
     """同じ話題名の記事を1つの話題（カード）にまとめる。話題名がない記事はそれだけで1話題。"""
     order = {l: i for i, l in enumerate(LEVELS)}
@@ -279,6 +284,16 @@ def group_stories(items):
     for key, arts in groups.items():
         arts.sort(key=lambda x: (order[x["level"]], -(len(x.get("sources") or [])), x.get("published") or ""))
         lead = arts[0]
+        if len(arts) >= 3:
+            # 複数の出来事をまとめて伝える記事（速報まとめ等）が代表にならないよう、
+            # 同じ重要度の中で「ほかの記事と見出しが最も近い記事」を代表にする
+            top = [a for a in arts if a["level"] == lead["level"]]
+            if len(top) >= 2:
+                def centrality(a):
+                    A = _bigrams(a["title"])
+                    return sum(len(A & _bigrams(b["title"])) / max(1, min(len(A), len(_bigrams(b["title"]))))
+                               for b in arts if b is not a) / (len(arts) - 1)
+                lead = max(top, key=centrality)
         srcs = []
         for a in arts:
             for s_ in a.get("sources") or []:
