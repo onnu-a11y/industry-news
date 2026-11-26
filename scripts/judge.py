@@ -34,7 +34,8 @@ DEFAULT_PROFILE = """読み手：日本のメンズスーツ専門店（オー�
 
 RUBRIC = """重要度の基準:
 S＝最重要。「読み手の会社が今すぐ確認・対応すべきこと」に限る。次のいずれか。
- ・制度・法令・税・規制が「決まった／成立した／施行される／具体的な中身や日程が変わった」もの（消費税・減税、特商法、景表法、個人情報保護法、最低賃金、社会保険、下請法/取適法、インボイス、公益通報、メール配信規制など）。国内のみ。
+ ・制度・法令・税・規制が「決まった／成立した／施行される／具体的な中身や日程が変わった」もの（消費税・減税、特商法、景表法、個人情報保護法、最低賃金、社会保険、下請法/取適法、インボイス、公益通報、メール配信規制など）。国内のみ。読み手の業務（EC・販促・人事・税）に関わる制度に限る。
+   貿易・海運の書類、金融・証券、医療・介護、建設、農林水産など他業界に固有の制度はSにしない（接点があればA、なければB）。
  ・郵便料金・DM/はがき・宅配便の運賃・送料・印刷/用紙価格の改定や制度変更（発送物と販促物のコストに直結）
  ・ECサイトやWebの基盤（PHP、WordPress、カートシステム、決済、メール配信、LINE等）の重大な脆弱性・大規模障害・規約変更、公的機関（IPA・JPCERT等）の注意喚起
  ・直接競合の経営の大きな動き（統合・買収・撤退・大規模閉店・全面的な価格改定）
@@ -67,12 +68,13 @@ SYSTEM = """あなたは日本のアパレル小売企業向けのニュース�
 {rubric}
 
 出力ルール:
-- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…","theme":"…"}}]}}
+- 形式: {{"items":[{{"id":"…","level":"S|A|B|C","summary":"…","why":"…","tags":["…"],"company":"…","theme":"…","scope":"全国|地域|海外"}}]}}
 - summary: 何が起きたかを主語・数字を残して40字以内の日本語で。見出しの言い換えで構わないが、煽り表現は削る。
 - why: S/Aのみ。読み手の仕事にどう関係するかを30字以内で。B/Cは空文字。
 - tags: 次から1〜2個 {tags}
 - company: 主役の企業名（なければ空文字）
 - theme: 同じ政策・同じ出来事の流れを表す短い名前（例：「消費税減税法案」「楽天証券の情報漏えい」）。同じ流れの記事には必ず同じ名前を付ける。「不正アクセス全般」「ユニクロの新商品」のような分野・会社のくくりは不可で、その場合は空文字
+- scope: 記事の範囲。全国＝日本全体に関わる話、地域＝1つの都道府県・市区町村だけの話（東京・大阪など関東・関西も含む）、海外＝日本国外の話
 - 入力の全idについて必ず1件ずつ返す。"""
 
 
@@ -224,6 +226,7 @@ def judge(items, token, profile, log, prev_names=None, examples=""):
                 "tags": [t for t in r.get("tags", []) if t in TAGS][:2],
                 "company": (r.get("company") or "")[:30],
                 "theme": (r.get("theme") or "").strip()[:30] if isinstance(r.get("theme"), str) else "",
+                "scope": r.get("scope") if r.get("scope") in ("全国", "地域", "海外") else "",
             })
         else:  # AIで判定できなかった記事はキーワードのルールで判定する
             merged.update(rule_judge(it))
@@ -358,29 +361,64 @@ RE_BIGMOVE = re.compile(r"突破|割れ|超え|ぶり(?:の)?(?:高|安|水準)|
 RE_HIT = re.compile(r"大ヒット|ヒット商品|完売|売り切れ|品薄|過去最高|最高益|記録的|販売数.{0,6}(?:突破|超)|[0-9０-９]+万(?:枚|着|個|本|足)"
                     r"|社会現象|業界初|世界初|日本初|国内初|新業態|新サービス|生成AI|\bAI\b|ＡＩ|DX")
 BIG_MIN_ARTICLES, BIG_MIN_OUTLETS = 8, 4
+# M4-6.1：「大きく報道」の本数に数えない記事（1つの都道府県・市区町村だけの話、海外の話）
+# AI の scope（地域・海外）と、見出しの言葉の2つで見分け、どちらかに当たれば数えない（見落としを減らすため二重にする）
+PREFS = ("北海道|青森|岩手|宮城|秋田|山形|福島|茨城|栃木|群馬|埼玉|千葉|東京|神奈川|新潟|富山|石川|福井|山梨|長野|岐阜|静岡|愛知|三重"
+         "|滋賀|京都|大阪|兵庫|奈良|和歌山|鳥取|島根|岡山|広島|山口|徳島|香川|愛媛|高知|福岡|佐賀|長崎|熊本|大分|宮崎|鹿児島|沖縄")
+RE_LOCAL = re.compile(rf"(?:{PREFS})(?:県|府|都|労働局)|北海道|(?:{NON_KK})(?![゠-ヿ])|県内|府内|都内|道内|市内|町内|村内|区内|地元"
+                      r"|[一-鿿]{1,4}(?:市|町|村)(?:長|議会|議|内|役所)|[一-鿿]{1,4}市[北南東西中]区")
+KANA = r"\u30a0-\u30ff"
+RE_FOREIGN = re.compile(r"米国|米政府|中国政府|韓国|台湾|香港|英国|欧州|EU|豪州|中東|北朝鮮|"
+                        rf"(?<![{KANA}])(?:アメリカ|トランプ|インド|ベトナム|タイ|インドネシア|フィリピン|マレーシア|シンガポール|バングラデシュ"
+                        rf"|カンボジア|ミャンマー|パキスタン|イギリス|フランス|ドイツ|イタリア|スペイン|ロシア|ウクライナ|ブラジル|メキシコ|カナダ"
+                        rf"|オーストラリア)(?![{KANA}])")
+RE_JAPAN = re.compile(r"日本|国内|政府|日銀|円(?:安|高)|全国|訪日|インバウンド|政府・与党|国会")
+RE_OPINION = re.compile(r"なぜ|？|\?|！|!|疑う|みんなの広場|論説|社説|コラム|考える|識者|インタビュー|寄稿|オピニオン|意見|視点|【注目】|【PR】")
+
+
+def counts_as_national(it):
+    """「大きく報道」の本数に数える記事か。地域・海外の記事は数えない。"""
+    if it.get("scope") in ("地域", "海外"):
+        return False
+    title = it.get("title") or ""
+    if RE_LOCAL.search(title) and not RE_NATIONAL.search(title):
+        return False
+    if RE_FOREIGN.search(title) and not RE_JAPAN.search(title):
+        return False
+    return True
 
 
 def finalize(stories, items, log=print):
     """上限（地域はSにしない／レビュー・告知・株価予想はBまで）をかけ、同じテーマが大きく報道された日は代表1件をSにする。"""
     order = {l: i for i, l in enumerate(LEVELS)}
-    st = {"region": 0, "review": 0, "promo": 0, "big": []}
-    # テーマごとの記事数・媒体数（C以外の記事を数える）
+    st = {"region": 0, "review": 0, "promo": 0, "big": [], "not_counted": {}}
+    by_id = {it["id"]: it for it in items}
+    # テーマごとの記事数・媒体数（C以外、かつ全国の記事だけを数える）
     by_theme = {}
     for it in items:
         t = (it.get("theme") or "").strip()
-        if t and it.get("level") != "C":
-            d = by_theme.setdefault(t, {"n": 0, "outlets": set()})
+        if not t or it.get("level") == "C":
+            continue
+        d = by_theme.setdefault(t, {"n": 0, "outlets": set(), "raw": 0})
+        d["raw"] += 1
+        if counts_as_national(it):
             d["n"] += 1
             d["outlets"].add((it.get("sources") or [""])[0])
+    for t, d in by_theme.items():
+        if d["raw"] >= BIG_MIN_ARTICLES and d["raw"] != d["n"]:
+            st["not_counted"][t] = d["raw"] - d["n"]
     id_theme = {it["id"]: (it.get("theme") or "").strip() for it in items}
     for s in stories:
         ts = [id_theme.get(a["id"], "") for a in s["articles"]]
         ts = [t for t in ts if t]
         s["theme"] = max(set(ts), key=ts.count) if ts else ""
+
+    def is_big(d):
+        return d and d["n"] >= BIG_MIN_ARTICLES and len(d["outlets"]) >= BIG_MIN_OUTLETS
+
     for s in stories:
-        d = by_theme.get(s.get("theme") or "")
-        if d and d["n"] >= BIG_MIN_ARTICLES and len(d["outlets"]) >= BIG_MIN_OUTLETS:
-            s["big"] = d["n"]
+        if is_big(by_theme.get(s.get("theme") or "")):
+            s["big"] = by_theme[s["theme"]]["n"]
     for s in stories:
         if s["level"] not in ("S", "A"):
             continue
@@ -401,21 +439,36 @@ def finalize(stories, items, log=print):
             s["level"], s["capped"] = "A", "region"; st["region"] += 1
         if s.get("capped"):
             s["why"] = s["why"] if s["level"] == "A" else ""
+
+    def lead_item(s):
+        a = s["articles"][0] if s["articles"] else {}
+        return by_id.get(a.get("id"), a)
+
     for t, d in by_theme.items():
-        if d["n"] < BIG_MIN_ARTICLES or len(d["outlets"]) < BIG_MIN_OUTLETS:
+        if not is_big(d):
             continue
-        cand = [s for s in stories if s.get("theme") == t and s["level"] in ("S", "A")]
-        for s in stories:
-            if s.get("theme") == t:
-                s["big"] = d["n"]
+        # 代表の候補：S・A・B のうち、上限で下げた話題・地域や海外の話題を除く（M4-6.1 で B も対象に）
+        cand = [s for s in stories if s.get("theme") == t and s["level"] in ("S", "A", "B")
+                and s.get("capped") not in ("review", "promo", "market", "region") and counts_as_national(lead_item(s))]
         if not cand:
             continue
         if not any(s["level"] == "S" for s in cand):
-            rep = sorted(cand, key=lambda s: (order[s["level"]], -len(s["articles"]), -len(s.get("sources") or [])))[0]
+            def rank(s):
+                lead = s["articles"][0]["title"] if s["articles"] else ""
+                law = bool({"制度・法令", "税・価格"} & set(s.get("tags") or []))
+                near = len(_bigrams(t) & _bigrams(lead)) / max(1, len(_bigrams(t)))  # 見出しがテーマ名に近いほど代表向き
+                return (order[s["level"]], bool(RE_OPINION.search(lead)), -round(near, 1), not law,
+                        -len(s["articles"]), -len(s.get("sources") or []))
+            rep = sorted(cand, key=rank)[0]
+            if rep["level"] == "B" and not rep.get("why"):
+                rep["why"] = f"大きく報道（{d['n']}本）"
+            rep["level_before_boost"] = rep["level"]
             rep["level"], rep["boosted"] = "S", True
         st["big"].append(f"{t}:{d['n']}本/{len(d['outlets'])}媒体")
     stories.sort(key=lambda x: (order[x["level"]], -len(x["articles"]), x.get("latest") or ""))
-    log(f"上限：地域{st['region']}件・レビュー{st['review']}件・告知等{st['promo']}件・相場コメント{st.get('market', 0)}件／大きく報道：{'、'.join(st['big']) or 'なし'}")
+    nc = "、".join(f"{k}:{v}本" for k, v in st["not_counted"].items()) or "なし"
+    log(f"上限：地域{st['region']}件・レビュー{st['review']}件・告知等{st['promo']}件・相場コメント{st.get('market', 0)}件"
+        f"／大きく報道：{'、'.join(st['big']) or 'なし'}／地域・海外で数えなかった記事：{nc}")
     return st
 
 
@@ -439,7 +492,7 @@ SUM_SYSTEM = """あなたは日本のメンズスーツ専門店のEC・販促�
    "impact":["送料設定|DM・はがき|EC基盤|メルマガ|ポイント|競合調査|価格設定|採用・人件費 から該当するもの"]}},
  "level_recheck":"S|A|B|C"}}]}}
 図の選び方：料金・価格・条件が変わる話→change（rowsを使う）、法律・制度の進み具合→steps、それ以外で自社業務に関係→impact、図にする材料が無い→none。使わない欄は空配列。
-level_recheck：重要度Sの話題だけ、本文を読んだうえで重要度を付け直す。海外の話・読み手の仕事と無関係・Sの基準（国内の制度の決定や施行、運賃・郵便料金の改定、EC基盤の重大な脆弱性、直接競合の大きな動き）に当たらない場合は A/B/C に下げる。S以外の話題は空文字。
+level_recheck：重要度Sの話題だけ、本文を読んだうえで重要度を付け直す。海外の話・読み手の仕事と無関係・読み手の業務（EC・販促・人事・税）に関わらない制度・Sの基準（国内の制度の決定や施行、運賃・郵便料金の改定、EC基盤の重大な脆弱性、直接競合の大きな動き）に当たらない場合は A/B/C に下げる。S以外の話題は空文字。
 入力の全keyについて必ず1件ずつ返す。"""
 
 QUESTION_OF = {"when": "いつから適用？", "what": "何が決まった？", "me": "自社への影響は？"}
@@ -562,7 +615,7 @@ def summarize(stories, bodies, token, log, profile):
                 for attempt in range(tries):
                     if stats["requests"] >= budget:
                         return None
-                    model = models[(attempt + stats["requests"]) % len(models)]
+                    model = models[attempt % len(models)]  # 再試行のたびに別のモデルへ（11/26 は同じモデルの503が続いた）
                     stats["requests"] += 1
                     try:
                         text, _ = call_model([{"role": "system", "content": system}, {"role": "user", "content": user}], model, token)
@@ -600,7 +653,7 @@ def summarize(stories, bodies, token, log, profile):
                     stats["dropped_fields"] += 1
                 s["quick"], s["points"], s["diagram"] = c["quick"], c["points"], c["diagram"]
                 # Sの再判定：本文を読めた時だけ下げる（見出しだけで下げると取りこぼしが増えるため）
-                if s["level"] == "S" and s.get("body") == "ok" and c["level_recheck"] in ("A", "B", "C"):
+                if s["level"] == "S" and not s.get("boosted") and s.get("body") == "ok" and c["level_recheck"] in ("A", "B", "C"):
                     s["level_orig"] = "S"
                     s["level"] = c["level_recheck"]
                     stats["demoted"] += 1

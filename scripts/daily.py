@@ -156,6 +156,63 @@ def update_index(today):
                                "latest": str(today), "days": days[:120], "weekly": weekly[:30]})
 
 
+REFILL_MAX = 2  # 作り直しは1日2回まで（5:47 の Cloudflare と 6:07 の GitHub）
+
+
+def refill_summaries(day_path):
+    """作成済みの日の、30秒の要約が付かなかった S・A の話題だけ、本文を取り直して要約し直す。AI は欠けた分だけ。"""
+    doc = load(day_path)
+    missing = [s for s in doc.get("stories", []) if s["level"] in ("S", "A") and not s.get("quick")]
+    tries = (doc.get("stats") or {}).get("refill", {}).get("tries", 0)
+    if not missing:
+        print("refill: 要約の欠けはありません")
+        return
+    if tries >= REFILL_MAX:
+        print(f"refill: 作り直しは本日{REFILL_MAX}回済みのため省きます（残り{len(missing)}話題）")
+        return
+    token = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not token:
+        print("refill: AI のキーがないため省きます")
+        return
+    logs = []
+
+    def log(m):
+        m = str(m)[:300]
+        print(m, flush=True)
+        logs.append(m)
+
+    log(f"refill: 要約が欠けた{len(missing)}話題を作り直します（{tries + 1}回目）")
+    profile = os.environ.get("PROFILE", "").strip() or judge.DEFAULT_PROFILE
+    bodies = {}
+    try:
+        import enrich
+        _, bodies, _ = enrich.enrich(missing, log)  # 欠けた話題だけ本文・写真を取り直す（同じ dict を更新）
+    except Exception as e:  # noqa: BLE001
+        log(f"refill enrich: {type(e).__name__}。見出しで要約します")
+    for s in missing:  # 前回の「要追加調査」の印は付け直す
+        s.pop("questions", None)
+        s.pop("todo", None)
+    st = judge.summarize(missing, bodies, token, log, profile)
+    bodies = None  # 本文は保存しない
+    stories = doc["stories"]
+    moved = [x for x in stories if x["level"] == "C"]
+    for s in moved:  # 付け直しで C になった話題は対象外の一覧へ
+        stories.remove(s)
+        if s["articles"]:
+            doc.setdefault("c_items", []).append({"t": s["articles"][0]["title"][:120], "u": s["articles"][0]["url"],
+                                                  "lane": (s.get("lanes") or [""])[0], "date": s.get("latest") or ""})
+    stories.sort(key=lambda s: (LEVEL_ORDER[s["level"]], -len(s["articles"]), s.get("latest") or ""))
+    left = sum(1 for s in stories if s["level"] in ("S", "A") and not s.get("quick"))
+    for l in "SAB":  # 付け直しで S から下がった話題があれば件数を直す
+        doc["counts"][l] = sum(1 for s in stories if s["level"] == l)
+    doc["counts"]["C"] = doc["counts"].get("C", 0) + len(moved)
+    doc.setdefault("stats", {})["refill"] = {"tries": tries + 1, "targets": len(missing), "done": st.get("done", 0),
+                                             "requests": st.get("requests", 0), "left": left}
+    doc["logs"] = (doc.get("logs") or []) + logs[-10:]
+    save(day_path, doc)
+    log(f"refill: {st.get('done', 0)}／{len(missing)}話題に要約を付けました（残り{left}・AI {st.get('requests', 0)}回）")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true")
@@ -170,6 +227,11 @@ def main():
     except Exception as e:  # noqa: BLE001
         print(f"ratings: {type(e).__name__}。取り込みを省いて続行します")
     if day_path.exists() and not a.force:
+        # M4-6.1：作成済みの朝（5:47・6:07）は、要約が欠けた S・A の話題だけ作り直す
+        try:
+            refill_summaries(day_path)
+        except Exception as e:  # noqa: BLE001
+            print(f"refill: {type(e).__name__}。作り直しを省いて終了します")
         print(f"{today} は作成済みのため終了します（予備実行）")
         return
 
