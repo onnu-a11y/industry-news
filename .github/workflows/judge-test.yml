@@ -1,5 +1,5 @@
 name: judge-test
-# 検証用：M4-6 の基準を、今の基準（old_sha の judge.py）と同じ記事で比べる → data/probe/compare.md
+# 検証用：M4-6.1 の修正版を、今の基準（old_sha の judge.py）と同じ記事で比べる → data/probe/compare.md
 on:
   workflow_dispatch:
     inputs:
@@ -8,7 +8,7 @@ on:
         default: "30"
       old_sha:
         description: "比べる元の judge.py のコミット"
-        default: "8997db7"
+        default: "origin/main"
 
 permissions:
   contents: write
@@ -35,5 +35,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
           git add data/probe
-          git commit -m "judge-test: M4-6 compare" || echo "no changes"
+          git commit -m "judge-test: M4-6.1 compare" || echo "no changes"
           git push
