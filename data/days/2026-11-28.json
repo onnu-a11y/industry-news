@@ -35,6 +35,13 @@
     "消費税減税法案:22本/17媒体"
    ],
    "not_counted": {}
+  },
+  "refill": {
+   "tries": 1,
+   "targets": 1,
+   "done": 1,
+   "requests": 1,
+   "left": 0
   }
  },
  "counts": {
@@ -448,7 +455,18 @@
    "theme": "大丸松坂屋の情報漏えい",
    "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO3948622027112026000000-1.jpg?auto=compress&bg=FFFF&crop=focalpoint&fit=crop&fm=jpg&h=630&w=1200&s=ba39ba9e1f67c27324288fda8f0dc0cb",
    "body": "partial",
-   "questions": [],
+   "quick": {
+    "what": "大丸松坂屋の通販サイトで不正アクセスにより約88万件の情報が流出。",
+    "when": "記事に記載なし",
+    "me": "自社ECのセキュリティ点検と顧客情報管理の強化を行う。"
+   },
+   "points": [],
+   "diagram": {
+    "type": "none"
+   },
+   "questions": [
+    "いつから適用？"
+   ],
    "todo": false
   },
   {
@@ -10070,6 +10088,9 @@
   "summary 4: 読めない応答 on gemini-3.5-flash-lite",
   "summary 4: 読めない応答 on gemini-3.1-flash-lite",
   "summary 4: 読めない応答 on gemini-3.5-flash-lite",
-  "summary: 25話題（失敗 1・数字の不一致で一部削除 1・Sから下げ 0） AI 14回"
+  "summary: 25話題（失敗 1・数字の不一致で一部削除 1・Sから下げ 0） AI 14回",
+  "refill: 要約が欠けた1話題を作り直します（1回目）",
+  "enrich: S・A 1話題 本文ok 0／冒頭のみ 1／なし 0（補完 0・まとめ 0）写真 1 7秒",
+  "summary: 1話題（失敗 0・数字の不一致で一部削除 0・Sから下げ 0） AI 1回"
  ]
 }
