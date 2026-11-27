@@ -373,6 +373,12 @@ RE_FOREIGN = re.compile(r"米国|米政府|中国政府|韓国|台湾|香港|英
                         rf"|カンボジア|ミャンマー|パキスタン|イギリス|フランス|ドイツ|イタリア|スペイン|ロシア|ウクライナ|ブラジル|メキシコ|カナダ"
                         rf"|オーストラリア)(?![{KANA}])")
 RE_JAPAN = re.compile(r"日本|国内|政府|日銀|円(?:安|高)|全国|訪日|インバウンド|政府・与党|国会")
+# M4-6.2：代表選び。政局の記事は後ろに、中身（決定・財源・施行など）のある記事を前に
+RE_POLITICS = re.compile(r"問責|辞任|進退|与野党|攻防|シナリオ|【解説】|政局|会期末|延長論|綱渡り|党首|内閣支持")
+RE_SUBSTANCE = re.compile(r"成立|可決|施行|閣議決定|決定|財源|提言|方針|国庫|予算")
+# M4-6.2：経済のテーマは「大きく報道」でも A まで（ご本人の指摘①：経済は知っておくべきものに絞って A）。決定の話は S のまま
+ECON_TAGS = {"為替・金利", "消費・市況"}
+RE_ECON_DECIDE = re.compile(r"決定会合で|利上げ(?:を)?決定|利上げ決定|据え置き(?:を)?決定|政策金利.{0,10}決定|利下げ(?:を)?決定")
 RE_OPINION = re.compile(r"なぜ|？|\?|！|!|疑う|みんなの広場|論説|社説|コラム|考える|識者|インタビュー|寄稿|オピニオン|意見|視点|【注目】|【PR】")
 
 
@@ -452,19 +458,24 @@ def finalize(stories, items, log=print):
                 and s.get("capped") not in ("review", "promo", "market", "region") and counts_as_national(lead_item(s))]
         if not cand:
             continue
-        if not any(s["level"] == "S" for s in cand):
+        tags = [g for s in cand for g in (s.get("tags") or [])]
+        heads_all = " ".join(a["title"] for s in cand for a in s["articles"])
+        econ = bool(tags) and sum(g in ECON_TAGS for g in tags) * 2 >= len(tags) and not RE_ECON_DECIDE.search(heads_all)
+        target = "A" if econ else "S"
+        if not any(order[s["level"]] <= order[target] for s in cand):
             def rank(s):
                 lead = s["articles"][0]["title"] if s["articles"] else ""
                 law = bool({"制度・法令", "税・価格"} & set(s.get("tags") or []))
                 near = len(_bigrams(t) & _bigrams(lead)) / max(1, len(_bigrams(t)))  # 見出しがテーマ名に近いほど代表向き
-                return (order[s["level"]], bool(RE_OPINION.search(lead)), -round(near, 1), not law,
+                return (order[s["level"]], bool(RE_OPINION.search(lead)), bool(RE_POLITICS.search(lead)),
+                        not RE_SUBSTANCE.search(lead), -round(near, 1), not law,
                         -len(s["articles"]), -len(s.get("sources") or []))
             rep = sorted(cand, key=rank)[0]
             if rep["level"] == "B" and not rep.get("why"):
                 rep["why"] = f"大きく報道（{d['n']}本）"
             rep["level_before_boost"] = rep["level"]
-            rep["level"], rep["boosted"] = "S", True
-        st["big"].append(f"{t}:{d['n']}本/{len(d['outlets'])}媒体")
+            rep["level"], rep["boosted"] = target, True
+        st["big"].append(f"{t}:{d['n']}本/{len(d['outlets'])}媒体{'（経済のためA）' if econ else ''}")
     stories.sort(key=lambda x: (order[x["level"]], -len(x["articles"]), x.get("latest") or ""))
     nc = "、".join(f"{k}:{v}本" for k, v in st["not_counted"].items()) or "なし"
     log(f"上限：地域{st['region']}件・レビュー{st['review']}件・告知等{st['promo']}件・相場コメント{st.get('market', 0)}件"
